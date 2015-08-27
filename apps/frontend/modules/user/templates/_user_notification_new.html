@@ -1,0 +1,26 @@
+<div class="row">
+	<div class="col-md-12">
+		<div class="status">
+			<p class="title">Thông báo mới</p>
+			<p class="pass"><a href="{{url_for('/user/readed_notification')}}">Đã xem</a></p>
+			<div class="clear"></div>
+		</div>
+	</div>
+</div>
+
+<div class="row box_1x">
+{% if noti_new %}
+	{% for val in noti_new %}
+	<div class="padding_top nhanxet">
+		<div class="col-md-1 col-sm-1 col-xs-2 cm_ava">
+			<img src="{{val['avatar']}}" width="45px" height="45px">
+		</div>
+		<div class="col-md-11 col-sm-11 col-xs-10 noti">
+			<p>{{val['msg']|raw}}</p>
+			<h6>{{val['time']}} trước</h6>
+		</div>
+		<div class="clear"></div>
+	</div>
+	{% endfor %}
+{% endif %}
+</div>

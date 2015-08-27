@@ -1,0 +1,13 @@
+generator:
+  class:              sfPropelAdminGenerator
+  param:
+    model_class:      Lang
+    theme:            default
+    list:
+      object_actions:
+        _edit:         ~
+        _delete:       ~
+      actions:
+        _create:       ~
+      filters:  [id,code,vn,en]
+      sort: [id, desc]

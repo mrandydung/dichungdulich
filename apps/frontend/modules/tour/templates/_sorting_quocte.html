@@ -1,0 +1,22 @@
+<div class="filter">
+  <div class="panel-group" id="accordion">
+    <div class="panel panel-default">
+        <div class="panel-heading accordion-toggle collapsed head_box" data-toggle="collapse" data-parent="#accordion" href="#collapseQuocte">
+             <h4 class="panel-title">
+                <a href="#">
+                   Quốc tế
+                </a>
+            </h4>
+        </div>
+        <div id="collapseQuocte" class="panel-collapse collapse">
+            <div class="panel-body">
+            <ul id="link_all_mien_bac" class="list-unstyled nav nav-second-level collapse in">
+                  {% for val in StaticCall('HomeDiemDenItemPeer','get_all_quoc_te')%}
+                  <li><a style="color:black" id="{{val.getId}}"  class="click_tinh_thanh_pho" href="javascript:void(0);" onclick="changeCityGuide({{val.getId}})">{{val.getName}}</a></li>
+                  {% endfor %}
+              </ul>
+            </div>
+        </div>
+      </div>
+  </div>
+</div>

@@ -1,0 +1,18 @@
+generator:
+  class:              sfPropelAdminGenerator
+  param:
+    model_class:      TripExperience
+    theme:            default
+    list:
+      object_actions:
+        _edit:         ~
+        _delete:       ~
+      actions:
+        _create:       ~
+      display : [id,username,title,end,count_view,priority,TypeUpload,experience_featured,created_at]
+      sort: [id, desc]
+      filters: [id,type_upload_id,end,experience_featured,created_at]
+    edit:
+      display : [title,end,type_upload_id,count_view,video_url,content,priority,experience_featured,title_seo,description_seo,created_at]
+      fields:
+       content: { params: class=ckeditor size=80x30}

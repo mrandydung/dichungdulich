@@ -1,0 +1,12 @@
+fields:
+  image:
+    file:       True
+    sfFileValidator:
+      mime_types:
+        - 'image/jpeg'
+        - 'image/png'
+        - 'image/x-png'
+        - 'image/pjpeg'
+      mime_types_error: 'Bạn chỉ được up anh đuôi JPEG, JPG, PNG'
+      max_size:         512000
+      max_size_error:   'Dung lượng ảnh lớn nhất là 2Mb'

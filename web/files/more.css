@@ -1,0 +1,781 @@
+.search_expand{text-align: center;        clear: both;    display: block;}
+
+.reg_social #social_icon_login{ text-align: center;}
+#top_layer{ position: absolute; width: 100%; height: 100%; z-index:999999999; top: 0px; border: 1px solid #FFFFFF; opacity: 0; filter:alpha(opacity=0);}
+#invite_facebook {display: none;}
+#wrap_fb, #wrap_fb iframe{width: 100%;  border:none; }
+#wrap_fb {overflow-x: hidden; height: 400px; display: block;}
+#wrap_fb .fb_friend{ float: left; width: 100px; height: 83px; margin: 4px; cursor: pointer; padding: 3px; border: solid 1px #ccc; text-align: center;}
+#wrap_fb .fb_friend.active{font-weight: bold;color: white;background-color: #1B7EBA;}
+#facebox .footer .send{width: 127px !important;}
+.bold {font-weight: bold;}
+ul.comment_list li {margin-left: 54px; border: 1px solid #D2D9E7;  background-color: #EDEFF4; margin-top: 1px; padding: 5px 5px 4px;}
+.add_ride_weekly {float: right;  margin: 5px 17px; padding: 5px; border: solid 1px #ccc; color: #0D77B6; cursor: pointer; width: 84px; text-align: center; font-weight: bold;}
+#comment_form textarea{ width: 614px; height: 66px; padding: 5px;}
+#comment_form  .avatar {height: 72px; width: 110px; border: solid 3px #ccc; float : left;}
+#comment_form  .send {width: 626px; padding: 10px 0px; display: inline-block;border-bottom:solid 1px #CCC}
+#comment_form  .send  button, #comment_form  .send  .fullname{ float: right;}
+#comment_form  .send  .fullname{ height: 14px; margin-right: 5px; padding: 3px;}
+#view_comment img{width: 50px; height: 50px; background:#fff; padding:1px; border:1px solid #ccc}
+#view_comment .small_icon{width: 36px; height: 36px; float:left; margin-right:3px; border:1px solid #ccc; background:#fff; padding:1px}
+.remove_ride_weekly {cursor: pointer;}
+.loading_img {display: none;}
+.suggest_list {
+					background: none repeat scroll 0 0 #FFFFFF;
+					border: 1px solid #CCCCCC;
+					
+					opacity: 1;
+					padding: 4px;
+					position: absolute;
+					width: 369px;
+					z-index: 10;
+					display: none;}
+
+.suggest_list li {border-bottom: 1px solid #eee}
+.suggest_list li:hover{ text-decoration: underline; cursor: pointer;}
+.suggest_list li.list_item_current { background: #ddd}
+			
+#tabs .tab{ float: left; margin-left: 5px;   
+    
+    padding: 5px;
+		text-align: center;
+    width: 75px;
+		font-weight: bold;
+		position: relative;
+		z-index: 100;
+		cursor: pointer;
+}
+#tabs .active{
+border: 1px solid #CCCCCC;
+background-color: #F9F9F9;
+border-bottom: none;
+}
+
+#weekly{ clear:left; position:relative; top: -1px}
+
+#depart-date-suggest, #return-date-suggest{ position: absolute; z-index: 9999; left: 375px; top: 279px; font-size: 11px;}
+#return-date-suggest{ top: 316px;}
+#directions-panel{ float: right;
+width: 278px;
+direction: ltr;
+display: none !important;
+
+}
+.red{ color: red;}
+.big{ font-weight: bold;}
+.center{ text-align: center;}
+#login_form{display:none;}
+#login_form dt{ width: 80px !important}
+#login_form dd{ width: 300px}
+#login_form input{ width: 256px}
+#login_form .confirm{ margin: 10px 5px 0px 96px}
+.pagination{width: auto; text-align: right}
+.img_avatar_normal{ width: 75px; height: 75px; border: solid 1px #ccc; -moz-border-radius: 5px; -webkit-border-radius: 5px;} 
+
+#box-msg{  display: none; width: 442px; height: 130px}
+.ride_add_radio input{width: auto !important; padding: 5px !important; height: auto !important;}
+
+.ride_add_radio span{ float: left; margin: 0px 10px;}
+#profile_form dt{ width: 128px !important;}
+.profile_pic img{width: 180px; height: 180px;}
+.destroy_ride{ background:url(../images/destroy_ride.png) top no-repeat; width: 30px; height:30px;  margin: -11px -17px;}
+.destroy_ride:hover{ opacity: 0.6; filter: Alpha(opacity=60)}
+#book_form_input dt{ width: 86px !important}
+#book_form_input dd{ width: 200px !important}
+#book_form_input p{clear: both; padding-top: 10px;}
+#book_form_input .mobile{width: 125px;}
+#book_form_input button{margin-left: 125px;}
+
+#step_1 #want{width: 69px !important; height: 20px !important;}
+#message_box{ display: none;}
+#comment_box	{float:left; width:639px}
+#comment_box .row {border-bottom:1px solid #ddd; padding:10px 7px 10px 0px}
+#comment_box .row:hover	{background:#fbfbfb}
+#comment_box .avatar	{display:block; min-height:52px; padding-bottom:4px;}
+#comment_box .avatar img	{width:52px; max-height: 52px;float:left; border:2px solid #1199EA; -moz-border-radius:2px; -webkit-border-radius:2px}
+#comment_box .time		{float:right; text-align:right; color:#999; font-size:12px; font-weight:bold}
+#comment_box .comment	{margin:6px 0px 0px 65px; font-size:12px}
+#comment_box .username {display:inline-block; padding-left:8px; color:#0D77B6; font-size:13px; font-weight:700}
+.comment_			{width: 573px; height:41px; border:1px solid #ddd; padding:6px 4px; float: none !important;}
+.send_comment_button, #send_msg			{float:right; margin-top: 5px;}
+#message_box .avatar{ margin-right: 5px; }
+
+.write_mline{
+    background: url("../images/bg_input_text.gif") repeat-x scroll center top #FFFFFF;
+    border: 1px solid #C1D5E8;
+    float: left;
+    font-size: 16px;
+    
+    line-height: 1.3em;
+    padding: 6px 3px 3px;
+}
+#comment_box img{ float: left;}
+
+.inbox_messages img, .inbox_messages .info { float: left;}
+.inbox_messages img{width: 34px;margin-top: 2px;border: solid 1px #3D8DBC;}
+.red_bold{ font-weight: bold; color: yellow;}
+.km_click_event_by_href{-moz-user-select:none; -webkit-user-select: none;}
+
+.newest h3 {
+font-size: 20px;
+margin-bottom: 15px;
+font-weight: normal;
+}
+
+#rides li a {
+display: block;
+}
+#rides li img {
+float: left;
+height: 40px;
+width: 40px;
+margin-right: 10px;
+-moz-border-radius: 3px;
+-webkit-border-radius: 3px;
+-o-border-radius: 3px;
+-ms-border-radius: 3px;
+-khtml-border-radius: 3px;
+border-radius: 3px;
+border: 2px solid #1199EA;
+-moz-border-radius: 2px;
+-webkit-border-radius: 2px;
+-o-border-radius: 2px;
+-ms-border-radius: 2px;
+-khtml-border-radius: 2px;
+border-radius: 2px;
+border-image: initial;
+}
+#rides li h1 {
+display: block;
+font-size: 12px;
+font-weight: bold;
+color: #00569F;
+margin-bottom: 0;
+padding-bottom: 0;
+
+overflow: hidden;
+}
+#rides li p {
+display: block;
+font-size: 12px;
+color: #858585;
+}
+#rides li .price_box {
+float: right;
+text-align: right;
+}
+#rides li .price_box p.passenger_tall {
+line-height: 45px;
+}
+#rides li .price_box p {
+color: #4A4A4A;
+line-height: 15px;
+font-size: 10px;
+}
+#rides li .price_box * {
+display: block; font-weight: bold;
+}
+#rides li .trip_type {
+background: url(../images/round_trip_small_blue.png) center no-repeat;
+width: 12px;
+height: 9px;
+padding: 0 5px;
+}
+#rides li * {
+display: inline-block;
+}
+#rides li p span.passenger {
+background: url(../images/passenger.png) 0 center no-repeat;
+}
+
+span.passenger {
+background: url(../images/passenger.png) 0 center no-repeat; 
+
+height: 14px;
+}
+
+#rides li p span {
+width: 13px;
+height: 14px;
+padding-right: 2px;
+vertical-align: middle;
+}
+#rides li p span.driver {
+background: url(../images/driver.png) 0 center no-repeat;
+}
+span.driver {
+background: url(../images/driver.png) 0 center no-repeat;
+
+height: 14px;
+}
+
+.newest #create_button{ cursor: pointer; width: 304px; font-size: 14px; font-weight:800; padding: 8px 20px ! important; -moz-user-select: none; -webkit-user-select: none; color:#00569F}
+#inbox .avatar{ -moz-border-radius: 2px; -webkit-border-radius: 2; border: 2px solid #1199EA; float: left; height: 40px; margin-right: 10px; width: 40px;}
+#second_user_message{width: 560px; background: none repeat scroll 0 0 #EEEEEE; float: left; height: auto; margin-bottom: 8px; min-height: 76px;}
+#message_box textarea{ width: 552px; min-height: 65px; height: auto; margin-bottom: 6px;}
+#message_box img , #tran_history #head .avatar{width: 32px; height: 32px;}
+#tran_history #head .avatar{float: left;}
+#tran_history #head .start{ margin-left: 5px; clear:right}
+#message_box #fullname{color: #00569F; font-weight: bold; padding-left: 5px}
+#inbox .readed{ color: #bbb}
+#tran_history #head .route .action{clear: both; margin-top: 10px; clear: right}
+#home_search{cursor: pointer;}
+#networks_header{display: none;}
+#networks_header ul.platform_wrap li.state h4 {
+width: 940px;
+margin: 0.7em 0 0.5em 0;
+border-bottom: 1px solid #4B74A0;
+font-weight: 500;
+font-size: 15px;
+}
+#right .item{ margin-bottom: 20px;}
+#events	{float:left; margin-left:14px; width:347px}
+#events h3	{font-size:20px; font-weight:normal; margin-bottom:3px;}
+#events .slider {
+position: relative;
+width: 345px;
+color: white;
+overflow: hidden;
+margin-bottom: 20px;
+top:-30px;
+z-index:90;
+}
+#login_form dl {width: auto;}
+.want{font-weight: bold; padding-top: 3px;}
+.want input{     background-image: none !important;
+    border: 0 none !important;
+    height: auto !important;
+    margin-top: 4px !important;
+    padding: 0 !important;
+    width: auto !important;}
+		
+#profile_form dd {width: 386px; text-align:justify}
+#about strong{display: block; margin: 10px 0;}
+#add_ride dd {width: 380px;}
+#add_ride dt{}
+#add_ride #start, #add_ride #end { width: 299px}
+sup{vertical-align: text-bottom;}
+.help_frame h3{cursor: pointer;}
+.help_frame p{display: none;}
+.demand .filter {padding: 0 11px !important}
+.dichung_why	{float:left; margin:30px 0px 10px 0px;width:238px}
+.dichung_why img	{margin-bottom:10px; width:238px}
+#step_3 dl {width: auto}
+#step_3 dd {width: 640px;}
+#step_3 .price_method {margin-top: 12px; }
+#step_3 .price_method span{ font-weight: bold; margin-right: 0px;color: #3D8DBC !important; font-size: 13px; text-transform: uppercase;}
+#step_3 .user_info{ font-size: 11px;}
+#step_3 .user_info dt{font-size: 12px !important; color: #404040; font-style:italic;}
+#step_3 .user_info dd{ margin-top: 10px;}
+#step_3 .hr_info{width: 300px; padding-top: 20px;}
+.p_ {
+font-size: 17px !important;
+line-height: 21px !important;
+font-weight: 200 !important;
+width: 480px !important;
+margin: 0 auto !important;
+text-align: center !important;
+position: relative !important; color:#777 !important
+}
+.mprice_title{font-size:13px; float: left; color: #3D8DBC; margin:11px 10px 0px 0px }
+.mprice_input{width: 162px !important; height: 30px !important;}
+#user_edit #content #detail .norides p {
+font-size: 20px;
+text-align: left;
+padding: 30px 0px 20px 0px;
+}
+
+#user_profile dd textarea{line-height: 1.5em !important; width: 400px;}
+#user_profile #content #detail dl dd a.add_car b {
+    background: url("../images/button_icons_large.png") no-repeat scroll left 2px transparent;
+    color: #555555;
+    font-weight: normal;
+    line-height: 15px;
+    margin-top: 7px;
+    padding-left: 30px;
+    text-shadow: 0 1px #FFFFFF;
+}
+
+#user_profile #content #detail dl dd a.add_car b {
+    display: block;
+    font-weight: 500;
+}
+
+#user_profile  #content #detail dl dd a.add_car {
+    background-clip: padding-box;
+    background-color: #EEEEEE;
+    background-image: -moz-linear-gradient(#FFFFFF, #E1E1E1);
+    border: 1px solid #A7A7A7;
+    border-radius: 3px 3px 3px 3px;
+    color: #404040;
+    display: inline-block;
+    font-size: 15px;
+    font-weight: 500;
+    height: 30px;
+    line-height: 30px;
+    margin-right: 20px;
+    padding: 0 10px;
+    position: relative;
+    text-align: center;
+		float: left;
+}
+
+#user_profile  #content #detail dl dd span.checkbox {
+    height: 32px;
+    line-height: 32px;
+    margin-right: 20px;
+}
+#user_profile  #content #detail dl dd span.checkbox input{ width: auto}
+
+#user_profile #content #detail dl dd span.checkbox.smoke label {
+    background: url("../images/nonsmoking_icon_large.png") no-repeat scroll left 4px transparent;
+    padding-left: 29px;
+}
+
+#user_profile #content #detail dl dd span.checkbox label {
+    display: inline-block;
+    height: 30px;
+    margin-left: 5px;
+}
+#user_profile #content #detail dl dd .my_car .head {
+    border-bottom: 1px solid #CCCCCC;
+    padding: 12px;
+}
+
+#user_profile #content #detail dl dd .my_car .remove_car {
+    background-clip: padding-box;
+    background-color: #EEE;
+    background-image: -moz-linear-gradient(#A0A0A0, #6A6A6A);
+    border: 1px solid #ccc;
+    border-radius: 3px 3px 3px 3px;
+    color: #404040;
+    display: inline-block;
+    font-size: 12px;
+    font-weight: 500;
+    height: 22px;
+    line-height: 22px;
+    padding: 0 8px;
+    position: relative;
+    text-align: center;
+}
+
+#user_profile #content #detail dl dd .my_car .remove_car b {
+    background: url("../images/button_icons_small.png") no-repeat scroll left -63px transparent;
+    color: #EEEEEE;
+    font-weight: normal;
+    line-height: 12px;
+    margin-top: 5px;
+    padding-left: 15px;
+    text-shadow: 0 -1px rgba(0, 0, 0, 0.5);
+}
+
+#user_profile #content #detail dl dd .my_car .remove_car b {
+    display: block;
+    font-weight: 500;
+}
+
+#user_profile #content #detail dl dd .my_car {
+    margin-bottom: 0;
+    margin-top: 10px;
+    overflow: hidden;
+    padding: 0;
+}
+
+
+#user_profile #content #detail dl dd .my_car .body {
+    padding: 12px;
+}
+
+#user_profile #content #detail dl dd .my_car .car_pic {
+    border: 1px solid #A7A7A7;
+    float: left;
+    overflow: hidden;
+    position: relative;
+    width: 245px;
+}
+
+#user_profile #content #detail dl dd .my_car .car_info {
+    float: left;
+    margin-left: 12px;
+    width: 240px;
+}
+
+#user_profile #content #detail dl dd .my_car .car_info input.text {
+    float: right;
+    margin-bottom: 10px;
+    width: 162px;
+}
+
+#user_profile #content #detail dl dd input.text, #user_profile #content #detail dl dd textarea {
+    border: 1px solid #A0A0A0;
+    border-radius: 3px 3px 3px 3px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2) inset;
+    color: #555555;
+    font-weight: normal;
+    padding: 5px 8px;
+    width: 505px;
+}
+
+#user_profile .new{
+    border: 1px solid #A0A0A0;
+    border-radius: 3px 3px 3px 3px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2) inset;
+    color: #555555;
+    font-weight: normal;
+    padding: 5px 0px;
+    width: 521px;
+		margin-left: 0px;
+}
+
+
+#user_profile #content #detail dl dd .my_car .car_info .field .dropdown.year {
+    float: right;
+    width: 155px;
+}
+
+.dropdown {
+    background-clip: padding-box;
+    background-color: #EEEEEE;
+    background-image: -moz-linear-gradient(#FFFFFF, #E1E1E1);
+    border: 1px solid #A7A7A7;
+    border-radius: 3px 3px 3px 3px;
+    color: #404040;
+    display: block;
+    font-size: 14px;
+    font-weight: normal;
+    height: 25px;
+    line-height: 25px;
+    overflow: hidden;
+    padding: 0 12px;
+    position: relative;
+    text-align: left;
+    text-overflow: ellipsis;
+}
+
+.dropdown select {
+    background-color: #EAEAEA;
+    border: 1px solid #AAAAAA;
+    cursor: pointer;
+    height: 27px;
+    left: 0;
+    opacity: 0;
+    position: absolute;
+    top: -1px;
+    width: 100%;
+    z-index: 90;
+}
+#user_profile #content #detail dl dd .my_car .car_pic input.upload {
+    left: 0;
+    opacity: 0;
+    position: absolute;
+    top: 0;
+}
+
+#user_profile #content #detail dl dd .my_car .car_pic .filename {
+    background-color: rgba(50, 50, 50, 0.4);
+    bottom: 0;
+    color: #FFFFFF;
+    display: none;
+    font-size: 11px;
+    font-weight: 300;
+    left: 0;
+    position: absolute;
+    text-align: center;
+    text-shadow: 0 -1px rgba(0, 0, 0, 0.4);
+    width: 100%;
+}
+
+#user_profile #content #detail dl dd .my_car .car_pic .empty {
+    background: url("../images/profile_car_missing.png") no-repeat scroll center center #FFFFFF;
+    float: left;
+    height: 161px;
+    width: 243px;
+}
+
+#user_profile #content #detail dl dd .my_car .car_pic .empty a.add {
+    background-clip: padding-box;
+    background-color: #EEEEEE;
+    background-image: -moz-linear-gradient(#FFFFFF, #E1E1E1);
+    border: 1px solid #A7A7A7;
+    border-radius: 3px 3px 3px 3px;
+    color: #404040;
+    display: inline-block;
+    font-size: 15px;
+    font-weight: 500;
+    height: 30px;
+    left: 60px;
+    line-height: 30px;
+    padding: 0 10px;
+    position: absolute;
+    text-align: center;
+    top: 65px;
+}
+
+#user_profile #content #detail dl dd .my_car .car_pic .empty a.add b {
+    background: url("../images/button_icons_large.png") no-repeat scroll left -48px transparent;
+    color: #555555;
+    font-weight: normal;
+    line-height: 15px;
+    margin-top: 7px;
+    padding-left: 18px;
+    text-shadow: 0 1px #FFFFFF;
+}
+
+#user_profile #content #detail dl dd .my_car .car_info .field label {
+    color: #5D5D5D;
+    display: inline-block;
+    font-size: 15px;
+    line-height: 26px;
+    margin-left: 5px;
+    padding: 0;
+    top: 2px;
+    width: 50px;
+}
+
+#user_profile #content #detail dl dd .my_car .car_info .field {
+    overflow: hidden;
+    position: relative;
+}
+
+#user_profile #content #detail dl dd .my_car textarea {
+    margin-top: 12px;
+    width: 481px;
+		 height: 16px;
+}
+
+#static_howitworks #content .features h2{padding-bottom:10px;font-size: 28px; font-weight: normal; text-align: center; margin-top: 10px;}
+#static_howitworks #content .features ul{overflow:hidden}
+#static_howitworks #content .features ul li{float:left;width:228px;margin:10px 0px 10px 65px}
+#static_howitworks #content .features ul li p {text-align:justify}
+#static_howitworks #content .features ul li.security{clear:left;}
+#static_howitworks #content .features ul li div{margin:0 auto;height:59px;background:url(../images/safety_features_icons.png) no-repeat center center;position:relative;left:-20px}
+#static_howitworks #content .features ul li.facebook div{width:55px;background-position:0px center}
+#static_howitworks #content .features ul li.privacy div{width:54px;background-position:-58px center}
+#static_howitworks #content .features ul li.feedback div{width:120px;background-position:-114px center}
+#static_howitworks #content .features ul li.security div{width:55px;background-position:-237px center}
+#static_howitworks #content .features ul li.messaging div{width:55px;background-position:-296px center}
+#static_howitworks #content .features ul li.friends div{width:130px;background-position:-354px center}
+#static_howitworks #content .quotes{border:1px solid #d4d4d4;-moz-border-radius:5px;-webkit-border-radius:5px;-o-border-radius:5px;-ms-border-radius:5px;-khtml-border-radius:5px;border-radius:5px;-moz-border-radius:17px;-webkit-border-radius:17px;-o-border-radius:17px;-ms-border-radius:17px;-khtml-border-radius:17px;border-radius:17px;-moz-box-shadow:0 3px 7px #ddd;-webkit-box-shadow:0 3px 7px #ddd;-o-box-shadow:0 3px 7px #ddd;box-shadow:0 3px 7px #ddd;margin:5px auto 60px auto;width:750px;padding:28px 32px 16px 32px;color:#626262;overflow:hidden}
+
+#user_profile #content #info a.change_pic {
+display: inline-block;
+position: relative;
+font-weight: 500;
+text-align: center;
+color: #404040;
+border: 1px solid #A7A7A7;
+-moz-border-radius: 3px;
+-webkit-border-radius: 3px;
+-o-border-radius: 3px;
+-ms-border-radius: 3px;
+-khtml-border-radius: 3px;
+border-radius: 3px;
+background-color: #EEE;
+background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, white), color-stop(100%, #E1E1E1));
+background-image: -webkit-linear-gradient(white,#E1E1E1);
+background-image: -moz-linear-gradient(white,#E1E1E1);
+background-image: -o-linear-gradient(white,#E1E1E1);
+background-image: -ms-linear-gradient(white,#E1E1E1);
+background-image: linear-gradient(white,#E1E1E1);
+filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#ffffff, endColorstr=#e1e1e1);
+height: 50px;
+line-height: 30px;
+font-size: 15px;
+padding: 0 10px;
+width: 178px;
+
+}
+
+#user_profile #content #info a.change_pic b {
+line-height: 15px;
+padding-left: 20px;
+margin-top: 7px;
+text-shadow: 0 1px white;
+color: #555;
+background: url(../images/button_icons_large.png) no-repeat left -22px;
+font-weight: normal;
+
+}
+
+#user_profile #content #info ul.info
+{
+	margin-top: 10px;
+}
+#user_profile #content #info ul.info li{
+	background: url(../images/profile_info_icons.png) no-repeat left -6px !important; padding:4px 0px;
+}
+
+#user_profile #content #info ul.info .save{
+	background: url(../images/profile_info_icons.png) no-repeat left -160px !important;
+}
+
+#user_profile #content #info ul.info .total_mile{
+	background: url(../images/profile_info_icons.png) no-repeat left -28px !important;
+}
+
+#right_profile_form{display: block}
+
+#private_form dd{width: 300px;}
+#private_form input{width: 292px;}
+#right_profile_form{ display: none;}
+
+dd .help, .padd .help {font-size: 11px; color: #777; text-align:justify}
+#user_profile .gender{margin-top: 6px;}
+#user_profile .gender input{width: auto; float: left; }
+#user_profile .gender span{float: left; margin: 5px 20px 0 3px;}
+#user_profile #column_right{margin-left: 20px;}
+.jtf{ text-align: justify}
+.padd p{margin-top: 10px}
+#signup dd{width: 444px}
+.price_box .min, .price_box .max, .price_box .fixed{display:block; font-size:13px; padding-left:10px; clear: both;}
+#help1, #help2, #help3{display: none;}
+#step_2 label.depart_date_depart { width: 56px;}
+.subprice{font-weight: bold; }
+.div_subprice {margin-bottom: 5px;}
+.tip{display: none; background: #ccc; position: absolute; width: 300px;}
+
+#booking textarea{color: rgb(153, 153, 153); width: 291px; height:64px}
+#booking .section_form{ height: 38px;}
+#booking h2{ font-size: 16px !important; line-height: 28px !important}
+#home_help p {display: none;}
+.price_box .hz {clear:both;}
+#auth_signin dd{width: 400px;}
+#auth_signin dt label{float: right;}
+textarea.emails{width: 580px; height: 100px;}
+#how-popup{ display: none;}
+.box #head {border-bottom: 1px solid #CCCCCC; margin-top: 5px;  padding: 5px;
+}
+.inbox_messages ul{ max-height: 362px; overflow-x: hidden;}
+
+td.fullname{width: 126px; text-align: right; height: 30px;}
+#booking_history table td{vertical-align: top;}
+#booking_history table {margin-top: 5px;}
+.xemay 	{background-position:-379px}
+.finput{ border: 1px solid #C1D5E8; background:url("../images/bg_input_text.gif") repeat-x scroll center top #FFFFFF; padding: 4px 3px 3px}
+.feedback .comment p .action{ width: 40px; float:right; width: 40px; cursor: pointer;} 
+.feedback .comment p  textarea{display: none;width: 564px;}
+.feedback .comment p  .action .save{display: none;}
+.book_done button {margin-top: 5px; width: 112px; padding: 3px;}
+.flag_red	{background:url(../images/flag_red.png) top left no-repeat !important}
+#bad_ride{display: none;}
+.dob select, .dd_location select{ border: 1px solid #C1D5E8; background:url("../images/bg_input_text.gif") repeat-x scroll center top #FFFFFF; padding: 4px 3px 3px); width: 60px !important; height: 25px;}
+
+.dd_location select{width: 120px !important;}
+
+#ride_share .seats img{ width: 27px; height: 27px;}
+#ride_share #info .pic img{width: 75px; height: 75px;}
+.slide_banner {width: 904px; height: 200px; overflow: hidden; display: inline-block}
+.slide_banner img{float: left;}
+.slide_banner .scroll{position: relative; width: 9000px;}
+.create_guide, .map_guide {display: none;}
+.time_	{color:#000; text-indent:4px; font-size:11px; font-weight:normal; display:initial}
+#ride_share .fb-like{width: 86px;}
+#ride_share #social_share {padding: 5px;}
+
+#invite_form input { padding: 3px;}
+
+#social_icon_login{display: block; height: 40px; text-align: center}
+#social_icon_login img {margin-right: 20px; cursor:pointer; margin-top:3px;  width: 32px; float: none;}
+
+
+#invite_mail_	{height: 210px;}
+#invite_mail_ h2	{font-size:12px; font-weight:bold; padding:4px 0px; display:block}
+#invite_mail_ .all, #invite_mail_ .selected 	{float:left; margin-right:6px; width:283px; border:1px solid #ccc; overflow:auto; height:180px; max-height:180px}
+#invite_mail_ li	{list-style:none inside;display:block; padding:5px; margin-bottom:1px ;cursor: pointer; -moz-user-select: none; -webkit-user-select: none;}
+#invite_mail_ li * {-moz-user-select: none; -webkit-user-select: none;}
+#invite_mail_ li:hover	{background:#E1E6E7}
+#invite_mail_ li img	{padding-right: 4px; position:relative; top:6px; border:none;cursor:pointer}
+#forum_	{}
+#forum_ h1 {font-size:13px; font-weight:bold}
+#forum_ p	{padding:4px; margin-bottom:6px; text-align:justify}
+#forum_ a	{}
+#forum_ .menu	{font-size: 13px; font-weight: bold; display: inline-block; width: 100%; padding-bottom: 10px; margin-bottom: 10px; padding-top:14px}
+#forum_ .menu li {display:inline-block; list-style:none inside;min-width: 30px;border-color: #BCCDDD;position: relative;top: 5px;float: left;margin-left: -1px;height: 34px;border-left: 1px solid #fff;font-weight: bold;z-index: 0; width: 25%;background: #3D8DBC;}
+#forum_ .menu a{color: #fff;text-shadow: rgba(0, 0, 0, .25) 1px 1px 1px;display: block;padding: 10px;-webkit-font-smoothing: antialiased;}
+#forum_ .menu .active, #forum_ .menu li:hover	{border-color:#ccc; background:#E0E0E0;}
+#forum_ .menu .active a, #forum_ .menu li a:hover{color:#454545;text-shadow:1px 1px 1px rgba(255, 255, 255, 0.75);}
+#forum_ .img	{width:36px; height:36px; border:1px solid #ccc; background:#fff; padding:1px}
+#forum_ li	{float:left; width:560px}
+#who_select_1 {background: url(../images/chuxe.jpg) 50% 9px no-repeat;}
+#who_select_2 {background: url(../images/icon-passenger.jpg) 50% 9px no-repeat;}
+#invite_mail_ .all .icon, #invite_mail_ .selected .icon{background: url(..images/plus-icon.png)  no-repeat; width: 24px; height: 20px;padding-right: 4px;float: left;}
+#invite_mail_ .selected .icon{ background: url(../images/minus-icon.png) no-repeat;}
+.destination_text{ font-weight: bold; color: #00569F; font-size: 14px; width: 300px;}
+.destination .end_	{display:none !important}
+.destination .start_ input	{width:656px !important}
+.book_done	{text-align:right}
+.tbl_tran_ .depart_trip	{background:url(../images/round_trip_medium.png) no-repeat center -19px;width: 15px;height: 12px;padding: 0 8px;}
+.tbl_tran_ .return_trip {background:url(../images/round_trip_medium.png) no-repeat center -37px; width:15px; height:12px; padding: 0px 8px;}
+.tbl_tran_ .round_trip{background:url(../images/round_trip_medium.png) center 0 no-repeat; width:15px; height:12px; padding: 0px 8px; }
+.time_ {display:inline-block}
+.left_arr	{background:#eee url(../images/left_arrow.png) top left no-repeat; width:26px; height:26px; background-position:50% 50%;border:1px solid #ccc; -moz-border-radius:20px; border-radius:20px; -webkit-border-radius:20px; position:relative; top:70px; float:left; z-index:100; left:-15px; }
+.left_arr:hover	{background:#eee url(../images/left_arrow.png) top left no-repeat; width:26px; height:26px; background-position:50% 50%; border:1px solid #bbb; -moz-border-radius:20px; border-radius:20px; -webkit-border-radius:20px;}
+.right_arr	{background:#eee url(../images/right_arrow.png) top left no-repeat; width:26px; height:26px; background-position:50% 50%;border:1px solid #ccc; -moz-border-radius:20px; border-radius:20px; -webkit-border-radius:20px; position:relative; top:70px; right:0px; float:right; z-index:100; right:-13px;}
+.right_arr:hover	{background:#eee url(../images/right_arrow.png) top left no-repeat; width:26px; height:26px; background-position:50% 50%; border:1px solid #bbb; -moz-border-radius:20px; border-radius:20px; -webkit-border-radius:20px;}
+.slider_detail_	{position:absolute; top:149px; width:323px; padding:10px; background:#FFF;border:1px solid #ccc;}
+#timeline	{width:100%; margin:10px auto 20px auto}
+#timeline	.timeline_header_	{font-size:18px; font-weight:bold; display:block; margin:4px 0px}
+#timeline .timeline_detail_ 	{display:block; margin:4px 0px;}
+#deal	{float:left; display:none}
+#deal .items	{margin:10px 10px 10px 0px; width:438px; float:left; border:1px solid #ccc; -webkit-border-radius:4px; -moz-border-radius:4px; padding:10px}
+#deal .deal_time {color:#fcff00; background:#000; display:inline-block; width:30%}
+#deal .deal_title {color:#000; font-size:18px; font-weight:bold; width:418px; display:block;}
+#deal .deal_discount {color:red; width:20%;display:inline-block;}
+#deal .deal_cost {width:34%;display:inline-block}
+#deal .deal_star {width:42%; display:inline-block;}
+#deal .deal_source {width:50%; display:inline-block; text-align:right; padding-right:0px !important}
+#deal span	{padding:8px 10px;}
+#deal h1	{font-size:16px; font-weight:bold; padding-bottom:10px;display:block}
+.select_ {float: left;color: #404040;height: 23px;line-height: 22px;font-size: 12px;padding:1px !important;border: 1px solid gray;border-right: none;white-space: nowrap;background:#eee}
+
+.feedback_btn {
+padding: 3px 3px 3px 20px;
+font-size: 11px;
+font-family: Arial, sans-serif;
+border: solid 1px #4E7BA3;
+background-color: #D3DAE0;
+
+cursor: pointer;
+background: url(../images/reset.png) no-repeat 3px 2px;
+}
+
+span.tick{
+display: inline-block;
+width: 13px;
+background: url(../images/check_blue.png);
+height: 10px;
+}
+
+#receive_info dt {width: 600px !important}
+#receive_info .checkbox {float: none}
+
+#receive_info .bl{margin-left: 10px;}
+
+/*12/4/2013--*/
+.date-heat {background: url(../images/calendar.png) no-repeat;float: right;}
+.date {margin-left: 15px;}
+.view-icon {background: url(../images/eye-16.png) no-repeat;float: right;}
+.view_count {margin-left: 20px;}
+td p { width:72%}
+
+.buttonnhatky {color:#FF9;
+background:#300; -moz-border-radius: 8px;-webkit-border-radius: 8px;border-radius: 8px; border:dashed 1px #4b6a5d; font-weight:bold;-moz-box-shadow: 0px 18px 14px -7px #2a2020;-webkit-box-shadow: 0px 18px 14px -7px #2a2020;box-shadow: 0px 18px 14px -7px #2a2020;}
+
+span.trip_icon{
+	background: url("../images/trip_icon.gif");
+	margin: 0 5px;
+	height: 11px;
+	width: 15px;
+	display: inline-block;
+}
+span.trip_icon.round{
+	background-position: top 0px left 0px;
+}
+
+span.trip_icon.depart{
+	background-position: top -18px left 0px;
+}
+
+span.trip_icon.return{
+	background-position: top -38px left 0px;
+}

@@ -1,0 +1,60 @@
+<div class="modal fade bs-example-modal-sm" id="dangki" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">{{translate('Đăng kí')}}</h4>
+            </div>
+            <div class="modal-body">
+                <div class="row tab_">
+                    <div class="box_1x text-center">
+                        <div class="col-md-10 col-md-offset-1">
+                            <a href="/user/loginFb" id="click_dangky_facebook"><button class="reg-fb"><span class="reg-fb-icon"></span>{{translate('Đăng kí bằng facebook')}}</button></a>
+                        </div>
+                        <div class="clear"></div>
+                    </div>
+                </div>
+                <div class="row box_1x">
+                    <div class="col-md-12">
+                        <form>
+                            <div class="form-group">
+                                <label>Email:</label>
+                                <input type="email" class="form-control" id="email">
+                            </div>
+                            <div class="form-group">
+                                <label>{{translate('Mật khẩu')}} :</label>
+                                <input type="password" class="form-control" id="password">
+                            </div>
+                            <div class="form-group">
+                                <label>{{translate('Gõ lại mật khẩu')}} :</label>
+                                <input type="password" class="form-control" id="password_rp">
+                            </div>
+                            <div>
+                                <h6>{{translate('Đã có tài khoản')}}, <a id="click_dangnhap">{{translate('đăng nhập')}}</a> ?</h6>
+                            </div>
+                            <div>
+                                <h6>{{translate('Quên mật khẩu')}}, <a id="click_quenmatkhau">{{translate('quên mật khẩu')}}</a> ?</h6>
+                            </div>
+                            <div class="checkbox">
+                                <label>
+                                    <input type="checkbox" id="checkbox_submit"> {{translate('Tôi đồng ý với')}} <a href="/su-dung-dich-vu.html">{{translate(' điều khoản dịch vụ')}}</a> và <a href="/bao-ve-quyen-rieng-tu.html">{{translate(' chính sách riêng tư')}} </a>{{translate('của đi chung')}}
+                                </label>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <div class="row">
+                    <div class="popup_error" id="popup_error"></div>
+                    <div class="col-md-6">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">{{translate('Hủy')}}</button>
+                    </div>
+                    <div class="col-md-6">
+                        <button type="button" class="btn btn_blue" id="submit_register">{{translate('Đăng kí')}}</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

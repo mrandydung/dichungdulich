@@ -1,0 +1,63 @@
+<div class="col-md-12 col-sm-6">
+    <div class="row">
+      <div class="col-md-3 col-sm-6">
+        <div class="row">
+            <div class="col-md-12 padding_top">
+                <p class="hightlight">{{translate('Cách tính giá')}}</p>
+            </div>                              
+            <div class="col-md-12 col-sm-6">
+                <select class="form-control" id="type_pricing">
+                    {% for val in StaticCall('TypePricingPeer','getAll') %}
+                    <option value="{{val.getId}}" {% if tour_detail.getTypePricingId == val.getId%}{{'selected'}}{% endif%}>{{val.getShowName}}</option>
+                    {% endfor %}
+                </select>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-3 col-sm-6">
+        <div class="row">
+            <div class="col-md-12 padding_top">
+                <p class="hightlight">{{translate('Giá đề xuất/chỗ')}}<span class="red">(*)</span></p>
+            </div>                              
+            <div class="col-md-12 col-sm-6">
+                <div class="input-group">
+                    {% if tour_detail.getTypePricingId == '1'%}
+                    <input type="text" class="form-control" id="price_tour" value="{{tour_detail.getPrice}}">
+                    {% endif %}
+                    {% if tour_detail.getTypePricingId == '2'%}
+                    <input type="text" class="form-control" id="price_tour" value="{{translate('Miễn phí')}}" disabled>
+                    {% endif %}
+                    {% if tour_detail.getTypePricingId == '3'%}
+                    <input type="text" class="form-control" id="price_tour" value="{{translate('Thỏa thuận')}}" disabled>
+                    {% endif %}
+                    <span class="input-group-addon">VNĐ</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-3 col-sm-6">
+        <div class="row">
+            <div class="col-md-12 padding_top">
+                <p class="hightlight">{{translate('Số chỗ còn trống')}}<span class="red">(*)</span></p>
+            </div>                              
+            <div class="col-md-12 col-sm-6">
+                <input type="text" class="form-control" id="number_seat" value="{{tour_detail.getNumberSeat}}" />
+            </div>
+        </div>
+    </div>
+    <div class="box_1x">
+        <p class="hightlight">{{translate('Hình thức thanh toán')}}</p>
+        <div class="row">
+            <div class="col-md-3">
+                <select class="form-control" id="payment_type_id">
+                    {% for val in StaticCall('PaymentTypePeer','getAll') %}
+                    <option value="{{val.getId}}" {% if tour_detail.getPaymentTypeId == val.getId %}{{'selected'}}{% endif %}>{{val.getShowName}}</option>
+                    {% endfor %}
+                </select>
+            </div>
+        </div>
+    </div>
+</div>
+</div>

@@ -1,0 +1,20 @@
+generator:
+  class:              sfPropelAdminGenerator
+  param:
+    model_class:      Blog
+    theme:            default
+    list:
+      object_actions:
+        _edit:         ~
+        _delete:       ~
+      actions:
+        _create:       ~
+      sort: [id, desc]
+      filters: [id,home_diem_den_item_id,blog_menu_category_id,title,set_highlight,date]
+      display : [id,HomeDiemDenItem,BlogMenuCategory,title,set_highlight,date,created_at]
+    edit:
+      fields:
+       detail: { params: class=ckeditor size=80x60}
+       ads_demo: { params: class=ckeditor size=80x60}
+       images_thumb: { type: admin_input_file_tag, upload_dir: home, params: include_link=home include_remove=true}
+       img_seo: { type: admin_input_file_tag, upload_dir: home, params: include_link=home include_remove=true}

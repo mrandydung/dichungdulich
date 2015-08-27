@@ -1,0 +1,131 @@
+<link href="/css/jqueryui/css/redmond/jquery-ui-1.8.16.custom.css?v={{random()}}" rel="stylesheet">
+<script src="/js/jquery-ui.js?v={{random()}}"></script>
+<script src="/js/datepicker-vi.js?v={{random()}}"></script>
+<script src="/assets/dichungdulich/js/function/detail_tour.js?v={{random()}}"></script>
+{% if(tour_detail.getTimeTypeId == '2') or (tour_detail.getTimeTypeId == '3')  or (tour_detail.getTimeTypeId == '4') %}
+<script type="text/javascript">
+    $('#document').ready(function(){
+        {% if(tour_detail.getTimeTypeId == '2' or tour_detail.getTimeTypeId == '3') %}
+            $('#date_picker').datepicker({
+                "dateFormat":"dd-mm-yy",
+                showOtherMonths: true,
+                selectOtherMonths: true,
+                {% if(tour_detail.getTimeTypeId == '2') %}
+                     minDate:"+1",
+                {% endif %}
+                {% if(tour_detail.getTimeTypeId == '3') %}
+                    minDate:"+1",
+                    beforeShowDay: function(date) {
+                    {% if count == '1' %} var value = (date.getDay() == {{date_week_arr['0']}} - 1); {% endif %}
+                    {% if count == '2' %} var value = (date.getDay() == {{date_week_arr['0']}}- 1 || date.getDay() == {{date_week_arr['1']}}- 1);  {% endif %}
+                    {% if count == '3' %} var value = (date.getDay() == {{date_week_arr['0']}}- 1 || date.getDay() == {{date_week_arr['1']}}- 1 || date.getDay() == {{date_week_arr['2']}} - 1);  {% endif %}
+                    {% if count == '4' %} var value = (date.getDay() == {{date_week_arr['0']}}- 1 || date.getDay() == {{date_week_arr['1']}}- 1 || date.getDay() == {{date_week_arr['2']}}- 1 || date.getDay() =={{ date_week_arr['3']}} - 1);  {% endif %}
+                    {% if count == '5' %} var value = (date.getDay() == {{date_week_arr['0']}}- 1 || date.getDay() == {{date_week_arr['1']}}- 1 || date.getDay() == {{date_week_arr['2']}}- 1 || date.getDay() =={{ date_week_arr['3']}}- 1 || date.getDay() == {{date_week_arr['4']}}- 1);  {% endif %}
+                    {% if count == '6' %} var value = (date.getDay() == {{date_week_arr['0']}}- 1 || date.getDay() == {{date_week_arr['1']}} - 1 || date.getDay() == {{date_week_arr['2']}} - 1 || date.getDay() =={{ date_week_arr['3']}} - 1 || date.getDay() == {{date_week_arr['4']}} - 1 || date.getDay() == {{date_week_arr['5']}} - 1);  {% endif %}
+                    {% if count == '7' %} var value = (date.getDay() == {{date_week_arr['0']}} - 1 || date.getDay() == {{date_week_arr['1']}} - 1 || date.getDay() == {{date_week_arr['2']}} - 1 || date.getDay() =={{ date_week_arr['3']}} - 1 || date.getDay() == {{date_week_arr['4']}} - 1 || date.getDay() == {{date_week_arr['5']}} - 1 || date.getDay() == {{date_week_arr['6']}} - 1);  {% endif %}
+                    return [value, ""];
+                    },
+                {% endif %}
+            });
+        {% endif %}
+       {% if(tour_detail.getTimeTypeId == '4') %}
+            var enableDays=[
+                {% for val in StaticCall('TourDateRequestServicePeer','get_date_request_tour',{tour_id:tour_detail.getId}) %}
+                    "{{val.getDate|date('d-m-Y')}}",
+                {% endfor %}]; 
+       
+            function enableAllTheseDays(date) {
+                var sdate = $.datepicker.formatDate( 'dd-mm-yy', date)
+                console.log(sdate)
+                if($.inArray(sdate, enableDays) != -1) {
+                    return [true];
+                }
+                return [false];
+            }
+            $('#date_picker').datepicker({dateFormat: 'dd-mm-yy', beforeShowDay: enableAllTheseDays});
+       {% endif %}
+    });
+</script>
+{% endif %}
+<form  method="POST" action="{{url_for('@bookingTour')}}" enctype="multipart/form-data">
+<div class="book box_1x">
+    <div class="price">
+        {% if tour_detail.getTypePricingServiceId == '2'%}
+        <h3>{{translate('Giá liên hệ')}}</h3>
+        {% else %}
+        <h3><span id="price_tour">{{tour_detail.getPrice|number_format}}</span> Đ / {{translate('Người')}}</h3>
+        {% endif %}
+    </div>
+    {% if  StaticCall('TourPriceServiceItemPeer','get_all_by_tour_id',{tour_detail:tour_detail.getId})|length %}
+    <div class="options">
+        <select class="form-control" id="select_service_tour">
+            <option value="0">{{translate('Chọn loại dịch vụ cho tour')}}</option>
+            {% for val in StaticCall('TourPriceServiceItemPeer','get_all_by_tour_id',{tour_detail:tour_detail.getId})%}
+            <option value="{{val.getId}}">{{val.getTitle}}  ( +{{val.getPrice|number_format}} VNĐ)</option>
+            {% endfor %}
+        </select>
+    </div>
+    {% endif %}
+    <div class="options">
+        <p>{{translate('Chọn ngày khởi hành')}}</p>
+        <input class="time form-control" type="text" id="date_picker" {% if tour_detail.getTimeTypeId == '1'  %} value="{{tour_detail.getDateStart|date('d-m-Y')}}" {% endif %}  readonly style="cursor: -webkit-grab;background-color: white">
+        <div class="row padding_top">
+            <div class="col-md-9">
+                <p>{{translate('Người lớn')}}</p>
+            </div>
+            <div class="col-md-3">
+                <select class="form-control" id="select_adult">
+                {% if tour_detail.getNumberSeat == '1000'%}
+                    {% for val in 1..100 %}
+                        <option value="{{val}}">{{val}}</option>
+                    {% endfor %}
+                {% else %}
+                    {% for val in 1..tour_detail.getNumberSeat %}
+                        <option value="{{val}}">{{val}}</option>
+                    {% endfor %}
+                {% endif %}
+                </select>
+            </div>
+        </div>
+        {% for val in StaticCall('TourPriceKidItemPeer','get_all_by_tour_id',{tour_detail:tour_detail.getId})%}
+        <div class="row padding_top">
+            <div class="col-md-9">
+                <p>Trẻ <small>({{val.getFromAge}} tuổi - {{val.getToAge}} {{translate('tuổi')}})</small></p>
+            </div>
+            <div class="col-md-3">
+                <select class="form-control " data-id="{{val.getId}}" id="select_kid">
+                    {% for val in 0..30%}
+                        <option value="{{val}}">{{val}}</option>
+                    {% endfor %}
+                </select>
+            </div>
+        </div>
+        {% endfor %}
+        <hr/>
+        <div class="total_price ">
+             {% if tour_detail.getTypePricingServiceId == '2'%}
+            <h3>{{translate('Giá liên hệ')}}</h3>
+            {% else %}
+                <h3 style="float: left">{{translate('Tổng chi phí')}} :</h3>
+                <h3><span id="total_price_tour">{{tour_detail.getPrice|number_format}} Đ</span> </h3>
+            {% endif %}
+        </div>
+        <hr />
+        <div>
+        {% if user_id %}
+            {% if (user_id != tour_detail.getUserId) and (tour_detail.getNumberSeat > tour_detail.getNumberSeatBooking) %}
+             {% if not booking_end %}
+                <buton class="btn btn_orange" disabled>{{translate('Tour đã khởi hành')}}</button>
+                {% else %}
+                 <buton class="btn btn_orange" id="submit_booking_tour" type="submit">{{translate('Đặt')}}</button>
+                {% endif %}
+            {% endif%}
+        {% else %}
+             <buton class="btn btn_orange" id="login_booking_tour">{{translate('Đặt')}}</button>
+        {% endif %}
+        </div>
+    </div>
+    <div class="error" id="popup_error_detail_tour" style="display:none">Bạn chưa chọn ngày khởi hành</div>
+</div>
+</form>
+<input type="hidden" id="tour_detail_id" value="{{tour_detail.getId}}">

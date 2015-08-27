@@ -1,0 +1,16 @@
+generator:
+  class:              sfPropelAdminGenerator
+  param:
+    model_class:      Event
+    theme:            default
+    list:
+      object_actions:
+        _edit:         ~
+        _delete:       ~
+      actions:
+        _create:       ~
+      display : [id,name]
+      sort: [id, desc]
+    edit:
+      fields:
+       content: {params: rich=fck size=80x60}

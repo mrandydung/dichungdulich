@@ -1,0 +1,38 @@
+<div class="success" id="popup_success_utilities" style="display: none"></div>
+<div class="error" id="popup_error_utilities" style="display: none"></div>
+<div class="row box_1x">
+	<div class="col-md-12">
+		<p class="hightlight">{{translate('Đối tượng phù hợp')}}: <span class="red">(*)</span></p>
+	</div>
+	{% for val in StaticCall('TourObjectFitPeer', 'getAll')%}
+	<div class="col-md-3"><input type="checkbox" value="{{val.getId}}" id="ad_Checkbox_object_fit{{val.getId}}" class="ads_Checkbox_object_fit" name="{{val.getName}}">{{val.getShowName}}</div>
+	{% endfor %}
+</div>
+<div class="row box_1x">
+	{{get_partial('trip_manager_personal/check_radio_utilities')|raw}}
+	{% for val in StaticCall('TourUtilitiesPeer', 'getAll')%}
+	<div class="col-md-3"><input type="checkbox" value="{{val.getId}}" id="ad_Checkbox{{val.getId}}" class="ads_Checkbox" name="{{val.getName}}">{{val.getShowName}}</div>
+	{% endfor %}
+</div>
+<div class="row box_1x">
+	<div class="col-md-12">
+		<p class="hightlight">{{translate('Phân loại')}}:</p>
+	</div>
+	{% for val in StaticCall('TourSortingPeer', 'getAll')%}
+	<div class="col-md-3"><input type="checkbox" value="{{val.getId}}" id="ad_Checkbox_sorting{{val.getId}}" class="ads_Checkbox_sorting" name="{{val.getName}}">{{val.getShowName}}</div>
+	{% endfor %}
+</div>
+<div class="row box_1x">
+	<div class="col-md-12">
+		<p class="hightlight">{{translate('Hoạt động chính')}}:</p>
+	</div>
+	{% for val in StaticCall('TourActivitiesPeer', 'getAll')%}
+	<div class="col-md-3"><input type="checkbox" value="{{val.getId}}" id="ad_Checkbox_activities{{val.getId}}" class="ads_Checkbox_activities" name="{{val.getName}}">{{val.getShowName}}</div>
+	{% endfor %}
+</div>
+
+<div class="row box_2x">
+	<div class="col-md-offset-8 col-md-4">
+		<a class="btn btn_orange" id="update_utilities">{{translate('Cập nhật')}}</a>
+	</div>
+</div>

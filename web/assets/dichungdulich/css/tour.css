@@ -1,0 +1,582 @@
+.tour_2 .title .t1{margin-bottom: 0;}
+.tour_2 .title h5{margin-bottom: 0;margin-top: 5px}
+.like_btn .like{
+    background-image: url("../img/view.png");
+    background-position: -58px 1px;
+    width: 65px;
+    height: 25px;
+    float: left;
+}
+.like_btn .active{
+    background-position: auto -25px;
+    -ms-background-position-y: -25px;
+    background-position-y: -25px;
+}
+.like_btn .share_tour{
+    background-image: url("../img/view.png");
+    background-position: -123px 1px;
+    width: 79px;
+    height: 25px;
+    float: left;
+}
+.like_btn .number .muiten{
+    position: absolute;
+    background-image: url("../img/view.png");
+    background-position: 126px -32px;
+    -ms-background-position-x: -126px;
+    background-position-x: -126px;
+    -ms-background-position-y: -32px;
+    background-position-y: -32px;
+    width: 5px;
+    height: 11px;
+    top: 2px;
+    left: -5px;
+}
+.like_btn .number{
+    position: relative;
+    display: block;
+    background-color: white;
+    border: 1px solid #aeaeae;
+    border-radius: 2px;
+    font-size: 11px;
+    padding: 0 2px;
+    float: left;
+    margin: 5px 5px 0 5px;
+}
+.hotro .phuongtien{
+    background-image: url("../img/view.png");
+    background-position: -58px -53px;
+    -ms-background-position-x: -58px;
+    background-position-x: -58px;
+    -ms-background-position-y: -53px;
+    background-position-y: -53px;
+    width: 34px;
+    height: 30px;
+    float: left;
+    margin-right: 10px;
+}
+.hotro .anuong{
+    background-image: url("../img/view.png");
+    background-position: -127px -53px;
+    -ms-background-position-x: -127px;
+    background-position-x: -127px;
+    -ms-background-position-y: -53px;
+    background-position-y: -53px;
+    width: 34px;
+    height: 30px;
+    float: left;
+    margin-right: 10px;
+}
+.hotro .chotrong{
+    background-image: url("../img/view.png");
+    background-position: -60px -86px;
+    -ms-background-position-x: -60px;
+    background-position-x: -60px;
+    -ms-background-position-y: -86px;
+    background-position-y: -86px;
+    width: 34px;
+    height: 30px;
+    float: left;
+    margin-right: 10px;
+}
+.hotro .khachsan{
+    background-image: url("../img/view.png");
+    background-position: -93px -54px;
+    -ms-background-position-x: -93px;
+    background-position-x: -93px;
+    -ms-background-position-y: -54px;
+    background-position-y: -54px;
+    width: 34px;
+    height: 30px;
+    float: left;
+    margin-right: 10px;
+}
+.hotro .vevuichoi{
+    background-image: url("../img/view.png");
+    background-position: -126px -87px;
+    -ms-background-position-x: -126px;
+    background-position-x: -126px;
+    -ms-background-position-y: -87px;
+    background-position-y: -87px;
+    width: 34px;
+    height: 30px;
+    float: left;
+    margin-right: 10px;
+}
+.hotro .huongdanvien{
+    background-image: url("../img/view.png");
+    background-position: -93px -87px;
+    -ms-background-position-x: -93px;
+    background-position-x: -93px;
+    -ms-background-position-y: -87px;
+    background-position-y: -87px;
+    width: 34px;
+    height: 30px;
+    float: left;
+    margin-right: 10px;
+}
+.hotro .vemaybay{
+    background-image: url("../img/view.png");
+    background-position: -59px -119px;
+    width: 34px;
+    height: 30px;
+    float: left;
+    margin-right: 10px;
+}
+.hotro .dontien{
+    background-image: url("../img/view.png");
+    background-position: -94px -123px;
+    width: 34px;
+    height: 30px;
+    float: left;
+    margin-right: 10px;
+}
+.hotro .baohiem{
+    background-image: url("../img/view.png");
+    background-position: -128px -123px;
+    width: 34px;
+    height: 30px;
+    float: left;
+    margin-right: 10px;
+}
+.hotro .giaitri{
+    background-image: url("../img/view.png");
+    background-position: -158px -123px;
+    width: 34px;
+    height: 30px;
+    float: left;
+    margin-right: 10px;
+}
+.hotro .tientip{
+    background-image: url("../img/view.png");
+    background-position: -189px -123px;
+    width: 34px;
+    height: 30px;
+    float: left;
+    margin-right: 10px;
+}
+.hotro .nguoikhuyettat{
+    background-image: url("../img/view.png");
+    background-position: -216px -121px;
+    width: 34px;
+    height: 30px;
+    float: left;
+    margin-right: 10px;
+}
+.hotro .vat{
+    background-image: url("../img/view.png");
+    background-position: -242px -120px;
+    width: 34px;
+    height: 30px;
+    float: left;
+    margin-right: 10px;
+}
+.hotro .text{
+    float: left;
+}
+.mota h3, .nhanxet h3{color: #0288d1; font-weight: 400;}
+.mota p .muiten{
+    background-image: url("../img/view.png");
+    background-position: -142px -29px;
+    -ms-background-position-x: -93px;
+    background-position-x: -142px;
+    -ms-background-position-y: -87px;
+    background-position-y: -29px;
+    width: 19px;
+    height: 8px;
+    float: left;
+    /* margin-right: 10px; */
+    display: block;
+    margin-left: 5px;
+}
+.price{
+    background-color: #0288d1;
+    color: #ffffff;
+    text-align: right;
+    padding: 10px;
+}
+.price h3{margin-bottom: 0;}
+.options{padding: 10px; background-color: #ffffff}
+.options p{margin: 7px 0;}
+.total_price{text-align: right}
+.ava_user img{
+    width: 100%;
+    border-radius: 50%;
+    border: 3px solid #4c4c4c;
+}
+.user_name table{width: 100%}
+.user_name .fb{background-image: url("../img/view.png");
+    background-position: -164px -28px;
+    -ms-background-position-x: -164px;
+    background-position-x: -164px;
+    -ms-background-position-y: -28px;
+    background-position-y: -28px;
+    width: 23px;
+    height: 22px;
+    float: left;
+}
+.user_name .in{background-image: url("../img/view.png");
+    background-position: -248px -42px;
+    -ms-background-position-x: -248px;
+    background-position-x: -248px;
+    -ms-background-position-y: -42px;
+    background-position-y: -42px;
+    width: 23px;
+    height: 22px;
+    float: left;
+}
+.user_name .skype{background-image: url("../img/view.png");
+    background-position: -248px -87px;
+    -ms-background-position-x: -248px;
+    background-position-x: -248px;
+    -ms-background-position-y: -87px;
+    background-position-y: -87px;
+    width: 23px;
+    height: 22px;
+    float: left;
+}
+.user_name .email{background-image: url("../img/view.png");
+    background-position: -248px -65px;
+    -ms-background-position-x: -248px;
+    background-position-x: -248px;
+    -ms-background-position-y: -65px;
+    background-position-y: -65px;
+    width: 23px;
+    height: 22px;
+    float: left;
+}
+.tintuong{
+    height: 12px;
+    margin-bottom: 20px;
+    background-color: #aeaeae;
+    border-radius: 6px;
+}
+.tintuong .progress-bar {
+    font-size: 10px;
+    line-height: 14px;
+    color: #fff;
+    text-align: right;
+    background-color: #0288d1;
+}
+.user_info .giayto {
+  background-image: url("../img/view.png");
+  background-position: -161px -53px;
+  -ms-background-position-x: -161px;
+  background-position-x: -161px;
+  -ms-background-position-y: -53px;
+  background-position-y: -53px;
+  width: 26px;
+  height: 19px;
+  float: left;
+  margin-right: 5px;
+  }
+.user_info .dienthoai{
+    background-image: url("../img/view.png");
+    background-position: -162px -78px;
+    -ms-background-position-x: -162px;
+    background-position-x: -162px;
+    -ms-background-position-y: -72px;
+    background-position-y: -72px;
+    width: 26px;
+    height: 19px;
+    float: left;
+    margin-right: 5px;
+}
+.user_info .email{
+    background-image: url("../img/view.png");
+    background-position: -162px -247px;
+    -ms-background-position-x: -162px;
+    background-position-x: -162px;
+    -ms-background-position-y: -247px;
+    background-position-y: -247px;
+    width: 26px;
+    height: 19px;
+    float: left;
+    margin-right: 5px;
+}
+.user_info .xacthuc{
+    -moz-background-position-x: -195px;
+    -ms-background-position-x: -195px;
+    background-position-x: -195px;
+}
+.lichtrinh .title{
+    border-bottom: 2px solid #0288d1;
+    font-size: 18px;
+}
+.lichtrinh .title .maybay{
+    background-image: url("../img/view.png");
+    background-color: rgba(64, 94, 156, 1);
+    background-position: -198px 4px;
+    -ms-background-position-x: -162px;
+    background-position-x: -198px;
+    -ms-background-position-y: -78px;
+    background-position-y: 2px;
+    width: 35px;
+    height: 35px;
+    float: left;
+}
+.lichtrinh .title .oto{
+    background-image: url("../img/view.png");
+    background-color: rgba(64, 94, 156, 1);
+    background-position: -235px 2px;
+    -ms-background-position-x: -235px;
+    background-position-x: -235px;
+    -ms-background-position-y: -2px;
+    background-position-y: 2px;
+    width: 35px;
+    height: 35px;
+    float: left;
+}
+.lichtrinh .title .ngay{
+    float: left;
+    background-color: #0288d1;
+    color: #ffffff;
+    padding: 5px 10px;
+}
+.lichtrinh .title .text{
+    float: left;
+    margin-left: 10px;
+    margin-top: 5px;
+    text-transform: uppercase;
+}
+.lichtrinh .content p, .mota .content{color: #757575 !important;font-weight: 300 !important; margin-bottom: 5px}
+.cm_ava img{
+    border-radius: 50%;
+}
+.cm_ava .user_name{text-align: center;margin-top: 5px;}
+.nhanxet .content{border: 1px solid #e5e5e5; background-color: #ffffff; padding: 10px}
+.nhanxet .content .muiten{
+    background-image: url("../img/view.png");
+    background-position: -208px -34px;
+    -ms-background-position-x: -162px;
+    background-position-x: -208px;
+    -ms-background-position-y: -78px;
+    background-position-y: -34px;
+    width: 16px;
+    height: 18px;
+    position: absolute;
+    top: 0;
+    left: 0px;
+}
+.thumbnail_2 {
+    display: block;
+    padding: 2px;
+    margin-bottom: 20px;
+    line-height: 1.42857143;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    -webkit-transition: all .2s ease-in-out;
+    -o-transition: all .2s ease-in-out;
+    transition: all .2s ease-in-out;
+}
+.nhanxet .ngay {font-size: 12px; float: left}
+.nhanxet .rate{float: right}
+.nhanxet .ngay .gio{font-size: 10px}
+hr {
+    margin-top: 5px;
+    margin-bottom: 20px;
+    border: 0;
+    border-top: 1px solid #DBDBDB;
+}
+p.luuy{
+    font-size: 12px;
+    margin-bottom: 0;
+    margin-top: 0;
+}
+h5.gio{margin-top: 0}
+div.luuy{background-color: #ffffff; padding: 10px; padding-top: 1px}
+div.luuy p {margin-top: 5px;margin-bottom: 5px; font-size: 12px;}
+h4 .status{font-size: 10px; vertical-align: top}
+.chuathanhtoan{color: #fdb740;}
+.dathanhtoan{color: #0288d1;}
+.giaodichcho{color: #9e489b}
+.thanhtoansau{color: #143980}
+.daketthuc{color: red}
+.tab-content{padding: 10px; background-color: #ffffff; border: 1px solid #e0e0e0; border-top: none}
+
+.term>li>a, .term>li>a:hover, .term>li>a:focus {
+  border-radius: 0;
+  border-bottom: 1px solid #ddd;
+}
+.term>li.active>a, .term>li.active>a:hover, .term>li.active>a:focus {
+  border-radius: 0;
+  border: 0;
+  border-bottom: 3px solid #0288d1;
+  padding-bottom: 8px;
+  background-color:transparent;
+}
+.my_tab-content {
+  background-color: transparent;
+  border: 0;
+  border-top: none;
+}
+.category span{
+  padding: 7px 15px;
+  background: #fafafa;
+  border: 1px solid #DCDCDC;
+  border-radius: 30px;
+  margin: 0 5px;
+  font-size: 12px;
+}
+
+.hotro .phuongtien6{
+    background-image: url("../img/view.png");
+    background-position: -58px -53px;
+    -ms-background-position-x: -58px;
+    background-position-x: -58px;
+    -ms-background-position-y: -53px;
+    background-position-y: -53px;
+    width: 34px;
+    height: 29px;
+    float: left;
+    margin-right: 10px;
+}
+.hotro .phuongtien2{
+    background-image: url("../img/view.png");
+    background-position: -127px -53px;
+    -ms-background-position-x: -127px;
+    background-position-x: -127px;
+    -ms-background-position-y: -53px;
+    background-position-y: -53px;
+    width: 34px;
+    height: 29px;
+    float: left;
+    margin-right: 10px;
+}
+.hotro .chotrong{
+    background-image: url("../img/view.png");
+    background-position: -60px -86px;
+    -ms-background-position-x: -60px;
+    background-position-x: -60px;
+    -ms-background-position-y: -86px;
+    background-position-y: -86px;
+    width: 34px;
+    height: 29px;
+    float: left;
+    margin-right: 10px;
+}
+.hotro .phuongtien3{
+    background-image: url("../img/view.png");
+    background-position: -93px -54px;
+    -ms-background-position-x: -93px;
+    background-position-x: -93px;
+    -ms-background-position-y: -54px;
+    background-position-y: -54px;
+    width: 34px;
+    height: 29px;
+    float: left;
+    margin-right: 10px;
+}
+.hotro .phuongtien4{
+    background-image: url("../img/view.png");
+    background-position: -126px -87px;
+    -ms-background-position-x: -126px;
+    background-position-x: -126px;
+    -ms-background-position-y: -87px;
+    background-position-y: -87px;
+    width: 34px;
+    height: 29px;
+    float: left;
+    margin-right: 10px;
+}
+.hotro .phuongtien5{
+    background-image: url("../img/view.png");
+    background-position: -93px -87px;
+    -ms-background-position-x: -93px;
+    background-position-x: -93px;
+    -ms-background-position-y: -87px;
+    background-position-y: -87px;
+    width: 34px;
+    height: 29px;
+    float: left;
+    margin-right: 10px;
+}
+.hotro .phuongtien1{
+    background-image: url("../img/view.png");
+    background-position: -59px -119px;
+    width: 34px;
+    height: 29px;
+    float: left;
+    margin-right: 10px;
+}
+.hotro .phuongtien7{
+    background-image: url("../img/view.png");
+    background-position: -94px -123px;
+    width: 34px;
+    height: 29px;
+    float: left;
+    margin-right: 10px;
+}
+.hotro .phuongtien8{
+    background-image: url("../img/view.png");
+    background-position: -128px -123px;
+    width: 34px;
+    height: 29px;
+    float: left;
+    margin-right: 10px;
+}
+.hotro .phuongtien9{
+    background-image: url("../img/view.png");
+    background-position: -158px -123px;
+    width: 34px;
+    height: 29px;
+    float: left;
+    margin-right: 10px;
+}
+.hotro .phuongtien10{
+    background-image: url("../img/view.png");
+    background-position: -189px -123px;
+    width: 34px;
+    height: 29px;
+    float: left;
+    margin-right: 10px;
+}
+.hotro .phuongtien11{
+    background-image: url("../img/view.png");
+    background-position: -216px -121px;
+    width: 34px;
+    height: 29px;
+    float: left;
+    margin-right: 10px;
+}
+.hotro .phuongtien12{
+    background-image: url("../img/view.png");
+    background-position: -242px -120px;
+    width: 34px;
+    height: 29px;
+    float: left;
+    margin-right: 10px;
+}
+
+  .ditu{
+      background-image: url("/images/icon_time.png");
+      background-position: -25px -85px;
+      width: 19px;
+      height: 17px;
+      float: left;
+      margin-right: 10px
+    }
+    .diden{
+        background-image: url("/images/icon_time.png");
+        background-position: -50px -85px;
+        width: 19px;
+        height: 17px;
+        float: left;
+        margin-right: 10px
+    }
+    .thoigian{
+        background-image: url("/images/icon_time.png");
+        background-position: -74px -85px;
+        width: 20px;
+        height: 17px;
+        float: left;
+        margin-right: 8px
+    }
+    .ngaykhoihanh{
+        background-image: url("/images/icon_time.png");
+        background-position: -95px -85px;
+        width: 20px;
+        height: 17px;
+        float: left;
+        margin-right: 8px
+    }

@@ -1,0 +1,23 @@
+<html>
+<head>
+<script type="text/javascript" src="http://www.vietbando.com/maps/API/VBDMapAPI.js?key=xRFQCP4sH3mVhHne6Lw/7pS2Ze1SM3O2"></script>
+
+<script type="text/javascript">
+function loadMap()
+{
+    if (VBrowserIsCompatible())
+    {
+       var map = new VMap(document.getElementById('container'));
+       var pt = new VLatLng(10.8152328, 106.680505);
+       map.setCenter(pt, 4);
+       var polyline = new VPolyline([new VLatLng(10.6957166, 106.549606), new VLatLng(10.7526291, 106.979296), new VLatLng(10.8920646, 106.708961), 
+                                                 new VLatLng(10.6160392, 106.794330)], 'green', 7, 'red', 0.5);
+       map.addOverlay(polyline);
+    }
+}
+</script>
+</head>
+<body onload="loadMap()">
+<div id="container" style="height:500px; position:relative; margin:10px; border:1px #b1c4d5 solid;"></div>
+</body>
+</html>

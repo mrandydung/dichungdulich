@@ -1,0 +1,31 @@
+<!-- _blog_menu.html -->
+<div class="container box_xs">
+	<div class="row">
+		<div class="col-md-2 box_2x">
+			<a href="{{url_for('@blog')}}"><h3>BLOG</h3></a>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-12">
+			<div class="menu box_1x" id="menu_responsive">
+				<div class="col-md-12">
+						MENU
+					</div>
+					<div class="clear"></div>
+				</div>
+			<div class="menu" id="menu_toggle">
+				<div class="row">
+					<div class="col-md-12">
+						<ul class="text-center menu_list" width="100%">
+							{% for key,val in menu %}
+							<li {% if blog_menu_category_id == val.getId %}{{'class="active"'}}{% endif %}>
+								<a href="{{val.getDetailUrlCategory}}">{{val.getShowName}}</a>
+							</li>
+							{% endfor %}
+						</ul>
+					</div>
+				</div>
+			</div>	
+		</div>
+	</div>
+</div>

@@ -1,0 +1,793 @@
+propel:
+  _attributes:
+    package: lib.model
+  partner:
+    _attributes: { idMethod: native }
+    id: { type: INTEGER, required: true, autoIncrement: true, primaryKey: true }
+    type_partner : { type: VARCHAR, size: '50' }
+    name : { type: VARCHAR, size: '200' }
+    name_en : { type: VARCHAR, size: '200' }
+    link : { type: VARCHAR, size: '200' }
+    logo : { type: VARCHAR, size: '200' }
+    created_at : { type: TIMESTAMP }
+    updated_at : { type: TIMESTAMP }
+  type_language:
+    _attributes: { idMethod: native }
+    id: { type: INTEGER, required: true, autoIncrement: true, primaryKey: true }
+    name : { type: VARCHAR, size: '50' }
+    code : { type : VARCHAR, size : '50'}
+  info_tour_detail_by_language:
+    _attributes: { idMethod: native }
+    id: { type: INTEGER, required: true, autoIncrement: true, primaryKey: true }
+    type_language_id :  { type: INTEGER, foreignTable: type_language, foreignReference: id , default : '1' }
+    tour_detail_id : { type: INTEGER, foreignTable: tour_detail, foreignReference: id , default : '1' }
+    title: { type: VARCHAR, size: '200' }
+    description : { type : LONGVARCHAR }
+    schedule_simple : { type : LONGVARCHAR }
+    note : { type : LONGVARCHAR }
+    policy_on_prices : { type : LONGVARCHAR }
+    cancellation_policy_tour : { type : LONGVARCHAR }
+    other_note : { type : LONGVARCHAR }
+  images_slide:
+    _attributes: { idMethod: native }
+    id: { type: INTEGER, required: true, autoIncrement: true, primaryKey: true }
+    partner_id : { type: INTEGER, foreignTable: partner, foreignReference: id , default : '1' }
+    images : { type: VARCHAR, size: '200' }
+    priority : { type : INTEGER, default : '10'}
+    created_at : { type: TIMESTAMP }
+  setting_site:
+    _attributes: { idMethod: native }
+    id: { type: INTEGER, required: true, autoIncrement: true, primaryKey: true }
+    partner_id : { type: INTEGER, foreignTable: partner, foreignReference: id , default : '1' }
+    slogen_slide : { type: VARCHAR, size: '500' }
+    slogen_slide_en : { type: VARCHAR, size: '500' }
+    title_site: { type: VARCHAR, size: '500' }
+    title_site_en : { type: VARCHAR, size: '500' }
+    description_site: { type: LONGVARCHAR }
+    description_site_en : { type: LONGVARCHAR }
+    created_at : { type: TIMESTAMP }
+  city:
+    _attributes: { idMethod: native }
+    id: { type: INTEGER, required: true, autoIncrement: true, primaryKey: true }
+    region_id: { type: INTEGER, default: '0' }
+    on_homepage: { type: BOOLEAN, default: '0' }
+    homepage_img: { type: VARCHAR, size: '200' }
+    name_old: { type: VARCHAR, size: '200' }
+    name_en: { type: VARCHAR, size: '200' }
+    priority: { type: INTEGER, default: '10' }
+    name: { type: VARCHAR, size: '200' }
+    created_at: { type: TIMESTAMP }
+    updated_at: { type: TIMESTAMP }
+  user_type :
+    _attributes: { idMethod: native}
+    id: { type: INTEGER, required: true, autoIncrement: true, primaryKey: true }
+    name : { type : VARCHAR , size : '200'}
+  dichung_user:
+    _attributes: { idMethod: native }
+    id: { type: INTEGER, required: true, autoIncrement: true, primaryKey: true }
+    partner_id : { type: INTEGER, foreignTable: partner, foreignReference: id , default : '1' }
+    user_type_id : { type: INTEGER, foreignTable: user_type, foreignReference: id , default : '1' }
+    fullname: { type: VARCHAR, size: '100' }
+    password: { type: VARCHAR, size: '1000' }
+    md5_password: { type: VARCHAR, size: '1000' }
+    active: { type: BOOLEAN, default: '0' }
+    locked: { type: BOOLEAN, default: '0' }
+    email: { type: VARCHAR, size: '100' }
+    phone_number: { type: VARCHAR, size: '20' }
+    hotline: { type: VARCHAR, size: '200' }
+    website: { type: VARCHAR, size: '200' }
+    fax: { type: VARCHAR, size: '200' }
+    vehicle_id: { type: INTEGER, default: '0' }
+    verified_phone: { type: BOOLEAN, default: '0' }
+    verified_email: { type: BOOLEAN, required: true, default: '0' }
+    address: { type: VARCHAR, size: '200' }
+    xang: { type: BIGINT, default: '1000' }
+    award_xang: { type: BIGINT, default: '0' }
+    announcement: { type: BOOLEAN, default: '1' }
+    gender: { type: INTEGER, default : '1' }
+    survey: { type: BOOLEAN, default: '0001' }
+    avatar: { type: VARCHAR, size: '1000', default: /uploads/avatar/avatar.png }
+    car_avatar: { type: VARCHAR, size: '1000' }
+    about: { type: VARCHAR, size: '1000' }
+    smoke: { type: BOOLEAN, default: '0' }
+    car_name: { type: VARCHAR, size: '100' }
+    car_model: { type: VARCHAR, size: '100' }
+    car_year: { type: VARCHAR, size: '10' }
+    car_description: { type: VARCHAR, size: '1000' }
+    bank_name: { type: VARCHAR, size: '1000' }
+    bank_branch: { type: VARCHAR, size: '1000' }
+    bank_code: { type: VARCHAR, size: '1000' }
+    bank_owner: { type: VARCHAR, size: '1000' }
+    paypal: { type: VARCHAR, size: '200' }
+    music: { type: VARCHAR, size: '1000' }
+    interest: { type: VARCHAR, size: '1000' }
+    work: { type: VARCHAR, size: '1000' }
+    education: { type: VARCHAR, size: '1000' }
+    location: { type: VARCHAR, size: '1000' }
+    married: { type: BOOLEAN, default: '3' }
+    dob: { type: DATE }
+    invite_user: { type: INTEGER }
+    invite_time: { type: TIMESTAMP }
+    domain: { type: VARCHAR, size: '20' }
+    responsibility: { type: INTEGER }
+    fb_uid: { type: BIGINT }
+    fb_username: { type: VARCHAR, size: '100' }
+    fb_url: { type: VARCHAR, size: '200' }
+    fb_spic: { type: VARCHAR, size: '600' }
+    fb_lpic: { type: VARCHAR, size: '600' }
+    fb_friend_count: { type: INTEGER, default: '0' }
+    google_plus_url: { type: VARCHAR, size: '200' }
+    zing_url: { type: VARCHAR, size: '200' }
+    skype_url: { type: VARCHAR, size: '200' }
+    yahoo_url: { type: VARCHAR, size: '200' }
+    email_token: { type: VARCHAR, size: '300' }
+    slug: { type: VARCHAR, size: '100' }
+    job_id: { type: INTEGER, foreignTable: job, foreignReference: id }
+    old_range_id: { type: INTEGER, foreignTable: old_range, foreignReference: id }
+    receive_book_require_email: { type: BOOLEAN, default: '0' }
+    receive_book_require_sms: { type: BOOLEAN, default: '1' }
+    receive_booker_info_email: { type: BOOLEAN, default: '0' }
+    receive_booker_info_sms: { type: BOOLEAN, default: '1' }
+    receive_comment_email: { type: BOOLEAN, default: '1' }
+    receive_comment_sms: { type: BOOLEAN, default: '1' }
+    receive_finish_email: { type: BOOLEAN, default: '1' }
+    receive_finish_sms: { type: BOOLEAN, default: '1' }
+    receive_matching_email: { type: BOOLEAN, default: '1' }
+    receive_matching_sms: { type: BOOLEAN, default: '1' }
+    contact: { type: LONGVARCHAR }
+    public_email_phone: { type: BOOLEAN, default: '0' }
+    public_email: { type: BOOLEAN, default: '0' }
+    public_phone: { type: BOOLEAN, default: '0' }
+    image_verify: { type: VARCHAR, size: '200' }
+    verified_image: { type: BOOLEAN, default: '0' }
+    drive_license: { type: VARCHAR, size: '200' }
+    verified_drive_license: { type: BOOLEAN, default: '0' }
+    traffic_law: { type: BOOLEAN, default: '0' }
+    point: { type: INTEGER, default: '0' }
+    point_level_id : { type: INTEGER, foreignTable: point_level, foreignReference: id , default : '1' }
+    overall_score: { type: VARCHAR, size: '200', default: '0' }
+    authenticity: { type: VARCHAR, size: '200', default: '0' }
+    network_quality: { type: VARCHAR, size: '200', default: '0' }
+    financial_credibility: { type: VARCHAR, size: '200', default: '0' }
+    like_question: { type : INTEGER, default : '0'}
+    answer_question: { type : INTEGER, default : '0'}
+    created_at: { type: TIMESTAMP }
+    updated_at: { type: TIMESTAMP }
+  huser:
+    _attributes: { idMethod: native }
+    id: { type: INTEGER, required: true, autoIncrement: true, primaryKey: true }
+    credential_id: { type: INTEGER, default: '0' }
+    username: { type: VARCHAR, size: '200', required: true }
+    password: { type: VARCHAR, size: '200' }
+    active: { type: BOOLEAN, default: '1' }
+    is_admin: { type: BOOLEAN, default: '0' }
+    is_moderater: { type: BOOLEAN, default: '0' }
+    is_partner : { type: BOOLEAN, default: '0' }
+    partner_id: {type: INTEGER , foreignTable: partner, foreignReference: id, onDelete: RESTRICT, onUpdate: RESTRICT ,default: '1'}
+    created_at: { type: TIMESTAMP }
+    updated_at: { type: TIMESTAMP }
+    _uniques: { NewIndex1: [username] }
+  lang:
+    _attributes: { idMethod: native }
+    id: { type: INTEGER, required: true, autoIncrement: true, primaryKey: true }
+    code: { type: VARCHAR, size: '200' }
+    vn: { type: LONGVARCHAR }
+    en: { type: LONGVARCHAR }
+  payment_type:
+    _attributes: { idMethod: native }
+    id: { type: INTEGER, required: true, autoIncrement: true, primaryKey: true }
+    name: { type: VARCHAR, size: '50' }
+    name_en: { type: VARCHAR, size: '50' }
+  suggest_cost_category:
+    _attributes: { idMethod: native }
+    id: { type: INTEGER, required: true, autoIncrement: true, primaryKey: true }
+    name: { type: VARCHAR, size: '50' }
+    name_en: { type: VARCHAR, size: '50' }
+  tour_type:
+    _attributes: { idMethod: native }
+    id: { type: INTEGER, required: true, autoIncrement: true, primaryKey: true }
+    name : { type : VARCHAR, size : '50', default : '1'}
+  tour_detail:
+    _attributes: { idMethod: native }
+    id: { type: INTEGER, required: true, autoIncrement: true, primaryKey: true }
+    partner_id : {type: INTEGER , foreignTable: partner, foreignReference: id, onDelete: RESTRICT, onUpdate: RESTRICT ,default: '1'}
+    enable : { type : BOOLEAN, default : '0'}
+    user_id : { type: INTEGER , foreignTable: dichung_user, foreignReference: id, onDelete: RESTRICT, onUpdate: RESTRICT }
+    tour_type_id: { type: INTEGER , foreignTable: tour_type, foreignReference: id, onDelete: RESTRICT, onUpdate: RESTRICT }
+    home_diem_den_item_id : { type: INTEGER , foreignTable: home_diem_den_item, foreignReference: id, onDelete: RESTRICT, onUpdate: RESTRICT }
+    area_id: { type : INTEGER }
+    region_id : { type : INTEGER}
+    city_id :  { type: INTEGER , foreignTable: city, foreignReference: id, onDelete: RESTRICT, onUpdate: RESTRICT }
+    time_type_id: { type: INTEGER, default: '0', foreignTable: tour_time_type, foreignReference: id, onDelete: RESTRICT, onUpdate: RESTRICT }
+    time_category_day_id:  { type: INTEGER, default: '0', foreignTable: tour_time_category_day, foreignReference: id, onDelete: RESTRICT, onUpdate: RESTRICT }
+    type_pricing_id :  { type: INTEGER, default: '1', foreignTable: type_pricing, foreignReference: id, onDelete: RESTRICT, onUpdate: RESTRICT }
+    type_pricing_service_id : { type : INTEGER, default : '1', foreignTable: type_pricing_service, foreignReference: id, onDelete: RESTRICT, onUpdate: RESTRICT }
+    start : { type : VARCHAR , size : '100'}
+    end : { type : VARCHAR , size : '100'}
+    coo_start : { type : VARCHAR , size : '100'}
+    lat_start : { type : VARCHAR , size : '50'}
+    lng_start: { type : VARCHAR , size : '50'}
+    coo_end : { type : VARCHAR , size : '100'}
+    lat_end: { type : VARCHAR , size : '50'}
+    lng_end : { type : VARCHAR , size : '50'}
+    detail: { type: LONGVARCHAR }
+    date_start: { type: DATE }
+    date_end: { type: DATE }
+    hour_start: { type: VARCHAR, size: '50' }
+    hour_day: { type: VARCHAR, size: '50' }
+    hour_week: { type: VARCHAR, size: '50' }
+    day_in_week: { type: VARCHAR, size: '50' }
+    price: { type: DOUBLE }
+    price_baby: { type: DOUBLE,default: '0' }
+    price_kid: { type: DOUBLE,default: '0' }
+    payment_type_id: { type: INTEGER, default: '1',foreignTable: payment_type, foreignReference: id, onDelete: RESTRICT, onUpdate: RESTRICT }
+    security_deposit : { type : INTEGER, default : '10'}
+    sum_number_seat : { type: INTEGER }
+    number_seat_min : { type: INTEGER ,default : '1'}
+    number_seat : { type: INTEGER }
+    number_seat_booking : { type : INTEGER, default : '0' }
+    allow_booking_fast: { type: BOOLEAN, default: '0' }
+    note : { type : LONGVARCHAR }
+    utilities: { type : LONGVARCHAR }
+    sorting: { type : LONGVARCHAR }
+    activities : { type : LONGVARCHAR }
+    tour_option_gender: { type : LONGVARCHAR }
+    tour_object_fit : { type : LONGVARCHAR }
+    enabled : { type : BOOLEAN , default:'0'}
+    priority : { type : INTEGER , default : '10'}
+    policy_price: { type : LONGVARCHAR }
+    policy_ticket: { type : LONGVARCHAR }
+    utilities: { type : LONGVARCHAR }
+    success_created : { type : BOOLEAN , default:'0'}
+    tour_featured: { type : BOOLEAN , default:'0'}
+    tour_favourite : {type : BOOLEAN , default:'0' }
+    tour_weekend: {type : BOOLEAN , default:'0' }
+    on_homepage: {type : BOOLEAN , default:'0' }
+    title : { type: VARCHAR, size: '200' }
+    description : { type : LONGVARCHAR }
+    title_seo : { type : VARCHAR, size : '200'}
+    description_seo : { type : LONGVARCHAR }
+    img_seo : { type : VARCHAR, size : '200'}
+    keyword : { type : VARCHAR, size : '200'}
+    created_at: { type: TIMESTAMP, required: true }
+    updated_at: { type: TIMESTAMP, required: true }
+  tour_time_category_day:
+    _attributes: { idMethod: native }
+    id: { type: INTEGER, required: true, autoIncrement: true, primaryKey: true }
+    val: { type: INTEGER }
+    name: { type: VARCHAR, size: '200' }
+    name_en: { type: VARCHAR, size: '200' }
+  tour_time_type:
+    _attributes: { idMethod: native }
+    id: { type: INTEGER, required: true, autoIncrement: true, primaryKey: true }
+    name: { type: VARCHAR, size: '200' }
+    name_en: { type: VARCHAR, size: '200' }
+  vehicle:
+    _attributes: { idMethod: native }
+    id: { type: INTEGER, required: true, autoIncrement: true, primaryKey: true }
+    name: { type: VARCHAR, size: '50' }
+    name_en: { type: VARCHAR, size: '50' }
+    value : { type : VARCHAR, size: '50'}
+  tour_discount_type:
+    _attributes: { idMethod: native }
+    id: { type: INTEGER, required: true, autoIncrement: true, primaryKey: true }
+    name: { type: VARCHAR, size: '50' }
+  tour_discount:
+    _attributes: { idMethod: native }
+    id: { type: INTEGER, required: true, autoIncrement: true, primaryKey: true }
+    tour_detail_id : { type: INTEGER , foreignTable: tour_detail, foreignReference: id, onDelete: RESTRICT, onUpdate: RESTRICT }
+    tour_discount_type_id : { type: INTEGER , foreignTable: tour_discount_type, foreignReference: id, onDelete: RESTRICT, onUpdate: RESTRICT }
+    discount : { type : INTEGER, default : '0'}
+    date_start : { type : DATE }
+    date_end : { type : DATE }
+    number_discount : { type : INTEGER}
+    created_at: { type: TIMESTAMP, required: true }
+    updated_at: { type: TIMESTAMP, required: true }
+  tour_item_img:
+    _attributes: { idMethod: native }
+    id: { type: INTEGER, required: true, autoIncrement: true, primaryKey: true }
+    images : { type : VARCHAR, size: '200'}
+    tour_id : { type : INTEGER}
+    tour_detail_id : { type : INTEGER,foreignTable: tour_detail, foreignReference: id, onDelete: RESTRICT, onUpdate: RESTRICT}
+  transaction_status:
+    _attributes: { idMethod: native }
+    id: { type: INTEGER, required: true, autoIncrement: true, primaryKey: true }
+    name : { type : VARCHAR, size: '50'}
+  payment_booking_type:
+    _attributes: { idMethod: native }
+    id: { type: INTEGER, required: true, autoIncrement: true, primaryKey: true }
+    name : { type : VARCHAR, size: '100'}
+  booking_status:
+    _attributes: { idMethod: native }
+    id: { type: INTEGER, required: true, autoIncrement: true, primaryKey: true }
+    name : { type : VARCHAR, size: '100'}
+  booking_tour:
+    _attributes: { idMethod: native }
+    id: { type: INTEGER, required: true, autoIncrement: true, primaryKey: true }
+    partner_id : { type: INTEGER , foreignTable: partner, foreignReference: id, onDelete: RESTRICT, onUpdate: RESTRICT }
+    user_id_sell: { type: INTEGER , foreignTable: dichung_user, foreignReference: id, onDelete: RESTRICT, onUpdate: RESTRICT }
+    user_id_buy: { type: INTEGER }
+    tour_detail_id : { type: INTEGER , foreignTable: tour_detail, foreignReference: id, onDelete: RESTRICT, onUpdate: RESTRICT }
+    code_transaction : { type : VARCHAR, size: '10'}
+    payment_booking_type_id : { type: INTEGER , foreignTable: payment_booking_type, foreignReference: id, onDelete: RESTRICT, onUpdate: RESTRICT }
+    price : { type : DOUBLE }
+    price_security_deposit : { type : DOUBLE }
+    name : { type : VARCHAR, size : '100' }
+    phone_number : { type : VARCHAR, size : '100' }
+    note : { type : LONGVARCHAR }
+    ticket : { type : LONGVARCHAR }
+    date_start_tour : { type : DATE}
+    number_adult : { type : INTEGER, default : '0'}
+    number_kid: { type : INTEGER, default : '0'}
+    number_baby: { type : INTEGER, default : '0'}
+    transaction_status_id: { type: INTEGER , foreignTable: transaction_status, foreignReference: id, onDelete: RESTRICT, onUpdate: RESTRICT }
+    booking_status_id : { type: INTEGER , foreignTable: booking_status , foreignReference: id, onDelete: RESTRICT, onUpdate: RESTRICT }
+    created_at: { type: TIMESTAMP, required: true }
+    updated_at: { type: TIMESTAMP, required: true }
+  tour_utilities:
+    _attributes: { idMethod: native }
+    id: { type: INTEGER, required: true, autoIncrement: true, primaryKey: true }
+    name : { type : VARCHAR, size : '50'}
+    name_en : { type : VARCHAR, size : '50'}
+    class_name : { type : VARCHAR , size : '50'}
+  tour_sorting:
+    _attributes: { idMethod: native }
+    id: { type: INTEGER, required: true, autoIncrement: true, primaryKey: true }
+    name : { type : VARCHAR, size : '50'}
+    name_en : { type : VARCHAR, size : '50'}
+  tour_activities:
+    _attributes: { idMethod: native }
+    id: { type: INTEGER, required: true, autoIncrement: true, primaryKey: true }
+    name : { type : VARCHAR, size : '50'}
+    name_en : { type : VARCHAR, size : '50'}
+  region:
+    _attributes: { idMethod: native }
+    id: { type: INTEGER, required: true, autoIncrement: true, primaryKey: true }
+    name : { type : VARCHAR, size : '50'}
+  area:
+    _attributes: { idMethod: native }
+    id: { type: INTEGER, required: true, autoIncrement: true, primaryKey: true }
+    name : { type : VARCHAR, size : '50'}
+  home_diem_den_quoc_te:
+    _attributes: { idMethod: native }
+    id: { type: INTEGER, required: true, autoIncrement: true, primaryKey: true }
+    area_id: { type: INTEGER, foreignTable: area, foreignReference: id}
+    name: { type: varchar, size: 200}
+    img: { type: varchar, size: 200}
+    img_search: { type: varchar, size: 200}
+    address: { type: varchar, size: 200}
+    google_address: { type: varchar, size: 200}
+    google_position: { type: varchar, size: 200}
+    keyword: { type: varchar, size: 200}
+    priority: { type: INTEGER, default: 10}
+    hide: { type: boolean, default: 0}
+    content_about: { type: LONGVARCHAR }
+  home_diem_den_item:
+    _attributes: { idMethod: native }
+    id: { type: INTEGER, required: true, autoIncrement: true, primaryKey: true }
+    region_id: { type: INTEGER, foreignTable: region, foreignReference: id,default : '1'}
+    area_id : { type: INTEGER, foreignTable: area, foreignReference: id,default : '1'}
+    city_id:  { type: INTEGER, foreignTable: city, foreignReference: id,default : '0'}
+    name: { type: varchar, size: 200}
+    address: { type: varchar, size: 200}
+    img: { type: varchar, size: 200}
+    img_search: { type: varchar, size: 200}
+    google_address: { type: varchar, size: 200}
+    google_position: { type: varchar, size: 200}
+    keyword: { type: varchar, size: 200}
+    priority: { type: INTEGER, default: 10}
+    hide: { type: boolean, default: 0}
+    content_about: { type: LONGVARCHAR }
+    enable_domestic : { type: boolean, default: 0}
+    enable_international : { type: boolean, default: 0}
+    enable_featured : { type: boolean, default: 0}
+  home_diem_den_item_partner:
+    _attributes: { idMethod: native }
+    id: { type: INTEGER, required: true, autoIncrement: true, primaryKey: true }
+    partner_id : { type: INTEGER, foreignTable: partner, foreignReference: id,default : '1'}
+    region_id: { type: INTEGER, foreignTable: region, foreignReference: id,default : '1'}
+    area_id : { type: INTEGER, foreignTable: area, foreignReference: id,default : '1'}
+    city_id:  { type: INTEGER, foreignTable: city, foreignReference: id,default : '0'}
+    name: { type: varchar, size: 200}
+    address: { type: varchar, size: 200}
+    img: { type: varchar, size: 200}
+    google_address: { type: varchar, size: 200}
+    google_position: { type: varchar, size: 200}
+    keyword: { type: varchar, size: 200}
+    on_homepage : { type: boolean, default: '0'}
+    priority : { type : INTEGER, default : '10'}
+    created_at : { type : TIMESTAMP }
+  row_page_footer:
+    _attributes: { idMethod: native}
+    id: { type: INTEGER, required: true, autoIncrement: true, primaryKey: true }
+    partner_id : { type: INTEGER, foreignTable: partner, foreignReference: id, onDelete: RESTRICT, onUpdate: RESTRICT }
+    name : {type : VARCHAR, size : '200'}
+    name_en : {type : VARCHAR, size : '200'}
+  page_footer:
+    _attributes: { idMethod: native}
+    id: { type: INTEGER, required: true, autoIncrement: true, primaryKey: true }
+    row_page_footer_id : { type: INTEGER, foreignTable: row_page_footer, foreignReference: id, onDelete: RESTRICT, onUpdate: RESTRICT }
+    partner_id : { type: INTEGER, foreignTable: partner, foreignReference: id, onDelete: RESTRICT, onUpdate: RESTRICT }
+    name : {type : VARCHAR, size : '200'}
+    name_en : {type : VARCHAR, size : '200'}
+    content : {type : LONGVARCHAR }
+    content_en : {type : LONGVARCHAR }
+    created_at: { type: TIMESTAMP }
+    updated_at: { type: TIMESTAMP}
+  contact_footer:
+    _attributes: { idMethod: native}
+    id: { type: INTEGER, required: true, autoIncrement: true, primaryKey: true }
+    partner_id : { type: INTEGER, foreignTable: partner, foreignReference: id, onDelete: RESTRICT, onUpdate: RESTRICT }
+    content : {type : LONGVARCHAR }
+  notification:
+    _attributes: { idMethod: native}
+    id: { type: INTEGER, required: true, autoIncrement: true, primaryKey: true }
+    user_send : { type: INTEGER, foreignTable: dichung_user, foreignReference: id, onDelete: RESTRICT, onUpdate: RESTRICT }
+    user_receiver : {type : INTEGER}
+    description : { type : VARCHAR, size : '500'}
+    detail : { type : LONGVARCHAR}
+    readed : { type : BOOLEAN , default : '0'}
+    created_at: { type: TIMESTAMP }
+  message:
+    _attributes: { idMethod: native}
+    id: { type: INTEGER, required: true, autoIncrement: true, primaryKey: true }
+    user_send : { type: INTEGER, foreignTable: dichung_user, foreignReference: id, onDelete: RESTRICT, onUpdate: RESTRICT }
+    user_receiver : {type : INTEGER}
+    description : { type : VARCHAR, size : '500'}
+    detail : { type : LONGVARCHAR}
+    readed : { type : BOOLEAN , default : '0'}
+    created_at: { type: TIMESTAMP }
+  job: 
+    _attributes: { idMethod: native}
+    id: { type: INTEGER, required: true, autoIncrement: true, primaryKey: true }
+    name: { type:  varchar, size: 200}
+    priority: { type: INTEGER}
+  old_range: 
+    _attributes: { idMethod: native}
+    id: { type: INTEGER, required: true, autoIncrement: true, primaryKey: true }
+    name: { type:  varchar, size: 200}
+    priority: { type: INTEGER}
+  gender: 
+    _attributes: { idMethod: native}
+    id: { type: INTEGER, required: true, autoIncrement: true, primaryKey: true }
+    name: { type:  varchar, size: 50}
+  point_level:
+    _attributes: { idMethod: native}
+    id: { type: INTEGER, required: true, autoIncrement: true, primaryKey: true }
+    name : { type : VARCHAR , size : '200'}
+    point : { type : INTEGER }
+  type_upload:
+    _attributes: { idMethod: native}
+    id: { type: INTEGER, required: true, autoIncrement: true, primaryKey: true }
+    name : { type : VARCHAR , size : '50'}
+  trip_experience:
+    _attributes: { idMethod: native}
+    id: { type: INTEGER, required: true, autoIncrement: true, primaryKey: true }
+    user_id :  { type: INTEGER, foreignTable: dichung_user, foreignReference: id, onDelete: RESTRICT, onUpdate: RESTRICT }
+    title : { type : VARCHAR , size : '200'}
+    end: { type : VARCHAR , size : '200'}
+    coo_end: { type : VARCHAR , size : '100'}
+    lat_end: { type : VARCHAR , size : '50'}
+    lng_end: { type : VARCHAR , size : '50'}
+    type_upload_id : { type: INTEGER, foreignTable: type_upload, foreignReference: id, onDelete: RESTRICT, onUpdate: RESTRICT }
+    images : { type : LONGVARCHAR }
+    video_url : { type : VARCHAR , size : '100'}
+    content : { type : LONGVARCHAR }
+    count_view : { type: INTEGER, default : '0'}
+    count_like : { type: INTEGER, default : '0'}
+    count_share : { type: INTEGER, default : '0'}
+    priority : { type : INTEGER, default : '10'}
+    experience_featured : { type : BOOLEAN, default : '0'}
+    title_seo: { type : VARCHAR,size:'200' }
+    description_seo: { type : LONGVARCHAR }
+    img_seo : { type : VARCHAR, size : '200'}
+    created_at: { type: TIMESTAMP }
+    updated_at: { type: TIMESTAMP }
+  trip_experience_img:
+    _attributes: { idMethod: native}
+    id: { type: INTEGER, required: true, autoIncrement: true, primaryKey: true }
+    images : { type : VARCHAR , size : '200'}
+    trip_experience_id :  { type: INTEGER, foreignTable: trip_experience, foreignReference: id, onDelete: RESTRICT, onUpdate: RESTRICT }
+  comment_tour:
+    _attributes: { idMethod: native}
+    id: { type: INTEGER, required: true, autoIncrement: true, primaryKey: true }
+    tour_id : { type: INTEGER, foreignTable: tour_detail, foreignReference: id, onDelete: RESTRICT, onUpdate: RESTRICT }
+    user_id :  { type: INTEGER, foreignTable: dichung_user, foreignReference: id, onDelete: RESTRICT, onUpdate: RESTRICT }
+    comment : { type : VARCHAR, size : '500' }
+    rating : { type : INTEGER, default : '0'}
+    created_at : { type: TIMESTAMP }
+  comment_experience:
+    _attributes: { idMethod: native}
+    id: { type: INTEGER, required: true, autoIncrement: true, primaryKey: true }
+    trip_experience_id : { type: INTEGER, foreignTable: trip_experience, foreignReference: id, onDelete: RESTRICT, onUpdate: RESTRICT }
+    user_id :  { type: INTEGER, foreignTable: dichung_user, foreignReference: id, onDelete: RESTRICT, onUpdate: RESTRICT }
+    comment : { type : VARCHAR, size : '500' }
+    rating : { type : INTEGER, default : '0'}
+    created_at : { type: TIMESTAMP }
+  comment_acquirements:
+    _attributes: { idMethod: native}
+    id: { type: INTEGER, required: true, autoIncrement: true, primaryKey: true }
+    trip_acquirements_id : { type: INTEGER, foreignTable: trip_experience, foreignReference: id, onDelete: RESTRICT, onUpdate: RESTRICT }
+    user_id :  { type: INTEGER, foreignTable: dichung_user, foreignReference: id, onDelete: RESTRICT, onUpdate: RESTRICT }
+    comment : { type : VARCHAR, size : '500' }
+    rating : { type : INTEGER, default : '0'}
+    created_at : { type: TIMESTAMP }
+  scheduled_cost_tour:
+    _attributes: { idMethod: native}
+    id: { type: INTEGER, required: true, autoIncrement: true, primaryKey: true }
+    tour_id : { type: INTEGER, foreignTable: tour_detail, foreignReference: id, onDelete: RESTRICT, onUpdate: RESTRICT }
+    suggest_cost_category_id :  { type: INTEGER, foreignTable: suggest_cost_category, foreignReference: id, onDelete: RESTRICT, onUpdate: RESTRICT }
+    price : { type : BIGINT, default:'0' }
+    description : { type : VARCHAR, size : '500'}
+    created_at : { type: TIMESTAMP }
+  type_pricing:
+    _attributes: { idMethod: native}
+    id: { type: INTEGER, required: true, autoIncrement: true, primaryKey: true }
+    name : { type : VARCHAR }
+    name_en : { type : VARCHAR }
+  type_pricing_service:
+    _attributes: { idMethod: native}
+    id: { type: INTEGER, required: true, autoIncrement: true, primaryKey: true }
+    name : { type : VARCHAR }
+    name_en : { type : VARCHAR }
+  tour_option_gender:
+    _attributes: { idMethod: native}
+    id: { type: INTEGER, required: true, autoIncrement: true, primaryKey: true }
+    name : { type : VARCHAR }
+    name_en : { type : VARCHAR }
+  hour:
+    _attributes: { idMethod: native}
+    id: { type: INTEGER, required: true, autoIncrement: true, primaryKey: true }
+    value : { type : VARCHAR,size:'50' }
+    name : { type : VARCHAR,size:'50' }
+  event:
+    _attributes: { idMethod: native}
+    id: { type: INTEGER, required: true, autoIncrement: true, primaryKey: true }
+    name : { type : VARCHAR,size:'50' }
+    content : { type : LONGVARCHAR}
+  page_category:
+    _attributes: { idMethod: native}
+    id: { type: INTEGER, required: true, autoIncrement: true, primaryKey: true }
+    name : { type : VARCHAR,size:'200' }
+    title_seo: { type : VARCHAR,size:'200' }
+    description_seo: { type : LONGVARCHAR }
+    img_seo : { type : VARCHAR, size : '200'}
+    created_at : { type : TIMESTAMP }
+  tour_coo_item:
+    _attributes: { idMethod: native}
+    id: { type: INTEGER, required: true, autoIncrement: true, primaryKey: true }
+    tour_id : { type : INTEGER ,foreignTable: tour_detail, foreignReference: id, onDelete: RESTRICT, onUpdate: RESTRICT}
+    name_end : { type : VARCHAR, size : '50'}
+    coo_end:  { type : VARCHAR, size : '50'}
+    lat_end : { type : VARCHAR, size : '50'}
+    lng_end : { type : VARCHAR, size : '50'}
+    is_end : { type : BOOLEAN, default : '0'}
+    created_at: { type : TIMESTAMP }
+  tour_price_kid_item:
+    _attributes: { idMethod: native}
+    id: { type: INTEGER, required: true, autoIncrement: true, primaryKey: true }
+    tour_detail_id : { type : INTEGER ,foreignTable: tour_detail, foreignReference: id, onDelete: RESTRICT, onUpdate: RESTRICT}
+    description : { type : VARCHAR, size : '200'}
+    from_age : { type : INTEGER }
+    to_age : { type : INTEGER}
+    discount : { type : INTEGER}
+    price:  { type : BIGINT}
+    created_at: { type : TIMESTAMP }
+  tour_price_service_item:
+    _attributes: { idMethod: native}
+    id: { type: INTEGER, required: true, autoIncrement: true, primaryKey: true }
+    tour_detail_id : { type : INTEGER ,foreignTable: tour_detail, foreignReference: id, onDelete: RESTRICT, onUpdate: RESTRICT}
+    title : { type : VARCHAR, size : '200'}
+    price:  { type : BIGINT}
+    price_new : { type : BIGINT }
+    created_at: { type : TIMESTAMP }
+  tour_percent_discount:
+    _attributes: { idMethod: native}
+    id: { type: INTEGER, required: true, autoIncrement: true, primaryKey: true }
+    val : { type: INTEGER }
+  tour_discount_event_type:
+    _attributes: { idMethod: native}
+    id: { type: INTEGER, required: true, autoIncrement: true, primaryKey: true }
+    name : { type : VARCHAR, size: '200'}
+    name_en : { type : VARCHAR, size: '200'}
+    value :  { type : VARCHAR, size: '200'}
+    date_start : { type : DATE}
+    date_end : { type : DATE}
+  tour_discount_event:
+    _attributes: { idMethod: native}
+    id: { type: INTEGER, required: true, autoIncrement: true, primaryKey: true }
+    tour_detail_id : { type : INTEGER ,foreignTable: tour_detail, foreignReference: id, onDelete: RESTRICT, onUpdate: RESTRICT}
+    tour_discount_event_type_id : { type : INTEGER ,foreignTable: tour_discount_event_type, foreignReference: id, onDelete: RESTRICT, onUpdate: RESTRICT}
+    name : { type : VARCHAR, size: '200'}
+    value :  { type : VARCHAR, size: '200'}
+    discount : { type : INTEGER }
+    date_start : { type : DATE}
+    date_end : { type : DATE}
+  config:
+    _attributes: { idMethod: native}
+    id: { type: INTEGER, required: true, autoIncrement: true, primaryKey: true }
+    code : { type : VARCHAR, size : 200}
+    val : { type : LONGVARCHAR }
+  tour_item_schedule_day:
+    _attributes: { idMethod: native}
+    id: { type: INTEGER, required: true, autoIncrement: true, primaryKey: true }
+    tour_detail_id : { type : INTEGER ,foreignTable: tour_detail, foreignReference: id, onDelete: RESTRICT, onUpdate: RESTRICT}
+    day : { type : INTEGER, default : '1'}
+    title : { type : VARCHAR,size : '200' }
+    description : { type : LONGVARCHAR }
+    vehicle : { type : VARCHAR, size : '200'}
+    created_at : { type : TIMESTAMP }
+  tour_item_img_schedule_day:
+    _attributes: { idMethod: native}
+    id: { type: INTEGER, required: true, autoIncrement: true, primaryKey: true }
+    tour_detail_id : { type : INTEGER ,foreignTable: tour_detail, foreignReference: id, onDelete: RESTRICT, onUpdate: RESTRICT}
+    day : { type : INTEGER, default : '1'}
+    images : { type : VARCHAR,size : '200' }
+    created_at : { type : TIMESTAMP }
+  mail_template:
+    _attributes: { idMethod: native}
+    id: { type: INTEGER, required: true, autoIncrement: true, primaryKey: true }
+    template_name : { type : VARCHAR,size : '50'}
+    content : { type : LONGVARCHAR }
+  mail_outbox:
+    _attributes: { idMethod: native}
+    id: { type: INTEGER, required: true, autoIncrement: true, primaryKey: true }
+    send_to : { type : VARCHAR,size : '100'}
+    send_from : { type : VARCHAR,size : '100'}
+    send_from_name: { type : VARCHAR,size : '100'}
+    message: { type : LONGVARCHAR}
+    title: { type : VARCHAR,size : '200'}
+    created_at: { type : TIMESTAMP }
+    sent_at: { type : TIMESTAMP }
+    priority : { type : INTEGER, default : '10'}
+    status : { type : INTEGER, default : '0'}
+  user_send_verify_info:
+    _attributes: { idMethod: native }
+    id: { type: INTEGER, required: true, autoIncrement: true, primaryKey: true }
+    user_id:  { type: INTEGER,  foreignReference: id, foreignTable: dichung_user, onDelete: RESTRICT, onUpdate: RESTRICT }
+    type_verify_id: { type: INTEGER,  foreignReference: id, foreignTable: verify_type, onDelete: RESTRICT, onUpdate: RESTRICT }
+    verified: { type: BOOLEAN, default:'0' }
+    image : {type:varchar,size:'200'}
+    created_at: { type: TIMESTAMP }
+    updated_at: { type: TIMESTAMP }
+  verify_type:
+    _attributes: { idMethod: native }
+    id: { type: INTEGER, required: true, autoIncrement: true, primaryKey: true }
+    name:  { type: VARCHAR, size:'200' }
+  tour_date_request_service:
+    _attributes: { idMethod: native }
+    id: { type: INTEGER, required: true, autoIncrement: true, primaryKey: true }
+    date : { type : DATE}
+    tour_detail_id:  { type: INTEGER,  foreignReference: id, foreignTable: tour_detail, onDelete: RESTRICT, onUpdate: RESTRICT }
+  trip_acquirements:
+    _attributes: { idMethod: native}
+    id: { type: INTEGER, required: true, autoIncrement: true, primaryKey: true }
+    partner_id :  { type: INTEGER, foreignTable: partner, foreignReference: id, onDelete: RESTRICT, onUpdate: RESTRICT }
+    user_id :  { type: INTEGER, foreignTable: dichung_user, foreignReference: id, onDelete: RESTRICT, onUpdate: RESTRICT }
+    title : { type : VARCHAR , size : '200'}
+    end: { type : VARCHAR , size : '200'}
+    coo_end: { type : VARCHAR , size : '100'}
+    lat_end: { type : VARCHAR , size : '50'}
+    lng_end: { type : VARCHAR , size : '50'}
+    type_upload_id : { type: INTEGER, foreignTable: type_upload, foreignReference: id, onDelete: RESTRICT, onUpdate: RESTRICT }
+    images : { type : LONGVARCHAR }
+    video_url : { type : VARCHAR , size : '100'}
+    content : { type : LONGVARCHAR }
+    eating : { type : LONGVARCHAR }
+    home : { type : LONGVARCHAR }
+    location_play : { type : LONGVARCHAR }
+    location_up_to : { type : LONGVARCHAR }
+    what_to_by : { type : LONGVARCHAR }
+    count_view : { type: INTEGER, default : '0'}
+    count_like : { type: INTEGER, default : '0'}
+    count_share : { type: INTEGER, default : '0'}
+    title_seo: { type : VARCHAR,size:'200' }
+    description_seo: { type : LONGVARCHAR }
+    img_seo : { type : VARCHAR, size : '200'}
+    created_at: { type: TIMESTAMP }
+    updated_at: { type: TIMESTAMP }
+  trip_acquirements_img:
+    _attributes: { idMethod: native}
+    id: { type: INTEGER, required: true, autoIncrement: true, primaryKey: true }
+    images : { type : VARCHAR , size : '200'}
+    images_thumb : { type : VARCHAR , size : '200'}
+    trip_acquirements_id :  { type: INTEGER, foreignTable: trip_acquirements, foreignReference: id, onDelete: RESTRICT, onUpdate: RESTRICT }
+  question_group_category:
+    _attributes: { idMethod: native}
+    id: { type: INTEGER, required: true, autoIncrement: true, primaryKey: true }
+    name : { type : VARCHAR , size : '50'}
+    name_en : { type : VARCHAR , size : '50'}
+    images_thumb : { type : VARCHAR , size : '200'}
+    images : { type : VARCHAR , size : '200'}
+    slogen: { type : VARCHAR , size : '500'}
+    priority : { type : INTEGER, default : '10'}
+    title_seo: { type : VARCHAR , size : '200'}
+    description_seo: { type : VARCHAR , size : '500'}
+    img_seo: { type : VARCHAR , size : '200'}
+  question:
+    _attributes: { idMethod: native}
+    id: { type: INTEGER, required: true, autoIncrement: true, primaryKey: true }
+    user_id : { type: INTEGER, foreignTable: dichung_user, foreignReference: id, onDelete: RESTRICT, onUpdate: RESTRICT }
+    title : { type : VARCHAR , size : '200'}
+    detail : { type : LONGVARCHAR }
+    question_group_category : { type : VARCHAR, size : '200'}
+    answer: { type : INTEGER}
+    like_question: { type : INTEGER}
+    share: { type : INTEGER}
+    view : { type : INTEGER}
+    id_like : { type : LONGVARCHAR }
+    date : { type : TIMESTAMP }
+    title_seo: { type : VARCHAR , size : '200'}
+    description_seo: { type : LONGVARCHAR}
+    img_seo: { type : VARCHAR , size : '200'}
+    created_at : { type : TIMESTAMP }
+  question_answer:
+    _attributes: { idMethod: native}
+    id: { type: INTEGER, required: true, autoIncrement: true, primaryKey: true }
+    user_id : { type: INTEGER, foreignTable: dichung_user, foreignReference: id, onDelete: RESTRICT, onUpdate: RESTRICT }
+    question_id : { type: INTEGER, foreignTable: question, foreignReference: id, onDelete: RESTRICT, onUpdate: RESTRICT }
+    content : { type : LONGVARCHAR }
+    like_question : { type : INTEGER }
+    id_like : { type: LONGVARCHAR }
+    date : { type : TIMESTAMP }
+    created_at : { type : TIMESTAMP }
+  blog_menu_category:
+    _attributes: { idMethod: native}
+    id: { type: INTEGER, required: true, autoIncrement: true, primaryKey: true }
+    name : { type:VARCHAR , size : '50'}
+    name_en : { type:VARCHAR , size : '50'}
+    title_seo : { type:VARCHAR , size : '200'}
+    description_seo : { type:VARCHAR , size : '500'}
+    img_seo :  { type:VARCHAR , size : '200'}
+  blog:
+    _attributes: { idMethod: native}
+    id: { type: INTEGER, required: true, autoIncrement: true, primaryKey: true }
+    blog_menu_category_id : {  type: INTEGER, foreignTable: blog_menu_category, foreignReference: id, onDelete: RESTRICT, onUpdate: RESTRICT }
+    home_diem_den_item_id: {  type: INTEGER, foreignTable: home_diem_den_item, foreignReference: id, onDelete: RESTRICT, onUpdate: RESTRICT }
+    title : { type:VARCHAR , size : '200'}
+    description : { type : VARCHAR , size : '500'}
+    detail :  { type:LONGVARCHAR }
+    ads_demo : { type : LONGVARCHAR }
+    tag : { type : LONGVARCHAR }
+    images_thumb : { type:VARCHAR , size : '200'}
+    date : { type : TIMESTAMP }
+    title_seo : { type:VARCHAR , size : '200'}
+    description_seo : { type:VARCHAR , size : '500'}
+    img_seo : { type:VARCHAR , size : '200'}
+    set_highlight : { type:BOOLEAN, default : '0'}
+    view : { type : INTEGER, default : '0'}
+    created_at : { type : TIMESTAMP }
+  user_register_accept_email:
+    _attributes: { idMethod: native}
+    id: { type: INTEGER, required: true, autoIncrement: true, primaryKey: true }
+    partner_id : {  type: INTEGER, foreignTable: partner, foreignReference: id, onDelete: RESTRICT, onUpdate: RESTRICT }
+    email : { type:VARCHAR , size : '200'}
+    date : { type : TIMESTAMP }
+    created_at : { type : TIMESTAMP }
+  tour_object_fit:
+    _attributes: { idMethod: native }
+    id: { type: INTEGER, required: true, autoIncrement: true, primaryKey: true }
+    name : { type : VARCHAR, size : '50'}
+    name_en : { type : VARCHAR, size : '50'}
+  type_url_tag:
+    _attributes: { idMethod: native }
+    id: { type: INTEGER, required: true, autoIncrement: true, primaryKey: true }
+    name : { type : VARCHAR, size : '50'}
+  url_tag_footer: 
+    _attributes: { idMethod: native }
+    id: { type: INTEGER, required: true, autoIncrement: true, primaryKey: true }
+    name : { type : VARCHAR, size : '50'}
+    name_en : { type : VARCHAR, size : '50'}
+    type_url_tag_id: {  type: INTEGER, foreignTable: type_url_tag, foreignReference: id, onDelete: RESTRICT, onUpdate: RESTRICT }
+    url : { type : VARCHAR,size : '200'}
+    enabled : { type : BOOLEAN, default : '0'}
+    created_at : { type : TIMESTAMP }
+  config_social_network: 
+    _attributes: { idMethod: native }
+    id: { type: INTEGER, required: true, autoIncrement: true, primaryKey: true }
+    partner_id : {  type: INTEGER, foreignTable: partner, foreignReference: id, onDelete: RESTRICT, onUpdate: RESTRICT }
+    link_facebook : { type : VARCHAR, size : '200'}
+    link_google: { type : VARCHAR,size : '200'}
+    link_instagram : { type : VARCHAR,size : '200'}
+    link_pinterest : { type : VARCHAR,size : '200'}
+    link_youtube : { type : VARCHAR,size : '200'}

@@ -1,0 +1,47 @@
+<div class="box_2x mota" style="text-align: justify">
+		<h3 style="color: #FF5B2B">{{translate('Lưu ý')}}</h3>
+	<div role="tabpanel">
+		{% if tour_detail.getTourTypeId == '2' %}
+		<ul class="nav nav-tabs term" role="tablist">
+			<li role="presentation" class="active"><a href="#gia" aria-controls="home" role="tab" data-toggle="tab">{{translate('Chính sách về giá')}}</a></li>
+			<li role="presentation"><a href="#huyve" aria-controls="profile" role="tab" data-toggle="tab">{{translate('Chính sách hủy Tour')}}</a></li>
+			<li role="presentation"><a href="#khac" aria-controls="profile" role="tab" data-toggle="tab">{{translate('Ghi chú khác')}}</a></li>
+		</ul>
+		<div class="tab-content my_tab-content">
+			<div role="tabpanel" class="tab-pane active" id="gia">	
+				<div class="col-md-12 box_1x">								
+					<div class="content">
+				   		<div id="ReadLessPolicyPrice">
+				   			{{tour_detail.get_policy_price_striptags|raw}} ..	
+				   			<p><span><a id="read_less_button_policy_price" > {{translate('Xem thêm')}} <span aria-hidden="true" >&rarr;</span></a></span></p>
+				   		</div>
+						<div id="ReadMorePolicyPrice" style="display: none">{{tour_detail.getPolicyPrice|raw}} 
+						<p><a id="read_more_button_policy_price"> <span aria-hidden="true" >&larr;</span> Thu gọn</a></p>
+						</div>
+					</div>
+				</div>
+				<div class="clear"></div>
+			</div>
+			<div role="tabpanel" class="tab-pane" id="huyve">
+				<div class="col-md-12 box_1x">								
+					<div class="content">
+					{{ tour_detail.getPolicyTicket|raw}}
+					</div>
+				</div>
+				<div class="clear"></div>
+			</div>
+			<div role="tabpanel" class="tab-pane" id="khac">
+				<div class="col-md-12 box_1x">
+					<div class="content">
+					{{ tour_detail.getNote|raw }}
+					</div>
+				</div>
+				<div class="clear"></div>
+			</div>
+		</div>
+		{% endif %}
+		{% if tour_detail.getTourTypeId == '1' %}
+		<div class="content box_1x">{{tour_detail.getNote|raw }}</div>
+		{% endif %}
+	</div>	
+</div>

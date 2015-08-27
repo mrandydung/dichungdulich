@@ -1,0 +1,154 @@
+<div id="div_loading"></div>
+<div class="error" id="popup_error_schedule" style="display:none"></div>
+<div class="success" id="popup_success_schedule" style="display: none"></div>
+<script type="text/javascript" src="/assets/js/typeahead.min.js?v={{random()}}"></script>
+<script src="/js/map/jquery.geocomplete.js?v={{random()}}"></script>
+<script src="/js/jsapi.js?v={{random()}}"></script>
+<script src="/js/map/map_funcs.js?v={{random()}}"></script>
+<script type="text/javascript">
+function gender_address(){
+    $('#end_new').typeahead({
+        name: 'search_end',
+        hint: true,
+        highlight: true,
+        remote: {
+            cache: true,
+            url: '/home/search_end?search_end=%QUERY',
+            filter: function (parsedResponse) {
+                return parsedResponse;
+            }
+        }
+    });
+}
+$(document).ready(function(){
+    $('input[type="checkbox"]').click(function(){
+        if ($(this).attr("value") == "diemden"){
+            $("#div_add_new_diem_den").slideToggle(400);
+        }
+    });
+    $('#end').typeahead({
+        name: 'search_end',
+        hint: true,
+        highlight: true,
+        remote: {
+            cache: true,
+            url: '/home/search_end?search_end=%QUERY',
+            filter: function (parsedResponse) {
+                return parsedResponse;
+            }
+        }
+    });
+    $('#end_new').typeahead({
+        name: 'search_end',
+        hint: true,
+        highlight: true,
+        remote: {
+            cache: true,
+            url: '/home/search_end?search_end=%QUERY',
+            filter: function (parsedResponse) {
+                return parsedResponse;
+            }
+        }
+    });
+    if ({{tour_coo_item | length}}){
+        $('#checkbox_diemden').click();
+    }
+
+    var locat;
+    var options;
+    $("#start").geocomplete(options)
+    .bind("geocode:result", function(event, result){
+        locat = result.geometry.location;
+        $('#hidden_start').val(locat.lat() + ',' + locat.lng());
+    })
+
+});
+</script>
+<div class="row box_1x">
+    <div class="col-md-12">
+        <div class="row box_1x">
+            <div class="col-md-2 padding_top">
+                <p><strong>{{translate('Điểm đi')}}:</strong></p>
+            </div>
+            <div class="col-md-6 ">
+                <input type="text" class="form-control a_" placeholder="{{translate('Điểm đi')}}" id="start" name="start" value="{% if tour_detail.getStart %}{{tour_detail.getStart}}{% endif %}" />
+            </div>
+        </div>
+        <div class="row box_1x">
+            <div class="col-md-2 padding_top">
+                <p><strong>{{translate('Điểm đến')}}:</strong></p>
+            </div>
+            <div class="col-md-6 ">
+                <input type="text" class="form-control b_" placeholder="{{translate('Điểm đến')}}" id="end" name="end" value="{% if tour_detail.getEnd %}{{tour_detail.getEnd}}{% endif %}">
+            </div>
+        </div>
+
+        <div class="row box_1x">
+            <div class="col-md-12">
+                <label class="hightlight"><input type="checkbox" value="diemden" id="checkbox_diemden"/> {{translate(' Tôi muốn thêm điểm đến')}}</label>
+            </div>
+        </div>
+
+        <div id="div_add_new_diem_den" style="display:none;background-color: rgb(227, 227, 227);border-radius: 5px;">
+            <div class="row box_1x">
+                <div class="col-md-12 col-sm-6">
+                    <div class="col-md-2 padding_top">
+                        <p><strong>{{translate('Điểm đến')}}:</strong></p>
+                    </div>
+                    <div class="col-md-6 ">
+                        <input type="text" class="form-control b_" placeholder="{{translate('Điểm đến')}}" id="end_new" name="end_new" value="" style="border: 2px solid #848484;">
+                    </div>
+                    <div class="col-md-2 col-sm-5 col-xs-5 ">
+                        <a class="btn btn_orange save" id="add_new_end">{{translate('Thêm')}}</a>
+                    </div>
+                </div>
+            </div>
+            <div id="content_add_new_diem_den">
+                {% for val in tour_coo_item %}
+                <div class="row box_1x" id="item_coo_{{val.getId}}">
+                    <div class="col-md-12 col-sm-6">
+                        <div class="col-md-2 padding_top">
+                            <p><strong></strong></p>
+                        </div>
+                        <div class="col-md-6 ">
+                            <input type="text" class="form-control b_" placeholder="{{translate('Nhập điểm đến')}}" data-id="{{val.getId}}" id="end_new_item" name="end_new" value="{{val.getNameEnd}}">
+                        </div>
+                        <div class="col-md-2 col-sm-5 col-xs-5 ">
+                            <a class="btn btn_orange_outline save delete_new_end" id="delete_new_end-{{val.getId}}">{{translate('Xóa')}}</a>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>       
+    </div>
+</div>
+<div class="row box_1x" style="padding-top:30px">
+    <div class="col-md-4">
+        <a class="btn btn_blue active" id="lich_trinh_co_ban">
+            {{translate('Lịch trình cơ bản')}}
+        </a>
+    </div>
+    <div class="col-md-4">
+        <a class="btn btn_blue" id="lich_trinh_chi_tiet">
+            {{translate('Lịch trình chi tiết')}}
+        </a>
+    </div>
+</div>
+<div id="simple">
+    {{get_partial('trip_set_schedule_simple',{tour_id:tour_id,images:images,tour_detail:tour_detail})|raw}}
+</div>
+<div id="complicate" style="display: none">
+    <div class="success" id="popup_success_schedule_day" style="display:none"></div>
+    <div class="error" id="popup_error_schedule_day" style="display:none"></div>
+    <div class="text-center box_1x" id="div_next_prev_day">
+    </div>
+    <div class="padding_top">
+        {{get_partial('trip_manager_personal/creat_trip_step2_detailed_schedule',{tour_id:tour_id,tour_detail:tour_detail,schedule_day_one:schedule_day_one,vehicle_arr:vehicle_arr})|raw}}
+    </div>
+</div>
+<div class="row box_2x">
+    <div class="col-md-offset-8 col-md-4">
+        <a class="btn btn_blue" id="update_schedule">{{translate('Cập nhật')}}</a>
+    </div>
+</div>

@@ -1,0 +1,44 @@
+{% extends "layout.html"%}
+{% block body %}
+<link href="/assets/dichungdulich/css/experience.css?v={{random()}}" rel="stylesheet">
+<script type="text/javascript" src="/assets/js/typeahead.min.js?v={{random()}}"></script>
+<script type="text/javascript" src="/assets/dichungdulich/js/trip_accquirements.js?v={{random()}}"></script>
+<div class="white_bg box_3x">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-offset-2 col-md-8 text-center box_1x">
+                <h3 class="t1">{{translate('Trải nghiệm - Kinh nghiệm chuyến đi')}}</h3>
+                <h4><small>{{translate('Chia sẻ những trải nghiệm và kinh nghiệm du lịch thú vị tại những địa điểm mà bạn đã từng đặt chân đến cho cộng đồng để cùng khám phá và thưởng thức. Giá trị chuyến đi của bạn sẽ được nhân lên gấp bội')}}.</small></h4>
+            </div>
+            <div class="col-md-offset-4 col-md-4 box_1x">
+                {% if user_id %}
+                <a href="{% if not sf_user.isEn%}{{url_for('@create_accquirements')}}{% else %}{{url_for('@create_accquirements_en')}}{% endif %}" class="btn btn_lg btn_blue">{{translate('Chia sẻ')}}</a>
+                {% else %}
+                <button class="btn btn_lg btn_blue" id="login_experience">{{translate('Chia sẻ')}}</button>
+                {% endif %}
+            </div>
+        </div>
+        <div class="row box_2x">
+            <div class="col-md-3">
+                <div class="input-group">
+                  <input type="text"  data-provide="typeahead" autocomplete="on" class="form-control" placeholder="{{translate('Tìm kiếm địa điểm')}}" id="search_end" >
+                  <span class="input-group-btn">
+                    <button class="btn btn-default" type="button" id="click_button_search_end"  style="width:80px;  background-color: rgb(255, 91, 45);color: white;">{{translate('Tìm kiếm')}}</button>
+                  </span>
+                </div>
+            </div>
+            <div class="col-md-offset-7 col-md-2">
+                <select class="form-control" id="select_filter_experience">
+                    <option value="1">{{translate('Mới nhất')}}</option>
+                    <option value="2">{{translate('Lượt xem nhiều nhất')}}</option>
+                </select>
+            </div>
+        </div>
+        <div class="row" id="content_experience_loading">
+			{{get_partial('acquirements_list',{acquirements:acquirements})|raw}}
+		</div>
+        <center> <div class="loadMore ksb" id="showmorethisresult"> 
+        <img style="display:none" id="img_loading" align="absmiddle" src="/images/ajax-loader.gif"> {{translate('Hiển thị thêm')}} </div> </center>
+    </div>
+</div>
+{% endblock %}

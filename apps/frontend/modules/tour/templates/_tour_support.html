@@ -1,0 +1,11 @@
+<div class="row box_1x hotro">
+    <div class="col-md-12">
+        <h4>{{translate('Bao gồm')}}</h4>
+    </div>
+    {% for val in utilities%}
+    <div class="col-md-6 col-sm-6 col-xs-6">
+        <div class="phuongtien{{val.id}}"></div>
+        <div class="text">{{translate(val.name)}}</div>
+    </div>
+    {% endfor %}
+</div>

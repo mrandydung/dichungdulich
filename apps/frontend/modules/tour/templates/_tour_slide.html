@@ -1,0 +1,38 @@
+<div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+    <!-- Indicators -->
+    <ol class="carousel-indicators">
+        {% for key,val in img_slide%}
+            {% if key == '0'%}
+                <li data-target="#carousel-example-generic" data-slide-to="{{key}}" class="active"></li>
+                {% else%}
+                <li data-target="#carousel-example-generic" data-slide-to="{{key}}"></li>
+            {% endif%}
+        {% endfor %}
+    </ol>
+    <!-- Wrapper for slides -->
+    <div class="carousel-inner" role="listbox">
+        {% for key,val in img_slide%}
+        {% if key == '0'%}<div class="item active">{% else %}<div class="item">{% endif %}
+            <img src="http://gheptour.vn/thumbnail/index.php?src=/{{val.getImages}}&w=640&h=450&q=100" width="100%">
+            <div class="carousel-caption">
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    <!-- Controls -->
+    <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+        <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+    </a>
+    <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+        <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+    </a>
+    {% set discount = tour_detail.get_discount_tour %}
+    {% if discount[0] %}
+    <div class="sale">
+        <p class="giamgia">Giảm giá</p>
+        <p class="gia">{{discount[0]}}%</p>
+    </div>
+    {% endif %}
+</div>

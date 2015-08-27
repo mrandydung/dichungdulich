@@ -1,0 +1,74 @@
+<div id="weekly_start_time" style="display: none" >
+    <div class="row padding_top" >
+        <div class="col-md-12">
+            <p>{{translate('Khởi hành vào')}}:</p>
+        </div>
+        <div class="col-md-1">
+            <div data-toggle="buttons">
+                <label class="btn btn_blue_outline" id="label_checkbox_week_1">
+                    <input type="checkbox" autocomplete="off" value="1" class="checkbox_week" id="checkbox_week_1"> {{translate('CN')}}
+                </label>
+            </div>
+        </div>
+        <div class="col-md-1">
+            <div data-toggle="buttons">
+                <label class="btn btn_blue_outline" id="label_checkbox_week_2">
+                    <input type="checkbox" autocomplete="off" value="2" class="checkbox_week" id="checkbox_week_2">  {{translate('T2')}}
+                </label>
+            </div>
+        </div>
+        <div class="col-md-1">
+            <div data-toggle="buttons">
+                <label class="btn btn_blue_outline" id="label_checkbox_week_3">
+                    <input type="checkbox" autocomplete="off" value="3" class="checkbox_week" id="checkbox_week_3">  {{translate('T3')}}
+                </label>
+            </div>
+        </div>
+        <div class="col-md-1">
+            <div data-toggle="buttons">
+                <label class="btn btn_blue_outline" id="label_checkbox_week_4">
+                    <input type="checkbox" autocomplete="off" value="4" class="checkbox_week" id="checkbox_week_4"> {{translate('T4')}}
+                </label>
+            </div>
+        </div>
+        <div class="col-md-1">
+            <div data-toggle="buttons">
+                <label class="btn btn_blue_outline" id="label_checkbox_week_5">
+                    <input type="checkbox" autocomplete="off" value="5" class="checkbox_week" id="checkbox_week_5">  {{translate('T5')}}
+                </label>
+            </div>
+        </div>
+        <div class="col-md-1">
+            <div data-toggle="buttons">
+                <label class="btn btn_blue_outline" id="label_checkbox_week_6">
+                    <input type="checkbox" autocomplete="off" value="6" class="checkbox_week" id="checkbox_week_6">  {{translate('T6')}}
+                </label>
+            </div>
+        </div>
+        <div class="col-md-1">
+            <div data-toggle="buttons">
+                <label class="btn btn_blue_outline" id="label_checkbox_week_7">
+                    <input type="checkbox" autocomplete="off" value="7" class="checkbox_week" id="checkbox_week_7">  {{translate('T7')}}
+                </label>
+            </div>
+        </div>
+    </div>
+    <div class="row padding_top">
+        <div class="col-md-3">
+            <select class="form-control hour_" placeholder="Giờ đi" id="creat_trip_form_weekly_start_hour">
+             <option value="1000">{{translate('Chọn giờ đi')}}</option>
+                {% for val in StaticCall('HourPeer','getAll')%}
+                    <option value="{{val.getValue}}">{{translate(val.getName)}}</option>
+                {% endfor%}
+            </select>
+        </div>
+        <div class="col-md-3">
+            <select class="form-control" id="creat_trip_form_weekly_start_time_category_day">
+                <option value="0">{{translate('Tour kéo dài')}}</option>
+                {% for val in StaticCall('TourTimeCategoryDayPeer','getAll') %}
+                 <option value="{{val.getVal}}">{{val.getShowName}}</option>
+                {% endfor %}
+            </select>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,19 @@
+<div class="box_1x">
+	<h4>{{translate('Phương thức thanh toán')}}</h4>
+	<hr/>
+	<p>{{translate('Mã giao dịch')}}: <strong>{{booking_content['code_transaction']}}</strong></p>
+	<div role="tabpanel">
+		<ul class="nav nav-tabs" role="tablist">
+			<li role="presentation" class="active"><a href="#dichung" aria-controls="home" role="tab" data-toggle="tab">{{translate('Thanh toán đảm bảo')}}</a></li>
+			<li role="presentation"><a href="#tructiep" aria-controls="profile" role="tab" data-toggle="tab">{{translate('Thanh toán trực tiếp với chủ dịch vụ')}}</a></li>
+		</ul>
+		<div class="tab-content">
+			<div role="tabpanel" class="tab-pane active" id="dichung">
+				{{get_partial('booking_payment_guarantee',{tour_detail:tour_detail,paypal:paypal,user_sell_info:user_sell_info})|raw}}
+			</div>
+			<div role="tabpanel" class="tab-pane" id="tructiep">
+				{{get_partial('booking_payment_direct',{tour_detail:tour_detail,paypal:paypal,user_sell_info:user_sell_info})|raw}}
+			</div>
+		</div>
+	</div>
+</div>

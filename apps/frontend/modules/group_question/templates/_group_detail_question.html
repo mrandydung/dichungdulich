@@ -1,0 +1,24 @@
+{% for val in question_group %}
+<div class="box_1x">
+	<div class="question">
+		<p class="text-uppercase"><a href="{{val['url']}}"><strong>{{val['title']}}</strong></a></p>
+		<div class="ava_user">
+			<a href="{{val['url_user']}}">
+				<img src="{{val['avatar']}}" class="img-circle" width="100%"/>
+			</a>
+		</div>
+		<div class="user_info">
+			<p class="text-uppercase"><a href="{{val['url_user']}}"><small>{{val['fullname']}}</small></a></p>
+			<h6><small>{{val['time']}}</small></h6>
+		</div>
+		<hr/>
+		<p style="overflow-wrap-break-word">{{val['detail']|raw}}</p>
+		<div class="text-right padding_top">
+			<a class="like_question" id="like_question_main" data-id="{{val['id']}}"><small id="lable_like_question_main_{{val['id']}}">{{val['like']}} </small> <span> | </span> {{translate('Thích')}}</a>
+			<a class="share_question"><small>{{val['view']}}</small> <span> | </span> {{translate('Lượt xem')}}</a>
+			<a class="answer_question" href="{{val['url']}}" style="background-color: #FF5B2B"><small>{{val.count_answer}}</small> <span> | </span>{{translate(' Trả lời')}}</a>
+			<a class="answer_question" href="{{val['url']}}">{{translate('Chi tiết')}}</a>
+		</div>
+	</div>
+</div>
+{% endfor %}

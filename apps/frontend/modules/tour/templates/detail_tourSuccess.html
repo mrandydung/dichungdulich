@@ -1,0 +1,52 @@
+{% extends "layout.html"%}
+{% block body %}
+<script type="text/javascript">
+    $(document).ready(function(){
+        {% if booking_content|length%}
+            $('#date_picker').val('');
+            $('#select_adult').val(0);
+        {% endif %}
+    });
+</script>
+
+<link href="/assets/dichungdulich/css/tour.css?v={{random()}}" rel="stylesheet">
+<link href="/assets/dichungdulich/css/profile.css?v={{random()}}" rel="stylesheet">
+<link href="/assets/dichungdulich/css/experience.css?v={{random()}}" rel="stylesheet">
+<script type="text/javascript" src="/assets/dichungdulich/js/tour_detail.js?v={{random()}}"></script>
+<div class="gray_bg box_2x">
+    <div class="container tour_2">
+        <div class="row">
+            <div class="col-md-12 title">
+                <span class="h3 t1">{{tour_detail.getTitle}}</span><br>
+                <div class="like_btn">
+                    {{get_partial('home/js_fb_gg',{url:url})|raw}}
+                </div>
+            </div>
+            <div class="col-md-8 box_1x">
+                {{get_partial('tour_slide',{img_slide:img_slide,tour_detail:tour_detail})|raw}}
+                {{get_partial('tour_join',{tour_detail:tour_detail,user_join:user_join})|raw}}
+                {{get_partial('tour_info',{tour_detail:tour_detail})|raw}}
+                {{get_partial('tour_support',{tour_detail:tour_detail,utilities:utilities})|raw}}
+                {{get_partial('tour_decription',{tour_detail:tour_detail})|raw}}
+                {% if not schedule_day|length%}
+                    {{get_partial('tour_schedule',{tour_detail:tour_detail})|raw}}
+                {% else %}
+                    {{get_partial('tour_schedule_day',{tour_detail:tour_detail,schedule_day:schedule_day})|raw}}
+                {% endif %}
+                {{get_partial('tour_term',{tour_detail:tour_detail})|raw}}    
+                {{get_partial('tour_comment',{comment_tour:comment_tour,user_id:user_id,tour_id:tour_id})|raw}}
+            </div>
+            <div class="col-md-4">
+                {% if tour_detail.getTourTypeId == '1'%}
+                    {{get_partial('tour_booking_box_personal',{user_id:user_id,tour_detail:tour_detail,str_date_now:str_date_now,str_date_start:str_date_start,str_date_end:str_date_end,date_week_arr:date_week_arr,count:count,booking_end:booking_end})|raw}}  
+                {% endif %}
+                {% if tour_detail.getTourTypeId == '2'%}
+                    {{get_partial('tour_booking_box',{user_id:user_id,tour_detail:tour_detail,str_date_now:str_date_now,str_date_start:str_date_start,str_date_end:str_date_end,date_week_arr:date_week_arr,count:count,booking_end:booking_end})|raw}}  
+                {% endif %}
+                {{get_partial('tour_poster',{tour_detail:tour_detail,user_id:user_id,user_id_service:user_id_service})|raw}}
+                {{get_partial('tour_poster_info',{tour_detail:tour_detail,user_id_service:user_id_service})|raw}}
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %} 

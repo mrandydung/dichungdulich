@@ -1,0 +1,18 @@
+{% extends "layout.html"%}
+{% block body %}
+<link href="/assets/dichungdulich/css/profile.css" rel="stylesheet">
+	<div class="gray_bg box_3x">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3 profile">
+	           {{get_partial('user_profile',{user:user})|raw}}
+			</div>
+            <div class="col-md-9 notifi">
+                {{get_partial('user_message_new',{message_new:message_new})|raw}}
+                {% include '_user_message_old.html' %}
+            </div>
+        </div>
+    </div>
+</div>
+{{get_partial('reply_message_modal')|raw}}
+{% endblock %}

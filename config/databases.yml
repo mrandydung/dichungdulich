@@ -1,0 +1,48 @@
+all:
+  propel:
+    class:      sfPropelDatabase
+    param:
+     dsn:  mysql://root:@localhost/dichungdulich
+     encoding:   utf8
+  dichung_new:
+    class:      sfPropelDatabase
+    param:
+     dsn:  mysql://root:@localhost/dichung_new
+     encoding:   utf8
+  giaothong:
+    class:      sfPropelDatabase
+    param:
+      phptype:  mysql
+      host:     123.30.187.189
+      database: giaothong
+      username: giaothong
+      password: giaothong123@
+      encoding: utf8
+  dichung_taxi:
+    class:      sfPropelDatabase
+    param:
+      phptype:  mysql
+      host:     123.30.187.190
+      database: dichung_taxi
+      username: local
+      password: 332211123
+      encoding: utf8
+      persistent: true
+  app_location:
+    class:      sfPropelDatabase
+    param:
+      phptype:  mysql
+      host:     123.30.187.189
+      database: app_location
+      username: local
+      password: 332211123
+      encoding: utf8
+  mail:
+    class:      sfPropelDatabase
+    param:
+      phptype:  mysql
+      host:     123.30.187.190
+      database: mail_server
+      username: dichung
+      password: dichung123@
+      encoding: utf8

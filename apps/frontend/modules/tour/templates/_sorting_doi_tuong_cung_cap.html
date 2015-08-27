@@ -1,0 +1,20 @@
+<div class="filter">
+  <div class="panel-group" id="accordion">
+    <div class="panel panel-default">
+        <div class="panel-heading head_box" data-toggle="collapse" >
+             <h4 class="panel-title">
+                <a href="#">{{translate('Đối tượng cung cấp')}}</a>
+            </h4>
+        </div>
+        <div class="panel-body">
+          <div class="body">
+            <select class="form-control" name="doi_tuong_tour_search" id="doi_tuong_tour_search">
+              <option value="0">{{translate('Chọn đối tượng cung cấp')}}</option>
+              <option value="1" {% if tour_type_id == '1'%}{{'selected'}}{% endif %}>{{translate('Tìm bạn đi chung')}}</option>
+              <option value="2">{{translate('Tour dịch vụ')}}</option>
+            </select>         
+          </div> 
+        </div>
+      </div>
+  </div>
+</div>

@@ -1,0 +1,144 @@
+.timkiem_{
+    background-color: rgba(0,0,0,0.9);
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+.view{float: right;margin-right: 10px}
+.view_1{
+
+  background-image: url("../img/view.png");
+  background-position: 0 0px;
+  width: 15px;
+  height: 15px;
+  display: block;
+  margin-right: 5px;
+}
+.view_2{
+    background-image: url("../img/view.png");
+    background-position: -18px 0;
+    width: 15px;
+    height: 15px;
+    display: block;
+    margin-right: 5px;
+}
+.view_2.active_2{
+    -ms-background-position:-18px -15px;
+    background-position:-18px -15px;
+}
+.view_1.active_2{
+
+        -ms-background-position:0 -15px;
+    background-position:0 -15px;
+}
+
+.sort{
+    border: none;
+    color: #ff5b2d;
+    background-color: transparent;
+    float: right;
+    text-align: right;
+}
+.filter{
+    background-color: #fff; /* layer fill content */
+    -moz-box-shadow: 0 0 3px 0 rgba(0,0,0,.2); /* outer glow */
+    -webkit-box-shadow: 0 0 3px 0 rgba(0,0,0,.2); /* outer glow */
+    box-shadow: 0 0 3px 0 rgba(0,0,0,.2); /* outer glow */
+}
+.filter .head_box{
+    background-color: #0288d1;
+    color: #ffffff;
+    padding: 10px;
+}
+.filter .head_box h3{font-weight: 300;margin-bottom: 0}
+.filter .body{padding: 5px}
+
+.dai{color: white;text-shadow: 0 1px 3px rgba(255, 255, 255, 0.40);}
+
+.tour{background-color: #ffffff}
+.tour_ava_2{width: 35%;float: left;}
+.tour_name_2{float: left;padding: 10px 0 0 10px; width: 66%}
+.tour_name_2 .name{text-transform: uppercase; margin-bottom: 0; color: #757575;font-weight: 500; font-size: 18px}
+.tour_name_2 .time{font-size: 12px; color: #a8a8a8; font-weight: 300; margin-bottom: 0}
+.tour_name_2{float: left; width: 65%; padding-left: 10px}
+.tour_name_2 .user_ava{width: 10%}
+.tour_name_2 .cm{  width: 72%;float: left;font-size: 12px; margin-bottom: -10px}
+.tour_name_2 .tour_gia{margin-right: 10px;}
+
+
+.rating{height:14px;overflow:hidden;
+    position:relative;width:82px
+}
+.rating.with-num{width:140px}
+.star-img{background:url("/images/stars_rate.png") no-repeat scroll 0 0 transparent;display:block;height:100%;width:100%}.rating .stars-0{background-position:-3px -3px}.rating .stars-1{background-position:-3px -21px}.rating .stars-1-half{background-position:-3px -39px}.rating .stars-2{background-position:-3px -58px}.rating .stars-2-half{background-position:-3px -74px}.rating .stars-3{background-position:-3px -93px}.rating .stars-3-half{background-position:-3px -111px}
+.rating .stars-4{background-position:-3px -129px}
+.rating .stars-4-half{background-position:-3px -147px}
+.rating .stars-5{background-position:-3px -165px}
+.rating-small{float:left;height:9px;overflow:hidden;position:relative;width:49px}
+.rating-small .stars-0{background-position:-3px -183px}
+.rating-small .stars-1{background-position:-3px -195px}
+.rating-small .stars-1-half{background-position:-3px -207px}
+.rating-small .stars-2{background-position:-3px -219px}
+.rating-small .stars-2-half{background-position:-3px -231px}
+.rating-small .stars-3{background-position:-3px -243px}
+.rating-small .stars-3-half{background-position:-3px -255px}
+.rating-small .stars-4{background-position:-3px -267px}
+.rating-small .stars-4-half{background-position:-3px -279px}
+.rating-small .stars-5{background-position:-3px -291px}
+.rating-large{height:21px;overflow:hidden;position:relative;width:200px}
+.rating-large .stars-0{background-position:-3px -303px}
+.rating-large .stars-1{background-position:-3px -327px}
+.rating-large .stars-1-half{background-position:-3px -351px}
+.rating-large .stars-2{background-position:-3px -375px}
+.rating-large .stars-2-half{background-position:-3px -399px}
+.rating-large .stars-3{background-position:-3px -423px}
+.rating-large .stars-3-half{background-position:-3px -447px}
+.rating-large .stars-4{background-position:-3px -471px}
+.rating-large .stars-4-half{background-position:-3px -495px}
+.rating-large .stars-5{background-position:-3px -519px}
+
+  .panel-heading.accordion-toggle:before {
+    /* symbol for "opening" panels */
+    font-family:'Glyphicons Halflings';
+    /* essential for enabling glyphicon */
+    content:"\e114";
+    /* adjust as needed, taken from bootstrap.css */
+    float: right;
+    /* adjust as needed */
+    color: white;
+  /*  padding: 8px;*/
+}
+.panel-heading.accordion-toggle.collapsed:before {
+    /* symbol for "collapsed" panels */
+    content:"\e080";
+   /* padding: 8px;*/
+    /* adjust as needed, taken from bootstrap.css */
+}
+.panel-heading {
+    cursor: pointer;
+}
+.panel-title{
+/*      padding: 10px;*/
+  font-size: 14
+}
+
+.activePaging {
+  color: #fff!important;
+  background-color: #FF5B2D!important;
+   border-radius:5px;
+}
+.nav>li>a:hover{
+    background-color: rgb(255, 91, 45);
+    color: white;
+    border-radius:5px;
+}
+.paging_li_a{
+      width: 40px;
+  margin-right: 10px;
+  margin-bottom: 5px;
+  border-radius: 5px;
+  color: rgb(255, 91, 45);
+  border-color: rgb(255, 91, 45);
+}
+.panel-body{
+  padding: 5px;
+}

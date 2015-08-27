@@ -1,0 +1,18 @@
+generator:
+  class:              sfPropelAdminGenerator
+  param:
+    model_class:      HomeDiemDenItemPartner
+    theme:            default
+    list:
+      object_actions:
+        _edit:         ~
+        _delete:       ~
+      actions:
+        _create:       ~
+      display:  [id,region,area,City,name,address,keyword,img_new,google_position,priority,on_homepage,created_at]
+      filters : [name,region_id,area_id,city_id,on_homepage]
+      sort : [id,desc]
+    edit:
+      display : [region_id,area_id,city_id,name,address,img,google_position,keyword,on_homepage,priority,created_at]
+      fields:
+        img: { help: 310x177 , type: admin_input_file_tag, upload_dir: home_diem_den_item_partner, params: include_link=home_diem_den_item_partner include_remove=true}

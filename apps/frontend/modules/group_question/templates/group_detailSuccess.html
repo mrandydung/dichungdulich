@@ -1,0 +1,68 @@
+{% extends "layout.html"%}
+{% block body %}
+<script src="/js/jquery-ui.js"></script>
+<script src="/js/datepicker-vi.js"></script>
+<script type="text/javascript" src="/assets/js/typeahead.min.js"></script>
+<link href="/assets/dichungdulich/css/group.css?v={{random()}}" rel="stylesheet">
+<script type="text/javascript" src="/assets/dichungdulich/js/group_detail_question.js?v={{random()}}"></script>
+<script type="text/javascript">
+    $(document).ready(function(){
+        $('#keyword').typeahead({
+        name: 'search_keyword',
+        hint: true,
+        highlight: true,
+        remote: {
+          cache: true,
+          url: '/group_question/search_keyword?search_keyword=%QUERY',
+          filter: function (parsedResponse) {
+          return parsedResponse;
+          }
+        }
+    });
+    });
+</script>
+<form method="POST" action="{{question_group_category.url_find_question_group_category}}">
+    <div class="white_bg">
+        <img src="http://gheptour.vn/thumbnail/index.php?src={{question_group_category.getImages}}&w=1349&h=409&q=100" width="100%" class="group_banner">
+        <div class="intro_group">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-offset-2 col-md-8 text-center box_1x">
+                        <h1>{{question_group_category.getShowName}}</h1>
+                        <p class="hidden-xs">{{question_group_category.getSlogen}}</p>
+                    </div>
+    				<div class="col-md-offset-1 col-md-6">
+    					<input class="form-control" value="{{keyword}}" name="keyword" id="keyword" autocomplete="off"/>
+    				</div>
+    				<div class="col-md-2">
+    					<button class="btn btn_orange" type="submit">{{translate('Tìm kiếm')}}</button>
+    				</div>
+    				<div class="col-md-2">
+    					<a class="btn btn_blue" href="{% if not sf_user.isEn %}{{url_for('@create_question')}}{% else %}{{url_for('@create_question_en')}}{% endif%}">{{translate('Đặt câu hỏi')}}</a>
+    				</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="white_bg box_2x">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8 question_list">
+                    <div class="title">{{translate('Hỏi đáp')}}</div>
+        			<div class="col-md-offset-6 col-md-3">
+        			   <select class="form-control" name="filter_question" id="filter_question"  onchange="this.form.submit()">
+                            <option value="1" {% if filter_question == '1'%}{{'selected'}}{% endif %}>{{translate('Mới nhất')}}</option>
+                            <option value="2" {% if filter_question == '2'%}{{'selected'}}{% endif %}>{{translate('Xem nhiều nhất')}}</option>
+                        </select>
+        			</div>
+                    <div class="clear"></div>
+                    {{get_partial('group_detail_question',{question_group:question_group})|raw}}
+                </div>
+                <div class="col-md-4 top_list">
+        			{{get_component('group_question','group_detail_top')|raw}}                
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+{% endblock %}

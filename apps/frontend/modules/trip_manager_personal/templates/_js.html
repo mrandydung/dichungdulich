@@ -1,0 +1,33 @@
+<script>	
+	 $(document).ready(function(){		
+        $('input[type="checkbox"]').click(function(){
+            if($(this).attr("value")=="add_date"){
+                $(".add_date").toggle();
+            }
+        });
+		$('input[type="checkbox"]').click(function(){
+            if($(this).attr("value")=="child-price"){
+                $("#child-price").toggle();
+            }
+        });
+		$('input[type="checkbox"]').click(function(){
+            if($(this).attr("value")=="day-discount"){
+                $("#day-discount").toggle();
+            }
+        });
+		$('input[type="checkbox"]').click(function(){
+            if($(this).attr("value")=="number-discount"){
+                $("#number-discount").toggle();
+            }
+        });
+		$('input[type="checkbox"]').click(function(){
+            if($(this).attr("value")=="ngansach"){
+                $("#ngansach").slideToggle(400);
+            }
+        });
+     
+		$("#reg-email").click(function(){
+			$("#reg-email_show").slideToggle(400);
+		});
+	});
+</script>

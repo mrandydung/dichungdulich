@@ -1,0 +1,14 @@
+generator:
+  class:              sfPropelAdminGenerator
+  param:
+    model_class:      PageCategory
+    theme:            default
+    list:
+      object_actions:
+        _edit:         ~
+        _delete:       ~
+      actions:
+        _create:       ~
+    edit:
+      fields:
+        img_seo: { type: admin_input_file_tag, upload_dir: page, params: include_link=home include_remove=true }

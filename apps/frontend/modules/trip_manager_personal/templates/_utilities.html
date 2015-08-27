@@ -1,0 +1,22 @@
+<div class="success" id="popup_success_utilities" style="display: none"></div>
+<div class="error" id="popup_error_utilities" style="display: none"></div>
+<div class="row box_1x">
+	<div class="col-md-12">
+		<p class="hightlight">{{translate('Tối muốn đi với')}}:<span class="red">(*)</p>
+	</div>
+	{% for val in StaticCall('TourOptionGenderPeer', 'getAll')%}
+	<div class="col-md-3"><input type="checkbox" value="{{val.getId}}" id="ad_Checkbox_optionGender{{val.getId}}" class="ad_Checkbox_optionGender" name="{{val.getName}}"> {{val.getShowName}}</div>
+	{% endfor %}
+</div>
+
+<div class="row box_1x">
+	{{get_partial('trip_manager_personal/check_radio_utilities')|raw}}
+	{% for val in StaticCall('TourUtilitiesPeer', 'getAll')%}
+	<div class="col-md-3"><input type="checkbox" value="{{val.getId}}" id="ad_Checkbox{{val.getId}}" class="ads_Checkbox" name="{{val.getName}}"> {{val.getShowName}}</div>
+	{% endfor %}
+</div>
+<div class="row box_2x">
+	<div class="col-md-offset-8 col-md-4">
+		<a class="btn btn_orange" id="update_utilities">{{translate('Cập nhật')}}</a>
+	</div>
+</div>

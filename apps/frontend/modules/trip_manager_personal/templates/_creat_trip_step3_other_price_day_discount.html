@@ -1,0 +1,24 @@
+<div class="box_1x">
+	<p><input type="checkbox" value="day-discount" id="checkbox_discount_tour_day"> {{translate('Giảm giá theo ngày')}}</p>
+	<div class="row" id="day-discount">
+		<div class="col-md-2 col-sm-2 col-xs-3 padding_top">
+			<p>{{translate('Giảm giá')}}</p>
+			<select class="form-control" id="select_discount_tour_day">
+				<option value="5">5%</option>
+				<option value="10">10%</option>
+				<option value="15">15%</option>
+				<option value="20">20%</option>
+				<option value="25">25%</option>
+				<option value="30">30%</option>
+			</select>
+		</div>
+		<div class="col-md-5 col-sm-5 padding_top">
+			<p>{{translate('Ngày bắt đầu')}}:</p>
+			<input class="form-control time_" name="creat_trip_day_discount[start_date]" id="creat_trip_day_discount_start_date"/>
+		</div>
+		<div class="col-md-5 col-sm-5 padding_top">
+			<p>{{translate('Ngày kết thúc')}}:</p>
+			<input class="form-control time_" name="creat_trip_day_discount[end_date]" id="creat_trip_day_discount_end_date"/>
+		</div>
+	</div>
+</div>

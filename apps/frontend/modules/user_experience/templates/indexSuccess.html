@@ -1,0 +1,29 @@
+{% extends "layout.html"%}
+{% block body %}
+<script type="text/javascript" src="/assets/dichungdulich/js/manager_experience.js"></script>
+<link href="/assets/dichungdulich/css/profile.css" rel="stylesheet">
+<link href="/assets/dichungdulich/css/experience.css" rel="stylesheet">
+<div class="gray_bg box_3x">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3 profile">
+				{{get_partial('user/user_profile',{user:user})|raw}}
+			</div>
+            <div class="col-md-9 edit-profile">
+				<div class="row">
+					<div class="col-md-9">
+						<h3 class="t1">Trải nghiệm</h3>
+						<h4 style="text-align: justify"><small>Chia sẻ những trải nghiệm du lịch thú vị tại những địa điểm mà bạn đã từng đặt chân đến cho cộng đồng để cùng khám phá và thưởng thức. Giá trị chuyến đi của bạn sẽ được nhân lên gấp bội.</small></h4>					
+					</div>
+					<div class="col-md-3 box_3x">
+						<a href="{{url_for('@create_experience')}}" class="btn btn_blue">Chia sẻ trải nghiệm</a>
+					</div>
+				</div>
+				<div class="row">
+					{{get_partial('experience_list',{experience:experience})|raw}}
+				</div>
+			</div>
+        </div>
+    </div>
+</div>
+{% endblock %} 

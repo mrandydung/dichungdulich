@@ -1,0 +1,15 @@
+<!-- _tour_info.html -->
+<div class="row">
+	<div class="col-md-12">
+		<h4>{{translate('Thông tin tour')}}</h4>
+	</div>	
+	<div class="col-md-6 col-sm-6">						
+		<p><span class="ditu"></span>{{translate('Đi từ')}} :  {{tour_detail.getStart}}</p>
+		<p><span class="diden"></span>{{translate('Đến')}} : {{tour_detail.getEnd}}</p>
+		
+	</div>
+	<div class="col-md-6 col-sm-6">
+		<p><span class="ngaykhoihanh"></span>{{translate('Ngày khởi hành')}} : {{tour_detail.get_ngay_khoi_hanh}}</p>
+		<p><span class="thoigian"></span>{{translate('Tour kéo dài')}} : {{tour_detail.TourTimeCategoryDay.getShowName}}</p>
+	</div>
+</div>

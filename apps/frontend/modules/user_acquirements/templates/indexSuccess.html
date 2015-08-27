@@ -1,0 +1,29 @@
+{% extends "layout.html"%}
+{% block body %}
+<script type="text/javascript" src="/assets/dichungdulich/js/manager_acquirements.js?v=1"></script>
+<link href="/assets/dichungdulich/css/profile.css?v=2" rel="stylesheet">
+<link href="/assets/dichungdulich/css/experience.css?v=3" rel="stylesheet">
+<div class="gray_bg box_3x">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3 profile">
+				{{get_partial('user/user_profile',{user:user})|raw}}
+			</div>
+            <div class="col-md-9 edit-profile">
+				<div class="row">
+					<div class="col-md-9">
+						<h3 class="t1">{{translate('Kinh nghiệm')}}</h3>
+						<h4 style="text-align: justify"><small>{{translate('Chia sẻ những kinh nghiệm du lịch thú vị tại những địa điểm mà bạn đã từng đặt chân đến cho cộng đồng để cùng khám phá và thưởng thức. Giá trị chuyến đi của bạn sẽ được nhân lên gấp bội')}}.</small></h4>					
+					</div>
+					<div class="col-md-3 box_3x">
+						<a href="{% if not sf_user.isEn%}{{url_for('@create_accquirements')}}{% else%}{{url_for('@create_accquirements_en')}}{% endif %}" class="btn btn_blue">{{translate('Chia sẻ kinh nghiệm')}}</a>
+					</div>
+				</div>
+				<div class="row">
+					{{get_partial('acquirements_list',{acquirement:acquirement})|raw}}
+				</div>
+			</div>
+        </div>
+    </div>
+</div>
+{% endblock %} 

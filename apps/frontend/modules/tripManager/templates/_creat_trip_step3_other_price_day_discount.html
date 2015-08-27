@@ -1,0 +1,76 @@
+<script type="text/javascript">
+$(document).ready(function(){
+    if({{tour_discount_day|length}}){
+    	$('#checkbox_discount_tour_day').click();
+    }
+});
+</script>
+<div class="row box_1x">
+    <div class="col-md-12">
+        <label class="hightlight"><input type="checkbox" value="checkbox_discount_tour_day" id="checkbox_discount_tour_day"/> {{translate(' Tôi muốn tăng giảm giá theo sự kiện')}}</label>
+    </div>
+</div>
+<div id="div_checkbox_discount_tour_day" style="display:none;border-radius: 5px; background-color: rgb(227, 227, 227);">
+	<div class="row box_1x">
+		<div class="col-md-12 col-sm-6">
+			<div class="col-md-2 col-sm-2 col-xs-3 ">
+				<select class="form-control" id="select_discount_tour_day" style="border: 2px solid rgb(132, 132, 132);padding: 0px">
+					<option value="0">{{translate('Mức giá')}}</option>
+					{% for val in 1..60 %}
+					<option value="{{val}}">{{translate('Tăng')}} {{val}}%</option>
+					{% endfor %}
+					{% for val in 1..60 %}
+					<option value="-{{val}}">{{translate('Giảm')}} {{val}}%</option>
+					{% endfor %}
+				</select>
+			</div>
+			<div class="col-md-2 col-sm-3 ">
+				<select class="form-control" id="select_discount_event" style="border: 2px solid rgb(132, 132, 132);padding: 0px">
+					<option value="0">{{translate('Sự kiện')}}</option>
+					{% for val in StaticCall('TourDiscountEventTypePeer','get_all')%}
+					<option value="{{val.getId}}">{{val.getShowName}}</option>
+					{% endfor %}
+				</select>
+			</div>
+			<div class="col-md-3 col-sm-3 ">
+				<input readonly style="border: 2px solid rgb(132, 132, 132);cursor: -webkit-grab;background-color: white" class="form-control time_" name="creat_trip_day_discount[start_date]" id="creat_trip_day_discount_start_date" placeholder="{{translate('Ngày bắt đầu')}}"/>
+			</div>
+			<div class="col-md-3 col-sm-3 ">
+				<input readonly style="border: 2px solid rgb(132, 132, 132);cursor: -webkit-grab;background-color: white" class="form-control time_" name="creat_trip_day_discount[end_date]" id="creat_trip_day_discount_end_date"  placeholder="{{translate('Ngày kết thúc')}}"//>
+			</div>
+			<div class="col-md-2 col-sm-3 col-xs-3 ">
+	            <a class="btn btn_orange save" id="add_new_price_discount_tour_day">{{translate('Lưu')}}</a>
+	      	</div>
+		</div>
+	</div>
+	{% for val in tour_discount_day %}
+	<div class="row box_1x" id="item_tour_discount_day-{{val.getId}}">
+		<div class="col-md-12 col-sm-6">
+			<div class="col-md-2 col-sm-2 col-xs-3 ">
+				<select class="form-control" id="select_discount_tour_day_add_new" data-id="{{val.getId}}" style="padding: 0px">
+					{% for value in 1..60%}
+					<option value="{{value}}" {% if value == val.getDiscount%}{{'selected'}}{% endif %}>{{translate('Tăng')}} {{value}}%</option>
+					{% endfor %}
+					{% for value in 1..60%}
+					<option value="-{{value}}" {% if value == -val.getDiscount%}{{'selected'}}{% endif %}>{{translate('Giảm')}} {{value}}%</option>
+					{% endfor %}
+				</select>
+			</div>
+			<div class="col-md-2 col-sm-3 ">
+				<select class="form-control" id="select_discount_event_add_new" >
+					<option value="{{val.getValue}}">{{val.getName}}</option>
+				</select>
+			</div>
+			<div class="col-md-3 col-sm-3 ">
+				<input readonly value="{{val.getDateStart|date('d-m-Y')}}" style="cursor: -webkit-grab;background-color: white" class="form-control time_" name="day_discount_start_date_new_add" id="day_discount_start_date_new_add" placeholder="{{translate('Ngày bắt đầu giảm giá')}}"/>
+			</div>
+			<div class="col-md-3 col-sm-3 ">
+				<input readonly value="{{val.getDateEnd|date('d-m-Y')}}" style="cursor: -webkit-grab;background-color: white" class="form-control time_" name="day_discount_end_date_new_add" id="day_discount_end_date_new_add"  placeholder="{{translate('Ngày kết thúc giảm giá')}}"//>
+			</div>
+			<div class="col-md-2 col-sm-3 col-xs-3 ">
+	              <a class="btn btn_orange_outline save delete_new_price_discount_tour_day"  id="delete_new_price_discount_tour_day-{{val.getId}}">{{translate('Xóa')}}</a>
+	      	</div>
+		</div>
+	</div>
+	{% endfor %}
+</div>

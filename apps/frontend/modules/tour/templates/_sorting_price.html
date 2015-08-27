@@ -1,0 +1,51 @@
+<div class="filter">
+   <div class="panel-group" id="accordion">
+      <div class="panel panel-default">
+          <div class="panel-heading head_box" data-toggle="collapse" >
+               <h4 class="panel-title">
+                  <a href="#">
+                     {{translate('Thời gian')}}
+                  </a>
+              </h4>
+          </div>
+          <div>
+              <div class="panel-body">
+                <div class="body">
+                     <select class="form-control" name="time_tour_search" id="time_tour_search">
+                        <option value="0">{{translate('Thời gian')}}</option>
+                        {% for val in StaticCall('TourTimeCategoryDayPeer','getAll')%}
+                        <option value="{{val.getVal}}">{{val.getShowName}}</option>
+                        {% endfor %}
+                      
+                     </select>
+                  </div>
+              </div>
+          </div>
+        </div>
+   </div>
+</div>
+<div class="filter">
+  <div class="panel-group" id="accordion">
+    <div class="panel panel-default">
+        <div class="panel-heading head_box" data-toggle="collapse" >
+             <h4 class="panel-title">
+                <a href="#">{{translate('Giá tour')}}</a>
+            </h4>
+        </div>
+        <div class="panel-body">
+          <div class="body">
+            <select class="form-control" name="price_tour_search" id="price_tour_search">
+              <option value="0">{{translate('Khoảng giá')}}</option>
+              <option value="1"> < {{translate('1 triệu')}}</option>
+              <option value="2">{{translate('1 triệu - 2 triệu')}}</option>
+              <option value="3">{{translate('2 triệu - 3 triệu')}}</option>
+              <option value="4">{{translate('3 triệu - 4 triệu')}}</option>
+              <option value="5">{{translate('4 triệu - 5 triệu')}}</option>
+              <option value="6">{{translate('5 triệu - 6 triệu')}}</option>
+              <option value="7"> > {{translate('6 triệu')}}</option>
+            </select>         
+          </div> 
+        </div>
+      </div>
+  </div>
+</div>

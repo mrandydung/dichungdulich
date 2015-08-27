@@ -1,0 +1,152 @@
+{{get_partial('js')|raw}}
+<style type="text/css">
+    .form-control-2{
+        background-color: white !important;
+        border-radius: 5px !important;
+        border: 1px solid #ccc !important;
+    }
+</style>
+
+<div class="row">
+	<div class="col-md-12">
+		<h4>{{translate('Thông tin tài khoản')}}</h4>
+	</div>
+	<div class="col-md-2 col-sm-2 col-xs-3">
+		<p>{{translate('Họ tên')}}:</p>
+	</div>
+	<div class="col-md-4 col-sm-4 col-xs-6">
+		<input class="form-control" value="{{user.getFullname}}" name="fullname">
+	</div>
+	<div class="col-md-3 col-sm-2 col-xs-3">
+	<p><a id="click_upload_avatar">{{translate('Thay ảnh đại diện')}}</a></p>
+		<input type="file" class="upload" id="user_avatar" name="user[avatar]" title="Ảnh dung lượng lớn nhất 2Mb (jpg, png, gif)" alt="Ảnh dung lượng lớn nhất 2Mb (jpg, png, gif)" style="  opacity: 0; position: absolute;height: 100%">
+	</div>
+</div>
+<div class="row padding_top">
+	<div class="col-md-2 col-sm-2 col-xs-3">
+		<p>{{translate('Mật khẩu')}}:</p>
+	</div>
+	<div class="col-md-4 col-sm-4 col-xs-6">
+		<p>********</p>
+	</div>
+	<div class="col-md-2 col-sm-2 col-xs-3">
+		<p><a data-toggle="modal" data-target="#change-password" id="myModal">{{translate('Đổi mật khẩu')}}</a></p>
+	</div>
+</div>
+
+<div class="row padding_top">
+	<div class="col-md-2 col-sm-2 col-xs-3">
+		<p>Email:</p>
+	</div>
+	<div class="col-md-4 col-sm-4 col-xs-6">
+		<input class="form-control" value="{{user.getEmail}}" readonly>
+	</div>
+</div>
+<div class="row padding_top">
+	<div class="col-md-2 col-sm-2 col-xs-3">
+		<p>Skype:</p>
+	</div>
+	<div class="col-md-4 col-sm-4 col-xs-6">
+		<input class="form-control" name="skype" id="skype" value="{{user.getSkypeUrl}}">
+	</div>
+</div>
+<div class="row padding_top">
+	<div class="col-md-2 col-sm-2 col-xs-3">
+		<p>{{translate('Số điện thoại')}}:</p>
+	</div>
+	{% if user.getVerifiedPhone == '0'%}
+	<div class="col-md-4 col-sm-4 col-xs-6">
+		<div class="input-group" style="width:100%">
+			<input type="text" class="form-control" aria-describedby="basic-addon1" value="{{user.getPhoneNumberTo0x}}" id="phone_number" name="phone_number">
+		</div>
+	</div>
+	<div class="col-md-2 col-sm-2 col-xs-3">
+		<p><a data-toggle="modal" data-target="#phone-active" id="click_active_phone">{{translate('Xác thực')}}</a></p>
+	</div>
+	{% else%}
+	<div class="col-md-4 col-sm-4 col-xs-6">
+		<div class="input-group" style="width:100%">
+			<input readonly type="text" class="form-control" aria-describedby="basic-addon1" value="{{user.getPhoneNumberTo0x}}">
+		</div>
+	</div>
+	{% endif %}
+</div>
+
+<div class="row">
+	<div class="col-md-5 col-md-offset-2">
+		<p><input  name="checkbox_partner" type="checkbox" id="checkbox_partner" {% if user.getUserTypeId == '2'%} checked {% endif %}> {{translate('Tôi là nhà cung cấp dịch vụ')}}</p>
+	</div>
+</div>
+<hr/>
+{{get_partial('user_info',{user:user})|raw}}
+<hr/>
+{{get_partial('user_profile_validate_social',{user:user})|raw}}
+<hr/>
+{{get_partial('user_banking',{user:user})|raw}}
+<div class="modal fade" id="content_myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog" >
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">{{translate('Đổi mật khẩu tài khoản')}}</h4>
+      </div>
+      <div class="modal-body">
+       <div class="row padding_top" style="text-align:center">
+			<div class="col-md-4 ">
+				<p>{{translate('Mật khẩu cũ')}}:</p>
+			</div>
+			 <div class="col-md-6">
+				<input class="form-control" value="" placeholder="{{translate('Nhập mật khẩu hiện tại')}}" type="password" id="password_old"/>
+			</div>
+		</div>
+		 <div class="row padding_top" style="text-align:center">
+			<div class="col-md-4">
+				<p>{{translate('Mật khẩu mới')}}:</p>
+			</div>
+			 <div class="col-md-6">
+				<input class="form-control" value=""  type="password"  placeholder="{{translate('Nhập mật khẩu mới')}}" id="password_new"/>
+			</div>
+		</div>
+		 <div class="row padding_top" style="text-align:center;padding-bottom:15px">
+			<div class="col-md-4">
+				<p>{{translate('Xác nhận mật khẩu')}}:</p>
+			</div>
+			 <div class="col-md-6">
+				<input class="form-control" value=""  type="password"  placeholder="{{translate('Xác nhận mật khẩu mới')}}" id="password_new_rp"/>
+			</div>
+		</div>
+      </div>
+	  <div class="error" id="popup_error_change_password" style="display:none"></div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" style="width:auto;">{{translate('Hủy bỏ')}}</button>
+        <button type="button" class="btn btn-primary" style="width:auto;color:white" id="change_password_popup">{{translate('Đổi mật khẩu')}}</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="content_verified_phone" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog" >
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">{{translate('Xác thực số điện thoại')}}</h4>
+      </div>
+      <div class="modal-body">
+       <div class="row padding_top" style="text-align:center;padding-bottom:15px">
+			<div class="col-md-4 ">
+				<p>{{translate('Mã xác thực')}}:</p>
+			</div>
+			 <div class="col-md-6">
+				<input class="form-control" value="" placeholder="{{translate('Nhập mã xác thực')}} " type="text" id="ma_xac_thuc"/>
+			</div>
+		</div>
+      </div>
+	  <div class="error" id="popup_error_ma_xac_thuc" style="display:none"></div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" style="width:auto;">{{translate('Hủy bỏ')}}</button>
+        <button type="button" class="btn btn-primary" style="width:auto;color:white" id="submit_verified_phone">{{translate('Xác thực')}}</button>
+      </div>
+    </div>
+  </div>
+</div>

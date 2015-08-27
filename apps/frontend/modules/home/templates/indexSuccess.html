@@ -1,0 +1,22 @@
+{% extends "layout.html"%}
+{% block body %}
+<div class="banner">
+    <header id="myCarousel" class="carousel slide">
+        {{get_partial('home/index_body_slide',{host:host,images_slide:images_slide,setting_site:setting_site})|raw}}
+        <div class="timkiem">  
+            {{get_partial('home/index_body_booking_form_1')|raw}}
+        </div>
+    </header>
+</div>
+{{ get_partial('home/index_body_slogen',{setting_site:setting_site})|raw}}
+{% if setting_site.Partner.getTypePartner == 'main'  %}
+    {{ get_partial('home/index_body_area')|raw }}
+    {{ get_partial('home/index_body_tour_list',{tour:tour,tour_cuoi_tuan:tour_cuoi_tuan,tour_doc_dao:tour_doc_dao,url_forward_tour_ca_nhan:url_forward_tour_ca_nhan,url_forward_tour_cuoi_tuan:url_forward_tour_cuoi_tuan,url_forward_tour_doc_dao:url_forward_tour_doc_dao})|raw}}
+    {{ get_partial('home/index_body_open',{setting_site:setting_site})|raw}}
+    {{ get_partial('home/index_body_parter')|raw}}
+ {% else %}
+    {{ get_partial('home/index_body_area_subsite',{setting_site:setting_site})|raw }}
+    {{ get_partial('home/index_body_tour_list_subsite',{tour_on_homepage:tour_on_homepage})|raw}}
+    {{ get_partial('home/index_body_acquirements_partner')|raw}}
+{% endif %}
+{% endblock %} 

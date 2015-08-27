@@ -1,0 +1,30 @@
+ {% if user.getOverallScore %}
+<div class="padding_top">
+    <div class="danhgia">
+        <div class="header">
+            <p>{{translate('Quan hệ xã hội')}}</p>
+        </div>
+        <div class="score">
+            <div class="row">
+                <div class="col-md-10 col-sm-10 col-xs-10"><p>{{translate('Điểm tổng quát')}}</p></div>
+                <div class="col-md-2 col-sm-2 col-xs-2">{{user.getOverallScore}}</div>
+            </div>
+          <!--   <p>Điểm tổng quát: <span>{{user.getOverallScore}}</span></p> -->
+        </div>
+        <div class="content row">
+            <div class="col-md-10 col-sm-10 col-xs-10"><p>{{translate('Độ xác thực')}}: </p></div>
+            <div class="col-md-2 col-sm-2 col-xs-2">{{user.getAuthenticity}}</div>
+        </div>
+        <div class="content row">
+           
+            <div class="col-md-10 col-sm-10 col-xs-10"><p>{{translate('Chất lượng quan hệ xã hội')}}</p></div>
+             <div class="col-md-2 col-sm-2 col-xs-2">{{user.getNetworkQuality}}</div>
+        </div>
+        <div class="content row">
+            <div class="col-md-10 col-sm-10 col-xs-10"><p>{{translate('Mức tín nhiệm tài chính')}}</p></div>
+             <div class="col-md-2 col-sm-2 col-xs-2">{{user.getFinancialCredibility}}</div>
+        </div>
+    </div>
+    <p class="source"><a href="https://trustingsocial.com" target="_blank">{{translate('Theo')}} Trustingsocial.com</a></p>
+</div>
+{% endif %}

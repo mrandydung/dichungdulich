@@ -1,0 +1,272 @@
+{% extends "layout.html"%}
+{% block body %}
+<script type="text/javascript" src="/assets/js/typeahead.min.js?v={{random()}}"></script>
+<link href="/assets/dichungdulich/css/experience.css?v={{random()}}" rel="stylesheet">
+<link href="/assets/dichungdulich/css/creat_trip.css?v={{random()}}" rel="stylesheet">
+<script src="/assets/dichungdulich/js/trip_accquirements.js?v={{random()}}"></script>
+<script src="/js/tinymce/tinymce.min.js?v={{random()}}"></script>
+<script type="text/javascript" src="/js/jsapi.js?v={{random()}}"></script>
+<script type="text/javascript" src="/js/map/map_funcs.js?v={{random()}}"></script>
+<script type="text/javascript" src="/js/map/jquery.geocomplete.js?v={{random()}}"></script>
+<link href="/ajax_upload/style/style.css?v={{random()}}" rel="stylesheet" type="text/css">
+<script type="text/javascript" src="/ajax_upload/js/jquery.form.min.js?v={{random()}}"></script>
+<script type="text/javascript">
+function afterSuccess()
+{
+	$('#loading-img').hide(); 
+	var id_acquirements = {{id_acquirements}};
+	jQuery.ajax({ type: "POST",url: "/user_acquirements/get_images_acquirements",dataType:"json", 
+		data:{"id_acquirements":id_acquirements}, 
+		success:function(response){
+			var code = response.code;
+			var msg = response.msg;
+			if(code == '1'){
+				var html = response.html;
+				$('#content_img').html(html);
+			}
+		},
+	});
+}
+function beforeSubmit(){
+	if (window.File && window.FileReader && window.FileList && window.Blob)
+	{
+		if( !$('#imageInput').val()) 
+		{
+			$("#renderImg").html("Are you kidding me?");
+			return false
+		}
+	        var fsize = $('#imageInput')[0].files[0].size; //get file size
+	        var ftype = $('#imageInput')[0].files[0].type; // get file type
+	        //allow only valid image file types 
+	        switch(ftype)
+	        {
+	        	case 'image/png': case 'image/gif': case 'image/jpeg': case 'image/pjpeg':
+	        	break;
+	        	default:
+	        	$("#renderImg").html("<b>"+ftype+"</b> Unsupported file type!");
+	        	return false
+	        }
+	        if(fsize>5048576) 
+	        {
+	        	$("#renderImg").html("<b>"+bytesToSize(fsize) +"</b> Too big Image file! <br />Please reduce the size of your photo using an image editor.");
+	        	return false
+	        }
+
+	        $('#submit-btn').hide(); //hide submit button
+	        $('#loading-img').show(); //hide submit button
+	        $("#renderImg").html("");  
+	    }
+	    else
+	    {
+	    	$("#renderImg").html("Please upgrade your browser, because your current browser lacks some new features we need!");
+	    	return false;
+	    }
+	}
+	function bytesToSize(bytes) {
+		var sizes = ['Bytes', 'KB', 'MB', 'GB', 'TB'];
+		if (bytes == 0) return '0 Bytes';
+		var i = parseInt(Math.floor(Math.log(bytes) / Math.log(1024)));
+		return Math.round(bytes / Math.pow(1024, i), 2) + ' ' + sizes[i];
+	}
+	$(document).ready(function(){
+		tinymce.init({selector:'#content',
+			mode : "textareas",
+			plugins : "paste",
+			theme_advanced_buttons3_add : "pastetext,pasteword,selectall",
+			paste_auto_cleanup_on_paste : true,
+			paste_preprocess : function(pl, o) {
+				o.content = o.content;
+			},
+			paste_postprocess : function(pl, o) {
+				o.node.innerHTML = o.node.innerHTML ;
+			}
+		});
+
+		var locat;
+		var options;
+		$("#end").geocomplete(options)
+		.bind("geocode:result", function(event, result){
+			locat = result.geometry.location;
+			$('#coo_end').val(locat.lat()+','+locat.lng());
+			$('#lat_end').val(locat.lat());
+			$('#lng_end').val(locat.lng());
+		})
+		var type_upload_id = {{acquirements.getTypeUploadId}};
+		if (type_upload_id == '1'){
+			$('#uploadBtn').show();
+			$('#url_video').hide();
+		}
+		if (type_upload_id == '2'){
+			$('#uploadBtn').hide();
+			$('#url_video').show();
+		}
+		var options = { 
+			target: '#renderImg',  
+			beforeSubmit: beforeSubmit, 
+			success: afterSuccess,  
+			resetForm: true       
+		}; 
+
+		$('#MyUploadForm').submit(function() { 
+			$(this).ajaxSubmit(options);            
+			return false; 
+		}); 
+		$('#imageInput').change(function(){
+			$('#submit-btn').submit();
+		});
+
+		$('body').on("click",".delete_image",function(){
+			var clickedID = this.id.split("-");
+			var acquirements_item_img_id = clickedID[1];
+			jQuery.ajax({ type: "POST",url: "/user_acquirements/delete_image_acquirements",dataType:"json", 
+				data:{"acquirements_item_img_id":acquirements_item_img_id},
+				success:function(response){
+					var code = response.code;
+					var msg = response.msg;
+					if(code == '1'){
+						var div_id = response.div_id;
+						$('#div_img_'+div_id).remove();
+					}
+				},
+			});
+		});
+
+		$('#submit_update_acquirements').on('click',function(){
+			tinyMCE.triggerSave();
+			var id_acquirements = {{id_acquirements}};
+			var title = $('#title').val();
+			var end = $('#end').val();var coo_end = $('#coo_end').val();var lat_end = $('#lat_end').val();var lng_end = $('#lng_end').val();
+			var type_upload = $('#type_upload').val();
+			var url_video = $('#url_video').val();
+			var content = $('#content').val();
+			var eating = $('#eating').val();
+			var home = $('#home').val();
+			var location_play = $('#location_play').val();
+			var location_up_to = $('#location_up_to').val();
+			var what_to_by = $('#what_to_by').val();
+			jQuery.ajax({ type: "POST",url: "/user_acquirements/edit_acquirements",dataType:"json", 
+				data:{"id_acquirements":id_acquirements,"title":title,"end":end,"coo_end":coo_end,"lat_end":lat_end,"lng_end":lng_end,"type_upload":type_upload,
+				"url_video":url_video,"content":content,"eating":eating,"home":home,"location_play":location_play,"location_up_to":location_up_to,"what_to_by":what_to_by},
+				success:function(response){
+					var code = response.code;
+					var msg = response.msg;
+					if(code == '1'){
+						$('#popup_success').hide();
+						$('#popup_error').html(msg).hide().fadeIn();
+					}
+					if(code == '2'){
+						$('#popup_error').hide();
+						$('#popup_success').html(msg).hide().fadeIn();
+					}
+				},
+			});
+		});
+
+{% if checkbox_acq_detail %}
+$('#checkbox_acq_detail').click();
+$('#acq-detail-show').show();
+{% endif %}
+});
+</script>
+
+<div class="white_bg box_3x">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-offset-2 col-md-8 text-center box_1x">
+				<h3 class="t1">{{translate('Sửa bài trải nghiệm chuyến đi')}}</h3>
+				<h4><small>{{translate('Chia sẻ những trải nghiệm du lịch thú vị tại những địa điểm mà bạn đã từng đặt chân đến cho cộng đồng để cùng khám phá và thưởng thức. Giá trị chuyến đi của bạn sẽ được nhân lên gấp bội')}}.</small></h4>
+			</div>
+		</div>
+		<div class="error" id="popup_error" style="border-radius: 5px;display:none"></div>
+		<div class="success" id="popup_success" style="border-radius: 5px;display:none"></div>
+		<div class="row padding_top">
+			<div class="col-md-12 box_1x">
+				<p><strong>{{translate('Tiêu đề')}}</strong></p>
+				<input type="text" class="form-control" name="title" id="title" value="{{acquirements.getTitle}}" />
+			</div>
+			<div class="col-md-12 box_1x">
+				<p><strong>{{translate('Địa điểm đến')}}</strong></p>
+				<input type="text" class="form-control b_" name="end" id="end" value="{{acquirements.getEnd}}" />
+				<input type="hidden" id="coo_end" name="coo_end" value="{{acquirements.getCooend}}"/>
+				<input type="hidden" id="lat_end" name="lat_end" value="{{acquirements.getLatEnd}}"/>
+				<input type="hidden" id="lng_end" name="lng_end" value="{{acquirements.getLngEnd}}"/>
+			</div>
+			<div class="col-md-3 box_1x">
+				<p><strong>{{translate('Hình ảnh/Video')}}</strong></p>
+				<select type="text" class="form-control" id="type_upload" name="type_upload">
+					{% for val in StaticCall('TypeUploadPeer','getAll') %}
+					<option value="{{val.getId}}" {% if acquirements.getTypeUploadId == val.getId %}{{'selected'}} {% endif %}>{{translate(val.getName)}}</option>
+					{% endfor  %}
+				</select>
+			</div>
+
+			<div class="col-md-9 box_3x">
+				<p></p>
+				<div id="uploadBtn">
+					<form action="/user_acquirements/upload?id_acquirements={{id_acquirements}}" method="post" enctype="multipart/form-data" id="MyUploadForm">
+						<input name="image_file" id="imageInput" type="file" class="upload_img"/>
+						<input type="submit"  id="submit-btn" value="Upload" style="display:none" />
+						<img src="/ajax_upload/images/ajax-loader.gif" id="loading-img" style="display:none;" alt="Please Wait"/>
+					</form>
+					{% if acquirements.getTypeUploadId == '1' %}
+					<div id="content_img">
+						{% for val in StaticCall('TripAcquirementsImgPeer','get_img_by_acquirements_id',{id_acquirements:id_acquirements})%}
+						<div class="col-md-2 padding_top anh" id="div_img_{{val.getId}}">
+							<img style="width:100px;height:100px" src="/{{val.getImages}}"/>
+							<div class="xoa_po">
+								<a id="delete_image-{{val.getId}}" class="delete_image"><span class="xoa"></span></a>
+							</div>
+						</div>
+						{% endfor %}
+					</div>
+					<div id="renderImg" style="display:none"></div>
+					{% endif %}
+				</div>
+				<input type="text" class="form-control" style="display:none" id="url_video" name="url_video" placeholder="Nhập link video chia sẻ từ youtube. VD : https://youtu.be/d_8fE-On19I" value="{{acquirements.getVideoUrl}}" />
+			</div>
+			<div class="col-md-12 box_1x">
+				<p><strong>{{translate('Nội dung')}}</strong></p>
+				<textarea class="form-control" rows="5" name="content" id="content" style="border-radius: 5px">{{acquirements.getContent}}</textarea>
+			</div>
+			<div class="col-md-12">
+				<label><input type="checkbox" value="acq-detail" id="checkbox_acq_detail"/> {{translate('Chi tiết')}}</label>
+			</div>
+			<div id="acq-detail-show" style="display:none">
+				<div class="col-md-2 box_1x">
+					<p><strong>{{translate('Ăn uống')}}:</strong></p>
+				</div>
+				<div class="col-md-10 box_1x">
+					<textarea class="form-control" rows="2" name="eating" id="eating">{{acquirements.getEating}}</textarea>
+				</div>
+				<div class="col-md-2 box_1x">
+					<p><strong>{{translate('Chỗ ở')}}:</strong></p>
+				</div>
+				<div class="col-md-10 box_1x">
+					<textarea class="form-control" rows="2" name="home" id="home">{{acquirements.getHome}}</textarea>
+				</div>
+				<div class="col-md-2 box_1x">
+					<p><strong>{{translate('Địa điểm vui chơi')}}:</strong></p>
+				</div>
+				<div class="col-md-10 box_1x">
+					<textarea class="form-control" rows="2" name="location_play" id="location_play">{{acquirements.getLocationPlay}}</textarea>
+				</div>
+				<div class="col-md-2 box_1x">
+					<p><strong>{{translate('Địa điểm nên đến')}}:</strong></p>
+				</div>
+				<div class="col-md-10 box_1x">
+					<textarea class="form-control" rows="2" name="location_up_to" id="location_up_to">{{acquirements.getLocationUpTo}}</textarea>
+				</div>
+				<div class="col-md-2 box_1x">
+					<p><strong>{{translate('Mua gì')}}:</strong></p>
+				</div>
+				<div class="col-md-10 box_1x">
+					<textarea class="form-control" rows="2" name="what_to_by" id="what_to_by">{{acquirements.WhatToBy}}</textarea>
+				</div>
+			</div>
+			<div class="col-md-offset-9 col-md-3 box_1x">
+				<a href="#" class="btn btn_blue" id="submit_update_acquirements">{{translate('Update chia sẻ chuyến đi')}}</a>
+			</div>
+		</div>
+	</div>
+</div>
+{% endblock %} 

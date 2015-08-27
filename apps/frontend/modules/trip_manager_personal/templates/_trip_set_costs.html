@@ -1,0 +1,18 @@
+<div class="error" id="popup_error_price" style="display:none"></div>
+<div class="success" id="popup_success_price" style="display: none"></div>
+{{get_partial('creat_trip_step3_costs',{scheduled_cost:scheduled_cost,sum_price_scheduled:sum_price_scheduled,tour_detail:tour_detail,sum_price_scheduled:sum_price_scheduled})|raw}}
+<div class="box_1x">
+	<div class="row">
+		{{get_partial('creat_trip_step3_price',{tour_detail:tour_detail})|raw}}
+	</div>
+</div>
+<div class="row padding_top">
+	<div class="col-md-12">
+		<label class="checkbox-inline hightlight"><input type="checkbox" {% if tour_detail.getAllowBookingFast == '1'%}{{'checked'}}{% endif %} id="allow_booking_fast">{{translate('Tôi mặc định chấp nhận cho người dùng đăng ký tour thành công')}}</label>
+	</div>
+</div>
+<div class="row box_2x">
+	<div class="col-md-offset-8 col-md-4">
+		<a class="btn btn_orange" id="update_price">{{translate('Cập nhật')}}</a>
+	</div>
+</div>

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link href='/css/font/roboto.css?v={{random()}}' rel='stylesheet' type='text/css'>
+        <link href="/assets/dichungdulich/css/bootstrap.min.css?v={{random()}}" rel="stylesheet">
+        <link href="/assets/dichungdulich/css/main.css?v={{random()}}" rel="stylesheet">
+        <link href="/assets/dichungdulich/css/home.css?v={{random()}}" rel="stylesheet">
+        <link href="/assets/dichungdulich/css/full-slider.css?v={{random()}}" rel="stylesheet">
+        <link href="/css/pace.css?v={{random()}}" rel="stylesheet">
+        <link href="/assets/dichungdulich/css/back_to_top.css?v={{random()}}" rel="stylesheet">
+        <script src="/js/jquery-1.10.1.min.js?v={{random()}}"></script>
+        <script src="/assets/dichungdulich/js/bootstrap.min.js?v={{random()}}"></script>
+        <script src="/assets/dichungdulich/js/function/function.js?v={{random()}}"></script>
+        <script type="text/javascript" src="/js/pace.min.js?v={{random()}}"></script>
+        <script type="text/javascript" src="/assets/dichungdulich/js/back_to_top.js?v={{random()}}"></script>
+        <script src="/js/sendGa.js?v={{random()}}"></script>
+        {{sf_user.seo.seoGheptour|raw}}
+        <script async>
+(function (i, s, o, g, r, a, m) {
+    i['GoogleAnalyticsObject'] = r;
+    i[r] = i[r] || function () {
+        (i[r].q = i[r].q || []).push(arguments)
+    }, i[r].l = 1 * new Date();
+    a = s.createElement(o),
+            m = s.getElementsByTagName(o)[0];
+    a.async = 1;
+    a.src = g;
+    m.parentNode.insertBefore(a, m)
+})(window, document, 'script', '/js/analytics.js', 'ga');
+ga('create', 'UA-63170562-1', 'auto');
+ga('send', 'pageview');
+        </script>
+        <meta name="p:domain_verify" content="d20387d3ae9cbe116879e9bad421dcb1"/>
+        {% if not sf_user.get_partner_id %}
+        <META http-equiv="refresh" content="0;URL=http://gheptour.vn">
+        {% endif %}
+    </head>
+    <body>
+        <div class="up_top">
+            <a class="toTop" title="" style="display: inline;"></a>
+        </div>
+        {{get_component('home','header_menu')|raw}}
+        {{get_partial('home/js') |raw}}
+        {% block body %}{% endblock%}
+        {{get_partial('home/footer')|raw}}
+        {{get_partial('home/login_modal')|raw}}
+        {{get_partial('home/register_modal')|raw}}
+        <script async type="text/javascript">
+            var LHCChatOptions = {};
+            LHCChatOptions.opt = {widget_height: 340, widget_width: 300, popup_height: 520, popup_width: 500, domain: 'gheptour.vn'};
+            (function () {
+                var po = document.createElement('script');
+                po.type = 'text/javascript';
+                po.async = true;
+                var refferer = (document.referrer) ? encodeURIComponent(document.referrer.substr(document.referrer.indexOf('://') + 1)) : '';
+                var location = (document.location) ? encodeURIComponent(window.location.href.substring(window.location.protocol.length)) : '';
+                po.src = '//support.dichung.vn/index.php/vnm/chat/getstatus/(click)/internal/(position)/bottom_right/(ma)/br/(hide_offline)/true/(top)/350/(units)/pixels/(leaveamessage)/true/(department)/5/(operator)/9/(theme)/10?r=' + refferer + '&l=' + location;
+                var s = document.getElementsByTagName('script')[0];
+                s.parentNode.insertBefore(po, s);
+            })();
+        </script>
+        <script async type="text/javascript">
+            var _urq = _urq || [];
+            _urq.push(['initSite', 'b2bc4b99-fc96-4c98-ab5d-96e14158acb7']);
+            (function () {
+                var ur = document.createElement('script');
+                ur.type = 'text/javascript';
+                ur.async = true;
+                ur.src = ('https:' == document.location.protocol ? '/js/userreport.js' : '/js/userreport.js');
+                var s = document.getElementsByTagName('script')[0];
+                s.parentNode.insertBefore(ur, s);
+            })();
+        </script>
+    </body>
+</html>

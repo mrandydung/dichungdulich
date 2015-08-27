@@ -1,0 +1,17 @@
+generator:
+  class:              sfPropelAdminGenerator
+  param:
+    model_class:      Partner
+    theme:            default
+    list:
+      object_actions:
+        _edit:         ~
+        _delete:       ~
+      actions:
+        _create:       ~
+      display : [id,type_partner,name,name_en,images_logo,link,created_at]
+      sort: [id, desc]
+      filters: [id,name,name_en,link]
+    edit:
+      fields:
+        logo: { type: admin_input_file_tag, upload_dir: partner, params: include_link=partner include_remove=true}

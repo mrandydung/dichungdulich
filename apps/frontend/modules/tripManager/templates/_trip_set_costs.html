@@ -1,0 +1,46 @@
+<div class="error" id="popup_error_price" style="display:none"></div>
+<div class="success" id="popup_success_price" style="display: none"></div>
+<div class="box_1x">
+	<div class="row">
+		{{get_partial('creat_trip_step3_price',{tour_detail:tour_detail})|raw}}
+		  {{get_partial('creat_trip_step3_other_price',{tour_detail:tour_detail,tour_price_kid_item:tour_price_kid_item,tour_discount_day:tour_discount_day,tour_discount_number:tour_discount_number,tour_price_service_item:tour_price_service_item})|raw}}
+    </div>
+    <div class="row padding_top">
+        <div class="col-md-12">
+          <label class="checkbox-inline hightlight"><input type="checkbox" {% if tour_detail.getAllowBookingFast == '1'%}{{'checked'}}{% endif %} id="allow_booking_fast">{{translate('Tôi mặc định chấp nhận cho người dùng đăng ký tour thành công')}}</label>
+        </div>
+    </div>
+	<div class="row padding_top">
+        <div class="cold-md-12">
+         	<div class="col-md-4 col-sm-6">
+                <div class="col-md-12 padding_top">
+                    <p class="hightlight">{{translate('Hình thức thanh toán')}}</p>
+                </div>
+                <div class="col-md-12 col-sm-6">
+                    <select class="form-control" id="payment_type_id" >
+                        {% for val in StaticCall('PaymentTypePeer','getAll') %}
+                            <option value="{{val.getId}}" {% if tour_detail.getPaymentTypeId == val.getId %}{{'selected'}}{% endif %}>{{val.getShowName}}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+            </div>
+            <div class="col-md-4 col-sm-6" id="div_security_deposit" {% if tour_detail.getPaymentTypeId == '1'%}{{'style="display:none"'}}{% endif %}>
+                <div class="col-md-12 padding_top">
+                    <p class="hightlight">{{translate('Số tiền đặt cọc tối thiểu')}}</p>
+                </div>
+                <div class="col-md-12 col-sm-6">
+                    <select class="form-control" id="security_deposit">
+                        {% for val in 100..0 %}
+                            <option value="{{val}}" {% if tour_detail.getSecurityDeposit == val %}{{'selected'}}{% endif %}>{{val}} %</option>
+                        {% endfor %}
+                    </select>
+                </div>
+            </div>
+        </div>
+	</div>
+</div>
+<div class="row box_2x">
+	<div class="col-md-offset-8 col-md-4">
+		<a class="btn btn_orange" id="update_price" href="#">{{translate('Cập nhật')}}</a>
+	</div>
+</div>

@@ -1,0 +1,36 @@
+{% extends "layout.html"%}
+{% block body %}
+    <link href="/assets/dichungdulich/css/tour.css" rel="stylesheet">
+	<div class="gray_bg box_2x">
+    <div class="container tour_2">
+        <div class="row">
+            <div class="col-md-12 title">
+                <h3 class="t1">{{tour_detail.getTitle}}</h3>
+                <h5>{{tour_detail.TourTimeCategoryDay.getName}}</h5>
+                <div class="like_btn">
+                    <a><div class="like active"></div></a>
+                    <div class="number">
+                        0
+                        <div class="muiten">
+                        </div>
+                    </div>
+                    <a><div class="share_tour"></div></a>
+                </div>
+            </div>
+            <div class="col-md-8 box_1x">
+                {{get_partial('tour_slide',{img_slide:img_slide})|raw}}
+                {{get_partial('tour_join',{tour_detail:tour_detail,user_join:user_join})|raw}}
+                {{get_partial('tour_support',{tour_detail:tour_detail,utilities:utilities})|raw}}
+                {{get_partial('tour_decription',{tour_detail:tour_detail})|raw}}
+                {{get_partial('tour_schedule',{tour_detail:tour_detail})|raw}}
+                {{get_partial('tour_term',{tour_detail:tour_detail})|raw}}    
+                 <!--{{get_partial('tour_comment')|raw}}-->
+            </div>
+            <div class="col-md-4">
+                {{get_partial('tour_poster',{tour_detail:tour_detail,user_id:user_id,user_id_service:user_id_service})|raw}}
+                {{get_partial('tour_poster_info',{tour_detail:tour_detail,user_id_service:user_id_service})|raw}}
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %} 

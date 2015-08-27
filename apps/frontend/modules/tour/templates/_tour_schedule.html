@@ -1,0 +1,14 @@
+<div class="mota" style="text-align:justify">
+    <h3>{{translate('Lịch trình')}}</h3>
+    <div class="lichtrinh">
+		<div class="content box_1x">
+			<div id="ReadLess" class="panel-collapse">
+				{{tour_detail.get_detail_striptags|raw}}
+					<p><a id="read_less_button"> {{translate('Xem thêm')}} <span aria-hidden="true" >&rarr;</span></a></p>
+			</div>
+			<div id="ReadMore" class="panel-collapse" style="display:none">
+				{{tour_detail.getDetail|raw}}<p><a id="read_more_button"><span aria-hidden="true" >&larr;</span> {{translate('Thu gọn')}} </a></p>
+			</div>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,17 @@
+generator:
+  class:              sfPropelAdminGenerator
+  param:
+    model_class:      HomeDiemDenQuocTe
+    theme:            default
+    list:
+      object_actions:
+        _edit:         ~
+        _delete:       ~
+      actions:
+        _create:       ~
+      display:  [id,area,address,img_new,google_position,priority]
+      filters : [area_id]
+    edit:
+      fields:
+        img: { help: 310x177 , type: admin_input_file_tag, upload_dir: home, params: include_link=home include_remove=true}
+        img_search: { help: 310x177 , type: admin_input_file_tag, upload_dir: home, params: include_link=home include_remove=true}

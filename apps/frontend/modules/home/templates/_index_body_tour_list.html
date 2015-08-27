@@ -1,0 +1,15 @@
+<link href="/assets/dichungdulich/css/find.css?v={{random()}}" rel="stylesheet">
+<div class="white_bg">
+    <div class="container box_3x">
+        <div class="row">
+            <div class="col-md-12">
+                <a class="h3 t1" href="{% if sf_user.isEn %}{{url_for('@findTour_en')}}{% else %}{{url_for('@findTour')}}{% endif%}" id="click_tour_noi_bat">{{translate('Tour nổi bật')}}
+                    <small><span class="glyphicon glyphicon-chevron-right" aria-hidden="true"> </span></small>
+                </a>
+            </div>
+        {{get_partial('index_body_tour_list_tour',{tour:tour,tag:translate('Tìm bạn đi chung'),meta:'timbandichung',url_forward:url_forward_tour_ca_nhan})|raw}}
+        {{get_partial('index_body_tour_list_tour',{tour:tour_cuoi_tuan,tag:translate('Cuối tuần đi đâu'),meta:'cuoituan',url_forward:url_forward_tour_cuoi_tuan})|raw}}
+        {{get_partial('index_body_tour_list_tour',{tour:tour_doc_dao,tag:translate('Tour độc '),meta:'docdao',url_forward:url_forward_tour_doc_dao})|raw}}
+        </div>
+    </div>
+</div>

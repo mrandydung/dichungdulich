@@ -1,0 +1,170 @@
+{% extends "layout.html"%}
+{% block body %}
+<link href="/assets/dichungdulich/css/creat_trip.css?v={{random()}}" rel="stylesheet">
+<link href="/assets/dichungdulich/css/bootstrap.vertical-tabs.css?v={{random()}}" rel="stylesheet">
+<link href="/css/jqueryui/css/redmond/jquery-ui-1.8.16.custom.css?v={{random()}}" rel="stylesheet">
+<script type="text/javascript" src="/ajax_upload/js/jquery.form.min.js?v={{random()}}"></script>
+<script src="/js/tinymce/tinymce.min.js?v={{random()}}"></script>
+<script type="text/javascript">
+var  check_enable_step = {{check_enable_step['step']}} ;
+</script>
+<script src=" /assets/dichungdulich/js/create_trip.js?v={{random()}}"></script>
+<script src="/js/jquery-ui.js?v={{random()}}"></script>
+<script src="/js/datepicker-vi.js?v={{random()}}"></script>
+<input type="hidden" value="{{tour_id}}" id="tour_id">
+<script type="text/javascript">
+$(document).ready(function(){
+	$('#number_seat_tour').val({{tour_detail.getNumberSeat}});
+	if({{tour_detail.getTimeTypeId}} == '1'){
+		$('#fix_start_time').show();
+		$('#tour_time_type').val({{tour_detail.getTimeTypeId}});
+		$('#creat_trip_form_fix_start_start_date').val('{{tour_detail.getDateStart|date("d-m-Y")}}');
+		$('#creat_trip_form_fix_start_end_date').val('{{tour_detail.getDateEnd|date("d-m-Y")}}');
+		$('#creat_trip_form_fix_start_start_hour').val('{{tour_detail.getHourStart}}');
+		setDatepickerStart();
+		setDatepickerEnd();
+	}
+	if({{tour_detail.getTimeTypeId}} == '2'){
+		$('#daily_start_time').show();
+		$('#tour_time_type').val({{tour_detail.getTimeTypeId}});
+		$('#creat_trip_form_daily_start_hour').val('{{tour_detail.getHourDay}}');
+		$('#creat_trip_form_daily_start_day_long').val('{{tour_detail.getTimeCategoryDayId}}');
+	}
+	if({{tour_detail.getTimeTypeId}} == '3'){
+		$('#weekly_start_time').show();
+		$.each([{{tour_detail.getDayInWeek}}], function( index, value ) {
+			$('#label_checkbox_week_'+value).addClass('active');
+			$('#checkbox_week_'+value).prop('checked', true);
+		});
+		$('#tour_time_type').val({{tour_detail.getTimeTypeId}});
+		$('#creat_trip_form_weekly_start_hour').val('{{tour_detail.getHourWeek}}');
+		$('#creat_trip_form_weekly_start_time_category_day').val('{{tour_detail.getTimeCategoryDayId}}');
+	}
+	if({{tour_detail.getTimeTypeId}} == '4'){
+		$('#request_start_time').show();
+		$('#tour_time_type').val({{tour_detail.getTimeTypeId}});
+		$('#select_date_request_service_day_long').val('{{tour_detail.getTimeCategoryDayId}}');
+
+	}
+	if({{utilities|length}}){
+		{% for val in utilities%}
+		$('#ad_Checkbox{{val.id}}').prop('checked', true);
+		{% endfor %}
+	}
+	if({{sorting|length}}){
+		{% for val in sorting%}
+		$('#ad_Checkbox_sorting{{val.id}}').prop('checked', true);
+		{% endfor %}
+	}
+	if({{activities|length}}){
+		{% for val in activities%}
+		$('#ad_Checkbox_activities{{val.id}}').prop('checked', true);
+		{% endfor %}
+	}
+	if({{object_fit|length}}){
+		{% for val in object_fit%}
+		$('#ad_Checkbox_object_fit{{val.id}}').prop('checked', true);
+		{% endfor %}
+	}
+});
+</script>
+<div class="white_bg box_2x">
+	<div class="container thongtin">
+		<div class="row box_1x">
+			<div class="col-xs-3 tab_menu">
+				<ul class="nav nav-tabs tabs-left ">
+					<li class="active "><a href="#time" data-toggle="tab"><span class="time_set"></span>{{translate('Thông tin cơ bản')}}
+						<span id="icon_success_time">{% if check_enable_step['enable_time_set'] %}<span class="badge check glyphicon glyphicon-ok"> </span>{% endif %}</span></a>
+					</li>
+					<li><a href="#costs" data-toggle="tab"><span class="costs_set"></span>{{translate('Chi phí')}}
+						<span id="icon_success_cost">{% if check_enable_step['enable_cost'] %}<span class="badge check glyphicon glyphicon-ok"> </span>{% endif %}</span></a>
+					</li>
+					<li><a href="#schedule" data-toggle="tab" id="button_click_tab_schedule"><span class="schedule_set"></span>{{translate('Lịch trình')}}
+						<span id="icon_success_schedule">{% if check_enable_step['enable_schedule'] %}<span class="badge check glyphicon glyphicon-ok"> </span>{% endif %}</span></a>
+					</li>
+					<li><a href="#utilities" data-toggle="tab"><span class="utilities_set"></span>{{translate('Thông tin bổ sung')}}
+						<span id="icon_success_utilities">{% if check_enable_step['enable_utilities'] %}<span class="badge check glyphicon glyphicon-ok"> </span>{% endif %}</span></a>
+					</li>
+					<li><a href="#note" data-toggle="tab"><span class="note_set"></span>{{translate('Điều khoản')}}
+						<span id="icon_success_note">{% if check_enable_step['enable_note'] %}<span class="badge check glyphicon glyphicon-ok"> </span>{% endif %}</a>
+					</li>
+				</ul>
+				{% if not tour_detail.getSuccessCreated %}
+				<div class="col-md-12 box_2x">
+					{% if check_enable_step['step'] != '5'%}
+					<p id="content_step_finish">{{translate('Còn')}} <span id="still_step">{{5 - check_enable_step['step']}}</span> {{translate('bước')}}</p>
+					{% else %}
+					<p><span id="still_step">{{translate('Đã hoàn thành các bước')}}</span></p>
+					{% endif  %}
+					<div class="box_1x">
+						<a href="{{tour_detail.getDetailUrlTourPreview}}" target="_blank" class="btn btn_blue_outline" {% if check_enable_step['step'] != '5'%}{{'disabled'}} {% endif %} id="preview_tour">{{translate('Xem trước')}}</a>
+					</div>
+					<a class="btn btn_blue" {% if check_enable_step['step'] != '5'%}{{'disabled'}} {% endif %} id="create_tour">{{translate('Đăng chuyến đi')}}</a>
+				</div>
+				{% endif %}
+			</div>
+			<div class="col-xs-9 tab_body">
+				<div class="tab-content">
+					<div class="tab-pane active" id="time">
+						{{get_partial('trip_set_time',{time_type:time_type,tour_detail:tour_detail})|raw}}
+					</div>
+					<div class="tab-pane" id="costs">
+						{{get_partial('trip_set_costs',{tour_detail:tour_detail,tour_price_kid_item:tour_price_kid_item,tour_discount_day:tour_discount_day,tour_discount_number:tour_discount_number,tour_price_service_item:tour_price_service_item})|raw}}
+					</div>
+					<div class="tab-pane" id="schedule">
+						{{get_partial('trip_manager_personal/trip_set_schedule',{tour_id:tour_id,tour_detail:tour_detail,images:images,tour_detail:tour_detail,tour_coo_item:tour_coo_item,schedule_day_one:schedule_day_one,vehicle_arr:vehicle_arr})|raw}}
+					</div>
+					<div class="tab-pane" id="utilities">
+						{{get_partial('utilities')|raw}}
+					</div>
+					<div class="tab-pane" id="note">
+						{{get_partial('trip_set_note',{tour_detail:tour_detail})|raw}}
+					</div>
+					
+				</div>
+			</div>  	
+		</div>
+	</div>
+</div>
+<div class="modal fade bs-example-modal-sm" id="content_verified_phone" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+	<div class="modal-dialog modal-sm" >
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+				<h4 class="modal-title" id="myModalLabel">{{translate('Xác nhận số điện thoại để hoàn tất đăng chuyến đi')}}</h4>
+			</div>
+			<div class="modal-body">
+				<div class="row " style="text-align:center;">
+					<div class="col-md-12">				
+						<div class="row box_1x">
+							<div class="col-md-6 text-center">
+								<input type="text" class="form-control" id="phone_number" placeholder="{{translate('Điền số điện thoại')}}" value="{{phone_number}}" />
+							</div>
+							<div class="col-md-6 text-center">
+								<button class="btn btn_blue" type="button" id="click_lay_ma_xac_thuc">&nbsp;{{translate('Lấy mã')}} &nbsp;</button>	
+							</div>
+						</div>
+						<div class="row box_1x" id="div_verified_phone" style="display: none">
+							<div class="col-md-6 text-center">
+								<input type="text" class="form-control" placeholder="{{translate('Điền mã xác thực')}}" id="ma_xac_thuc" >
+							</div>
+							<div class="col-md-6 text-center">
+								<button class="btn btn_blue" type="button" id="submit_verified_phone">{{translate('Xác thực')}}</button> 
+							</div>
+						</div>
+						<div class="row box_1x">
+							<div class=" col-md-12 text-center">
+								<p><span class="glyphicon glyphicon-ok" aria-hidden="true"></span> {{translate('Tôi đồng ý với điều khoản của Gheptour.vn')}}</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="error" id="popup_error_ma_xac_thuc" style="display:none"></div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-default" data-dismiss="modal" style="width:auto;">{{translate('Hủy bỏ')}}</button>
+			</div>
+		</div>
+	</div>
+</div>
+{% endblock %} 

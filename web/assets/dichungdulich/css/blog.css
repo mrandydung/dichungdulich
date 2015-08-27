@@ -1,0 +1,83 @@
+.menu{
+	border-radius: 3px;
+	background-color: #0288d1;
+	color: #fff;
+	text-transform: uppercase;
+}
+.menu h3{margin-bottom: 0; font-weight: 300; font-size: 30px;}
+.menu a{color:#fff;}
+.menu table>tbody>tr>td.active>a, .menu table>tbody>tr>td>a:hover{
+font-weight: 700;
+}
+.menu-content{padding: 11px 0}
+.blog_bg{
+	background-color: #fff;
+	border: 2px solid #e0e0e0;
+	overflow: hidden;
+}
+.blog_bg h4{margin-bottom: 0; margin-top: 0}
+.like_fb{
+  background-image: url('../img/fb.png');
+  width: 61px;
+  height: 20px;
+  display: inline-block;
+  background-position: 0px 0px;
+}
+.share_fb{
+  background-image: url('../img/fb.png');
+  width: 72px;
+  height: 20px;
+  display: inline-block;
+  background-position: -66px 0px;
+}
+.recent>p>a{color: #ff5b2d}
+.tag{
+background-color: #e0e0e0;
+padding: 5px 10px;
+}
+.tag a{
+background-color: #fff;
+color: #4c4c4c;
+display: inline-block;
+margin: 2px;
+border-radius: 3px;
+font-size: 12px;
+padding: 1px 5px;
+}
+.tag a:hover{
+background-color: #4c4c4c;
+color: #fff;
+}
+.menu_list{margin-bottom: 0; padding:0;}
+.menu_list li{
+display: inline-block;
+list-style: none;
+padding: 10px 0;
+}
+.menu_list li>a{
+padding: 10px;
+}
+.menu_list li.active>a, .menu_list li.active>a:hover {
+  background-color: #005B8D;
+  color: #FFFFFF;
+  padding: 10px;
+}
+.menu_list li>a:hover{
+background-color: #007ABC;
+}
+#menu_responsive{display: none;}
+#menu_toggle{display: block}
+@media (max-width: 768px){
+.menu_list li{display: block}
+#menu_responsive{display: block}
+#menu_toggle{display: none}
+}
+
+
+
+
+
+
+
+
+

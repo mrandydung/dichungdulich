@@ -1,0 +1,18 @@
+generator:
+  class:              sfPropelAdminGenerator
+  param:
+    model_class:      ConfigSocialNetwork
+    theme:            default
+    list:
+      object_actions:
+        _edit:         ~
+      actions:
+        _create:       ~
+      display : [link_facebook,link_google,link_instagram,link_pinterest,link_youtube]
+      sort: [id, desc]
+      actions : []
+    edit:
+      actions :
+        _list :     ~
+        _save :     ~
+      display : [link_facebook,link_google,link_instagram,link_pinterest,link_youtube]

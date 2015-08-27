@@ -1,0 +1,15 @@
+generator:
+  class:              sfPropelAdminGenerator
+  param:
+    model_class:      SettingSite
+    theme:            default
+    list:
+      object_actions:
+        _edit:         ~
+        _delete:       ~
+      actions:
+        _create:       ~
+      sort: [id, desc]
+      display : [id,slogen_slide,title_site,description_site,created_at]
+    edit:
+      display : [slogen_slide,title_site,description_site,created_at]

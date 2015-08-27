@@ -1,0 +1,216 @@
+{% extends "layout.html"%}
+{% block body %}
+<script type="text/javascript" src="/assets/js/typeahead.min.js"></script>
+<script type="text/javascript">
+	function afterSuccess()
+	{
+	    $('#loading-img').hide(); 
+	    var id_experience = {{id_experience}};
+	    jQuery.ajax({ type: "POST",url: "/user_experience/get_images_experience",dataType:"json", 
+	          data:{"id_experience":id_experience}, 
+	          success:function(response){
+	            var code = response.code;
+	            var msg = response.msg;
+	            if(code == '1'){
+	               var html = response.html;
+	               $('#content_img').html(html);
+	            }
+	          },
+	      });
+	}
+	function beforeSubmit(){
+	   if (window.File && window.FileReader && window.FileList && window.Blob)
+	    {
+	        if( !$('#imageInput').val()) 
+	        {
+	            $("#renderImg").html("Are you kidding me?");
+	            return false
+	        }
+	        var fsize = $('#imageInput')[0].files[0].size; //get file size
+	        var ftype = $('#imageInput')[0].files[0].type; // get file type
+	        //allow only valid image file types 
+	        switch(ftype)
+	        {
+	            case 'image/png': case 'image/gif': case 'image/jpeg': case 'image/pjpeg':
+	                break;
+	            default:
+	                $("#renderImg").html("<b>"+ftype+"</b> Unsupported file type!");
+	                return false
+	        }
+	        if(fsize>5048576) 
+	        {
+	            $("#renderImg").html("<b>"+bytesToSize(fsize) +"</b> Too big Image file! <br />Please reduce the size of your photo using an image editor.");
+	            return false
+	        }
+	                
+	        $('#submit-btn').hide(); //hide submit button
+	        $('#loading-img').show(); //hide submit button
+	        $("#renderImg").html("");  
+	    }
+	    else
+	    {
+	        $("#renderImg").html("Please upgrade your browser, because your current browser lacks some new features we need!");
+	        return false;
+	    }
+	}
+    function bytesToSize(bytes) {
+       var sizes = ['Bytes', 'KB', 'MB', 'GB', 'TB'];
+       if (bytes == 0) return '0 Bytes';
+       var i = parseInt(Math.floor(Math.log(bytes) / Math.log(1024)));
+       return Math.round(bytes / Math.pow(1024, i), 2) + ' ' + sizes[i];
+    }
+$(document).ready(function(){
+    tinymce.init({selector:'#content'});
+  	var locat;
+    var options;
+    $("#end").geocomplete(options)
+        .bind("geocode:result", function(event, result){
+            locat = result.geometry.location;
+            $('#coo_end').val(locat.lat()+','+locat.lng());
+            $('#lat_end').val(locat.lat());
+            $('#lng_end').val(locat.lng());
+    })
+	var type_upload_id = {{experience.getTypeUploadId}};
+	if (type_upload_id == '1'){
+		$('#uploadBtn').show();
+		$('#url_video').hide();
+	}
+	if (type_upload_id == '2'){
+		$('#uploadBtn').hide();
+		$('#url_video').show();
+	}
+	 var options = { 
+            target: '#renderImg',  
+            beforeSubmit: beforeSubmit, 
+            success: afterSuccess,  
+            resetForm: true       
+        }; 
+        
+     $('#MyUploadForm').submit(function() { 
+            $(this).ajaxSubmit(options);            
+            return false; 
+        }); 
+     $('#imageInput').change(function(){
+         $('#submit-btn').submit();
+     });
+
+     $('body').on("click",".delete_image",function(){
+        var clickedID = this.id.split("-"); //Split string (Split works as PHP explode)
+        var tour_item_img_id = clickedID[1];
+        jQuery.ajax({ type: "POST",url: "/user_experience/delete_image_experience",dataType:"json", 
+            data:{"tour_item_img_id":tour_item_img_id},
+            success:function(response){
+                var code = response.code;
+                var msg = response.msg;
+                if(code == '1'){
+                    var div_id = response.div_id;
+                    $('#div_img_'+div_id).remove();
+                }
+            },
+        });
+   	});
+
+     $('#submit_update_experience').click(function(){
+     	 tinyMCE.triggerSave();
+     	 var id_experience = {{id_experience}};
+     	 var title = $('#title').val();
+     	 var end = $('#end').val();var coo_end = $('#coo_end').val();var lat_end = $('#lat_end').val();var lng_end = $('#lng_end').val();
+     	 var type_upload = $('#type_upload').val();
+     	 var url_video = $('#url_video').val();
+     	 var content = $('#content').val();
+     	 jQuery.ajax({ type: "POST",url: "/user_experience/edit_experience",dataType:"json", 
+            data:{"id_experience":id_experience,"title":title,"end":end,"coo_end":coo_end,"lat_end":lat_end,"lng_end":lng_end,"type_upload":type_upload,
+        		"url_video":url_video,"content":content},
+            success:function(response){
+                var code = response.code;
+                var msg = response.msg;
+                if(code == '1'){
+                	$('#popup_success').hide();
+         			$('#popup_error').html(msg).hide().fadeIn();
+                }
+             	if(code == '2'){
+             		$('#popup_error').hide();
+         			$('#popup_success').html(msg).hide().fadeIn();
+                }
+            },
+        });
+   	});
+
+});
+</script>
+<link href="/assets/dichungdulich/css/experience.css" rel="stylesheet">
+<link href="/assets/dichungdulich/css/creat_trip.css" rel="stylesheet">
+<script src="/assets/dichungdulich/js/trip_experience.js"></script>
+<script src="//tinymce.cachefly.net/4.1/tinymce.min.js"></script>
+<script type="text/javascript" src="https://www.google.com/jsapi"></script>
+<script type="text/javascript" src="/js/map/map_funcs.js"></script>
+<script type="text/javascript" src="/js/map/jquery.geocomplete.js"></script>
+<link href="/ajax_upload/style/style.css" rel="stylesheet" type="text/css">
+<script type="text/javascript" src="/ajax_upload/js/jquery.form.min.js"></script>
+<div class="white_bg box_3x">
+	    <div class="container">
+	        <div class="row">
+	            <div class="col-md-offset-2 col-md-8 text-center box_1x">
+	                <h3 class="t1">Sửa bài trải nghiệm chuyến đi</h3>
+	                <h4><small>Chia sẻ những trải nghiệm du lịch thú vị tại những địa điểm mà bạn đã từng đặt chân đến cho cộng đồng để cùng khám phá và thưởng thức. Giá trị chuyến đi của bạn sẽ được nhân lên gấp bội.</small></h4>
+	            </div>
+	        </div>
+	        <div class="error" id="popup_error" style="border-radius: 5px;display:none"></div>
+	        <div class="success" id="popup_success" style="border-radius: 5px;display:none"></div>
+	        <div class="row padding_top">
+				<div class="col-md-12 box_1x">
+					<p><strong>Tiêu đề</strong></p>
+					<input type="text" class="form-control" name="title" id="title" value="{{experience.getTitle}}" />
+				</div>
+				<div class="col-md-12 box_1x">
+					<p><strong>Địa điểm đến</strong></p>
+					<input type="text" class="form-control b_" name="end" id="end" value="{{experience.getEnd}}" />
+					<input type="hidden" id="coo_end" name="coo_end" value="{{experience.getCooend}}"/>
+					<input type="hidden" id="lat_end" name="lat_end" value="{{experience.getLatEnd}}"/>
+					<input type="hidden" id="lng_end" name="lng_end" value="{{experience.getLngEnd}}"/>
+				</div>
+				<div class="col-md-3 box_1x">
+					<p><strong>Hình ảnh/Video</strong></p>
+					<select type="text" class="form-control" id="type_upload" name="type_upload">
+						{% for val in StaticCall('TypeUploadPeer','getAll') %}
+						<option value="{{val.getId}}" {% if experience.getTypeUploadId == val.getId %}{{'selected'}} {% endif %}>{{val.getName}}</option>
+						{% endfor  %}
+					</select>
+				</div>
+
+				<div class="col-md-9 box_3x">
+					<p></p>
+					<div id="uploadBtn">
+						<!-- <input id="imageInput" class="upload_img" name="files[]" type="file" class="upload" multiple/><span>Có thể chọn tối đa 10 ảnh dung lượng nhỏ hơn 5MB</span> -->
+					  	<form action="/user_experience/upload?id_experience={{id_experience}}" method="post" enctype="multipart/form-data" id="MyUploadForm">
+				            <input name="image_file" id="imageInput" type="file" class="upload_img"/>
+				            <input type="submit"  id="submit-btn" value="Upload" style="display:none" />
+				            <img src="/ajax_upload/images/ajax-loader.gif" id="loading-img" style="display:none;" alt="Please Wait"/>
+				        </form>
+				 	{% if experience.getTypeUploadId == '1' %}
+					 	<div id="content_img">
+					        {% for val in StaticCall('TripExperienceImgPeer','get_img_by_experience_id',{id_experience:id_experience})%}
+					            <div class="col-md-2 padding_top anh" id="div_img_{{val.getId}}">
+					                <img style="width:100px;height:100px" src="/{{val.getImages}}"/>
+					                <div class="xoa_po">
+					                    <a id="delete_image-{{val.getId}}" class="delete_image"><span class="xoa"></span></a>
+					                </div>
+					            </div>
+					        {% endfor %}
+				        </div>
+				        <div id="renderImg" style="display:none"></div>
+				     {% endif %}
+				     </div>
+					<input type="text" class="form-control" style="display:none" id="url_video" name="url_video" placeholder="Nhập link video chia sẻ từ youtube. VD : https://youtu.be/d_8fE-On19I" value="{{experience.getVideoUrl}}" />
+				</div>
+				<div class="col-md-12 box_1x">
+					<p><strong>Nội dung</strong></p>
+					<textarea class="form-control" rows="5" name="content" id="content" style="border-radius: 5px">{{experience.getContent}}</textarea>
+				</div>
+				<div class="col-md-offset-9 col-md-3 box_1x">
+					<a href="#" class="btn btn_blue" id="submit_update_experience">Update chia sẻ chuyến đi</a>
+				</div>
+			</div>
+	    </div>
+</div>
+{% endblock %} 

@@ -1,0 +1,17 @@
+generator:
+  class:              sfPropelAdminGenerator
+  param:
+    model_class:      BookingTour
+    theme:            default
+    list:
+      object_actions:
+        _edit:         ~
+        _delete:       ~
+      actions:
+        _create:       ~
+      display : [id,code_transaction,TourDetail,PaymentBookingType,price,price_security_deposit,name,phone_number,ticket,number_adult,number_kid,TranSactionStatus]
+      sort: [id, desc]
+      filters: [id,code_transaction,payment_booking_type_id,transaction_status_id,created_at]
+    edit:
+      fields:
+       ticket: {params: rich=fck size=80x20}

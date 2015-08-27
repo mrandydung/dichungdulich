@@ -1,0 +1,76 @@
+{% extends "layout.html"%}
+{% block body %}
+<script type="text/javascript">
+{% if not sf_user.isEn %}
+     var language = '';
+{% else%}
+var language = '_en';
+{% endif%}
+   
+</script>
+<script type="text/javascript" src="/assets/dichungdulich/js/find_tour.js?v={{random()}}"></script>
+<link href="/assets/dichungdulich/css/find.css?v={{random()}}" rel="stylesheet">
+<div class="timkiem_">
+    <div class="container">
+        {{get_partial('home/index_body_booking_form_1',{pick_address:pick_address,to_address:to_address,start_date:start_date,coo_start:coo_start,coo_end:coo_end,pager:pager,offset:offset})|raw}}
+    </div>
+</div>
+<div class="white_bg box_2x">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4">
+                <h4 class="t1">{{count}} {{translate('Kết quả')}}</h4>
+            </div>
+            <div class="col-md-offset-4 col-md-4 ">
+                <select class="sort" id="select_filter_find_tour">
+                    <option value="0">{{translate('Sắp xếp theo')}}</option>
+                    <option value="1">{{translate('Giá từ thấp đến cao')}}</option>
+                    <option value="2">{{translate('Giá từ cao đến thấp')}}</option>
+                </select>
+                <table class="view">
+                    <tr>
+                        <td><a><p class="view_2 active_2" id="view_2_click"></p></a></td>
+                        <td><a><p class="view_1 " id="view_1_click"></p></a></td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-3">
+                {{get_partial('sorting_keyword')|raw}}
+                {{get_partial('sorting_price')|raw}}
+                {{get_partial('sorting_doi_tuong_cung_cap',{tour_type_id:tour_type_id})|raw}}
+                {{get_partial('sorting_doi_tuong_phu_hop')|raw}}
+                {{get_partial('sorting_loai_tour')|raw}}
+                {{get_partial('sorting_tour_noi_bat',{tour_discount:tour_discount,tour_featured:tour_featured,tour_weekend:tour_weekend})|raw}}
+                {{get_partial('sorting_khuvuc',{region_id:region_id})|raw}}
+                {{get_partial('sorting_hinh_thuc_du_lich',{sorting_hotro:sorting_hotro})|raw}}
+                {{get_partial('sorting_hoat_dong_du_lich',{activities_hotro:activities_hotro})|raw}}
+            </div>
+            <div class="col-md-9">
+                <div class="row">
+                    {{get_partial('tour/find_line_view',{find_tour:find_tour})|raw}}
+                    {{get_partial('tour/find_grid_view',{find_tour:find_tour})|raw}}
+                </div>
+                <div class="page_list" style="text-align: center">
+                    <div id="containPage" class="pagination-wrap">
+                        <ul class="pagination" id="paging" style="text-align: center;">
+                            <li><a class="paging_li_a" id="1" href="javascript:void(0);" onclick="getListPage({{1}})"><<</a></li>
+                            {% for i in 1..pager.getLastPage %}
+                                {% if param == i %}
+                                <li><a class="paging_li_a activePaging" id="{{i}}" href="javascript:void(0);" onclick="getListPage({{i}})">{{i}}</a></li>
+                                {% else %}
+                                    {% if param > (i - 5) and param < (pager.getLastPage - 1)%}
+                                    <li><a class="paging_li_a"  id="{{i}}" href="javascript:void(0);" onclick="getListPage({{i}})">{{i}}</a></li>
+                                    {% endif%} 
+                                {% endif %}
+                            {% endfor %}
+                             <li><a class="paging_li_a" id="{{pager.getLastPage}}}" href="javascript:void(0);" onclick="getListPage({{pager.getLastPage}})">>></a></li>
+                        </ul>
+                    </div> 
+                </div>
+                <input type="hidden" id="hom_item_id_hiden">
+            </div>
+        </div>
+    </div>
+    {% endblock %} 

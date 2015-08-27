@@ -1,0 +1,83 @@
+<div class="row box_1x">
+    <div class="col-md-12">
+        <label class="hightlight"><input type="checkbox" value="checkbox_kid_price" id="checkbox_kid_price"/> {{translate(' Tôi muốn thêm giá trẻ em')}}</label>
+    </div>
+</div>
+<div id="div_checkbox_kid_price" style="display:none;border-radius: 5px; background-color: rgb(227, 227, 227);">
+	<div class="row box_1x" >
+		<div class="col-md-12 col-sm-6">
+			<div class="col-md-2 col-sm-6 col-xs-6">
+				<select class="form-control" id="price_kid_add" name="price_kid_add" style="border: 2px solid rgb(132, 132, 132);padding: 0px" >
+					<option value="0">{{translate('Mức giảm')}}</option>
+					{% for val in 1..100%}
+						<option value="{{val}}">{{val}}%</option>
+					{% endfor %}
+				</select>
+			</div>
+			<div class="col-md-4 col-sm-6 col-xs-6">
+				<select class="form-control" style="border: 2px solid rgb(132, 132, 132);" id="from_age" name="from_age">
+					<option value="0">{{translate('Tuổi từ')}}</option>
+					{% for val in 1..15%}
+					<option value="{{val}}">{{val}} {{translate('tuổi')}}</option>
+					{% endfor %}
+				</select>
+			</div>
+			<div class="col-md-4 col-sm-6 col-xs-6">
+				<select class="form-control" style="border: 2px solid rgb(132, 132, 132);" id="to_age" name="to_age">
+					<option value="0">{{translate('đến tuổi')}}</option>
+					{% for val in 1..15%}
+					<option value="{{val}}">{{val}} {{translate('tuổi')}}</option>
+					{% endfor %}
+				</select>
+			</div>
+			<div class="col-md-2 col-sm-5 col-xs-5 ">
+	            <a class="btn btn_orange save" id="add_new_price_kid">{{translate('Lưu')}}</a>
+	      	</div>
+	      </div>
+	</div>
+	{% for val in tour_price_kid_item %}
+  	<div class="row box_1x" id="item_coo_price_kid-{{val.getId}}">
+  		<div class="col-md-12 col-sm-6">
+			<div class="col-md-2 col-sm-6 col-xs-6">
+				<select class="form-control" id="price_kid_add_new" name="price_kid_add_new" data-id="{{val.getId}}">
+					{% for value in 1..100%}
+						<option value="{{value}}" {% if value == val.getDiscount%}{{'selected'}}{% endif %}>{{value}}%</option>
+					{% endfor %}
+				</select>
+			</div>
+			<div class="col-md-4 col-sm-6 col-xs-6">
+				<select class="form-control"  id="from_age_add_new" name="from_age_add_new" data-id="{{val.getId}}">
+					{% for value in 1..15%}
+					<option value="{{value}}" {% if value == val.getFromAge%}{{'selected'}}{% endif %}>{{value}} {{translate('tuổi')}}</option>
+					{% endfor %}
+				</select>
+			</div>
+			<div class="col-md-4 col-sm-6 col-xs-6">
+				<select class="form-control"  id="to_age_add_new" name="to_age_add_new" data-id="{{val.getId}}">
+					<option value="0">{{translate('đến tuổi')}}</option>
+					{% for value in 1..15%}
+					<option value="{{value}}"  {% if value == val.getToAge%}{{'selected'}}{% endif %}>{{value}} {{translate('tuổi')}}</option>
+					{% endfor %}
+				</select>
+			</div>
+			<div class="col-md-2 col-sm-5 col-xs-5 ">
+	           <a class="btn btn_orange_outline save delete_price_kid_add_new"  id="delete_price_kid_add_new-{{val.getId}}">{{translate('Xóa')}}</a>
+	      	</div>
+	      </div>
+	</div>
+  	{% endfor %}
+	<!-- <div class="col-md-12 col-sm-6">
+	<div class="col-md-6 col-sm-6 col-xs-6">
+		<input type="text" class="form-control"  name="description_price_kid_new_add" data-id="{{val.getId}}" id="description_price_kid_new_add" value="{{val.getDescription}}"/>
+	</div>
+	<div class="col-md-4 col-sm-6 col-xs-6">
+		<div class="input-group">
+			<input type="text" class="form-control" name="price_kid_add_new" id="price_kid_add_new" data-id="{{val.getId}}" value="{{val.getPrice}}"/>
+			<span class="input-group-addon">VNĐ</span>
+		</div>
+	</div>
+    <div class="col-md-2 col-sm-2 col-xs-2">
+    	<a class="btn btn_orange_outline save delete_price_kid_add_new"  id="delete_price_kid_add_new-{{val.getId}}">Xóa</a>
+    </div>
+  </div> -->
+</div>

@@ -1,0 +1,48 @@
+{% extends "layout.html"%}
+{% block body %}
+<script src="/js/jquery-ui.js"></script>
+<script src="/js/datepicker-vi.js"></script>
+<script type="text/javascript" src="/assets/js/typeahead.min.js"></script>
+<link href="/assets/dichungdulich/css/group.css" rel="stylesheet">
+<script type="text/javascript">
+    $(document).ready(function(){
+        $('#keyword').typeahead({
+        name: 'search_keyword',
+        hint: true,
+        highlight: true,
+        remote: {
+          cache: true,
+          url: '/group_question/search_keyword?search_keyword=%QUERY',
+          filter: function (parsedResponse) {
+          return parsedResponse;
+          }
+        }
+    });
+    });
+</script>
+
+{{get_partial('find_question')|raw}}
+<div class="white_bg box_3x">
+    <div class="container">
+        <div class="row">
+			<div class="col-md-12">
+				<p class="h3 t1 margin-bt-0">{{translate('Câu hỏi theo chủ đề')}}</p>
+			</div>
+            {% for val in StaticCall('QuestionGroupCategoryPeer','getAll')%}
+            <div class="col-md-4 col-sm-4 box_1x">
+                <a href="{{val['url_question_group_category']}}">
+                    <div class="group">
+                        <img src="{{val['images_thumb']}}" width="100%">
+                        <div class="des_lay">
+                            <div class="description">
+                                <h3>{{val['name']}}</h3>
+                                <p class="member">{{val['count_question']}} {{translate('Câu hỏi')}} - {{val['count_answer']}} {{translate('Trả lời')}}</p>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            {% endfor %}
+    </div>
+</div>
+{% endblock %}

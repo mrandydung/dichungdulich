@@ -1,0 +1,16 @@
+{% for val in diem_den%}
+<div class="col-md-4 box_1x">
+	<a href="{{val['url_forward']}}">
+		<div class="exp_infor_bg">
+			<img src="{{val['home_img']}}" width="100%" style="height: 200px" />
+			<div class="area_info">					
+				<div class="col-md-12">
+					<h4><a class="text-uppercase trip">{{val['home_name']}}</a></h4>
+					<h5><small>{{val['count_home']}} Tour</small></h5>
+				</div>
+				<div class="clear"></div>
+			</div>
+		</div>
+	</a>
+</div>
+{% endfor %}

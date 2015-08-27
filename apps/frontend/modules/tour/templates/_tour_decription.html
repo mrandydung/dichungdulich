@@ -1,0 +1,5 @@
+<div class="box_1x mota" style="text-align: justify">
+	<h3>{{translate('Mô tả')}}</h3>
+    <span class="content" id="ReadLessDescription">{{tour_detail.get_description_striptags|raw}}	<a id="read_less_button_decription"> {{translate('Xem thêm')}} <span aria-hidden="true" >&rarr;</span></a></span>
+    <span class="content" id="ReadMoreDescription" style="display: none">{{tour_detail.getDescription|raw}}	<a id="read_more_button_description"> <span aria-hidden="true" >&larr;</span> {{translate('Thu gọn')}} </a></span>
+</div>

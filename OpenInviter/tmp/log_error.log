@@ -1,0 +1,1240 @@
+[2012-05-24 12:51:08] Local Debugger
+----------DETAILS START----------
+TRANSPORT: curl
+SERVICE: yahoo
+USER: hungn.nguyen@yahoo.com
+PASSWORD: iFunBox.exeiFunBox.exe
+STEPS: 
+	initial_get :
+		URL: https://login.yahoo.com/config/mail?.intl=us&rl=1
+		METHOD: GET
+		RESPONSE: OK
+	login_post :
+		URL: https://login.yahoo.com/config/login?
+		METHOD: POST
+		ELEMENTS: 
+			.tries=1
+			.src=ym
+			.md5=
+			.hash=
+			.js=
+			.last=
+			promo=
+			.intl=us
+			.lang=en-US
+			.bypass=
+			.partner=
+			.u=8m3ku597rrj2v
+			.v=0
+			.challenge=hiHLew_6UD4SM_IpYRBiBJjeZ7sO
+			.yplus=
+			.emailCode=
+			pkg=
+			stepid=
+			.ev=
+			hasMsgr=0
+			.chkP=Y
+			.done=http://mail.yahoo.com
+			.pd=ym_ver=0&c=&ivt=&sg=
+			.ws=0
+			.cp=0
+			nr=0
+			pad=1
+			aad=1
+			save=Sign+In
+			login=hungn.nguyen@yahoo.com
+			passwd=iFunBox.exeiFunBox.exe
+		RESPONSE: FAILED
+
+----------DETAILS END----------
+
+[2012-05-24 13:57:58] Local Debugger
+----------DETAILS START----------
+TRANSPORT: curl
+SERVICE: gmail
+USER: hung85@gmail.com
+PASSWORD: iFunBox.exeiFunBox.exe
+STEPS: 
+	login_post :
+		URL: https://www.google.com/accounts/ClientLogin
+		METHOD: POST
+		ELEMENTS: 
+			accountType=HOSTED_OR_GOOGLE
+			Email=hung85@gmail.com
+			Passwd=iFunBox.exeiFunBox.exe
+			service=cp
+			source=OpenInviter-OpenInviter-1.9.6
+		RESPONSE: FAILED
+
+----------DETAILS END----------
+
+[2012-05-24 13:58:20] Local Debugger
+----------DETAILS START----------
+TRANSPORT: curl
+SERVICE: gmail
+USER: hung85@gmail.com
+PASSWORD: iFunBox.exeiFunBox.exe
+STEPS: 
+	login_post :
+		URL: https://www.google.com/accounts/ClientLogin
+		METHOD: POST
+		ELEMENTS: 
+			accountType=HOSTED_OR_GOOGLE
+			Email=hung85@gmail.com
+			Passwd=iFunBox.exeiFunBox.exe
+			service=cp
+			source=OpenInviter-OpenInviter-1.9.6
+		RESPONSE: FAILED
+
+----------DETAILS END----------
+
+[2012-05-24 13:58:54] Local Debugger
+----------DETAILS START----------
+TRANSPORT: curl
+SERVICE: gmail
+USER: hung85@gmail.com
+PASSWORD: iFunBox.exeiFunBox.exe
+STEPS: 
+	login_post :
+		URL: https://www.google.com/accounts/ClientLogin
+		METHOD: POST
+		ELEMENTS: 
+			accountType=HOSTED_OR_GOOGLE
+			Email=hung85@gmail.com
+			Passwd=iFunBox.exeiFunBox.exe
+			service=cp
+			source=OpenInviter-OpenInviter-1.9.6
+		RESPONSE: FAILED
+
+----------DETAILS END----------
+
+[2012-05-24 14:45:37] Local Debugger
+----------DETAILS START----------
+TRANSPORT: curl
+SERVICE: gmail
+USER: hungn85@gmail.com
+PASSWORD: abc
+STEPS: 
+	login_post :
+		URL: https://www.google.com/accounts/ClientLogin
+		METHOD: POST
+		ELEMENTS: 
+			accountType=HOSTED_OR_GOOGLE
+			Email=hungn85@gmail.com
+			Passwd=abc
+			service=cp
+			source=OpenInviter-OpenInviter-1.9.6
+		RESPONSE: FAILED
+
+----------DETAILS END----------
+
+[2012-05-24 14:58:39] Local Debugger
+----------DETAILS START----------
+TRANSPORT: curl
+SERVICE: gmail
+USER: hung85@gmail.com
+PASSWORD: invite_forminvite_form
+STEPS: 
+	login_post :
+		URL: https://www.google.com/accounts/ClientLogin
+		METHOD: POST
+		ELEMENTS: 
+			accountType=HOSTED_OR_GOOGLE
+			Email=hung85@gmail.com
+			Passwd=invite_forminvite_form
+			service=cp
+			source=OpenInviter-OpenInviter-1.9.6
+		RESPONSE: FAILED
+
+----------DETAILS END----------
+
+[2012-05-24 14:58:45] Local Debugger
+----------DETAILS START----------
+TRANSPORT: curl
+SERVICE: gmail
+USER: hung85@gmail.com
+PASSWORD: iFunBox.exeiFunBox.exe
+STEPS: 
+	login_post :
+		URL: https://www.google.com/accounts/ClientLogin
+		METHOD: POST
+		ELEMENTS: 
+			accountType=HOSTED_OR_GOOGLE
+			Email=hung85@gmail.com
+			Passwd=iFunBox.exeiFunBox.exe
+			service=cp
+			source=OpenInviter-OpenInviter-1.9.6
+		RESPONSE: FAILED
+
+----------DETAILS END----------
+
+[2012-05-24 15:02:19] Local Debugger
+----------DETAILS START----------
+TRANSPORT: curl
+SERVICE: gmail
+USER: hungn85@gmail.com
+PASSWORD: iFunBox.exe
+STEPS: 
+	login_post :
+		URL: https://www.google.com/accounts/ClientLogin
+		METHOD: POST
+		ELEMENTS: 
+			accountType=HOSTED_OR_GOOGLE
+			Email=hungn85@gmail.com
+			Passwd=iFunBox.exe
+			service=cp
+			source=OpenInviter-OpenInviter-1.9.6
+		RESPONSE: FAILED
+
+----------DETAILS END----------
+
+[2012-05-24 21:42:00] Local Debugger
+----------DETAILS START----------
+TRANSPORT: curl
+SERVICE: yahoo
+USER: tranthuytmnt@yahoo.com
+PASSWORD: admin
+STEPS: 
+	initial_get :
+		URL: https://login.yahoo.com/config/mail?.intl=us&rl=1
+		METHOD: GET
+		RESPONSE: OK
+	login_post :
+		URL: https://login.yahoo.com/config/login?
+		METHOD: POST
+		ELEMENTS: 
+			.tries=1
+			.src=ym
+			.md5=
+			.hash=
+			.js=
+			.last=
+			promo=
+			.intl=us
+			.lang=en-US
+			.bypass=
+			.partner=
+			.u=8466app7rsi6a
+			.v=0
+			.challenge=TcUb4pBv1D00EN2tolIFhM_d6W83
+			.yplus=
+			.emailCode=
+			pkg=
+			stepid=
+			.ev=
+			hasMsgr=0
+			.chkP=Y
+			.done=http://mail.yahoo.com
+			.pd=ym_ver=0&c=&ivt=&sg=
+			.ws=0
+			.cp=0
+			nr=0
+			pad=1
+			aad=1
+			save=Sign+In
+			login=tranthuytmnt@yahoo.com
+			passwd=admin
+		RESPONSE: FAILED
+
+----------DETAILS END----------
+
+[2012-05-24 21:43:29] Local Debugger
+----------DETAILS START----------
+TRANSPORT: curl
+SERVICE: gmail
+USER: hungm85@gmail.com
+PASSWORD: iFunBox.exeiFunBox.exe
+STEPS: 
+	login_post :
+		URL: https://www.google.com/accounts/ClientLogin
+		METHOD: POST
+		ELEMENTS: 
+			accountType=HOSTED_OR_GOOGLE
+			Email=hungm85@gmail.com
+			Passwd=iFunBox.exeiFunBox.exe
+			service=cp
+			source=OpenInviter-OpenInviter-1.9.6
+		RESPONSE: FAILED
+
+----------DETAILS END----------
+
+[2012-07-18 15:26:38] Local Debugger
+----------DETAILS START----------
+TRANSPORT: curl
+SERVICE: gmail
+USER: hungn85@gmail.com
+PASSWORD: !#^(huxxxxxngn(^#!
+STEPS: 
+	login_post :
+		URL: https://www.google.com/accounts/ClientLogin
+		METHOD: POST
+		ELEMENTS: 
+			accountType=HOSTED_OR_GOOGLE
+			Email=hungn85@gmail.com
+			Passwd=!#^(huxxxxxngn(^#!
+			service=cp
+			source=OpenInviter-OpenInviter-1.9.6
+		RESPONSE: FAILED
+
+----------DETAILS END----------
+
+[2012-07-18 15:27:36] Local Debugger
+----------DETAILS START----------
+TRANSPORT: curl
+SERVICE: yahoo
+USER: hungn.nguyen@yahoo.com
+PASSWORD: !#^(huxxxxxngn(^#!
+STEPS: 
+	initial_get :
+		URL: https://login.yahoo.com/config/mail?.intl=us&rl=1
+		METHOD: GET
+		RESPONSE: OK
+	login_post :
+		URL: https://login.yahoo.com/config/login?
+		METHOD: POST
+		ELEMENTS: 
+			.tries=1
+			.src=ym
+			.md5=
+			.hash=
+			.js=
+			.last=
+			promo=
+			.intl=us
+			.lang=en-US
+			.bypass=
+			.partner=
+			.u=29sdsnt80csrn
+			.v=0
+			.challenge=fe8YdZfS74VoosbgZt9DrJQ1F7JD
+			.yplus=
+			.emailCode=
+			pkg=
+			stepid=
+			.ev=
+			hasMsgr=0
+			.chkP=Y
+			.done=http://mail.yahoo.com
+			.pd=ym_ver=0&c=&ivt=&sg=
+			.ws=0
+			.cp=0
+			nr=0
+			pad=1
+			aad=1
+			save=Sign+In
+			login=hungn.nguyen@yahoo.com
+			passwd=!#^(huxxxxxngn(^#!
+		RESPONSE: FAILED
+
+----------DETAILS END----------
+
+[2012-07-18 15:27:54] Local Debugger
+----------DETAILS START----------
+TRANSPORT: curl
+SERVICE: yahoo
+USER: hungn.nguyen@yahoo.com
+PASSWORD: !#^(huxxxxxngn(^#!
+STEPS: 
+	initial_get :
+		URL: https://login.yahoo.com/config/mail?.intl=us&rl=1
+		METHOD: GET
+		RESPONSE: OK
+	login_post :
+		URL: https://login.yahoo.com/config/login?
+		METHOD: POST
+		ELEMENTS: 
+			.tries=1
+			.src=ym
+			.md5=
+			.hash=
+			.js=
+			.last=
+			promo=
+			.intl=us
+			.lang=en-US
+			.bypass=
+			.partner=
+			.u=c2el1b180css8
+			.v=0
+			.challenge=NhnOkn4t74UT6ACJCMtfqmdHSE1Z
+			.yplus=
+			.emailCode=
+			pkg=
+			stepid=
+			.ev=
+			hasMsgr=0
+			.chkP=Y
+			.done=http://mail.yahoo.com
+			.pd=ym_ver=0&c=&ivt=&sg=
+			.ws=0
+			.cp=0
+			nr=0
+			pad=1
+			aad=1
+			save=Sign+In
+			login=hungn.nguyen@yahoo.com
+			passwd=!#^(huxxxxxngn(^#!
+		RESPONSE: FAILED
+
+----------DETAILS END----------
+
+[2012-07-18 15:28:37] Local Debugger
+----------DETAILS START----------
+TRANSPORT: curl
+SERVICE: yahoo
+USER: hungn.nguyen@yahoo.com
+PASSWORD: !#^(huxxxxxngn(^#!
+STEPS: 
+	initial_get :
+		URL: https://login.yahoo.com/config/mail?.intl=us&rl=1
+		METHOD: GET
+		RESPONSE: OK
+	login_post :
+		URL: https://login.yahoo.com/config/login?
+		METHOD: POST
+		ELEMENTS: 
+			.tries=1
+			.src=ym
+			.md5=
+			.hash=
+			.js=
+			.last=
+			promo=
+			.intl=us
+			.lang=en-US
+			.bypass=
+			.partner=
+			.u=6ml6rjt80cstk
+			.v=0
+			.challenge=QDKotlER74V011rAtBHGM7xxf41G
+			.yplus=
+			.emailCode=
+			pkg=
+			stepid=
+			.ev=
+			hasMsgr=0
+			.chkP=Y
+			.done=http://mail.yahoo.com
+			.pd=ym_ver=0&c=&ivt=&sg=
+			.ws=0
+			.cp=0
+			nr=0
+			pad=1
+			aad=1
+			save=Sign+In
+			login=hungn.nguyen@yahoo.com
+			passwd=!#^(huxxxxxngn(^#!
+		RESPONSE: FAILED
+
+----------DETAILS END----------
+
+[2012-07-18 15:30:08] Local Debugger
+----------DETAILS START----------
+TRANSPORT: curl
+SERVICE: yahoo
+USER: hungn.nguyen@yahoo.com
+PASSWORD: !#^(huxxxxxngn(^#!
+STEPS: 
+	initial_get :
+		URL: https://login.yahoo.com/config/mail?.intl=us&rl=1
+		METHOD: GET
+		RESPONSE: OK
+	login_post :
+		URL: https://login.yahoo.com/config/login?
+		METHOD: POST
+		ELEMENTS: 
+			.tries=1
+			.src=ym
+			.md5=
+			.hash=
+			.js=
+			.last=
+			promo=
+			.intl=us
+			.lang=en-US
+			.bypass=
+			.partner=
+			.u=beq8gbh80ct0f
+			.v=0
+			.challenge=ny3hpq.q6IUl1SSkyhltkL_RmVfl
+			.yplus=
+			.emailCode=
+			pkg=
+			stepid=
+			.ev=
+			hasMsgr=0
+			.chkP=Y
+			.done=http://mail.yahoo.com
+			.pd=ym_ver=0&c=&ivt=&sg=
+			.ws=0
+			.cp=0
+			nr=0
+			pad=1
+			aad=1
+			save=Sign+In
+			login=hungn.nguyen@yahoo.com
+			passwd=!#^(huxxxxxngn(^#!
+		RESPONSE: FAILED
+
+----------DETAILS END----------
+
+[2012-07-18 15:30:30] Local Debugger
+----------DETAILS START----------
+TRANSPORT: curl
+SERVICE: yahoo
+USER: hungn.nguyen@yahoo.com
+PASSWORD: !#^(huxxxxxngn(^#!
+STEPS: 
+	initial_get :
+		URL: https://login.yahoo.com/config/mail?.intl=us&rl=1
+		METHOD: GET
+		RESPONSE: OK
+	login_post :
+		URL: https://login.yahoo.com/config/login?
+		METHOD: POST
+		ELEMENTS: 
+			.tries=1
+			.src=ym
+			.md5=
+			.hash=
+			.js=
+			.last=
+			promo=
+			.intl=us
+			.lang=en-US
+			.bypass=
+			.partner=
+			.u=bmdc53180ct15
+			.v=0
+			.challenge=Rf288TyA6IXmNhyaN2.0mS1Kl3va
+			.yplus=
+			.emailCode=
+			pkg=
+			stepid=
+			.ev=
+			hasMsgr=0
+			.chkP=Y
+			.done=http://mail.yahoo.com
+			.pd=ym_ver=0&c=&ivt=&sg=
+			.ws=0
+			.cp=0
+			nr=0
+			pad=1
+			aad=1
+			save=Sign+In
+			login=hungn.nguyen@yahoo.com
+			passwd=!#^(huxxxxxngn(^#!
+		RESPONSE: FAILED
+
+----------DETAILS END----------
+
+[2012-07-18 15:31:13] Local Debugger
+----------DETAILS START----------
+TRANSPORT: curl
+SERVICE: yahoo
+USER: hungn.nguyen@yahoo.com
+PASSWORD: !#^(huxxxxxngn(^#!
+STEPS: 
+	initial_get :
+		URL: https://login.yahoo.com/config/mail?.intl=us&rl=1
+		METHOD: GET
+		RESPONSE: OK
+	login_post :
+		URL: https://login.yahoo.com/config/login?
+		METHOD: POST
+		ELEMENTS: 
+			.tries=1
+			.src=ym
+			.md5=
+			.hash=
+			.js=
+			.last=
+			promo=
+			.intl=us
+			.lang=en-US
+			.bypass=
+			.partner=
+			.u=9ruqms580ct2f
+			.v=0
+			.challenge=IANcWxjq6IWI3v3U1uM__GenBooi
+			.yplus=
+			.emailCode=
+			pkg=
+			stepid=
+			.ev=
+			hasMsgr=0
+			.chkP=Y
+			.done=http://mail.yahoo.com
+			.pd=ym_ver=0&c=&ivt=&sg=
+			.ws=0
+			.cp=0
+			nr=0
+			pad=1
+			aad=1
+			save=Sign+In
+			login=hungn.nguyen@yahoo.com
+			passwd=!#^(huxxxxxngn(^#!
+		RESPONSE: FAILED
+
+----------DETAILS END----------
+
+[2012-07-18 15:32:11] Local Debugger
+----------DETAILS START----------
+TRANSPORT: curl
+SERVICE: gmail
+USER: hungn85@gmail.com
+PASSWORD: $provider
+STEPS: 
+	login_post :
+		URL: https://www.google.com/accounts/ClientLogin
+		METHOD: POST
+		ELEMENTS: 
+			accountType=HOSTED_OR_GOOGLE
+			Email=hungn85@gmail.com
+			Passwd=$provider
+			service=cp
+			source=OpenInviter-OpenInviter-1.9.6
+		RESPONSE: FAILED
+
+----------DETAILS END----------
+
+[2012-07-18 15:32:58] Local Debugger
+----------DETAILS START----------
+TRANSPORT: curl
+SERVICE: gmail
+USER: hungn85@gmail.com
+PASSWORD: $provider
+STEPS: 
+	login_post :
+		URL: https://www.google.com/accounts/ClientLogin
+		METHOD: POST
+		ELEMENTS: 
+			accountType=HOSTED_OR_GOOGLE
+			Email=hungn85@gmail.com
+			Passwd=$provider
+			service=cp
+			source=OpenInviter-OpenInviter-1.9.6
+		RESPONSE: FAILED
+
+----------DETAILS END----------
+
+[2012-07-18 15:34:01] Local Debugger
+----------DETAILS START----------
+TRANSPORT: curl
+SERVICE: yahoo
+USER: namktpt@yahoo.com
+PASSWORD: 28022008
+STEPS: 
+	initial_get :
+		URL: https://login.yahoo.com/config/mail?.intl=us&rl=1
+		METHOD: GET
+		RESPONSE: OK
+	login_post :
+		URL: https://login.yahoo.com/config/login?
+		METHOD: POST
+		ELEMENTS: 
+			.tries=1
+			.src=ym
+			.md5=
+			.hash=
+			.js=
+			.last=
+			promo=
+			.intl=us
+			.lang=en-US
+			.bypass=
+			.partner=
+			.u=2lr6a6d80ct7o
+			.v=0
+			.challenge=njvo15Bd6IWzJ_IWxzp1PSzUca31
+			.yplus=
+			.emailCode=
+			pkg=
+			stepid=
+			.ev=
+			hasMsgr=0
+			.chkP=Y
+			.done=http://mail.yahoo.com
+			.pd=ym_ver=0&c=&ivt=&sg=
+			.ws=0
+			.cp=0
+			nr=0
+			pad=1
+			aad=1
+			save=Sign+In
+			login=namktpt@yahoo.com
+			passwd=28022008
+		RESPONSE: FAILED
+
+----------DETAILS END----------
+
+[2013-04-07 21:07:05] Local Debugger
+----------DETAILS START----------
+TRANSPORT: curl
+SERVICE: gmail
+USER: vuanh24@gmail.com
+PASSWORD: vuvietanh
+STEPS: 
+	login_post :
+		URL: https://www.google.com/accounts/ClientLogin
+		METHOD: POST
+		ELEMENTS: 
+			accountType=HOSTED_OR_GOOGLE
+			Email=vuanh24@gmail.com
+			Passwd=vuvietanh
+			service=cp
+			source=OpenInviter-OpenInviter-1.9.6
+		RESPONSE: FAILED
+
+----------DETAILS END----------
+
+[2013-04-07 21:07:19] Local Debugger
+----------DETAILS START----------
+TRANSPORT: curl
+SERVICE: gmail
+USER: vuanh24@gmail.com
+PASSWORD: vuvietanh
+STEPS: 
+	login_post :
+		URL: https://www.google.com/accounts/ClientLogin
+		METHOD: POST
+		ELEMENTS: 
+			accountType=HOSTED_OR_GOOGLE
+			Email=vuanh24@gmail.com
+			Passwd=vuvietanh
+			service=cp
+			source=OpenInviter-OpenInviter-1.9.6
+		RESPONSE: FAILED
+
+----------DETAILS END----------
+
+[2013-04-07 21:07:33] Local Debugger
+----------DETAILS START----------
+TRANSPORT: curl
+SERVICE: gmail
+USER: vuanh24@gmail.com
+PASSWORD: vuvietanh
+STEPS: 
+	login_post :
+		URL: https://www.google.com/accounts/ClientLogin
+		METHOD: POST
+		ELEMENTS: 
+			accountType=HOSTED_OR_GOOGLE
+			Email=vuanh24@gmail.com
+			Passwd=vuvietanh
+			service=cp
+			source=OpenInviter-OpenInviter-1.9.6
+		RESPONSE: FAILED
+
+----------DETAILS END----------
+
+[2013-06-24 13:00:00] Local Debugger
+----------DETAILS START----------
+TRANSPORT: curl
+SERVICE: gmail
+USER: nguyengia18163@gmail.com
+PASSWORD: 48646989
+STEPS: 
+	login_post :
+		URL: https://www.google.com/accounts/ClientLogin
+		METHOD: POST
+		ELEMENTS: 
+			accountType=HOSTED_OR_GOOGLE
+			Email=nguyengia18163@gmail.com
+			Passwd=48646989
+			service=cp
+			source=OpenInviter-OpenInviter-1.9.6
+		RESPONSE: FAILED
+
+----------DETAILS END----------
+
+[2013-06-24 13:01:40] Local Debugger
+----------DETAILS START----------
+TRANSPORT: curl
+SERVICE: gmail
+USER: doconghung87@gmail.com
+PASSWORD: 160387
+STEPS: 
+	login_post :
+		URL: https://www.google.com/accounts/ClientLogin
+		METHOD: POST
+		ELEMENTS: 
+			accountType=HOSTED_OR_GOOGLE
+			Email=doconghung87@gmail.com
+			Passwd=160387
+			service=cp
+			source=OpenInviter-OpenInviter-1.9.6
+		RESPONSE: FAILED
+
+----------DETAILS END----------
+
+[2013-06-24 13:06:28] Local Debugger
+----------DETAILS START----------
+TRANSPORT: curl
+SERVICE: gmail
+USER: nguyengia18163@gmail.com
+PASSWORD: 48646989
+STEPS: 
+	login_post :
+		URL: https://www.google.com/accounts/ClientLogin
+		METHOD: POST
+		ELEMENTS: 
+			accountType=HOSTED_OR_GOOGLE
+			Email=nguyengia18163@gmail.com
+			Passwd=48646989
+			service=cp
+			source=OpenInviter-OpenInviter-1.9.6
+		RESPONSE: FAILED
+
+----------DETAILS END----------
+
+[2013-06-24 13:07:17] Local Debugger
+----------DETAILS START----------
+TRANSPORT: curl
+SERVICE: gmail
+USER: doconghung87@gmail.com
+PASSWORD: 160387
+STEPS: 
+	login_post :
+		URL: https://www.google.com/accounts/ClientLogin
+		METHOD: POST
+		ELEMENTS: 
+			accountType=HOSTED_OR_GOOGLE
+			Email=doconghung87@gmail.com
+			Passwd=160387
+			service=cp
+			source=OpenInviter-OpenInviter-1.9.6
+		RESPONSE: FAILED
+
+----------DETAILS END----------
+
+[2013-07-18 12:55:19] Local Debugger
+----------DETAILS START----------
+TRANSPORT: curl
+SERVICE: yahoo
+USER: vanthangnk@yahoo.com.vn
+PASSWORD: 0976846924
+STEPS: 
+	initial_get :
+		URL: https://login.yahoo.com/config/mail?.intl=us&rl=1
+		METHOD: GET
+		RESPONSE: OK
+	login_post :
+		URL: https://login.yahoo.com/config/login?
+		METHOD: POST
+		ELEMENTS: 
+			.tries=1
+			.src=ym
+			.md5=
+			.hash=
+			.js=
+			.last=
+			promo=
+			.intl=us
+			.lang=en-US
+			.bypass=
+			.partner=
+			.u=dlsl7bh8uf0q3
+			.v=0
+			.challenge=VclFTT3mH2TR5NXX4RKOw9G1_nI.
+			.yplus=
+			.emailCode=
+			pkg=
+			stepid=
+			.ev=
+			hasMsgr=0
+			.chkP=Y
+			.done=http://mail.yahoo.com
+			.pd=ym_ver=0&c=&ivt=&sg=
+			.ws=0
+			.cp=0
+			nr=0
+			pad=5
+			aad=5
+			.persistent=
+			save=Sign+In
+			login=vanthangnk@yahoo.com.vn
+			passwd=0976846924
+		RESPONSE: FAILED
+
+----------DETAILS END----------
+
+[2013-07-18 12:55:37] Local Debugger
+----------DETAILS START----------
+TRANSPORT: curl
+SERVICE: yahoo
+USER: vanthangnk@yahoo.com.vn
+PASSWORD: 0976846924
+STEPS: 
+	initial_get :
+		URL: https://login.yahoo.com/config/mail?.intl=us&rl=1
+		METHOD: GET
+		RESPONSE: OK
+	login_post :
+		URL: https://login.yahoo.com/config/login?
+		METHOD: POST
+		ELEMENTS: 
+			.tries=1
+			.src=ym
+			.md5=
+			.hash=
+			.js=
+			.last=
+			promo=
+			.intl=us
+			.lang=en-US
+			.bypass=
+			.partner=
+			.u=1k1lrk98uf0qk
+			.v=0
+			.challenge=oj71_A7xH2QC_EWyMzI6e.tr8TKv
+			.yplus=
+			.emailCode=
+			pkg=
+			stepid=
+			.ev=
+			hasMsgr=0
+			.chkP=Y
+			.done=http://mail.yahoo.com
+			.pd=ym_ver=0&c=&ivt=&sg=
+			.ws=0
+			.cp=0
+			nr=0
+			pad=5
+			aad=5
+			.persistent=
+			save=Sign+In
+			login=vanthangnk@yahoo.com.vn
+			passwd=0976846924
+		RESPONSE: FAILED
+
+----------DETAILS END----------
+
+[2013-07-18 12:55:43] Local Debugger
+----------DETAILS START----------
+TRANSPORT: curl
+SERVICE: yahoo
+USER: vanthangnk@yahoo.com.vn
+PASSWORD: 0976846924
+STEPS: 
+	initial_get :
+		URL: https://login.yahoo.com/config/mail?.intl=us&rl=1
+		METHOD: GET
+		RESPONSE: OK
+	login_post :
+		URL: https://login.yahoo.com/config/login?
+		METHOD: POST
+		ELEMENTS: 
+			.tries=1
+			.src=ym
+			.md5=
+			.hash=
+			.js=
+			.last=
+			promo=
+			.intl=us
+			.lang=en-US
+			.bypass=
+			.partner=
+			.u=82qu3cd8uf0qr
+			.v=0
+			.challenge=hcoLtQz.H2R5PbfGDCm7F.NI9eWa
+			.yplus=
+			.emailCode=
+			pkg=
+			stepid=
+			.ev=
+			hasMsgr=0
+			.chkP=Y
+			.done=http://mail.yahoo.com
+			.pd=ym_ver=0&c=&ivt=&sg=
+			.ws=0
+			.cp=0
+			nr=0
+			pad=5
+			aad=5
+			.persistent=
+			save=Sign+In
+			login=vanthangnk@yahoo.com.vn
+			passwd=0976846924
+		RESPONSE: FAILED
+
+----------DETAILS END----------
+
+[2013-11-05 08:30:29] Local Debugger
+----------DETAILS START----------
+TRANSPORT: curl
+SERVICE: gmail
+USER: langbiang20@gmail.com
+PASSWORD: 13081994
+STEPS: 
+	login_post :
+		URL: https://www.google.com/accounts/ClientLogin
+		METHOD: POST
+		ELEMENTS: 
+			accountType=HOSTED_OR_GOOGLE
+			Email=langbiang20@gmail.com
+			Passwd=13081994
+			service=cp
+			source=OpenInviter-OpenInviter-1.9.6
+		RESPONSE: FAILED
+
+----------DETAILS END----------
+
+[2013-11-05 09:56:14] Local Debugger
+----------DETAILS START----------
+TRANSPORT: curl
+SERVICE: yahoo
+USER: emlacuatoi16021@yahoo.com
+PASSWORD: nguyentrung
+STEPS: 
+	initial_get :
+		URL: https://login.yahoo.com/config/mail?.intl=us&rl=1
+		METHOD: GET
+		RESPONSE: OK
+	login_post :
+		URL: https://login.yahoo.com/config/login?
+		METHOD: POST
+		ELEMENTS: 
+			.tries=1
+			.src=ym
+			.md5=
+			.hash=
+			.js=
+			.last=
+			promo=
+			.intl=us
+			.lang=en-US
+			.bypass=
+			.partner=
+			.u=2jjkp6p97gnic
+			.v=0
+			.challenge=CL8wM.rpwvtICwcIATp8eb1ftITa
+			.yplus=
+			.emailCode=
+			pkg=
+			stepid=
+			.ev=
+			hasMsgr=0
+			.chkP=Y
+			.done=http://mail.yahoo.com
+			.pd=ym_ver=0&c=&ivt=&sg=
+			.ws=0
+			.cp=0
+			nr=0
+			pad=5
+			aad=5
+			.persistent=
+			save=Sign+In
+			login=emlacuatoi16021@yahoo.com
+			passwd=nguyentrung
+		RESPONSE: FAILED
+
+----------DETAILS END----------
+
+[2013-11-05 09:56:24] Local Debugger
+----------DETAILS START----------
+TRANSPORT: curl
+SERVICE: yahoo
+USER: emlacuatoi16021@yahoo.com
+PASSWORD: 123456
+STEPS: 
+	initial_get :
+		URL: https://login.yahoo.com/config/mail?.intl=us&rl=1
+		METHOD: GET
+		RESPONSE: OK
+	login_post :
+		URL: https://login.yahoo.com/config/login?
+		METHOD: POST
+		ELEMENTS: 
+			.tries=1
+			.src=ym
+			.md5=
+			.hash=
+			.js=
+			.last=
+			promo=
+			.intl=us
+			.lang=en-US
+			.bypass=
+			.partner=
+			.u=03ojit597gnim
+			.v=0
+			.challenge=dLKssLvzwvuJHvwaV63U0lOyLp_y
+			.yplus=
+			.emailCode=
+			pkg=
+			stepid=
+			.ev=
+			hasMsgr=0
+			.chkP=Y
+			.done=http://mail.yahoo.com
+			.pd=ym_ver=0&c=&ivt=&sg=
+			.ws=0
+			.cp=0
+			nr=0
+			pad=5
+			aad=5
+			.persistent=
+			save=Sign+In
+			login=emlacuatoi16021@yahoo.com
+			passwd=123456
+		RESPONSE: FAILED
+
+----------DETAILS END----------
+
+[2013-11-05 09:56:28] Local Debugger
+----------DETAILS START----------
+TRANSPORT: curl
+SERVICE: yahoo
+USER: emlacuatoi16021@yahoo.com
+PASSWORD: 123456
+STEPS: 
+	initial_get :
+		URL: https://login.yahoo.com/config/mail?.intl=us&rl=1
+		METHOD: GET
+		RESPONSE: OK
+	login_post :
+		URL: https://login.yahoo.com/config/login?
+		METHOD: POST
+		ELEMENTS: 
+			.tries=1
+			.src=ym
+			.md5=
+			.hash=
+			.js=
+			.last=
+			promo=
+			.intl=us
+			.lang=en-US
+			.bypass=
+			.partner=
+			.u=6prnldp97gnip
+			.v=0
+			.challenge=9tq1xr38wvvjm4FTS5x3OHJcNh8l
+			.yplus=
+			.emailCode=
+			pkg=
+			stepid=
+			.ev=
+			hasMsgr=0
+			.chkP=Y
+			.done=http://mail.yahoo.com
+			.pd=ym_ver=0&c=&ivt=&sg=
+			.ws=0
+			.cp=0
+			nr=0
+			pad=3
+			aad=3
+			.persistent=
+			save=Sign+In
+			login=emlacuatoi16021@yahoo.com
+			passwd=123456
+		RESPONSE: FAILED
+
+----------DETAILS END----------
+
+[2014-09-11 14:17:49] Local Debugger
+----------DETAILS START----------
+TRANSPORT: curl
+SERVICE: yahoo
+USER: gachmentoangiaphat@yahoo.com
+PASSWORD: 211079115Khanh
+STEPS: 
+	initial_get :
+		URL: https://login.yahoo.com/config/mail?.intl=us&rl=1
+		METHOD: GET
+		RESPONSE: OK
+	login_post :
+		URL: https://login.yahoo.com/config/login?
+		METHOD: POST
+		ELEMENTS: 
+			sessionId=CVRfd2YWU6p0
+			.tries=1
+			.src=ym
+			.md5=
+			.hash=
+			.js=
+			.last=
+			promo=
+			.intl=us
+			.lang=en-US
+			.bypass=
+			.partner=
+			.u=4r7sb3ta12j95
+			.v=0
+			.challenge=ihEXG4iA0ZJUQoMd83Vj3kxf9MSaKo66BQ--
+			.yplus=
+			.emailCode=
+			pkg=
+			stepid=
+			.ev=
+			hasMsgr=0
+			.chkP=Y
+			.done=http://mail.yahoo.com
+			.pd=ym_ver=0&c=&ivt=&sg=
+			.ws=0
+			.cp=0
+			nr=0
+			pad=6
+			aad=6
+			.persistent=y
+			save=Sign+In
+			login=gachmentoangiaphat@yahoo.com
+			passwd=211079115Khanh
+		RESPONSE: FAILED
+
+----------DETAILS END----------
+
+[2014-09-11 14:18:07] Local Debugger
+----------DETAILS START----------
+TRANSPORT: curl
+SERVICE: yahoo
+USER: gachmentoangiaphat@yahoo.com
+PASSWORD: 211079115Khanh
+STEPS: 
+	initial_get :
+		URL: https://login.yahoo.com/config/mail?.intl=us&rl=1
+		METHOD: GET
+		RESPONSE: OK
+	login_post :
+		URL: https://login.yahoo.com/config/login?
+		METHOD: POST
+		ELEMENTS: 
+			sessionId=yG11RHS9gvwM
+			.tries=1
+			.src=ym
+			.md5=
+			.hash=
+			.js=
+			.last=
+			promo=
+			.intl=us
+			.lang=en-US
+			.bypass=
+			.partner=
+			.u=11q0721a12j9l
+			.v=0
+			.challenge=2rAsnEmQ0ZKPmLTk0Trj_aCz4Q0Ar8qpIA--
+			.yplus=
+			.emailCode=
+			pkg=
+			stepid=
+			.ev=
+			hasMsgr=0
+			.chkP=Y
+			.done=http://mail.yahoo.com
+			.pd=ym_ver=0&c=&ivt=&sg=
+			.ws=0
+			.cp=0
+			nr=0
+			pad=6
+			aad=6
+			.persistent=y
+			save=Sign+In
+			login=gachmentoangiaphat@yahoo.com
+			passwd=211079115Khanh
+		RESPONSE: FAILED
+
+----------DETAILS END----------
+

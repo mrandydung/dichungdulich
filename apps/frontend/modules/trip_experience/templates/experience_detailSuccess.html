@@ -1,0 +1,32 @@
+{% extends "layout.html"%}
+{% block body %}
+<link href="/assets/dichungdulich/css/tour.css" rel="stylesheet">
+<link href="/assets/dichungdulich/css/experience.css" rel="stylesheet">
+	<div class="gray_bg box_2x">
+    <div class="container tour_2">
+        <div class="row">
+            <div class="col-md-8 box_1x">			
+                <div class="title_exp">
+					<h5 class="t1 text-uppercase">{{experience.getTitle}}</h5>
+					<h6><span class="location"></span>{{experience.getEnd}}</h6>
+				</div>
+        {% if experience.getTypeUploadId == '1'%}
+            {{get_partial('tour_slide',{experience:experience})|raw}}
+        {% else %}
+            <iframe width="100%" height="350px" src="{{experience.getVideoUrl}}" frameborder="0" allowfullscreen></iframe>
+        {% endif%}
+				{{get_partial('experience_detail_statistic',{experience:experience,url:url,facebook_count:facebook_count})|raw}}
+                <div class="box_1x mota" style="text-align: justify">
+                    <h4>Bài viết</h4>
+                    <p class="content">{{experience.getContent|raw}}</p>
+                </div>
+               {{get_partial('tour_comment',{user_id:user_id,comment_experience:comment_experience,experience:experience})|raw}} 
+            </div>
+            <div class="col-md-4"> 
+               {{get_partial('tour_poster',{user:user,user_id:user_id})|raw}}
+               {{get_partial('tour/tour_poster_info',{user_id_service:user})|raw}}
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %} 

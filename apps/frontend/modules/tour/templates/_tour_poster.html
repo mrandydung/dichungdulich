@@ -1,0 +1,90 @@
+<div class="acc_user box_1x">
+    <div class="ava_user col-md-4 col-sm-4 col-xs-4">
+        <a href="{{user_id_service.getDetailUrlDefault}}">
+            {% if user_id_service.getAvatar|slice(0,8) == '/uploads' %}
+           <img src="http://dichung.vn{{user_id_service.getAvatar}}" width="100%" height="80px">
+           {% else %}
+           <img src="{{user_id_service.getAvatar}}" width="100%" height="80px">
+           {% endif %}
+        </a>
+    </div>
+    <div class="col-md-8 col-sm-8 col-xs-8 user_name">
+        <p><a href="{{user_id_service.getDetailUrlDefault}}">{{tour_detail.DichungUser.getFullname}}</a></p>
+<!--         <p><div class="rating mg-b-10 fl-l" data-value="5"><span class="star-img stars-5"></span></div></p> -->
+        <table align="center" style="width:50%">
+            <tr>
+                {% if user_id_service.getFbUrl %}<td><a class="fb" target="_blank" href="{{user_id_service.getFbUrl}}"></a></td>{% endif %}
+                {% if user_id_service.getSkypeUrl %}<td><a class="skype" target="_blank" href="skype:{{user_id_service.getSkypeUrl}}?chat"></a></td>{% endif %}
+            </tr>
+        </table>
+        <div class="padding_top clear">
+            {% if user_id_service.getId != user_id%}
+            <a class="btn btn_blue_outline" id="button_send_message">{{translate('Gửi tin nhắn')}}</a>
+            {% endif %}
+        </div>
+    </div>
+    <div class="clear"></div>
+</div>
+<script type="text/javascript">
+   $(document).ready(function(){
+      $('#button_send_message').click(function(){
+         {% if user_id %}
+         $('#send_message_user').modal();
+         {% else %}
+          $('#dangnhap').modal();
+         {% endif %}
+      });
+      $('#submit_send_message').click(function(){
+          var content_message_send = $('#content_message_send').val();
+          var id_user_receiver = $('#id_user_hidden').val();
+            if(content_message_send){
+                var id_message_hidden = $('#id_message_hidden').val();
+                jQuery.ajax({ type: "POST",url: "/user_default/send_message",dataType:"json", 
+                data: {"content_message_send":content_message_send,"id_user_receiver":id_user_receiver}, 
+                    success:function(response){
+                        var code = response.code;
+                        var msg = response.msg;
+                        if(code == '1'){
+                          $('#popup_error_send_message').html(msg);
+                           $('#popup_error_send_message').fadeIn();
+                        }
+                        if(code == '2'){
+                            alert(msg);
+                            $('#content_message_send').val('');
+                            $('#send_message_user').modal('hide');
+                        }
+                    },
+                });
+            }else{
+                $('#popup_error_send_message').html('Bạn chưa nhập nội dung tin nhắn');
+                $('#popup_error_send_message').fadeIn();
+            }
+      });
+   });
+</script>
+<div class="modal fade" id="send_message_user" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">{{translate('Gửi tin nhắn tới')}} {{user_id_service.getFullname}}</h4>
+            </div>
+            <div class="modal-body padding_top">
+                <p id="view_content_message_receiver"></p>
+                <textarea class="form-control" id="content_message_send" name="content_message_send" placeholder="{{translate('Nhập nội dung tin nhắn')}}"></textarea>
+            </div>
+              <div class="error" id="popup_error_send_message" style="display:none"></div>
+            <div class="modal-footer">
+                <div class="row">
+                    <div class="col-md-offset-6 col-md-3">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">{{translate('Hủy')}}</button>
+                    </div>
+                    <div class="col-md-3">
+                        <button type="button" class="btn btn_blue" id="submit_send_message">{{translate('Gửi')}}</button>
+                        <input type="hidden" id="id_user_hidden" value="{{user_id_service.getId}}" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,24 @@
+generator:
+  class:              sfPropelAdminGenerator
+  param:
+    model_class:      TourDetail
+    theme:            default
+    list:
+      object_actions:
+        _edit:         ~
+      actions:
+        _create:       ~
+      display : [id,username,TourType,title,start,end,TourTimeType,TourTimeCategoryDay,TypePricing,TypePricingService,date_start,date_end,price,success_created,on_homepage,created_at]
+      sort: [id, desc]
+      filters: [id,tour_type_id,time_type_id,time_category_day_id,type_pricing_id,type_pricing_service_id,date_start,date_end,success_created,on_homepage,created_at]
+      actions : []
+    edit:
+      actions :
+        _list :     ~
+        _save :     ~
+      display : [tour_type_id,region_id,city_id,time_type_id,time_category_day_id,type_pricing_id,type_pricing_service_id,start,end,coo_start,lat_start,lng_start,coo_end,lat_end,lng_end,detail,date_start,date_end,hour_start,hour_day,hour_week,day_in_week,price,payment_type_id,security_deposit,sum_number_seat,number_seat_min,number_seat,number_seat_booking,allow_booking_fast,note,enabled,priority,policy_price,success_created,on_homepage,title,description,title_seo,description_seo,img_seo]
+      fields:
+       detail: { params: class=ckeditor size=80x60}
+       policy_ticket: { params: class=ckeditor size=80x30}
+       description: { params: class=ckeditor size=80x30}
+       note: { params: class=ckeditor size=80x30}

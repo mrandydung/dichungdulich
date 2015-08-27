@@ -1,0 +1,40 @@
+{% extends "layout.html"%}
+{% block body %}
+<link href="/assets/dichungdulich/css/area.css?v={{random()}}" rel="stylesheet">
+<script type="text/javascript" src="/assets/js/typeahead.min.js?v={{random()}}"></script>
+<script type="text/javascript" src="/assets/dichungdulich/js/area_tour.js?v={{random()}}"></script>
+<div class="white_bg box_3x">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-offset-2 col-md-8 text-center box_1x">
+				<h3 class="t1">{{translate('Tour trong nước')}}</h3>
+				<h4><small>{{count_all_tour_trong_nuoc}} {{translate('tour đến')}} {{count_all_diem_den_trong_nuoc}} {{translate('địa điểm du lich trong cả nước được tổng hợp trong bàn tay bạn. Chỉ đơn giản chọn một tour mà bạn thấy phù hợp và trải nghiệm')}}.</small></h4>
+			</div>
+		</div>
+		<div class="row box_2x">
+			<div class="col-md-3">
+				<div class="input-group">
+					<input type="text" class="form-control" placeholder="{{translate('Tìm kiếm địa điểm')}}" id="end_trong_nuoc">
+					<span class="input-group-btn">
+						<button class="btn btn_orange" type="button" id="button_search_end_trong_nuoc">{{translate('Tìm kiếm')}}</button>
+					</span>
+				</div>
+			</div>
+			<div class="col-md-offset-6 col-md-3">
+				<select class="form-control" id="select_filter_tour_trong_nuoc">
+					<option value="0">{{translate('Xếp theo')}}</option>
+					<option value="1">{{translate('Nhiều tour nhất')}}</option>
+				</select>
+			</div>
+		</div>
+		<div class="row" id="div_area_tour_loading">
+			{{get_partial('area_list',{diem_den:diem_den_trong_nuoc})|raw}}
+		</div>
+		<div class="row">
+			<center><div class="loadMore ksb" id="showmorethisresult"> 
+				<img style="display:none" id="img_loading" align="absmiddle" src="/images/ajax-loader.gif"> {{translate('Hiển thị thêm')}}
+			</div></center>
+		</div>
+	</div>
+</div>
+{% endblock %}

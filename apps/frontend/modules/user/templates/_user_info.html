@@ -1,0 +1,104 @@
+<div id="profile_user" {% if user.getUserTypeId == '2'%}style="display: none"{% endif %}>
+    <div class="row">
+        <div class="col-md-12">
+            <h4>{{translate('Thông tin cá nhân')}}</h4>
+        </div>
+    </div>
+    <div class="row padding_top">
+        <div class="col-md-2 col-sm-2 col-xs-4">
+            <p>{{translate('Giới tính')}}:</p>
+        </div>
+        <div class="col-md-4 col-sm-4 col-xs-8">
+            <select class="form-control-2" name="gender"  style="width:100%">
+                {% for val in StaticCall("GenderPeer","getAll")%}
+                    <option {% if user.getGender == val.getId %}{{'selected'}}{% endif %} value="{{val.getId}}">{{val.getName}}</option>
+                {% endfor%}
+            </select>
+        </div>
+    </div>
+    <div class="row padding_top">
+        <div class="col-md-2 col-sm-2 col-xs-4">
+            <p>{{translate('Độ tuổi')}}:</p>
+        </div>
+        <div class="col-md-4 col-sm-4 col-xs-8">
+            <select class="form-control-2" name="old_range"  style="width:100%">
+               {% for val in StaticCall("OldRangePeer","getAll")%}
+                    <option {% if user.getOldRangeId == val.getId %}{{'selected'}}{% endif %} value="{{val.getId}}">{{val.getName}}</option>
+                {% endfor%}
+            </select>
+        </div>
+    </div>
+    <div class="row padding_top">
+        <div class="col-md-2 col-sm-2 col-xs-4">
+            <p>{{translate('Nghề nghiệp')}}:</p>
+        </div>
+        <div class="col-md-4 col-sm-4 col-xs-8">
+            <select class="form-control-2" name="job"  style="width:100%">
+                {% for val in StaticCall("JobPeer","getAll")%}
+                    <option {% if user.getJobId == val.getId %}{{'selected'}}{% endif %} value="{{val.getId}}">{{val.getName}}</option>
+                {% endfor%}
+            </select>
+        </div>
+    </div>
+    <div class="row padding_top">
+        <div class="col-md-2 col-sm-2 col-xs-4">
+            <p>{{translate('Địa phương')}}:</p>
+        </div>
+        <div class="col-md-4 col-sm-4 col-xs-8">
+            <select class="form-control" id="location" name="location" >
+            {% for val in StaticCall('CityPeer','getAll')%}
+                <option {% if user.getLocation == val.getName %}{{'selected'}}{% endif %} value="{{val.getName}}">{{val.getName}}</option>
+            {% endfor%}
+            </select>
+        </div>
+    </div>
+    <div class="row padding_top">
+        <div class="col-md-2 col-sm-2 col-xs-4">
+            <p>{{translate('Giới thiệu')}}</p>
+        </div>
+        <div class="col-md-10 col-sm-4 col-xs-8">
+            <textarea class="form-control" name="about">{{user.getAbout}}</textarea>
+        </div>
+    </div>
+</div>
+
+<div id="profile_user_service"  {% if user.getUserTypeId == '1'%}style="display: none"{% endif %}>
+    <div class="row">
+        <div class="col-md-12">
+            <h4>{{translate('Thông tin tổ chức')}}</h4>
+        </div>
+    </div>
+    <div class="row padding_top">
+        <div class="col-md-2 col-sm-2 col-xs-4">
+            <p>{{translate('Địa chỉ')}}:</p>
+        </div>
+        <div class="col-md-4 col-sm-4 col-xs-8">
+            <input class="form-control" value="{{user.getAddress}}" id="address" name="address" />
+        </div>
+    </div>
+    <div class="row padding_top">
+        <div class="col-md-2 col-sm-2 col-xs-4">
+            <p>{{translate('Hotline')}}:</p>
+        </div>
+        <div class="col-md-4 col-sm-4 col-xs-8">
+           <input class="form-control" value="{{user.getHotline}}" id="hotline" name="hotline" />
+        </div>
+    </div>
+    <div class="row padding_top">
+        <div class="col-md-2 col-sm-2 col-xs-4">
+            <p>{{translate('Website')}}:</p>
+        </div>
+        <div class="col-md-4 col-sm-4 col-xs-8">
+            <input class="form-control" value="{{user.getWebsite}}" id="website" name="website" />
+        </div>
+    </div>
+
+    <div class="row padding_top">
+        <div class="col-md-2 col-sm-2 col-xs-4">
+            <p>{{translate('Giới thiệu')}}</p>
+        </div>
+        <div class="col-md-10 col-sm-4 col-xs-8">
+            <textarea class="form-control" name="about">{{user.getAbout}}</textarea>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,26 @@
+$(document).ready(function(){
+	$('#read_more_button').click(function(){
+		$('#ReadMore').hide();
+		$('#ReadLess').fadeIn();
+	})
+	$('#read_less_button').click(function(){
+		$('#ReadMore').fadeIn();
+		$('#ReadLess').hide();
+	})
+	$('#read_more_button_description').click(function(){
+		$('#ReadMoreDescription').hide();
+		$('#ReadLessDescription').fadeIn();
+	})
+	$('#read_less_button_decription').click(function(){
+		$('#ReadMoreDescription').fadeIn();
+		$('#ReadLessDescription').hide();
+	})
+	$('#read_less_button_policy_price').click(function(){
+		$('#ReadMorePolicyPrice').fadeIn();
+		$('#ReadLessPolicyPrice').hide();
+	})
+	$('#read_more_button_policy_price').click(function(){
+		$('#ReadMorePolicyPrice').hide();
+		$('#ReadLessPolicyPrice').fadeIn();
+	})
+});

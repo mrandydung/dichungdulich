@@ -1,0 +1,51 @@
+{% extends "layout.html"%}
+{% block header %}{% include '_login_header_menu.html' %}{% endblock%}
+{% block body %}
+	<div class="gray_bg box_3x">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3 profile">
+				{% include '_user_profile.html' %}
+			</div>
+            <div class="col-md-9 edit-profile">
+				<div class="row">
+					<div class="col-md-12">
+						<h4>Bảo mật thông tin</h4>
+						<p><span class="glyphicon glyphicon-ok"></span> Chỉ cung cấp Email và điện thoại cho người đồng ý đi chung</p>
+						<input type="checkbox"> Cho phép hiển thị Email và điện thoại ra công cộng
+					</div>
+				</div>
+				<div class="row box_2x">
+					<div class="col-md-12">
+						<h4>Cách thức nhận thông tin</h4>
+						<div>
+							<p><b>Thông báo qua email:</b></p>
+							<p><span class="glyphicon glyphicon-ok"></span> Yêu cầu đặt chỗ</p>
+							<p><span class="glyphicon glyphicon-ok"></span> Thông tin liên lạc của bạn đường sau khi đồng ý</p>
+							<p><input type="checkbox"> Bình luận, tin nhắn mới về chuyến đi đã đăng</p>
+							<p><input type="checkbox"> Khi bạn đường phản hồi về bạn hoặc nhắn nhở bạn phản hồi sau khi hoàn tất chuyến đi</p>
+							<p><input type="checkbox"> Xuất hiện chuyến đi phù hợp với tin bạn đăng trên hệ thống</p>
+							<p><input type="checkbox"> Nhận email liên quan đến các sự kiện quan trọng</p>
+						</div>
+						<div class="padding_top">
+							<p><b>Thông báo qua SMS:</b></p>
+							<p><span class="glyphicon glyphicon-ok"></span> Yêu cầu đặt chỗ</p>
+							<p><span class="glyphicon glyphicon-ok"></span> Thông tin liên lạc của bạn đường sau khi đồng ý</p>
+							<p><input type="checkbox"> Bình luận, tin nhắn mới về chuyến đi đã đăng</p>
+							<p><input type="checkbox"> Khi bạn đường phản hồi về bạn hoặc nhắn nhở bạn phản hồi sau khi hoàn tất chuyến đi</p>
+							<p><input type="checkbox"> Xuất hiện chuyến đi phù hợp với tin bạn đăng trên hệ thống</p>
+							<p><input type="checkbox"> Nhận email liên quan đến các sự kiện quan trọng</p>
+						</div>
+					</div>
+				</div>
+				<div class="row padding_top">
+					<div class="col-md-offset-8 col-md-4">
+						<a class="btn btn_blue">Lưu</a>
+					</div>
+				</div>
+			</div>
+        </div>
+    </div>
+</div>
+{% endblock %} 
+{% block test%}Trang chủ{% endblock %}

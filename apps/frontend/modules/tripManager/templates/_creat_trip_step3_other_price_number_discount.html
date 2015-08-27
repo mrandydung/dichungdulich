@@ -1,0 +1,60 @@
+<script type="text/javascript">
+$(document).ready(function(){
+    if({{tour_discount_number|length}}){
+    	$('#checkbox_discount_tour_number').click();
+    }
+});
+</script>
+<div class="row box_1x">
+    <div class="col-md-12">
+        <label class="hightlight"><input type="checkbox" value="checkbox_discount_tour_number" id="checkbox_discount_tour_number"/> {{translate(' Tôi muốn thêm giảm giá theo số lượng khách mua')}}</label>
+    </div>
+</div>
+<div id="div_checkbox_discount_tour_number" style="display:none;border-radius: 5px; background-color: rgb(227, 227, 227);">
+	<div class="row box_1x">
+		<div class="col-md-12 col-sm-6">
+			<div class="col-md-6 col-sm-5 col-xs-12">
+				<select class="form-control" id="select_discount_tour_number" style="border: 2px solid rgb(132, 132, 132);padding: 0px">
+					<option value="0"> {{translate('Mức giảm giá')}}</option>
+					{% for val in 1..80 %}
+					<option value="{{val}}">{{val}}%</option>
+					{% endfor %}
+				</select>
+			</div>
+			<div class="col-md-4 col-sm-6 col-xs-6">
+				<select class="form-control" id="select_number_discount_number" style="border: 2px solid rgb(132, 132, 132);padding: 0px">
+					<option value="0">{{translate('Số lượng mua tối thiểu')}}</option>
+					{% for val in 1..100%}
+					<option value="{{val}}">{{val}} {{translate('khách')}}</option>
+					{% endfor %}
+				</select>
+			</div>
+			<div class="col-md-2 col-sm-3 col-xs-3 ">
+            	<a class="btn btn_orange save" id="add_new_price_discount_tour_number">{{translate('Lưu')}}</a>
+      		</div>
+		</div>
+	</div>
+	{% for val in tour_discount_number%}
+	<div class="row box_1x"  id="item_tour_discount_number-{{val.getId}}">
+		<div class="col-md-12 col-sm-6">
+			<div class="col-md-6 col-sm-5 col-xs-12">
+				<select class="form-control" id="select_discount_tour_number_add_new" data-id="{{val.getId}}" >
+					{% for value in 1..80 %}
+					<option value="{{value}}" {% if val.getDiscount == valuel%}{{'selected'}}{% endif %}>{{value}}%</option>
+					{% endfor %}
+				</select>
+			</div>
+			<div class="col-md-4 col-sm-6 col-xs-6">
+				<select class="form-control" id="select_number_discount_number_add_new" data-id="{{val.getId}}" >
+					{% for value in 1..100%}
+					<option value="{{value}}" {%if val.getNumberDiscount == value%}{{'selected'}}{% endif %}>{{value}} {{translate('khách')}}</option>
+					{% endfor %}
+				</select>
+			</div>
+			<div class="col-md-2 col-sm-3 col-xs-3 ">
+            	<a class="btn btn_orange_outline save delete_new_price_discount_tour_number"  id="delete_new_price_discount_tour_number-{{val.getId}}">Xóa</a>
+      		</div>
+		</div>
+	</div>
+	{% endfor %}
+</div>

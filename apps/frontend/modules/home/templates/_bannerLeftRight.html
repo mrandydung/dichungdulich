@@ -1,0 +1,34 @@
+<style type="text/css">
+	#hide_float_right {text-align:right; font-size: 11px;}
+	#hide_float_right a {background: #01AEF0; padding: 2px 4px; color: #FFF;}
+	/*#float_content_left {border: 1px solid #01AEF0;}*/
+	#hide_float_left {text-align:left; font-size: 11px;}
+	#hide_float_left a {background: #01AEF0; padding: 2px 4px; color: #FFF;}
+</style>
+<script type="text/javascript">
+function hide_float_right() {
+    var content = document.getElementById('float_content_right');
+    var hide = document.getElementById('hide_float_right');
+    if (content.style.display == "none")
+    {content.style.display = "block"; hide.innerHTML = '<a href="javascript:hide_float_right()">Close [X]</a>'; }
+        else { content.style.display = "none"; hide.innerHTML = '<a href="javascript:hide_float_right()">Open...</a>';
+    }
+    }
+function hide_float_left() {
+    var content = document.getElementById('float_content_left');
+    var hide = document.getElementById('hide_float_left');
+    if (content.style.display == "none")
+    {content.style.display = "block"; hide.innerHTML = '<a href="javascript:hide_float_left()">Close [X]</a>'; }
+        else { content.style.display = "none"; hide.innerHTML = '<a href="javascript:hide_float_left()">Open...</a>';
+    }
+}
+</script>
+<div style="position: fixed;left: 0px;bottom:0px;z-index : 1000;width: 10%" id="banner_left">
+	<div id="hide_float_left">
+    	<a href="javascript:hide_float_left()">Close [X]</a>
+    </div>
+	<div id="float_content_left">
+		<a onClick="_gaq.push(['_trackEvent', 'Banner Gheptour shlx', 'Clicked', 'Ads']);" href="{{url_for('@thelecuocthi')}}" target="_blank">
+		<img alt="Tax-Noi-Bai-gia-re" src="/img/banner_left_gheptour.vn.png" style="width: 100%;height: 35%"></a>
+ 	</div>
+ </div>

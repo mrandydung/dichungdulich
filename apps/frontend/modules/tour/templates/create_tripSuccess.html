@@ -1,0 +1,81 @@
+{% extends "layout.html"%}
+{% block body %}
+<script src="/js/map/jquery.geocomplete.js?v={{random()}}"></script>
+<script src="/js/jsapi.js?v={{random()}}"></script>
+<script src="/js/map/map_funcs.js?v={{random()}}"></script>
+<script src="/js/jquery-ui.js?v={{random()}}"></script>
+<script src="/js/datepicker-vi.js?v={{random()}}"></script>
+<script src="/assets/dichungdulich/js/create_trip.js?v={{random()}}"></script>
+<link href="/assets/dichungdulich/css/creat_trip.css?v={{random()}}" rel="stylesheet">
+<link href="/assets/dichungdulich/css/bootstrap.vertical-tabs.css?v={{random()}}" rel="stylesheet">
+<script type="text/javascript" src="/assets/js/typeahead.min.js?v={{random()}}"></script>
+<style type="text/css">
+.box_10x{
+  padding-top: 50px;
+  padding-bottom: auto;
+}
+</style>
+<script type="text/javascript">
+$(document).ready(function(){
+  $('#end').typeahead({
+    name: 'search_end',
+    hint: true,
+    highlight: true,
+    remote: {
+      cache: true,
+      url: '/home/search_end?search_end=%QUERY',
+      filter: function (parsedResponse) {
+        return parsedResponse;
+      }
+    }
+  });
+
+});
+</script>
+<form method="POST" action="{% if not sf_user.isEn %}{{url_for('@createTour')}}{% else %}{{url_for('@createTour_en')}}{% endif %}">
+  <div class="white_bg box_2x">
+    <div class="container thongtin">
+     {% for val in errors%}
+     <div class="error" id="popup_error" style="display: block;">{{val}}</div>
+     {% endfor %}
+     {% if partner_id == '1'%}
+     <div class="row box_1x">
+      <div class="col-md-offset-2 col-md-1 box_3x">
+        <p><strong>{{translate('Tôi muốn')}}:</strong></p>
+      </div>
+      <div class="col-md-3">
+        <div class="user_type">
+          <input type="radio" name="radio_tour_type" id="radio1" class="radio" {% if type_tour == '1'%}{{'checked'}}{% endif %} value="1" />
+          <label for="radio1">{{translate('Tìm bạn cùng đi du lịch')}}</label>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="user_type">
+          <input type="radio" name="radio_tour_type" id="radio2" class="radio" {% if type_tour == '2'%}{{'checked'}}{% endif %} value="2" />
+          <label for="radio2">{{translate('Cung cấp dịch vụ tour')}}</label>
+        </div>
+      </div>
+    </div>
+    {% endif %}
+    <div class="row box_1x">
+     <div class="col-md-offset-2 col-md-1 box_1x">
+      <p><strong>{{translate('Địa điểm')}}:</strong></p>
+    </div>
+    <div class="col-md-6">
+      <input type="text" class="form-control a_" placeholder="{{translate('Điểm đi')}}" id="start" name="start" value="{% if start %}{{start}}{% endif %}" />
+    </div>
+    <div class="col-md-6 padding_top">
+      <input type="text" class="form-control b_" placeholder="{{translate('Điểm đến')}}" id="end" name="end" value="{% if end %}{{end}}{% endif %}">
+    </div>
+    <input type="hidden" id="hidden_start" name="hidden_start"/>
+    <input type="hidden" id="hidden_end" name="hidden_end"/>
+  </div>
+  <div class="row box_2x">
+   <div class="col-md-offset-4 col-md-4">
+    <button type="submit" class="btn btn_orange">{{translate('Tạo chuyến đi')}}</button>
+  </div>
+</div>
+</div>
+</div>
+</form>
+{% endblock %} 

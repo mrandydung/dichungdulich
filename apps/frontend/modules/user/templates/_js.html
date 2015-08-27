@@ -1,0 +1,93 @@
+<script type="text/javascript">
+$(document).ready(function(){
+	$('#click_upload_avatar').click(function(){
+		$('#user_avatar').click();
+	});
+
+	$('#myModal').click(function(){
+		$('#content_myModal').modal();
+	});
+
+	$('#click_active_phone').click(function(){
+		var phone_number = $('#phone_number').val();
+		if(phone_number){
+	       jQuery.ajax({ type: "POST",url: "/user/check_verified_phone",dataType:"json", 
+            data:{"phone_number":phone_number},
+            success:function(response){
+                var code = response.code;
+                var msg = response.msg;
+                if(code == '1'){
+            		$('#popup_error').html(msg);
+					$('#popup_error').fadeIn();
+                }if(code == '2'){
+                	$('#content_verified_phone').modal();
+                }
+        	},
+   	 		});
+		}else{	 
+			$('#popup_error_change_phone').html('Bạn vui lòng nhập số điện thoại');
+			$('#popup_error_change_phone').fadeIn();
+		}
+	});
+
+	$('#submit_verified_phone').click(function(){
+		var ma_xac_thuc = $('#ma_xac_thuc').val();
+		if(ma_xac_thuc){
+	     	jQuery.ajax({ type: "POST",url: "/user/submit_verified_phone",dataType:"json", 
+            data:{"ma_xac_thuc":ma_xac_thuc},
+            success:function(response){
+                var code = response.code;
+                var msg = response.msg;
+                if(code == '2'){
+            		$('#popup_error_ma_xac_thuc').html(msg);
+					$('#popup_error_ma_xac_thuc').fadeIn();
+                }if(code == '1'){
+                	window.location.reload();
+                }
+        	},
+   	 		});
+		}else{
+			$('#popup_error_ma_xac_thuc').html('Bạn chưa nhập mã xác thực');
+			$('#popup_error_ma_xac_thuc').fadeIn();
+		}
+	});
+
+	$('#change_password_popup').click(function(){
+		var password_old = $('#password_old').val();
+		var password_new = $('#password_new').val();
+		var password_new_rp = $('#password_new_rp').val();
+		if(password_old && password_new && password_new_rp){
+	        jQuery.ajax({ type: "POST",url: "/user/change_password",dataType:"json", 
+            data:{"password_old":password_old,"password_new":password_new,"password_new_rp":password_new_rp},
+            success:function(response){
+                var code = response.code;
+                var msg = response.msg;
+                if(code == '1'){
+            		$('#popup_error_change_password').html(msg);
+					$('#popup_error_change_password').fadeIn();
+                }if(code == '2'){
+            		window.location.reload();
+                }
+            },
+        });
+		}else{
+			$('#popup_error_change_password').html('Bạn vui lòng nhập đầy đủ các trường');
+			$('#popup_error_change_password').fadeIn();
+		}
+	});
+
+	$('#checkbox_partner').change(function(){
+
+		if ($(this).is(':checked') ){
+			$('#profile_user').hide();
+			$('#profile_user_service').fadeIn();
+		}
+		else{
+			$('#profile_user_service').hide();
+			$('#profile_user').fadeIn();
+
+		}
+	});
+
+});
+</script>

@@ -1,0 +1,39 @@
+<div class="error" id="popup_error_schedule" style="display:none"></div>
+<div class="success" id="popup_success_schedule" style="display: none"></div>
+<div class="row box_1x">
+    <div class="col-md-12">
+        <div class="row box_1x">
+            <div class="col-md-4">
+                <a class="btn btn_blue" id="lich_trinh_co_ban">
+                    {{translate('Lịch trình cơ bản')}}
+                </a>
+            </div>
+            <div class="col-md-4">
+                <a class="btn btn_orange" id="lich_trinh_chi_tiet">
+                    {{translate('Lịch trình chi tiết')}}
+                </a>
+            </div>
+        </div>
+        <div id="simple">
+            {{get_partial('trip_manager_personal/trip_set_schedule_simple',{tour_id:tour_id,images:images,tour_detail:tour_detail})|raw}}
+        </div>
+        <div id="complicate" >
+            <table class="schedule_day">
+                <tr>
+                    <td class="active-old">Ngày 1</td>
+                    <td class="active">Ngày 2</td>
+                    <td>Ngày 3</td>
+                    <td>Ngày 4</td>
+                </tr>
+            </table>
+            <div class="padding_top">
+                {{get_partial('trip_manager_personal/creat_trip_step2_detailed_schedule',{tour_id:tour_id,tour_detail:tour_detail,schedule_day_one:schedule_day_one,vehicle_arr:vehicle_arr})|raw}}
+            </div>
+        </div>
+        <div class="row box_2x">
+            <div class="col-md-offset-8 col-md-4">
+                <a class="btn btn_blue" id="update_schedule" href="#">Cập nhật</a>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,14 @@
+<div class="row padding_top" style="display:none" id="daily_start_time">
+	<div class="col-md-3">
+		<select class="form-control hour_" placeholder="Giờ đi" name="creat_trip_form_daily_start[hour]"  id="creat_trip_form_daily_start_hour">
+		{{sf_user.getHour|raw}}</select>
+    </div>
+    <div class="col-md-3">
+        <select class="form-control" name="creat_trip_form_daily_start[day_long]"  id="creat_trip_form_daily_start_day_long">
+            <option value="0">Thời gian</option>
+            {% for val in StaticCall('TourTimeCategoryDayPeer','getAll') %}
+             <option value="{{val.getVal}}">{{val.getName}}</option>
+            {% endfor %}
+        </select>
+    </div>
+</div>

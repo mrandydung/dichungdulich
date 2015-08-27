@@ -1,0 +1,18 @@
+<div class="row padding_top">
+    <div class="col-md-4">
+        <button class="btn btn_blue" data-toggle="modal" data-target="#chonanh">{{translate('Chọn ảnh lịch trình')}}</button>
+    </div>
+</div>
+<div class="row">
+	<div class="col-md-3 padding_top">
+		<p><a>Tải ảnh cá nhân</a></p>
+	</div>
+	<div class="col-md-4 padding_top">
+		<p><a>Sử dụng ảnh thư viện có sẵn</a></p>
+	</div>
+	<div class="col-md-4 padding_top">
+		<p><a>Sử dụng ảnh google</a></p>
+	</div>
+</div>
+{% include '_trip_set_schedule_image_library.html' %}						
+{% include '_trip_set_schedule_image_selected.html' %}	

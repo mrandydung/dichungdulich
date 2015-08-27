@@ -1,0 +1,10 @@
+# robots.txt generated at http://www.mcanerin.com
+User-agent: *
+Disallow: /cgi-bin/
+Disallow: /index.php/blog
+Disallow: /dev.php*
+Disallow: /backend.php*
+Disallow: /backend_dev.php*
+Disallow: /thong-tin/*
+Disallow: /?utm_domain*
+Sitemap: http://www.gheptour.vn/sitemap.xml

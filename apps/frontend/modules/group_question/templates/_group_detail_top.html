@@ -1,0 +1,44 @@
+{{get_partial('home/js_fb')|raw}}
+<div class="title">{{translate('Xếp hạng tư vấn')}}</div>
+<div class="clear"></div>
+<div class="box_1x">
+{% for key,val in top_question %}
+ {% set keys = key + 1 %}
+ {% if keys == '1'%}
+ <div class="top first" >
+ {% elseif keys == '2' or keys == '3'%}
+<div class="top second">
+{% else %}
+<div class="top">
+{% endif %}
+    <div class="stt box_1x"><h3>{{keys}}</h3></div>
+    <div class="ava_user">
+        <img src="{{val['avatar']}}" width="100%"/>
+    </div>
+    <div class="user_top">
+        <p class="text-uppercase"><a href="{{val['url_user']}}" {% if keys == '1'%}style="color: white!important"{% endif %}>{{val['fullname']}}</a></p>
+        <p><small>{{translate('Trả lời')}}: {{val['answer_question']}} {{translate('câu hỏi')}}</small></p>
+        <p><small>{{translate('Thích')}}: {{val['like_question']}} {{translate('lượt')}}</small></p>
+    </div>
+    <div class="clear"></div>
+</div>
+{% endfor %}
+</div>
+<div class="box_1x">
+<hr>
+    <div>
+        <h3>Facebook</h3>
+        <div class="fb-page" data-href="https://www.facebook.com/gheptour.vn" data-width="100%" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true" data-show-posts="false"><div class="fb-xfbml-parse-ignore"><blockquote cite="https://www.facebook.com/gheptour.vn"><a href="https://www.facebook.com/gheptour.vn"></a></blockquote></div></div>
+    </div>
+    <hr>
+    <div>
+        <h3>Pinterest</h3>
+            <a data-pin-do="embedUser" href="http://fr.pinterest.com/gheptourvn/" data-pin-scale-width="100" data-pin-scale-height="320" data-pin-board-width="400"></a>
+        <script type="text/javascript" async defer src="//assets.pinterest.com/js/pinit.js"></script>
+    </div>
+    <hr>
+    <div>
+        <h3>Instagram</h3>
+        <iframe src="http://widget.stagram.com/in/gheptour.vn//?s=100&w=3&h=3&b=1&bg=FFFFFF&p=5" allowtransparency="true" frameborder="0" scrolling="no" style="border:none;overflow:hidden;width:100%; height: 345px" ></iframe> <!-- Webstagram - web.stagram.com -->
+    </div>
+</div>

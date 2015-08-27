@@ -1,0 +1,288 @@
+.map{height: 200px}
+.thongtin p{
+    margin-bottom: 5px;
+}
+input.a_ {
+    background-image: url("../img/A_.png");
+    background-repeat: no-repeat;
+    -ms-background-position-x: 8px;
+    background-position-x: 8px;
+    padding-left: 35px;
+    -ms-background-position-y: 6px;
+    background-position-y: 6px;
+}
+input.b_ {
+    background-image: url("../img/B_.png");
+    background-repeat: no-repeat;
+    -ms-background-position-x: 8px;
+    background-position-x: 8px;
+    padding-left: 35px;
+    -ms-background-position-y: 6px;
+    background-position-y: 6px ;
+}
+input.time_ {
+    background-image: url("../img/time_.png");
+    background-repeat: no-repeat;
+    -ms-background-position-x: 8px;
+    background-position-x: 8px;
+    padding-left: 35px;
+    -ms-background-position-y: 6px;
+    background-position-y: 6px;
+}
+input.hour_ {
+    background-image: url("../img/hour.png");
+    background-repeat: no-repeat;
+    -ms-background-position-x: 8px;
+    background-position-x: 8px;
+    padding-left: 35px;
+    -ms-background-position-y: 6px;
+    background-position-y: 6px;
+}
+.phanloai{
+    margin-left: 20px;
+}
+.creattrip_prog{
+  /*  position: fixed;*/
+    z-index: 10;
+    bottom: 10px;
+    width: 100%;
+    background-color: #ffffff; /* layer fill content */
+    -moz-box-shadow: 0 0 5px rgba(0,0,0,.2); /* outer glow */
+    -webkit-box-shadow: 0 0 5px rgba(0,0,0,.2); /* outer glow */
+    box-shadow: 0 0 5px rgba(0,0,0,.2); /* outer glow */
+
+}
+.creattrip_menu{
+    font-weight: 300;
+    font-size: 18px;
+    line-height: 65px;
+}
+.creattrip_menu>.menu_ele{
+    padding: 0 7%;
+}
+.creattrip_menu a{
+    color: #757575;
+}
+.diadiem{
+    background-image: url("../img/creattrip.png");
+    background-repeat: no-repeat;
+    width: 45px;
+    height: 45px;
+    margin-right: 9px;
+    background-position-x: 0px;
+    background-position-y: 0px;
+    display: block;
+    float: left;
+    margin-top: 5px;
+}
+.lichtrinh{
+    background-image: url("../img/creattrip.png");
+    background-repeat: no-repeat;
+    width: 45px;
+    height: 45px;
+    margin-right: 5px;
+    background-position-x: -49px;
+    background-position-y: 0px;
+    display: block;
+    float: left;
+    margin-top: 5px;
+}
+.chiphi{
+    background-image: url("../img/creattrip.png");
+    background-repeat: no-repeat;
+    width: 58px;
+    height: 45px;
+    margin-right: 5px;
+    background-position-x: -92px;
+    background-position-y: 0px;
+    display: block;
+    float: left;
+    margin-top: 5px;
+}
+.active {border-bottom: 3px solid #0288d1;}
+/*.active a{color: #0288d1;}*/
+.active>a>span{background-position-y: -45px;}
+.creat, .creat:hover{
+    background-color: #0288d1;
+    color: #ffffff;
+    text-transform: uppercase;
+    font-weight: 300;
+    padding: 10px 20px;
+    line-height: 68px;
+}
+p {margin: 0;}
+.form_p{
+    margin-top: 10px;
+}
+.add{
+    background-image: url("../img/add.png");
+    width: 25px;
+    height: 25px;
+    background-repeat: no-repeat;
+    display: block;
+}
+.sub{
+    background-image: url("../img/add.png");
+    width: 25px;
+    height: 25px;
+    background-repeat: no-repeat;
+    display: block;
+    background-position-y: -26px;
+}
+.box_1x_{padding-top: 0px; padding-bottom: 0px}
+.total{text-align: right;}
+.description{font-size: 12px; font-weight: 300}
+.modal-body {
+    position: relative;
+    padding: 0 10px;
+}
+.search{
+    background-image: url("../img/anh.png");
+    width: 20px;
+    height: 21px;
+    display: block;
+}
+.anh_checkbox{
+    width: 20px;
+    height: 20px;
+}
+.anh_luachon{line-height: 28px}
+.tatca{
+    background-image: url("../img/anh.png");
+    width: 20px;
+    height: 21px;
+    display: block;
+    -ms-background-position-x: -26px;
+    background-position-x: -26px;
+    float: left;
+    margin-left: 5px;
+    margin-right: 5px;
+    margin-top: 2px;
+}
+.khachsan{
+    background-image: url("../img/anh.png");
+    width: 20px;
+    height: 21px;
+    display: block;
+    -ms-background-position-x: -47px;
+    background-position-x: -47px;
+    float: left;
+    margin-left: 5px;
+    margin-right: 5px;
+    margin-top: 2px;
+}
+.nhahang{
+    background-image: url("../img/anh.png");
+    width: 20px;
+    height: 21px;
+    display: block;
+    -ms-background-position-x: -67px;
+    background-position-x: -67px;
+    float: left;
+    margin-left: 5px;
+    margin-right: 5px;
+    margin-top: 2px;
+}
+.diadiem_{
+    background-image: url("../img/anh.png");
+    width: 20px;
+    height: 21px;
+    display: block;
+    -ms-background-position-x: -89px;
+    background-position-x: -89px;
+    float: left;
+    margin-left: 5px;
+    margin-right: 5px;
+    margin-top: 2px;
+}
+.xoa_po{position: absolute;top:0;right: 0}
+.xoa{
+    background-image: url("../img/anh.png");
+    width: 24px;
+    height: 24px;
+    display: block;
+    -ms-background-position-x: -89px;
+    background-position-x: -169px;
+    float: left;
+    margin-left: 5px;
+    margin-right: 5px;
+    margin-top: 2px;
+    background-position-y: -33px;
+    -ms-background-position-y:-33px;
+}
+.add_image {
+    background-image: url("../img/anh.png");
+    width: 90px;
+    height: 90px;
+    display: block;
+    -ms-background-position-x: -89px;
+    background-position-x: -113px;
+    float: left;
+    margin-left: 5px;
+    margin-right: 5px;
+    margin-top: 10px;
+    background-position-y: -59px;
+    -ms-background-position-y: -33px;
+}
+.anh{text-align: center; position: relative}
+.input-group-addon {padding: 4px 6px;}
+.form-group {margin-bottom: 0px;}
+.btn.active {
+    background-color: #ff5b2d ;
+    color: #ffffff;
+    -webkit-box-shadow:none;
+    box-shadow: none;
+    border-bottom: #ff5b2d;
+    font-weight: bold;
+}
+.category{text-decoration: none}
+.category .arow {
+    background-image: url("../img/creattrip.png");
+    width: 12px;
+    height: 12px;
+    display: block;
+    -ms-background-position-x: -18px;
+    background-position-x: -18px;
+    margin-left: 5px;
+    margin-right: 5px;
+    margin-top: 3px;
+    background-position-y: -93px;
+    -ms-background-position-y: -93px;
+    float: left;
+}
+.collapsed .arow {
+    -ms-background-position-x: -3px;
+    background-position-x: -3px;
+}
+.add_date, #child-price, #day-discount, #number-discount{display:none}
+@media (max-width: 768px) {
+    .box_1x_{padding-top: 10px; padding-bottom: 10px}
+}
+#ui-datepicker-div table thead th {
+    padding: 0.1em 0.3em;
+}
+#ui-datepicker-div table tbody td a {
+    background-image: none;
+    text-align: center;
+}
+.ui-dialog-titlebar-close {
+    color:#666 !important;
+    display:inline-block;
+    margin:8px;
+    font-size:16px !important;
+    line-height:14px;
+}
+.ui-datepicker-trigger {
+    position:block;
+    height:16px;
+    width: 16px;    
+    margin-left:-23px;
+    margin-top:8px;
+    z-index:100;
+    cursor: pointer;
+}
+.datepicker {
+    font-size:1.3em !important;
+}
+
+/* Login */

@@ -1,0 +1,72 @@
+#social_share {
+    float: right;
+    margin-top: -6px;
+    width: 276px;
+}
+
+#social_share  #share {
+    cursor: pointer;
+    float: right;
+    margin: 0 3px;
+}
+
+#social_share  #share  #socializethis {
+    background: url("/assets/social_share/border_share.gif") no-repeat scroll left top transparent;
+    display: none;
+    height: 31px;
+    overflow: hidden;
+    padding: 5px 2px 2px;
+    position: absolute;
+    z-index: 100;
+		margin-left: -69px;
+    width: 150px;
+}
+#social_share  #share #socializethis a {
+    float: right;
+    margin: 3px;
+}
+#social_share  #share #socializethis img {
+    border: 0 none;
+}
+
+.fb_edge_widget_with_comment {
+    position: relative;
+}
+
+.fb_iframe_widget {
+    display: inline-block;
+    position: relative;
+}
+
+.fb-like {
+    margin-right: 3px;
+}
+.fb_iframe_widget span {
+    position: relative;
+}
+
+.fb_iframe_widget iframe {
+    position: relative;
+    vertical-align: text-bottom;
+}
+
+.fb-like iframe {
+    float: right !important;
+    overflow: hidden !important;
+		border: medium none;
+}
+#___plusone_0{
+    background: none repeat scroll 0 0 transparent;
+    border-style: none;
+    display: inline-block;
+    float: right !important;
+    font-size: 1px;
+    height: 20px;
+    line-height: normal;
+    margin: 0;
+    padding: 0;
+    text-indent: 0;
+    vertical-align: baseline;
+    width: 66px !important;
+}
+.twi{float: right; margin-right: 3px; width: 92px;}

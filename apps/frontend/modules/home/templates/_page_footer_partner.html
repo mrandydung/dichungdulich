@@ -1,0 +1,29 @@
+<div class="blue_bg box_3x">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-10">
+                <div class="row">
+                    {% for val in StaticCall('PageFooterPeer','get_page_footer_by_partner',{partner_id:partner_id})%}
+                    <div class="col-md-3 col-sm-3 col-xs-6">
+                        <h4>{{val.RowPageFooter.getName}}</h4>
+                        <hr/>
+                        {% for value in StaticCall('PageFooterPeer','get_item_row_page_footer',{page_footer_id:val.getRowPageFooterId,partner_id:partner_id})%}
+                        <p><a href="{{value.get_url_page_footer}}">{{value.getName}}</a> </p>
+                        {% endfor%}
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+            <div class="col-md-2">
+                <h4>Language</h4>
+                <hr>
+                <div>
+                    <select class="form-control" id="select_language">
+                        <option value="vn">Tiếng Việt</option>
+                        <option value="en" {% if sf_user.isEn %}{{'selected'}}{% endif %}>English</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

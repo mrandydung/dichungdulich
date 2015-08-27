@@ -1,0 +1,43 @@
+<div class="user_info padding_top">
+    <p>{{translate('Mức độ tin tưởng')}}</p>
+    <div class="progress tintuong">
+        <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width:  {{user_id_service.getPointLevelId * 20}}%;">
+            {{user_id_service.getPointLevelId * 20}} %
+        </div>
+    </div>
+  <div class="user_info content">
+    <p>
+      {% if user_id_service.getVerifiedImage %}
+      <span class="giayto xacthuc"></span>
+         {% if user_id_service.getUserTypeId == '1' %}
+            {{translate('Đã xác thực giấy tờ tùy thân')}}
+        {% endif %}
+        {% if user_id_service.getUserTypeId == '2' %}
+            {{translate('Đã xác thực đăng ký kinh doanh')}}
+        {% endif %}
+      {% else %}
+      <span class="giayto"></span>
+        {% if user_id_service.getUserTypeId == '1' %}
+                {{translate('Chưa xác thực giấy tờ tùy thân')}}
+            {% endif %}
+            {% if user_id_service.getUserTypeId == '2' %}
+              {{translate('Chưa xác thực đăng ký kinh doanh')}}
+        {% endif %}
+      {% endif %}
+    </p>
+    <p>
+      {% if user_id_service.getVerifiedPhone %}
+      <span class="dienthoai xacthuc"></span> {{translate('Đã xác thực số điện thoại')}}
+      {% else %}
+      <span class="dienthoai"></span> {{translate('Chưa x.thực số điện thoại')}}
+      {% endif %}
+    </p>
+    <p>
+      {% if user_id_service.getVerifiedEmail %}
+      <span class="email xacthuc"></span> {{translate('Đã xác thực email')}}
+      {% else %}
+       <span class="email"></span> {{translate('Chưa xác thực email')}}
+      {% endif %}
+    </p>
+  </div>
+</div>

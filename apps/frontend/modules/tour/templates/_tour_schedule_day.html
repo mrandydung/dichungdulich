@@ -1,0 +1,40 @@
+<link rel="stylesheet" href="/assets/dichungdulich/css/colorbox.css?v={{random()}}" />
+<script src="/assets/dichungdulich/js/jquery.colorbox.js?v={{random()}}"></script>
+<script type="text/javascript" src="/assets/dichungdulich/js/jssor.utils.js?v={{random()}}"></script>
+<script type="text/javascript" src="/assets/dichungdulich/js/jssor.slider.js?v={{random()}}"></script>
+<script type="text/javascript" src="/assets/dichungdulich/js/colorbox_scheduled_day.js?v={{random()}}"></script>
+<div class="mota" style="text-align:justify">
+    <h3>{{translate('Lịch trình')}}</h3>
+    {% for val in schedule_day %}
+	<div class="lichtrinh">
+		<div class="title">
+			<div class="ngay">{{translate('Ngày')}} {{val.getDay}}</div>
+			{% set obj = sf_user.twig_json_decode(val.getVehicle) %}
+			{% for val in obj %}
+				<div class="{{StaticCall('VehiclePeer','get_value_by_id',{vehicle_id:val})}}"></div>
+			{% endfor %}
+			<div class="text">{{val.getTitle}}</div>
+			<div class="clear"></div>
+		</div>
+		<div class="hinhanh">
+			<div class="row">
+		     	<div id="gallery-268-1" class="gallery galleryid-268 gallery-columns-3 gallery-size-thumbnail">
+				{% for val in StaticCall('TourItemImgScheduleDayPeer','get_all_by_day',{tour_detail_id:tour_detail.getId,day:val.getDay})%}
+				<div class="col-md-2 col-sm-2 col-xs-3 padding_top">
+		  		<dl class="gallery-item">
+                 	<dt class="gallery-icon landscape">
+				 		<a href="/{{val.getImages}}" class="group1"><img src="/{{val.getImages}}" width="100%"></a>
+				 	</dt>
+              	</dl>
+				</div>
+				{% endfor %}
+				  <br style="clear: both">
+				 </div>
+			</div>
+		</div>
+		<div class="content box_1x">
+			{{ val.getDescription |raw }}
+		</div>
+	</div>
+	{% endfor %}
+</div>

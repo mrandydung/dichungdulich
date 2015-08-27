@@ -1,0 +1,66 @@
+{% extends "layout.html" %}
+{% block body %}
+<div class="border_">
+	 
+	<div id="gi_head_1" class="review info">
+				<span class="first_step net_banks">»</span>
+				<span>{{StaticCall('LangPeer', 'getText', {v: 'Lịch sử giao dịch'})}}</span>
+				</div>
+              <div id="flightInfContainer0">
+                
+                 <table class="transaction" cellpadding="0" cellspacing="0">
+									 
+										<tbody>
+										
+										<tr>
+										<th class="th_vehicle">{{StaticCall('LangPeer', 'getText', {v: 'Mã vé'})}}</th> 
+										<th class="th_vehicle">{{StaticCall('LangPeer', 'getText', {v: 'Loại xe'})}}</th> 
+										<th>{{StaticCall('LangPeer', 'getText', {v: 'Hình Thức'})}}</th> 
+										<th class="th_address">{{StaticCall('LangPeer', 'getText', {v: 'Địa chỉ đón khách'})}}</th>
+										<!--<th class="range">Khoảng cách</th>-->
+										<th>{{StaticCall('LangPeer', 'getText', {v: 'Thời gian'})}}</th>
+										<th class="count">{{StaticCall('LangPeer', 'getText', {v: 'Số Lượng'})}}</th>
+										 
+										<th class="total_price_">{{StaticCall('LangPeer', 'getText', {v: 'Thành Tiền'})}}</th>
+										<th  >{{StaticCall('LangPeer', 'getText', {v: 'Giá đi riêng'})}}</th>
+										<th  >{{StaticCall('LangPeer', 'getText', {v: 'Tiết kiệm'})}}</th>
+										<th  >{{StaticCall('LangPeer', 'getText', {v: 'Co2 tiết kiệm'})}}</th>
+										</tr>
+									{% for item in items %}
+									<tr>
+									<td>{{item.ticketCode}}</td> 
+									<td>{{StaticCall('LangPeer', 'getText', {v: item.vehicle.name})}}</td> 
+									<td>
+										{{StaticCall('LangPeer', 'getText', {v: item.rideMethod.name})}}
+									</td> 
+									<td>
+										{{item.rideVillage.fullname}}
+										 
+										
+									</td>
+									<!--<td><span id="depart_length">24.64Km</span></td>-->
+									<td>
+										{{item.inTime('H:i')}} {{item.inDate('d/m/Y')}}
+									</td>
+										
+									<td>
+										{{item.chairCount}}
+										{% if item.rideMethodId == 1%}
+											<span class="unit auto depart">{{StaticCall('LangPeer', 'getText', {v: 'Xe'})}}</span>
+										{% else %}
+											<span class="unit chair depart">{{StaticCall('LangPeer', 'getText', {v: 'Ghế'})}}</span>
+										{% endif %}
+										</td>
+									
+									<td><span id="total_depart_price" class="price">{{item.totalCost}} VNĐ</span></td>
+									<td><span  class="price">{{item.privateCost}} VNĐ</span></td>
+									<td><span  class="price">{{item.costSaving}} VNĐ</span></td>
+									<td><span  class="price">{{(item.totalSeatSharing-1)*item.rideLength*0.1*3.2/(1000*item.totalSeatSharing)}} Kg</span></td>
+								</tr>
+								{% endfor %}
+								</tbody></table>
+      
+           		 </div> 
+							  
+			</div>
+{% endblock %}

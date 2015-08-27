@@ -1,0 +1,45 @@
+.area_info{
+background-color: #0288d1;
+color: #fafafa;
+}
+.area_info h4{
+	float:left;
+}
+.area_info h4 a{
+	color: #fafafa;
+}
+
+.area_info h5{
+	float: right;
+}
+.area_info h5 small{
+	color: #dcdcdc;
+}
+
+    .ksb{
+      background-color: #f5f5f5;
+      background-image: -webkit-gradient(linear,left top,left bottom,from(#f5f5f5),to(#f1f1f1));
+      background-image: -webkit-linear-gradient(top,#f5f5f5,#f1f1f1);
+      background-image: linear-gradient(top,#f5f5f5,#f1f1f1);
+      border: 1px solid #dcdcdc;
+      border: 1px solid rgba(0, 0, 0, 0.1);
+      
+  }
+  .loadMore {
+  border: 1px solid #c6c6c6 !important;
+  width: 60%;
+  height: 27px;
+  line-height: 27px;
+  -webkit-border-radius: 2px;
+  border-radius: 2px;
+  cursor: pointer;
+  font-size: 11px;
+  font-weight: bold;
+  margin: 2px 0;
+  min-width: 54px;
+  padding: 0 2%;
+  text-align: center;
+  -webkit-transition: all 0.218s,visibility 0s;
+  transition: all 0.218s,visibility 0s;
+  -webkit-user-select: none;
+}

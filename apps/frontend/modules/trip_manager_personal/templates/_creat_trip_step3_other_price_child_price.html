@@ -1,0 +1,23 @@
+<div class="box_1x">
+	<p>
+	<label for="creat_trip_add_child_price">
+		<input type="checkbox" value="child-price" name="creat_trip[add_child_price]" id="creat_trip_add_child_price"> {{translate('Thêm giá trẻ em')}}
+		</label>
+	</p>
+	<div class="row" id="child-price">
+		<div class="col-md-6 col-sm-6 col-xs-6">
+			<p class="padding_top">{{translate('Trẻ em')}} <span class="description">({{translate('5 tuổi - 12 tuổi')}})</span></p>
+			<div class="input-group">
+				<input type="text" class="form-control" name="creat_trip[add_kids_price]" id="creat_trip_add_kids_price"/>
+				<span class="input-group-addon">VNĐ</span>
+			</div>
+		</div>
+		<div class="col-md-6 col-sm-6 col-xs-6">
+			<p class="padding_top">{{translate('Trẻ nhỏ')}} <span class="description">({{translate('Dưới 5 tuổi')}})</span></p>
+			<div class="input-group">
+				<input type="text" class="form-control" name="creat_trip[add_baby_price]" id="creat_trip_add_baby_price"/>
+				<span class="input-group-addon">VNĐ</span>
+			</div>
+		</div>
+	</div>
+</div>

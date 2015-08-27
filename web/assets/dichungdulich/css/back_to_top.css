@@ -1,0 +1,13 @@
+﻿@charset utf-8;
+
+/*top*/
+#totop,#totop2{
+    position: fixed;right: 0;bottom: 10px;
+    width: 149px;height: 249px;overflow: hidden;
+    cursor: pointer;display: none;
+    background: url('../img/rocket_up.png') no-repeat 0px 0;
+    z-index: 9999;
+}
+#totop2{
+    background-position: -150px 0;
+}  

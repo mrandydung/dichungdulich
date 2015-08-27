@@ -1,0 +1,53 @@
+<script type="text/javascript" src="/assets/js/typeahead.min.js?v={{random()}}"></script>
+<style type="text/css">
+	.twitter-typeahead{
+		width: 100%;
+	}
+</style>
+<script type="text/javascript">
+$(document).ready(function(){
+  	$('#address').typeahead({
+	    name: 'search_end',
+	    hint: true,
+	    highlight: true,
+	    remote: {
+	      cache: true,
+	      url: '/home/search_end?search_end=%QUERY',
+	      filter: function (parsedResponse) {
+	      return parsedResponse;
+	      }
+	    }
+	});
+	$('#filter_blog').change(function() {       
+		location.href = '?filter_blog='+$(this).val();
+	});
+	$('form.blog_search').submit(function() {
+            var qr = $(this).find('input[name="address"]').val();
+            qr = qr.trim();
+            if(qr.length == 0) {
+                alert('Bạn hãy nhập địa điểm tìm kiếm');
+                return false;
+            }
+            return true;
+        });
+});
+</script>
+
+<div class="row box_1x">
+	<form method="POST" class="blog_search" action="{{url_for('@search_address_blog')}}">
+		<div class="col-md-8">
+			<div class="input-group">
+			  <input type="text" class="form-control" name="address" id="address" placeholder="{{translate('Tìm bài viết theo địa điểm')}}" value="{{address}}">
+			  <span class="input-group-btn">
+				<button class="btn btn_orange" type="submit">{{translate('Tìm kiếm')}}</button>
+			  </span>
+			</div>
+		</div>
+	</form>
+	<div class="col-md-4">
+		<select class="form-control" name="filter_blog" id="filter_blog">
+			<option value="new" {% if filter_blog == 'new'%}{{'selected'}}{% endif %}>{{translate('Bài mới nhất')}}</option>
+			<option value="top" {% if filter_blog == 'top'%}{{'selected'}}{% endif %}>{{translate('Bài xem nhiều nhất')}}</option>
+		</select>
+	</div>
+</div>

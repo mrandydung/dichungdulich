@@ -1,0 +1,17 @@
+generator:
+  class:              sfPropelAdminGenerator
+  param:
+    model_class:      ImagesSlide
+    theme:            default
+    list:
+      object_actions:
+        _edit:         ~
+        _delete:       ~
+      actions:
+        _create:       ~
+      display : [id,NewImages,priority,created_at]
+      sort: [id, desc]
+    edit:
+      display : [images,priority,created_at]
+      fields:
+        images: { type: admin_input_file_tag, upload_dir: images_slide, params: include_link=images_slide include_remove=true}

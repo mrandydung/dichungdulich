@@ -1,0 +1,353 @@
+.profile>.ava {position: relative}
+.profile>.user_name{
+    background-color: #0288d1;
+    color: #ffffff;
+    text-align: center;
+    padding: 1px;
+    width: 100%;
+    padding: 10px 0;
+}
+.profile>.user_name>a:hover{
+    color: #ffffff;
+}
+.user_name>h5{
+    font-weight: 300;
+    margin-top: 5px;
+    margin-bottom: 0;
+}
+.ava>a>.change_pic{
+    background-image: url("../img/change.png");
+    background-position: 0 0;
+    width: 20px;
+    height: 17px;
+    position: absolute;
+    bottom: 5px;
+    right: 5px;
+}
+.cataloge>ul{padding-left: 0}
+.cataloge>ul>li{
+    list-style-type: none;
+    padding: 10px;
+    border-bottom: 1px solid #e5e5e5;
+}
+.cataloge>ul>li>a{color: #757575}
+.list-group-item2 {
+    background-color: transparent;
+    border: none;
+}
+.list-group-item2:last-child {
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
+}
+.badge2{background-color: #ff5b2d}
+.cataloge>ul>li .thongtin{
+    background-image: url("../img/change.png");
+    background-position: -30px 0;
+    width: 17px;
+    height: 17px;
+    float: left;
+    margin-right: 8px;
+    display: block;
+}
+.cataloge>ul>li .thongbao{
+    background-image: url("../img/change.png");
+    background-position: -30px -21px;
+    width: 17px;
+    height: 17px;
+    float: left;
+    margin-right: 8px;
+    display: block;
+}
+.cataloge>ul>li .tinnhan{
+    background-image: url("../img/change.png");
+    background-position: -30px -42px;
+    width: 17px;
+    height: 17px;
+    float: left;
+    margin-right: 8px;
+    display: block;
+}
+.cataloge>ul>li .dichvu{
+    background-image: url("../img/change.png");
+    background-position: -3px -22px;
+    width: 17px;
+    height: 17px;
+    float: left;
+    margin-right: 8px;
+    display: block;
+    margin-top:0;
+}
+.cataloge>ul>li .giaodich{
+    background-image: url("../img/change.png");
+    background-position: -3px -44px;
+    width: 17px;
+    height: 17px;
+    float: left;
+    margin-right: 8px;
+    display: block;
+}
+.cataloge>ul>li .trainghiem{
+    background-image: url("../img/change.png");
+    background-position: -33px -85px;
+    width: 17px;
+    height: 17px;
+    float: left;
+    margin-right: 8px;
+    display: block;
+}
+.cataloge>ul>li .caidat{
+    background-image: url("../img/change.png");
+    background-position: -29px -61px;
+    width: 17px;
+    height: 17px;
+    float: left;
+    margin-right: 8px;
+    display: block;
+}
+.tintuong{
+    background-color: #e5e5e5;
+    border: 1px solid #0288d1;
+    border-radius: 10px;
+    margin-bottom: 5px;
+}
+.tintuong>.progress-bar{
+    text-align: right;
+    background-color: #0288d1;
+}
+.thongke{text-align: center}
+.co2>.icon{
+    background-image: url("../img/change.png");
+    background-position: -56px -3px;
+    -ms-background-position-x: -55px;
+    -ms-background-position-y: -3px;
+    width: 70px;
+    height: 95px;
+    margin: 0 auto;
+}
+.quangduong>.icon{
+  background-image: url("../img/change.png");
+  background-position: -134px -3px;  
+    -ms-background-position-x: -134px;
+    -ms-background-position-y: -3px;
+  width: 70px;
+  height: 95px;
+  margin: 0 auto;
+}
+.trainghiem>.icon{
+  background-image: url("../img/change.png");
+  background-position: -211px -3px;  
+    -ms-background-position-x: -211px;
+    -ms-background-position-y: -3px;
+  width: 70px;
+  height: 95px;
+  margin: 0 auto;
+}
+.danhgia{background-color: #ffffff; border: 1px solid #e5e5e5;}
+.danhgia .header{background-color: #0288d1; color: #ffffff; padding: 10px}
+.danhgia .header p{margin-bottom: 0px}
+.danhgia .score{border-bottom: 1px solid #e5e5e5; padding: 10px 10px 0 10px}
+.danhgia .content{padding: 10px}
+.source{text-align: right; font-size: 12px}
+.my_tab-content{
+    background-color: white;
+    border: 1px solid #e5e5e5;
+    border-top: none;
+}
+.cm_ava img{border-radius: 50%;}
+.cm_ava .user_name{text-align: center;margin-top: 5px;}
+.nhanxet .content{border: 1px solid #e5e5e5; background-color: #ffffff; padding: 10px}
+.nhanxet .content .muiten{
+    background-image: url("../img/view.png");
+    background-position: -208px -34px;
+    -ms-background-position-x: -162px;
+    background-position-x: -208px;
+    -ms-background-position-y: -78px;
+    background-position-y: -34px;
+    width: 16px;
+    height: 18px;
+    position: absolute;
+    top: 0;
+    left: 0px;
+}
+.nhanxet .ngay {font-size: 12px; float: left}
+.nhanxet .rate{float: right}
+.nhanxet .ngay .gio{font-size: 10px}
+
+.infor>.t1{color: #ff5b2d; margin-bottom: 0}
+.infor>h6{margin-top: 3px}
+.contact{position: relative; margin: 0 auto; clear: both}
+.contact .fb{
+    background-image: url("../img/change.png");
+    background-position: -292px -3px;
+    -ms-background-position-x: -292px;
+    background-position-x: -292px;
+    -ms-background-position-y: -3px;
+    background-position-y: -3px;
+    width: 32px;
+    height: 32px;
+    display: block;
+    margin: 0 auto;
+}
+.contact .in{
+    background-image: url("../img/change.png");
+    background-position: -292px -80px;
+    -ms-background-position-x: -292px;
+    background-position-x: -292px;
+    -ms-background-position-y: -80px;
+    background-position-y: -80px;
+    width: 32px;
+    height: 32px;
+    display: block;
+    margin: 0 auto;
+}
+.contact .skype{
+    background-image: url("../img/change.png");
+    background-position: -292px -42px;
+    -ms-background-position-x: -292px;
+    background-position-x: -292px;
+    -ms-background-position-y: -42px;
+    background-position-y: -42px;
+    width: 32px;
+    height: 32px;
+    display: block;
+    margin: 0 auto;
+}
+.contact .mail{
+    background-image: url("../img/change.png");
+    background-position: -325px -3px;
+    -ms-background-position-x: -325px;
+    background-position-x: -325px;
+    -ms-background-position-y: -3px;
+    background-position-y: -3px;
+    width: 32px;
+    height: 32px;
+    display: block;
+    margin: 0 auto;
+}
+.contact .done{
+    background-image: url("../img/change.png");
+    background-position: -3px -84px;
+    -ms-background-position-x: -3px;
+    background-position-x: -3px;
+    -ms-background-position-y: -84px;
+    background-position-y: -84px;
+    width: 25px;
+    height: 25px;
+    display: block;
+    margin: 0 auto;
+}
+.contact table{width: 100%}
+.user_info .giayto{background-image: url("../img/view.png");
+    background-position: -162px -53px;
+    -ms-background-position-x: -162px;
+    background-position-x: -162px;
+    -ms-background-position-y: -53px;
+    background-position-y: -53px;
+    width: 30px;
+    height: 19px;
+    float: left;
+    margin-right: 5px;
+}
+.user_info .dienthoai{
+    background-image: url("../img/view.png");
+    background-position: -162px -78px;
+    -ms-background-position-x: -162px;
+    background-position-x: -162px;
+    -ms-background-position-y: -78px;
+    background-position-y: -72px;
+    width: 30px;
+    height: 24px;
+    float: left;
+    margin-right: 5px;
+}
+.user_info .email{
+    background-image: url("../img/view.png");
+    background-position: -162px -107px;
+    -ms-background-position-x: -162px;
+    background-position-x: -162px;
+    -ms-background-position-y: -107px;
+    background-position-y: -93px;
+    width: 30px;
+    height: 19px;
+    float: left;
+    margin-right: 5px;
+}
+
+.user_info .xacthuc{
+    -moz-background-position-x: -204px;
+    -ms-background-position-x: -204px;
+    background-position-x: -192px;
+}
+.content .tieude{font-weight: 500;}
+.content .thongtin{font-weight: 400;}
+.edit-profile p {margin: 7px 0}
+.edit-profile hr {border-top: 1px solid #757575;margin: 10px 0;}
+.edit-profile .form-control-2{border: none;background-color: transparent; padding: 7px 0}
+.notifi .status{
+    background-color: #e5e5e5;
+    border-top: 1px solid #b2b2b2;
+    padding: 5px;
+}
+.notifi .status>.title{float: left; margin-bottom: 0}
+.notifi .status>.pass{float: right; margin-bottom: 0}
+.nhanxet>.noti p{margin-bottom: 0}
+.nhanxet>.noti h5{margin-top: -3px; color: #999999; font-weight: 300; margin-bottom: 5px}
+.service-manager .tour{
+    background-color: #fff; /* layer fill content */
+    -moz-box-shadow: 0 0 5px rgba(0,0,0,.1); /* outer glow */
+    -webkit-box-shadow: 0 0 5px rgba(0,0,0,.1); /* outer glow */
+    box-shadow: 0 0 5px rgba(0,0,0,.1); /* outer glow */
+    padding-top: 10px;
+}
+.service-manager .tour .menu{
+    background-color: #f7f7f7;
+    border-top: 1px solid #e5e5e5;
+}
+.contact p{margin-top: 10px}
+.contact p a{color: #757575}
+.contact .edit{
+    background-image: url("../img/change.png");
+    background-position: -330px -85px;
+    -ms-background-position-x: -330px;
+    background-position-x: -330px;
+    -ms-background-position-y: -85px;
+    background-position-y: -85px;
+    width: 20px;
+    height: 20px;
+    float: left;
+    margin-right: 5px;
+}
+.contact .del{
+    background-image: url("../img/change.png");
+    background-position: -330px -64px;
+    -ms-background-position-x: -330px;
+    background-position-x: -330px;
+    -ms-background-position-y: -64px;
+    background-position-y: -64px;
+    width: 20px;
+    height: 20px;
+    float: left;
+    margin-right: 5px;
+}
+.contact .dup{
+    background-image: url("../img/change.png");
+    background-position: -330px -42px;
+    -ms-background-position-x: -330px;
+    background-position-x: -330px;
+    -ms-background-position-y: -42px;
+    background-position-y: -42px;
+    width: 20px;
+    height: 20px;
+    float: left;
+    margin-right: 5px;
+}
+td.tacvu{text-align: right}
+.del-alert p{margin-bottom: 0}
+.round{border-radius: 17px}
+td.giaodich p{margin-bottom: 0}
+.del_tour{display:none}
+table .phanloai {
+border: none;
+background-color: transparent;
+width: 130px;
+}

@@ -1,0 +1,194 @@
+@media only screen and (max-width: 490px) {
+    table.transaction.info_table th span{ display: block; width: 20px; margin: 0 auto;}
+    table.transaction tr th{padding: 10px 5px 15px !important;}
+    .th_vehicle_service_frame, .th_provider_frame,.th_count_frame, .th_vehicle_frame {width: 60px !important}
+    .th_vehicle_service_frame{margin-left: -8px}
+    .th_vehicle_frame {margin-left: 0px;}
+    .th_vehicle_frame:hover {margin-left: -2px;z-index: 1;}
+    .th_vehicle_service_frame:hover{margin-left: -10px; margin-top: -13px; z-index: 1}
+}
+@media only screen and (max-width: 1000px) {
+    
+    .th_count_frame {margin-left: -13px}
+    .th_count_frame:hover {margin-left: -15px}
+     
+    .rating {display: none}
+      .unmerge_col{display: none}
+    .info_hl_bg{padding: 3px !important}
+    .th_vehicle_frame {
+        margin-left: -15px;
+    }
+    .th_vehicle_frame:hover{margin-left: -17px; z-index: 1;}
+    .th_vehicle_service_frame, .th_provider_frame,.th_count_frame, .th_vehicle_frame {width: 80px}
+    .arrow {margin-left: -4px !important}
+    .price_col{display: none}
+    .home_booking_frame .select2{width: 99% !important}
+    .ticket .w50{width: 100%;}
+    .info.customer, .info.driver{margin-left: auto !important}
+    .transaction.info_table tr .radio_label{ display: inline-block; width: 34px}
+    .info.w30, .w60{ width: 100% !important}
+    .pd_edit .select2{ width: 99% !important}
+    .info.plane{margin-left: auto !important}
+    #dichung, #tkiem {width: 98% !important}
+    .service_type li:first-child {margin-left: 95px;}
+     /*.service_type {float: none; margin-top: 5px; border-bottom: none}*/
+    .service_type li{width: 27%; padding: 5px}
+    .service_type li.selected{background: none}
+    .dung-left{display: none}
+    .hrr{width: 100% !important; margin: 15px 0 0 !important}
+    #sec_nav {display: none;}
+    #banner {display: none} 
+    #dung_frame{width: 100% !important}
+    .dcolumn {width: 100% !important;  background: #99CADD}
+    .dung-right{ width: 100% !important;}
+    .top_bx .ctn_{ width: 100% !important;} 
+    .login_mk {margin-left: 0 !important; width: 100% !important} 
+    iframe{display: none;}
+    #center {margin-top: 7px !important; width: 99% !important}
+    #center .border_ {width: 99% !important; padding: 3px !important}
+    .lien-he-khach-hang #comment{width: 98%}
+    /*.transaction, .plane table {width: 100% !important; display: block}
+    .transaction table, 
+    .transaction thead, 
+    .transaction tbody, 
+    .transaction th, 
+    .transaction td, 
+    .transaction tr { 
+        display: block; 
+    }
+*/
+    .plane table, .plane thead, .plane tbody, .plane th, .plane td, .plane tr { 
+        display: block; 
+    }
+
+    /*.transaction tr th, .plane table tr th{ display:none; }*/
+
+
+    /* Hide table headers (but not display: none;, for accessibility) */
+    .transaction thead tr , .plane table thead tr{ 
+        position: absolute;
+        top: -9999px;
+        left: -9999px;
+    }
+
+    /*.transaction tr, .plane tr { border: 1px solid #ccc; }*/
+ 
+    /*.transaction.info_table.data tr{border-top: solid 2px orange; margin-top: 15px}*/
+    /*table.transaction.data tr:first-child td{ border-top: none !important}*/
+/*    .transaction td, .plane td { 
+         Behave  like a "row" 
+        border: none;
+        border-bottom: 1px solid #eee; 
+        position: relative;
+        padding-left: 50% !important; 
+        padding-top: 5px;
+        padding-bottom: 5px;
+        width: auto !important;
+    }*/
+
+    .transaction td:before, .plane td:before { 
+        /* Now like a table header */
+        position: absolute;
+        /* Top/left values mimic padding */
+        top: 6px;
+        left: 6px;
+        width: 45%; 
+        padding-right: 10px; 
+        white-space: nowrap;
+    }
+
+    .plane {height: auto !important}
+    .plane table {width: 96%}
+
+    .plane td:nth-of-type(1){display: none}
+
+    .plane td:nth-of-type(3) {display: none}
+
+    .plane td:nth-of-type(5) {display: none}
+
+    .plane td:nth-of-type(7) {display: none}
+
+    .plane td:nth-of-type(9) {display: none}
+    .plane tbody {   padding-right:10px; width: 100%!important }
+    .transaction  select, .plane select {margin-bottom: 5px; width: 95% !important;}
+    .transaction input, .plane input  {margin-bottom: 5px; width: 95% !important}
+    #footer{display: none}
+    #map{display: none !important}
+    .sbzon {display: none !important}
+    #header {width: 100% !important}
+    .lien-he-khach-hang{ width: auto !important; float: none !important}
+    .tip_box{display: none}
+    body { background: none !important}
+    .top_like_share {display: none}
+    .lien-he-khach-hang .row {width: 98% !important}
+    #popup_container {width: 96% !important;min-width: 96% !important;max-width: 96% !important;}
+    #popup_message{max-width: 100% !important}
+    .panel_left {left: 0px !important;display:none !important; }
+    #tabs li{margin: 0 1px 0 0 !important}
+    #tabs a{ border-right: none; padding: 0 2px !important;border-right: none !important; font-size: 10px !important}
+    .banks_list{display: none}
+    .info_ve,#in_mainleft  { width: 99% !important}
+
+    #heading-bar {display: none}
+    .info_ve div#in_mainleft:nth-of-type(1):before { content: "THÔNG TIN VÉ" !important; background: #1B7EBA}
+    .info_ve div#in_mainleft:nth-of-type(2):before { content: "THÔNG TIN KHÁCH HÀNG" !important; background: #1B7EBA }
+
+    .info_ve div#in_mainleft:before { 
+        /* Now like a table header */
+        position: absolute;
+        /* Top/left values mimic padding */
+        top: 6px;
+        left: 6px;
+        width: 45%; 
+        padding-right: 10px; 
+        white-space: nowrap;
+    }
+    .sbzoff{ display: none !important}
+    .camera_frame, .grid_4 {display: none}
+
+    #col-left {width: 96% !important}
+    #mainleft {width: 97% !important}
+    .heading_bar_tab {width: 33% !important}
+    .chontuyen {display: block !important; padding: 10px 0 2px 8px !important;}
+    #home_booking_form #chunk_id, #home_booking_form #vehicle, #home_booking_form #city_id,  #end_time {width: 98% !important; height: 40px !important; }
+    #depart_time, #depart_hour {width: 99% !important; height: 30px; margin-top: 5px}
+    .dim_1, .dim_2, .dim_3 {float: left; width: 30% !important; line-height: 15px;}
+
+    .custom-combobox-input { width: 97% !important;
+                             font-size: 14px !important;
+                             padding: 7px 0 !important;
+                             padding-left: 5px !important;}
+
+    .home_day { padding-right: 0 !important;width: 98% !important;}
+    .custom-combobox { width: 100% !important}
+    #home_booking_form .day, #home_booking_form .month{width: 49% !important;}
+    #userForm {display: none}
+    .hotline {height: 73px !important}
+    .booking-info-bg-table button {float: none !important}
+    input[type="text"], input[type="password"], input[type="select"], input[type="search"], input[type="file"], textarea, select {
+        font-size: 14px !important;}
+    .mien_phi_huy, .thay_doi_thong_tin{display: none !important; float: none !important;}
+    .dat_xe_btn, .tra_cuu_btn{text-align: center !important;}
+    .submi{float: none !important;margin: 3px auto auto 0px !important;font-size:16px !important}
+    .guide {height: auto !important;}
+    .bottom_body{display:none !important}
+    .top_bx a {margin: 0px 6px !important;}
+    .row_save{display: none}
+    fieldset{clear: both}
+}
+
+@media only screen and (max-width: 530px){
+    #logo{display: none}
+}
+
+@media only screen and (max-width: 1180px){
+   .quick_book_ad.ad, .panel_left, .invite_ad_img {
+        display: none;
+    }
+    .quick_book_ad.banner{ display: block !important}
+    ul#top_nav {  margin-top: 16px!important; }
+    #header #logo { margin-top: 10px!important;    }
+    .top_like_share { margin: 27px 0 0 10px!important; }
+    #sec_nav {margin-top: -12px !important;}
+}
+

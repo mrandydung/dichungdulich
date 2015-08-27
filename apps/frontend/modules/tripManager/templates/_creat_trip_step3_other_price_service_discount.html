@@ -1,0 +1,54 @@
+<script type="text/javascript">
+$(document).ready(function(){
+    if({{tour_price_service_item|length}}){
+    	$('#checkbox_price_tour_service').click();
+    }
+});
+</script>
+<div class="row box_1x">
+    <div class="col-md-12">
+        <label class="hightlight"><input type="checkbox" value="checkbox_price_tour_service" id="checkbox_price_tour_service"/> {{translate(' Tôi muốn thêm tùy chọn giá theo dịch vụ thêm')}}</label>
+    </div>
+</div>
+<div id="div_checkbox_price_tour_service" style="display:none;border-radius: 5px; background-color: rgb(227, 227, 227);">
+	<div class="row box_1x">
+		<div class="col-md-12 col-sm-6">
+			<div class="col-md-6 col-sm-6 col-xs-6">
+				<input type="text" class="form-control" id="title_service" style="border: 2px solid rgb(132, 132, 132)" placeholder=" {{translate('Nhập loại dịch vụ thêm. VD: Khách sạn 2 sao')}}">
+			</div>
+			<div class="col-md-4 col-sm-4 col-xs-4">
+				<div class="input-group">
+					<input type="text" class="form-control" id="price_service" style="border: 2px solid rgb(132, 132, 132)" placeholder="{{translate('Chi phí phụ thu')}}">
+					<span class="input-group-addon" style="border: 2px solid rgb(132, 132, 132)">VNĐ</span>
+				</div>
+			</div>
+			<div class="col-md-2 col-sm-3 col-xs-3 ">
+            	<a class="btn btn_orange save" id="add_new_price_tour_service">{{translate('Lưu')}}</a>
+      		</div>
+		</div>
+	</div>
+	{% for val in tour_price_service_item %}
+	<div class="row box_1x" id="item_tour_price_service-{{val.getId}}">
+		<div class="col-md-12 col-sm-6">
+			<div class="col-md-4 col-sm-6 col-xs-6">
+				<input type="text" class="form-control" value="{{val.getTitle}}" id="title_service_add_new" data-id="{{val.getId}}" readonly />
+			</div>
+			<div class="col-md-3 col-sm-4 col-xs-4">
+				<div class="input-group">
+					<input type="text" class="form-control" value="{{translate('Phụ thu')}}: {{val.getPrice|number_format}}" id="price_service_add_new" data-id="{{val.getId}}" readonly>
+<!-- 					<span class="input-group-addon">VNĐ</span> -->
+				</div>
+			</div>
+			<div class="col-md-3 col-sm-4 col-xs-4">
+				<div class="input-group">
+					<input type="text" class="form-control" value="{{translate('Giá mới')}}: {{(val.getPrice + tour_detail.getPrice)|number_format}}" id="price_sum_service_add_new" data-id="{{val.getId}}" readonly>
+			<!-- 		<span class="input-group-addon">VNĐ</span> -->
+				</div>
+			</div>
+			<div class="col-md-2 col-sm-3 col-xs-3 ">
+            	 <a class="btn btn_orange_outline save delete_new_price_service_tour"  id="delete_new_price_service_tour-{{val.getId}}">{{translate('Xóa')}}</a>
+      		</div>
+		</div>
+	</div>
+	{% endfor %}
+</div>

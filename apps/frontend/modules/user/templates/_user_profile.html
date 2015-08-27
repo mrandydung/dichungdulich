@@ -1,0 +1,110 @@
+<link href="/assets/dichungdulich/css/profile.css" rel="stylesheet">
+<div class="ava">
+   {% if user.getAvatar|slice(0,8) == '/uploads' %}
+   <img src="http://dichung.vn{{user.getAvatar}}" width="100%">
+   {% else %}
+      <img src="{{user.getAvatar}}" width="100%" style="height: 230px">
+   {% endif %}
+</div>
+<div class="user_name">
+   <a  class="h4 name">{{user.getFullname}}</a>
+   <h5>{{user.getCreatedAt|date('d-m-Y')}}</h5>
+</div>
+<div class="white_bg">
+   <div class="box_1x col-md-12">
+   </div>
+   <div class="cataloge padding_top">
+      <ul class="list-group">
+         <li class="list-group-item list-group-item2">
+            <a href="{{user.getDetailUrl}}"><span class="thongtin"></span> {{translate('Sửa thông tin cá nhân')}} </a>
+         </li>
+         <li class="list-group-item list-group-item2">
+            <span class="badge badge2">{{StaticCall('NotificationPeer', 'count_non_read', {user_id: user.getId})}}</span>
+            <a href="{{user.get_url_user_notification}}"><span class="thongbao"></span> {{translate('Thông báo')}} </a>
+         </li>
+         <li class="list-group-item list-group-item2">
+            <span class="badge badge2">{{StaticCall('MessagePeer', 'count_non_read', {user_id:  user.getId})}}</span>
+            <a href="{{user.get_url_user_message}}"><span class="tinnhan"></span> {{translate('Tin nhắn')}} </a>
+         </li>
+         {% if not user.check_admin_partner_login and user.getPartnerId != 1 %}
+         <li class="list-group-item list-group-item2">
+            <a href="{{user.get_url_user_service}}"><span class="dichvu"></span> {{translate('Quản lý Tour')}}</a>
+         </li>
+         {% endif %}
+         <li class="list-group-item list-group-item2">
+            <a href="{{user.get_url_user_the_experience}}"><span class="trainghiem"></span> {{translate('Kinh nghiệm chuyến đi')}}</a>
+         </li>
+         <li class="list-group-item list-group-item2">
+            <a href="{{user.get_url_user_transaction_management}}"><span class="giaodich"></span> {{translate('Quản lý giao dịch')}}</a>
+         </li>
+<!--          <li class="list-group-item list-group-item2">
+            <a href="{{url_for('@user_settings')}}"><span class="caidat"></span> {{translate('Cài đặt')}}</a>
+         </li> -->
+      </ul>
+   </div>
+</div>
+<div class="modal fade" id="send_message" tabindex="-1" role="dialog" aria-labelledby="send_message" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="send_message">{{translate('Trả lời tin nhắn')}}</h4>
+            </div>
+            <div class="modal-body padding_top">
+                <p>{{translate('Tôi thấy chuyến đi của bạn và chuyến đi của tôi có cung đường gần giống nhau. Chúng ta hãy cùng đi chung.')}}</p>
+                <textarea class="form-control"></textarea>
+            </div>
+            <div class="modal-footer">
+                <div class="row">
+                    <div class="col-md-offset-6 col-md-3">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">{{translate('Hủy')}}</button>
+                    </div>
+                    <div class="col-md-3">
+                        <button type="button" class="btn btn_blue">{{translate('Gửi')}}</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="danhgia">
+  <div class="header">
+    <p>{{translate('Xác thực thông tin')}}</p>
+  </div>
+  <div class="user_info content">
+     <p>
+    {% if user.getVerifiedImage %}
+    <span class="giayto xacthuc"></span> 
+        {% if user.getUserTypeId == '1' %}
+            {{translate('Đã x.thực giấy tờ tùy thân')}}
+        {% endif %}
+        {% if user.getUserTypeId == '2' %}
+            {{translate('Đã xác thực ĐKKD')}}
+        {% endif %}
+    {% else %}
+    <span class="giayto"></span> 
+            {% if user.getUserTypeId == '1' %}
+                {{translate('Chưa x.thực giấy tờ tùy thân')}}
+           {% endif %}
+            {% if user.getUserTypeId == '2' %}
+                {{translate('Chưa xác thực ĐKKD')}}
+           {% endif %}
+    {% endif %}
+  </p>
+    <p>
+      {% if user.getVerifiedPhone %}
+      <span class="dienthoai xacthuc"></span> {{translate('Đã xác thực số điện thoại')}}
+      {% else %}
+      <span class="dienthoai"></span> {{translate('Chưa x.thực số điện thoại')}}
+      {% endif %}
+    </p>
+    <p>
+      {% if user.getVerifiedEmail %}
+      <span class="email xacthuc"></span> {{translate('Đã xác thực email')}}
+      {% else %}
+       <span class="email"></span> {{translate('Chưa xác thực email')}}
+      {% endif %}
+    </p>
+  </div>
+</div>
+{{get_partial('user/user_social_trusting',{user:user})|raw}}

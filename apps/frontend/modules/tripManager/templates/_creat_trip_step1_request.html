@@ -1,0 +1,30 @@
+<div  style="display:none" id="request_start_time">
+    <div class="row padding_top">
+        <div class="col-md-4">
+            <select class="form-control" name="select_date_request_service_day_long"  id="select_date_request_service_day_long">
+                <option value="0">{{translate('Tour kéo dài')}}</option>
+                {% for val in StaticCall('TourTimeCategoryDayPeer','getAll') %}
+                 <option value="{{val.getVal}}">{{translate(val.getShowName)}}</option>
+                {% endfor %}
+            </select>
+        </div>
+         <div class="col-md-4 col-sm-3 ">
+            <input readonly style="border: 2px solid rgb(132, 132, 132);cursor: -webkit-grab;background-color: white" class="form-control time_" name="request_day_start_date" id="request_day_start_date" placeholder="{{translate('Chọn ngày khởi hành')}} ">
+        </div>
+        <div class="col-md-2 col-sm-3 col-xs-3 ">
+            <a class="btn btn_orange save" id="add_new_date_request_service">{{translate('Lưu')}}</a>
+        </div>
+    </div>
+    <div class="row padding_top" id="div_new_date_request_service">
+        {% for val in StaticCall('TourDateRequestServicePeer','get_date_request_tour',{tour_id:tour_detail.getId}) %}
+        <div id="item_new_date_request_service-{{val.getId}}">
+            <div class="col-md-3 col-sm-3 col-xs-3">
+                <input readonly class="form-control time_" value="{{val.getDate|date('d-m-Y')}}"/>
+            </div>
+            <div class="col-md-1 col-sm-5 col-xs-5 ">
+               <a class="btn btn_orange_outline save delete_request_day_start_date_add_new" id="delete_request_day_start_date_add_new-{{val.getId}}">{{translate('Xóa')}}</a>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>

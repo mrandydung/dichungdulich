@@ -1,0 +1,34 @@
+{% if region_id %}
+<script>
+    $(document).ready(function(){
+           $('#div_collapseKhuvuc').click();
+    });
+</script>
+{% endif %}
+<div class="filter">
+    <div class="panel-group" id="accordion">
+        <div class="panel panel-default">
+            <div class="panel-heading accordion-toggle collapsed head_box" data-toggle="collapse" data-parent="#accordion" href="#collapseKhuvuc" id="div_collapseKhuvuc">
+                 <h4 class="panel-title">
+                    <a href="#">{{translate('Khu vực du lịch')}}</a>
+                </h4>
+            </div>
+            <div id="collapseKhuvuc" class="panel-collapse collapse">
+                <div class="panel-body">
+                    <div class="body">
+                        <p class="hightlight padding_top">{{translate('Nội địa')}}</p>
+                        {% set count = StaticCall('TourDetailPeer','count_tour_trong_nuoc')%}
+                        <p><label><input type="radio" name="radio_khuvuc" value="1" id="radio_noi_dia" onclick="change_tour_trong_nuoc(1)" checked >{{translate(' Miền Bắc')}}<span class="blue_text"> ({{count['count_mienbac']}})</span></label></p>
+                        <p><label><input type="radio" name="radio_khuvuc" value="2" id="radio_noi_dia" onclick="change_tour_trong_nuoc(2)" {% if region_id == '2' %}{{'checked'}}{% endif %}>{{translate(' Miền Trung')}} <span class="blue_text"> ({{count['count_mientrung']}})</span></label></p>
+                        <p><label><input type="radio" name="radio_khuvuc" value="3" id="radio_noi_dia" onclick="change_tour_trong_nuoc(3)" {% if region_id == '3' %}{{'checked'}}{% endif %}> {{translate('Miền Nam')}} <span class="blue_text"> ({{count['count_miennam']}})</span></label></p>
+                        <p class="hightlight padding_top">{{translate('Quốc tế')}}</p>
+                        {% set count_quocte =  StaticCall('TourDetailPeer','count_tour_quoc_te') %}
+                        <p><label><input type="radio" name="radio_khuvuc" value="2" id="radio_quoc_te" onclick="change_tour_quoc_te(2)">{{translate('Châu Âu, Mỹ, Úc')}}<span class="blue_text"> ({{count_quocte['count_chau_au']}})</span></label></p>
+                        <p><label><input type="radio" name="radio_khuvuc" value="3" id="radio_quoc_te" onclick="change_tour_quoc_te(3)">{{translate('Châu Á')}}<span class="blue_text"> ({{count_quocte['count_chau_a']}})</span></label></p>
+                        <p><label><input type="radio" name="radio_khuvuc" value="4" id="radio_quoc_te" onclick="change_tour_quoc_te(4)">{{translate('Châu Phi')}} <span class="blue_text"> ({{count_quocte['count_chau_phi']}})</span></label></p>  
+                    </div> 
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

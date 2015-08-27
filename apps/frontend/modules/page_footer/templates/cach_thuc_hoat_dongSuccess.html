@@ -1,0 +1,17 @@
+{% extends "layout.html"%}
+{% block body %}
+<script type="text/javascript">
+	$(document).ready(function(){
+		if({{user_id}}) {
+			$('#temp_click_dang_chuyen_di').html('<a href="/dang-tour-du-lich.html" class="creattrip">Đăng chuyến đi</a>');
+		}else{
+			$('#temp_click_dang_chuyen_di').html('<a href="#" class="creattrip" id="show_login">Đăng chuyến đi</a>');
+		}
+	});
+</script>
+<div class="white_bg">
+	<div class="container">
+		{{content.getContent|raw}}
+	</div>
+</div>
+{% endblock %} 

@@ -1,0 +1,11 @@
+generator:
+  class:              sfPropelAdminGenerator
+  param:
+    model_class:      Huser
+    theme:            default
+    edit:
+      fields:
+        password: {params: type=password}
+      display: [id,partner_id,username, password,  active, is_admin,is_moderater,is_partner]
+    list:
+      display: [id,Partner, username, active, is_admin,is_moderater,is_partner, created_at, updated_at]

@@ -1,0 +1,231 @@
+{% extends "layout.html"%}
+{% block body %}
+<link href="/assets/dichungdulich/css/profile.css" rel="stylesheet">
+<script type="text/javascript">
+   $(document).ready(function(){
+      $('#button_send_message').click(function(){
+         {% if user_id_login%}
+         $('#send_message_user').modal();
+         {% else %}
+          $('#dangnhap').modal();
+         {% endif %}
+      });
+      $('#submit_send_message').click(function(){
+          var content_message_send = $('#content_message_send').val();
+          var id_user_receiver = $('#id_user_hidden').val();
+            if(content_message_send){
+                var id_message_hidden = $('#id_message_hidden').val();
+                jQuery.ajax({ type: "POST",url: "/user_default/send_message",dataType:"json", 
+                data: {"content_message_send":content_message_send,"id_user_receiver":id_user_receiver}, 
+                    success:function(response){
+                        var code = response.code;
+                        var msg = response.msg;
+                        if(code == '1'){
+                          $('#popup_error_send_message').html(msg);
+                           $('#popup_error_send_message').fadeIn();
+                        }
+                        if(code == '2'){
+                            alert(msg);
+                            $('#content_message_send').val('');
+                            $('#send_message_user').modal('hide');
+                        }
+                    },
+                });
+            }else{
+                $('#popup_error_send_message').html('Bạn chưa nhập nội dung tin nhắn');
+                $('#popup_error_send_message').fadeIn();
+            }
+      });
+   });
+</script>
+<div class="modal fade" id="send_message_user" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">{{translate('Gửi tin nhắn tới')}} {{user.getFullname}}</h4>
+            </div>
+            <div class="modal-body padding_top">
+                <p id="view_content_message_receiver"></p>
+                <textarea class="form-control" id="content_message_send" name="content_message_send" placeholder="{{translate('Nhập nội dung tin nhắn')}}"></textarea>
+            </div>
+              <div class="error" id="popup_error_send_message" style="display:none"></div>
+            <div class="modal-footer">
+                <div class="row">
+                    <div class="col-md-offset-6 col-md-3">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">{{translate('Hủy')}}</button>
+                    </div>
+                    <div class="col-md-3">
+                        <button type="button" class="btn btn_blue" id="submit_send_message">{{translate('Gửi')}}</button>
+                        <input type="hidden" id="id_user_hidden" value="{{user.getId}}" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="gray_bg box_3x">
+   <div class="container">
+      <div class="row">
+         <div class="col-md-3 profile">
+            <div class="ava">
+               {% if user.getAvatar|slice(0,8) == '/uploads' %}
+               <img src="http://dichung.vn{{user.getAvatar}}" width="100%">
+               {% else %}
+               <img src="{{user.getAvatar}}" width="100%">
+               {% endif %}
+            </div>
+            <div class="user_name">
+               <a  class="h4 name">{{user.getFullname}}</a>
+               <h5>{{user.getCreatedAt|date('d-m-Y')}}</h5>
+            </div>
+            <div class="white_bg">
+               <div class="box_1x col-md-12">
+                  {% if user_id_login != user.getId %}
+                  <a class="btn btn_blue_outline" id="button_send_message">{{translate('Gửi tin nhắn')}}</a>
+                  {% endif %}
+               </div>
+               <div class="contact" style="padding-bottom: 15px">
+                  <table align="center" style="width:50%">
+                     <tr>
+                        {% if user.getFbUrl %}<td><a class="fb" target="_blank" href="{{user.getFbUrl}}"></a></td>{% endif %}
+                        {% if user.getSkypeUrl %}<td><a class="skype" target="_blank" href="skype:{{user.getSkypeUrl}}?chat"></a></td>{% endif %}
+                     </tr>
+                  </table>
+               </div>
+            </div>
+          <div class="danhgia">
+            <div class="header">
+              <p>{{translate('Xác thực thông tin')}}</p>
+            </div>
+            <div class="user_info content">
+              <p>
+                {% if user.getVerifiedImage %}
+                <span class="giayto xacthuc"></span> 
+                    {% if user.getUserTypeId == '1' %}
+                        {{translate('Đã x.thực giấy tờ tùy thân')}}
+                    {% endif %}
+                    {% if user.getUserTypeId == '2' %}
+                        {{translate('Đã đăng ký kinh doanh')}}
+                    {% endif %}
+                {% else %}
+                <span class="giayto"></span> 
+                        {% if user.getUserTypeId == '1' %}
+                            {{translate('Chưa x.thực giấy tờ tùy thân')}}
+                       {% endif %}
+                        {% if user.getUserTypeId == '2' %}
+                            {{translate('Chưa đăng ký kinh doanh')}}
+                       {% endif %}
+                {% endif %}
+              </p>
+              <p>
+                {% if user.getVerifiedPhone %}
+                <span class="dienthoai xacthuc"></span> {{translate('Đã xác thực số điện thoại')}}
+                {% else %}
+                <span class="dienthoai"></span> {{translate('Chưa x.thực số điện thoại')}}
+                {% endif %}
+              </p>
+              <p>
+                {% if user.getVerifiedEmail %}
+                <span class="email xacthuc"></span> {{translate('Đã xác thực email')}}
+                {% else %}
+                 <span class="email"></span> {{translate('Chưa xác thực email')}}
+                {% endif %}
+              </p>
+            </div>
+          </div>
+          {{get_partial('user/user_social_trusting',{user:user})|raw}}
+         </div>
+         <div class="col-md-9">
+            {{get_partial('user/user_trusting_lever',{user:user})|raw}}
+<!--             {{get_partial('user/user_static')|raw}} -->
+                <div class="row box_1x">
+                    <div class="col-md-12">
+                       {% if user.userTypeId == '1'%}
+                        <div class="danhgia">
+                            <div class="header">
+                                <p>{{translate('Thông tin cá nhân')}}</p>
+                            </div>
+                            <div class="content row">
+                              {% if user.getGender%}
+                                <div class="col-md-3 col-sm-3 col-xs-4 tieude">
+                                    <p>{{translate('Giới tính')}}:</p>
+                                </div>
+                                <div class="col-md-9 col-sm-9 col-xs-8 thongtin">
+                                    <p>{{user.getNameGender(user.getGender)}}&nbsp;</p>
+                                </div>
+                              {% endif %}
+                                <div class="col-md-3 col-sm-3 col-xs-4 tieude">
+                                    <p>{{translate('Độ tuổi')}}:</p>
+                                </div>
+                                <div class="col-md-9 col-sm-9 col-xs-8 thongtin">
+                                    <p>{{user.OldRange.getName}}&nbsp;</p>
+                                </div>
+                                <div class="col-md-3 col-sm-3 col-xs-4 tieude">
+                                    <p>{{translate('Nghề nghiệp')}}:</p>
+                                </div>
+                                <div class="col-md-9 col-sm-9 col-xs-8 thongtin">
+                                    <p>{{user.Job.getName}}&nbsp;</p>
+                                </div>
+                                <div class="col-md-3 col-sm-3 col-xs-4 tieude">
+                                    <p>{{translate('Địa phương')}}:</p>
+                                </div>
+                                <div class="col-md-9 col-sm-9 col-xs-8 thongtin">
+                                    <p>{{user.getLocation}}&nbsp;</p>
+                                </div>
+                                <div class="col-md-3 col-sm-3 col-xs-4 tieude">
+                                    <p>{{translate('Giới thiệu')}}:</p>
+                                </div>
+                                <div class="col-md-9 col-sm-9 col-xs-8 thongtin">
+                                    <p>{{user.getAbout}}&nbsp;</p>
+                                </div>
+                                <div class="clear"></div>
+                            </div>
+                        </div>
+                        {% endif %}
+                        {% if user.userTypeId == '2'%}
+                        <div class="danhgia">
+                            <div class="header">
+                                <p>{{translate('Thông tin tổ chức')}}</p>
+                            </div>
+                            <div class="content row">
+                                <div class="col-md-3 col-sm-3 col-xs-4 tieude">
+                                    <p>{{translate('Địa chỉ')}}:</p>
+                                </div>
+                                <div class="col-md-9 col-sm-9 col-xs-8 thongtin">
+                                    <p>{{user.getAddress}}&nbsp;</p>
+                                </div>
+                                <div class="col-md-3 col-sm-3 col-xs-4 tieude">
+                                    <p>{{translate('Hotline')}}:</p>
+                                </div>
+                                <div class="col-md-9 col-sm-9 col-xs-8 thongtin">
+                                    <p>{{user.getHotline}}&nbsp;</p>
+                                </div>
+                                <div class="col-md-3 col-sm-3 col-xs-4 tieude">
+                                    <p>{{translate('Website')}}:</p>
+                                </div>
+                                <div class="col-md-9 col-sm-9 col-xs-8 thongtin">
+                                    <p>{{user.getWebsite}}&nbsp;</p>
+                                </div>
+                                <div class="col-md-3 col-sm-3 col-xs-4 tieude">
+                                    <p>{{translate('Giới thiệu')}}:</p>
+                                </div>
+                                <div class="col-md-9 col-sm-9 col-xs-8 thongtin">
+                                    <p>{{user.getAbout}}&nbsp;</p>
+                                </div>
+                                <div class="clear"></div>
+                            </div>
+                        </div>
+                        {% endif %}
+                    </div>
+                </div>
+            <div class="row">
+                <div class="col-md-12">
+                    {{get_partial('user/user_tour',{tour_featured:tour_featured})|raw}}
+                </div>
+            </div>
+         </div>
+      </div>
+   </div>
+</div>
+{% endblock %}

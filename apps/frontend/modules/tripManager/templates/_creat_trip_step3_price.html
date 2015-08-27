@@ -1,0 +1,64 @@
+<div class="col-md-12 col-sm-6">
+    <div class="row">      
+        <div class="col-md-3 col-sm-3">
+            <div class="col-md-12 padding_top">
+                <p class="hightlight">{{translate('Cách tính giá')}}</p>
+            </div>
+            <div class="col-md-12 col-sm-6">
+                <select class="form-control" id="type_pricing_service_id">
+                    {% for val in StaticCall('TypePricingServicePeer','getAll') %}
+                        <option value="{{val.getId}}" {% if tour_detail.getTypePricingServiceId == val.getId%}{{'selected'}}{% endif%}>{{val.getShowName}}</option>
+                    {% endfor %}
+                </select>
+            </div>
+        </div>
+        <div class="col-md-3 col-sm-6">
+                <div class="col-md-12 padding_top">
+                    <p class="hightlight">{{translate('Giá/khách')}}<span class="red">(*)</span></p>
+                </div>
+
+            <div class="col-md-12 col-sm-6">
+                <div class="input-group">
+                    <input type="text" class="form-control" id="price_tour" {% if tour_detail.getTypePricingServiceId == '1'%}value="{{tour_detail.getPrice}}" {% else%}{{'value="Thỏa thuận" disabled '}}{% endif%}>
+                    <span class="input-group-addon">VNĐ</span>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3 col-sm-6">
+            <div class="col-md-12 padding_top">
+                <p class="hightlight">{{translate('Số khách tối thiểu')}}</p>
+            </div>
+            <div class="col-md-12 col-sm-6">
+               <select class="form-control" id="number_seat_min_tour">
+                {% for val in 1..100 %}
+                    <option value="{{val}}" {% if tour_detail.getNumberSeatMin == val%}{{'selected'}}{% endif %}>{{val}}</option>
+                {% endfor %}
+
+            </select>
+            </div>
+        </div>
+        <div class="col-md-3 col-sm-6">
+            <div class="col-md-12 padding_top">
+                <p class="hightlight">{{translate('Số khách tối đa')}}</p>
+            </div>
+            <div class="col-md-12 col-sm-6">
+               <select class="form-control" id="number_seat_tour">
+                <option value="1000">{{translate('Không giới hạn')}}</option>
+                {% for val in 1..30 %}
+                    <option value="{{val}}">{{val}}</option>
+                {% endfor %}
+                <option value="35">35</option>
+                <option value="40">40</option>
+                <option value="45">45</option>
+                <option value="50">50</option>
+                <option value="100">100</option>
+                <option value="150">150</option>
+                <option value="200">200</option>
+                <option value="300">300</option>
+                <option value="400">400</option>
+                <option value="500">500</option>
+            </select>
+            </div>
+        </div>
+    </div>
+</div>

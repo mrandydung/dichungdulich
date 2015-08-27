@@ -1,0 +1,24 @@
+<div id="content_add_new_price">
+	{% for val in scheduled_cost %}
+	<div class="row box_1x_" id="value_pricing-{{val.getId}}">
+        <div class="col-md-3 col-sm-3 col-xs-6 padding_top">
+            <select class="form-control " name="creat_trip_costs[add_cost_new]" readonly style="cursor:-webkit-grab">
+                <option>{{val.SuggestCostCategory.getName}}</option>
+            </select>
+        </div>
+        <div class="col-md-3 col-sm-3 col-xs-5 padding_top">
+            <div class="input-group">
+                <input type="text" data-id="{{val.getId}}" class="form-control" name="price_new" id="price_new" value="{{val.getPrice}}">
+                <span class="input-group-addon">VNĐ</span>
+            </div>
+        </div>
+        <div class="col-md-5 col-sm-5 col-xs-11 padding_top">
+            <input class="form-control" name="creat_trip_costs[add_price_decription]" id="creat_trip_costs_add_price_decription" value="{{val.getDescription}}"/>
+        </div>
+        <div class="col-md-1 col-sm-1 col-xs-1 padding_top">
+            <a class="btn btn_orange_outline save delete_price" id="delete_price-{{val.getId}}">Xóa</a>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+

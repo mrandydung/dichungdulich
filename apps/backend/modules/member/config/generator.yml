@@ -1,0 +1,13 @@
+generator:
+  class:              sfPropelAdminGenerator
+  param:
+    model_class:      Member
+    theme:            default
+    list:
+      object_actions:
+        _edit:         ~
+        _delete:       ~
+      actions:
+        _create:       ~
+      filters:  [username,email,created_at]
+      sort:    [id,desc]

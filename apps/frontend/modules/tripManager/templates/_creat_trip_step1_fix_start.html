@@ -1,0 +1,16 @@
+<div class="row padding_top" id="fix_start_time" style="display: none">
+    <div class="col-md-3">
+        <input class="form-control time_" placeholder="{{translate('Ngày bắt đầu')}}" name="creat_trip_form_fix_start[start_date]"  id="creat_trip_form_fix_start_start_date"/>
+    </div>
+    <div class="col-md-3">
+        <input class="form-control time_" placeholder="{{translate('Ngày kết thúc')}}" name="creat_trip_form_fix_start[end_date]"  id="creat_trip_form_fix_start_end_date">
+    </div>
+    <div class="col-md-3">
+        <select class="form-control hour_" name="creat_trip_form_fix_start[start_hour]"  id="creat_trip_form_fix_start_start_hour">
+        <option value="1000">{{translate('Chọn giờ đi')}}</option>
+        {% for val in StaticCall('HourPeer','getAll')%}
+            <option value="{{val.getValue}}">{{translate(val.getName)}}</option>
+        {% endfor  %}
+        </select>
+    </div>
+</div> 

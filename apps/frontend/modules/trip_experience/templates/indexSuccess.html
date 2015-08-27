@@ -1,0 +1,73 @@
+{% extends "layout.html"%}
+{% block body %}
+<style>
+    .ksb{
+      background-color: #f5f5f5;
+      background-image: -webkit-gradient(linear,left top,left bottom,from(#f5f5f5),to(#f1f1f1));
+      background-image: -webkit-linear-gradient(top,#f5f5f5,#f1f1f1);
+      background-image: linear-gradient(top,#f5f5f5,#f1f1f1);
+      border: 1px solid #dcdcdc;
+      border: 1px solid rgba(0, 0, 0, 0.1);
+  }
+  .loadMore {
+  border: 1px solid #c6c6c6 !important;
+  font-family: Arial;
+  width: 60%;
+  height: 27px;
+  line-height: 27px;
+  -webkit-border-radius: 2px;
+  border-radius: 2px;
+  cursor: pointer;
+  font-size: 11px;
+  font-weight: bold;
+  margin: 2px 0;
+  min-width: 54px;
+  padding: 0 2%;
+  text-align: center;
+  -webkit-transition: all 0.218s,visibility 0s;
+  transition: all 0.218s,visibility 0s;
+  -webkit-user-select: none;
+}
+</style>
+<link href="/assets/dichungdulich/css/experience.css?v={{random()}}" rel="stylesheet">
+<script type="text/javascript" src="/assets/js/typeahead.min.js?v={{random()}}"></script>
+<script type="text/javascript" src="/assets/dichungdulich/js/trip_experience.js?v={{random()}}"></script>
+<div class="white_bg box_3x">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-offset-2 col-md-8 text-center box_1x">
+                <h3 class="t1">Trải nghiệm chuyến đi</h3>
+                <h4><small>Chia sẻ những trải nghiệm du lịch thú vị tại những địa điểm mà bạn đã từng đặt chân đến cho cộng đồng để cùng khám phá và thưởng thức. Giá trị chuyến đi của bạn sẽ được nhân lên gấp bội.</small></h4>
+            </div>
+            <div class="col-md-offset-4 col-md-4 box_1x">
+                {% if user_id %}
+                <a href="{{url_for('@create_experience')}}" class="btn btn_lg btn_blue">Chia sẻ trải nghiệm</a>
+                {% else %}
+                <button class="btn btn_lg btn_blue" id="login_experience">Chia sẻ trải nghiệm</button>
+                {% endif %}
+            </div>
+        </div>
+        <div class="row box_2x">
+            <div class="col-md-3">
+                <div class="input-group">
+                  <input type="text"  data-provide="typeahead" autocomplete="on" class="form-control" placeholder="Tìm kiếm địa điểm" id="search_end" >
+                  <span class="input-group-btn">
+                    <button class="btn btn-default" type="button" id="click_button_search_end" style="width:80px">Tìm kiếm</button>
+                  </span>
+                </div>
+            </div>
+            <div class="col-md-offset-7 col-md-2">
+                <select class="form-control" id="select_filter_experience">
+                    <option value="0">Xếp theo</option>
+                    <option value="1">Lượt xem nhiều nhất</option>
+                </select>
+            </div>
+        </div>
+        <div class="row" id="content_experience_loading">
+			{{get_partial('experience_list',{experience:experience})|raw}}
+		</div>
+        <center> <div class="loadMore ksb" id="showmorethisresult"> 
+        <img style="display:none" id="img_loading" align="absmiddle" src="/images/ajax-loader.gif"> Hiển thị thêm </div> </center>
+    </div>
+</div>
+{% endblock %}

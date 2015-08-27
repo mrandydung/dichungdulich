@@ -1,0 +1,118 @@
+{% extends "layout.html"%}
+{% block body %}
+    <script type="text/javascript" src="/assets/dichungdulich/js/user_transaction.js"></script>
+	<div class="gray_bg box_3x">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3 profile">
+				{{get_partial('user/user_profile',{user:user})|raw}}
+			</div>
+            <div class="col-md-9">
+                {% if content_msg %}
+                <div class="success" >{{content_msg|raw}}</div>
+                {% endif %}
+                <div class="table-responsive">
+                    <table class="table table-bordered">
+                        <tr>
+                            <th>Mã GD</th>
+                            <th>Cá nhân</th>
+                            <th>
+                                <select class="phanloai">
+                                <option>Loại giao dịch</option>
+                                <option>Giao dịch mua</option>
+                                <option>Giao dịch bán</option>
+                                </select>
+                            </th>
+                            <th>
+                                <select class="phanloai">
+                                    <option>Trạng thái</option>
+                                    <option>Giao dịch chờ</option>
+                                    <option>Giao dịch thành công</option>
+                                    <option>Thanh toán trực tiếp với chủ xe</option>
+                                    <option>Giao dịch chưa thanh toán</option>
+                                    <option>Giao dịch đã thanh toán</option>
+                                </select>
+                            </th>
+                            <th></th>
+                        </tr>
+                        {% for val in booking_tour %}
+                            {% if val.getUserIdBuy == user_id %}
+                                <tr>
+                                    <td>{{val.getCodeTransaction}}</td>
+                                    <td>
+                                        <div class="row">
+                                            <div class="nhanxet">
+                                                <div class="col-md-3 col-sm-3 col-xs-2 cm_ava">
+                                                    <img src="http://dichung.vn{{val.getAvatarInUserTransaction(val.getUserIdSell)}}" width="100%" height="55px">
+                                                </div>
+                                                <div class="col-md-9 col-sm-9 col-xs-10 noti">
+                                                    <p>Bạn đã  đăng kí chuyến đi <a>{{val.Tour.getTitle}}</a> của <a>{{val.DichungUser.getFullname}}</a></p>
+                                                    <h5><small> {{sf_user.change_time_input_to_minute(val.getCreatedAt)}} trước - Đặt {{val.getNumberAdult + val.getNumberKid + val.getNumberBaby}} chỗ</small></h5>
+                                                </div>
+                                                <div class="clear"></div>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td>Giao dịch mua</td>
+                                    <td>{{val.BookingStatus.getName}}</td>
+                                    <td>
+                                        {% if val.getBookingStatusId == '1'%}
+                                            <a class="round btn btn-sm btn-default user_buy_deny" id="user_buy_deny-{{val.getId}}">Hủy bỏ giao dịch</a>
+                                        {% endif %}
+                                        {% if val.getBookingStatusId == '2'%}
+                                            <a class="round btn btn-sm btn-default">Đang thực hiện</a>
+                                        {% endif %}
+                                        {% if val.getBookingStatusId == '3'%}
+                                            <p>GD thành công</p>
+                                        {% endif %}
+                                        {% if val.getBookingStatusId == '4' or val.getBookingStatusId == '5'%}
+                                            <p>GD hủy bỏ</p>
+                                        {% endif %}
+                                    </td>
+                                </tr>
+                            {% endif %}
+                            {% if val.getUserIdSell == user_id %}
+                                <tr>
+                                    <td>{{val.getCodeTransaction}}</td>
+                                    <td>
+                                        <div class="row">
+                                            <div class="nhanxet">
+                                                <div class="col-md-3 col-sm-3 col-xs-2 cm_ava">
+                                                    <img src="http://dichung.vn{{val.getAvatarInUserTransaction(val.getUserIdBuy)}}" width="100%" height="55px">
+                                                </div>
+                                                <div class="col-md-9 col-sm-9 col-xs-10 noti">
+                                                    <p><a>{{val.DichungUser.getFullnameBuyId(val.getUserIdBuy)}}</a> đăng kí chuyến đi <a>Hà Nội - Mộc Châu</a> của bạn</p>
+                                                    <h5><small> {{sf_user.change_time_input_to_minute(val.getCreatedAt)}} trước - Đặt {{val.getNumberAdult + val.getNumberKid + val.getNumberBaby}} chỗ</small></h5>
+                                                </div>
+                                                <div class="clear"></div>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td>Giao dịch bán</td>
+                                    <td>{{val.BookingStatus.getName}}</td>
+                                    <td>
+                                        {% if val.getBookingStatusId == '1'%}
+                                            <a class="round btn btn-sm btn_orange user_sell_accept" id="user_sell_accept-{{val.getId}}">Chấp nhận</a>
+                                            <a class="round btn btn-sm btn-default user_sell_deny" id="user_sell_deny-{{val.getId}}">Hủy bỏ giao dịch</a>
+                                        {% endif %}
+                                        {% if val.getBookingStatusId == '2'%}
+                                          <a class="round btn btn-sm btn_orange user_sell_accept_finish" id="user_sell_accept_finish-{{val.getId}}">Xác nhận GD thành công</a>
+                                          <a class="round btn btn-sm btn-default user_sell_deny" id="user_sell_deny-{{val.getId}}">Hủy bỏ giao dịch</a>
+                                        {% endif %}
+                                        {% if val.getBookingStatusId == '3'%}
+                                            <p>GD thành công</p>
+                                        {% endif %}
+                                        {% if val.getBookingStatusId == '4' or val.getBookingStatusId == '5'%}
+                                            <p>GD hủy bỏ</p>
+                                        {% endif %}
+                                    </td>
+                                </tr>
+                            {% endif %}
+                        {% endfor %}
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %} 

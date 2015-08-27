@@ -1,0 +1,55 @@
+<script type="text/javascript">
+$(document).ready(function(){
+    tinymce.init({selector:'#tour_description',
+        mode : "textareas",
+        plugins : "paste",
+
+        theme_advanced_buttons3_add : "pastetext,pasteword,selectall",
+        paste_auto_cleanup_on_paste : true,
+        paste_preprocess : function(pl, o) {
+            // Content string containing the HTML from the clipboard
+            o.content = o.content;
+        },
+        paste_postprocess : function(pl, o) {
+            // Content DOM node containing the DOM structure of the clipboard
+            o.node.innerHTML = o.node.innerHTML ;
+        }});
+});
+</script>
+<div class="error" id="popup_error_time" style="display:none"></div>
+<div class="success" id="popup_success_time" style="display: none"></div>
+<div class="row box_1x">
+    <div class="col-md-12">
+        <p class="hightlight">{{translate('Thời gian Tour')}}</p>
+    </div>
+    <div class="col-md-4">
+        <select class="form-control" id="tour_time_type" name="tour_time_type">
+            <option value="0">{{translate('Chọn thời gian khởi hành')}}</option>
+            {% for val in time_type %}
+            <option value="{{val.getId}}">{{val.getShowName}}</option>
+            {% endfor %}
+        </select>
+    </div>
+</div>
+{{get_partial('creat_trip_step1_fix_start')|raw}}
+{{get_partial('creat_trip_step1_daily_start')|raw}}
+{{get_partial('creat_trip_step1_weekly_start')|raw}}
+{{get_partial('creat_trip_step1_request',{tour_detail:tour_detail})|raw}}
+<div class="row box_1x">
+    <div class="col-md-12">
+        <p class="hightlight">{{translate('Tiêu đề')}}</p>
+        <input type="text" class="form-control" name="tour_title" id="tour_title" value="{{tour_detail.getTitle}}" />
+    </div>
+</div>
+<div class="row box_1x">
+    <div class="col-md-12">
+        <p class="hightlight">{{translate('Mô tả')}}</p>
+        <textarea class="form-control" rows="5" id="tour_description" name="tour_description">{{tour_detail.getDescription}}</textarea>
+    </div>
+</div>
+{{get_partial('tripManager/info_type_language_step_1',{tour_id:tour_detail.getId})|raw}}
+<div class="row box_2x">
+	<div class="col-md-offset-8 col-md-4">
+		<a class="btn btn_orange" id="update_time" href="#">{{translate('Cập nhật')}}</a>
+	</div>
+</div>

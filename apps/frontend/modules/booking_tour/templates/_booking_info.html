@@ -1,0 +1,39 @@
+<div class="box_1x">
+	<h4>{{translate('Thông tin đặt vé')}}</h4>
+	<hr/>
+	<div class="row">
+		<div class="col-md-3 col-sm-3 col-xs-3">
+			<img src="/{{booking_content['tour_detail'].getImgThumb(booking_content['tour_detail'].getId)|raw}}" width="100%">
+		</div>
+		<div class="col-md-9 col-sm-9 col-xs-9 tour_gia">
+			<h4 class="t1">Tên tour : {{booking_content['tour_detail'].getTitle}}</h4>
+			<h4 class="gio"><small>Tôi muốn đi vào ngày : {{booking_content['date_picker']}}</small></h4>
+			{% if booking_content['tour_price_service_name']%}<p>Loại dịch vụ : {{booking_content['tour_price_service_name']}}</p> {% endif %}
+			<p>Người lớn :  {{booking_content['select_adult']}}</p>
+			{% if booking_content['sum_kid'] %}<p>Trẻ em : {{booking_content['sum_kid']}} </p>{% endif %}
+			{% if booking_content['tour_detail'].getTourTypeId == '2' and  booking_content['tour_detail'].getTypePricingServiceId == '2'%}
+			 	<a>Liên hệ để biết giá</a>
+			{% elseif booking_content['tour_detail'].getTourTypeId == '1' and  booking_content['tour_detail'].getTypePricingId == '2'%}
+		 		<a>Tour miễn phí</a>
+		 	{% elseif booking_content['tour_detail'].getTourTypeId == '1' and  booking_content['tour_detail'].getTypePricingId == '3'%}
+	  	 		<a>Liên hệ để biết giá</a>
+	  	 	{% else %}
+	  	 		<a>{{booking_content['total_cal_price']|number_format}} Đ</a>
+			{% endif %}
+		</div>
+		<div class="clear"></div>
+	</div>
+</div>
+{% if tour_detail.getTourTypeId == '2'%}
+<div class="box_1x">
+	<h4>{{translate('Số tiền thanh toán')}}</h4>
+	<hr/>
+	<div class="tab-content">
+		<p><input type="radio" name="money_security_deposit" value="100" checked> Thanh toán 100 %</p>
+		{% if tour_detail.getSecurityDeposit != '100'%}
+		<p><input type="radio" name="money_security_deposit" {% if booking_form_money_security_deposit == tour_detail.getSecurityDeposit %}{{'checked'}}{% endif%} value="{{tour_detail.getSecurityDeposit}}"> Ký quỹ {{tour_detail.getSecurityDeposit}}% <span style="color:red">( {{(booking_content['total_cal_price'] * tour_detail.getSecurityDeposit / 100)|number_format}} đ)</span> </p>
+		{% endif %}
+	</div>
+</div>
+{% endif %}
+

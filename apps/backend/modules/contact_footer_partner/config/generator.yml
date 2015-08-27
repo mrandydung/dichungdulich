@@ -1,0 +1,16 @@
+generator:
+  class:              sfPropelAdminGenerator
+  param:
+    model_class:      ContactFooter
+    theme:            default
+    list:
+      object_actions:
+        _edit:         ~
+        _delete:       ~
+      actions:
+        _create:       ~
+      display : [id,content]
+    edit:
+      display : [id,content]
+      fields:
+        content: { params: class=ckeditor size=80x60}

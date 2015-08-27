@@ -1,0 +1,55 @@
+<script type="text/javascript" src="http://airporttaxi.vn/js/jquery-1.6.2.min.js"></script>
+<script type="text/javascript" src="http://code.jquery.com/ui/1.10.3/jquery-ui.min.js"></script>
+<script type="text/javascript" src="jquery.combobox.js"></script>
+<link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css">
+
+<script>
+function callbackDistrict(index){
+	alert(index);
+}
+		
+$(function() {
+		$( ".combobox" ).combobox(  );  
+		$( ".custom-combobox-input").change(function(){ 
+			callbackDistrict(0);
+		});
+		
+	});
+</script>
+<body>
+<select callback="callbackDistrict" placeholder="Quận/Huyện" class="combobox" city="Hà Nội" id="depart_district" name="depart_district" renderto="depart_village" style="display: none;">
+				 
+				<option value="0">Quận/Huyện</option>
+				 
+									<option value="222">Quận Ba Đình</option>
+									<option value="223">Quận Hoàn Kiếm</option>
+									<option value="224">Quận Tây Hồ</option>
+									<option value="225">Quận Long Biên</option>
+									<option value="226">Quận Cầu Giấy</option>
+									<option value="227">Quận Đống Đa</option>
+									<option value="228">Quận Hai Bà Trưng</option>
+									<option value="229">Quận Hoàng Mai</option>
+									<option value="230">Quận Thanh Xuân</option>
+									<option value="231">Huyện Sóc Sơn</option>
+									<option value="232">Huyện Đông Anh</option>
+									<option value="233">Huyện Gia Lâm</option>
+									<option value="234">Huyện Từ Liêm</option>
+									<option value="235">Huyện Thanh Trì</option>
+									<option value="236">Huyện Mê Linh</option>
+									<option value="237">Thành phố Hà Đông</option>
+									<option value="238">Thành phố Sơn Tây</option>
+									<option value="239">Huyện Ba Vì</option>
+									<option value="240">Huyện Phúc Thọ</option>
+									<option value="241">Huyện Đan Phượng</option>
+									<option value="242">Huyện Hoài Đức</option>
+									<option value="243">Huyện Quốc Oai</option>
+									<option value="244">Huyện Thạch Thất</option>
+									<option value="245">Huyện Chương Mỹ</option>
+									<option value="246">Huyện Thanh Oai</option>
+									<option value="247">Huyện Thường Tín</option>
+									<option value="248">Huyện Phú Xuyên</option>
+									<option value="249">Huyện ỨngHòa</option>
+									<option value="250">Huyện Mỹ Đức</option>
+				 
+			</select>
+</body>

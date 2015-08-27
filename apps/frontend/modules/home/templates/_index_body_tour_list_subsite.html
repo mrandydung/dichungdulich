@@ -1,0 +1,91 @@
+<style>
+    #carousel_tour_partner .carousel-inner .active.left { left: -33%; }
+    #experience_carosel .carousel-inner .active.left { left: -33%; }
+    #home_diem_den_item_partner .carousel-inner .active.left { left: -33%; }
+    .carousel-inner .next        { left:  33%; }
+    .carousel-inner .prev        { left: -33%; }
+    .carousel-control.left,.carousel-control.right {background-image:none;}
+    .item:not(.prev) {visibility: visible;}
+    .item.right:not(.prev) {visibility: hidden;}
+    .rightest{ visibility: visible;}
+</style>
+<script>
+    $(document).ready(function () {
+        $(' .item').each(function () {
+            var next = $(this).next();
+            if (!next.length) {
+                next = $(this).siblings(':first');
+            }
+            next.children(':first-child').clone().appendTo($(this));
+
+            if (next.next().length > 0) {
+
+                next.next().children(':first-child').clone().appendTo($(this)).addClass('rightest');
+
+            }
+            else {
+                $(this).siblings(':first').children(':first-child').clone().appendTo($(this));
+
+            }
+        });
+    });
+</script>
+<div class="container">
+    <div class="row">
+        <div class="col-md-12" style="padding-bottom:10px">
+             <a class="h3 t1" href="{{url_for('@findTour')}}" id="click_tour_noi_bat">{{translate('Tour nổi bật')}}
+                 <small><span class="glyphicon glyphicon-chevron-right" aria-hidden="true"> </span></small>
+             </a>
+         </div>
+        <div class="carousel slide " id="carousel_tour_partner" >
+            <div class="carousel-inner">
+                {% for key,val in tour_on_homepage%}
+                <div class="item {% if not key %}{{'active'}}{% endif %}">
+                    <div class="col-lg-4 col-xs-12 col-md-4 col-sm-12">
+                    <div class="col-md-12" style="padding-left: 0px;padding-right: 0px">
+                 <div class="tour">
+                    <a href="{{val['url']}}">
+                      <div class="tour_ava">
+                          <img src="{{val['img_thumb']}}" width="100%">
+                          <div class="tour_name">
+                              <p class="name" style="font-size: 13px;">{{val['title']|slice(0,38)}}</p>
+                              <p class="time">{{val['time_category_day']}}</p>
+                              {% if val['number_seat'] == '1000'%}
+                              <p class="cho">{{translate('Không giới hạn chỗ')}}</p>
+                              {% else %}
+                              <p class="cho">{{translate('Còn')}} {{val['number_seat'] - val['number_seat_booking']}}/{{val['number_seat']}} {{translate('chỗ')}}</p>
+                              {% endif %}
+                          </div>
+                      </div>
+                    </a>
+                    <div class="tour_user">
+                        <div class="user_ava">
+                            <img src="http://gheptour.vn/thumbnail/index.php?src=http://dichung.vn/{{val['avatar']}}&w=58&h=60&q=100"/>
+                        </div>
+                        <div class="user_name">
+                            <a href="{{val['url_user']}}">{{val['fullname']}}</a>
+                            <p><div class="rating mg-b-10 fl-l" data-value="5"><span class="star-img stars-5"></span></div></p>
+                        </div>
+                        <div class="tour_gia text-right">
+                            <a>{{val.price}} </a>
+                        </div>
+                        <div class="clear"></div>
+                    </div>
+                      {% if val.discount %}
+                    <div class="sale">
+                        <p class="giamgia dai">{{translate('Giảm giá')}}</p>
+                        <p class="gia">{{val.discount}}%</p>
+                    </div>
+                    {% endif %}
+                </div>
+            </div>
+                    </div>
+                </div>
+                {% endfor %}
+
+            </div>
+            <a class="left carousel-control" href="#carousel_tour_partner" data-slide="prev"><i class="glyphicon glyphicon-chevron-left"></i></a>
+            <a class="right carousel-control" href="#carousel_tour_partner" data-slide="next"><i class="glyphicon glyphicon-chevron-right"></i></a>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,39 @@
+{% extends "layout.html"%}
+{% block body %}
+<link href="/assets/dichungdulich/css/blog.css?v={{random()}}" rel="stylesheet">
+<script src="http://connect.facebook.net/en_US/all.js#appId=825897607458922&amp;xfbml=1"  async="true"></script>
+<script type="text/javascript"  async="true">
+  (function() {
+    var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+    po.src = 'https://apis.google.com/js/plusone.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+  })();
+</script>
+	<div id="fb-root"></div>
+	{{get_component('blog','blog_menu')|raw}} 
+	<div class="box_2x">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-8">
+					<div class="blog_bg">
+						<div class="col-md-12 box_1x">
+							<h4 class="text-uppercase"><a>{{blog.getTitle}}</a></h4>
+							<p class="text-uppercase"><small>{{blog.getCreatedAt|date('d-m-Y H:i:s')}}</small></p>
+							<p>{{get_partial('blog/js_fb_gg',{url:url})|raw}}</p>					
+						</div>
+						<div class="col-md-12">
+							<p>{{blog.getDetail|raw}}</p>
+						</div>
+						<div class="clear"></div>
+						<div class="tag">
+							<p>Tags: {{blog.getTag|raw}}</p>
+						</div>
+						<div class="fb-comments" data-href="{{url}}" data-width="100%" data-numposts="5"></div>
+					</div>
+				</div>
+				{{get_component('blog','blog_recent')|raw}} 
+			</div>
+		</div>
+	</div>
+{% endblock %} 
+{% block test%}Trang chủ{% endblock %}

@@ -1,0 +1,59 @@
+<script type="text/javascript" src="/assets/dichungdulich/js/add_scheduled_price.js"></script>
+{{get_partial('js')|raw}}
+<script type="text/javascript">
+    $(document).ready(function(){
+        if({{sum_price_scheduled}}){
+            $('#checkbox_ngansach').click();
+        }
+    });
+</script>
+<div class="box_1x">
+    <div class="row">
+        <div class="col-md-12">
+            <label class="hightlight"><input type="checkbox" value="ngansach" id="checkbox_ngansach"/> {{translate(' Tôi muốn lên ngân sách chuyến đi')}}</label>
+        </div>
+    </div>
+     <div id="ngansach">
+        <div class="row box_1x ngansach">
+            <div class="col-md-3 col-sm-3 col-xs-6 padding_top">
+                <select class="form-control" name="creat_trip[costs]" id="creat_trip_costs">
+                    <option value="0">{{translate('Chọn loại chi phí')}}</option>
+                    {{sf_user.getSuggestCost|raw}}
+                </select>
+            </div>
+            <div class="col-md-3 col-sm-3 col-xs-5 padding_top">
+                <div class="input-group">
+                    <input type="text" class="form-control" name="creat_trip[price]" id="creat_trip_price" placeholder="{{translate('Nhập giá tiền')}}"/>
+                    <span class="input-group-addon">VNĐ</span>
+                </div>
+            </div>
+            <div class="col-md-5 col-sm-5 col-xs-11 padding_top">
+                <input class="form-control" name="creat_trip[price_decription]" id="creat_trip_price_decription" placeholder="{{translate('Mô tả')}}"/>
+            </div>
+            <div class="col-md-1 col-sm-1 col-xs-1 padding_top">
+                <a class="btn btn_orange save" id="addNewPrice">{{translate('Lưu')}}</a>
+            </div>
+        </div>
+    	{{get_partial('creat_trip_step3_costs_add_cost',{scheduled_cost:scheduled_cost})|raw}}
+        <div class="row box_1x total">
+            <div class="col-md-3 col-sm-3 col-xs-6">
+                <p class="hightlight padding_top">{{translate('Tổng chi phí')}}</p>
+            </div>
+            <div class="col-md-3 col-sm-3 col-xs-6">
+                <div class="input-group">
+                    <input type="text" class="form-control" name="sum_price" id="sum_price" value="{{sum_price_scheduled}}"/>
+                    <span class="input-group-addon">VNĐ</span>
+                </div>
+            </div>
+            <div class="col-md-2 col-sm-3 col-xs-6">
+                <p class="hightlight padding_top">{{translate('Sử dụng cho')}}</p>
+            </div>
+            <div class="col-md-3 col-sm-3 col-xs-6">
+                <div class="input-group">
+                  <input type="text" class="form-control" id="sum_number_seat" value="{{tour_detail.getSumNumberSeat}}" />
+                    <span class="input-group-addon">{{translate('Người')}}</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

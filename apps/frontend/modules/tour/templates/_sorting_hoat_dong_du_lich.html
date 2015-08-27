@@ -1,0 +1,21 @@
+<div class="filter">
+  <div class="panel-group" id="accordion">
+    <div class="panel panel-default">
+        <div class="panel-heading accordion-toggle collapsed head_box" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">
+             <h4 class="panel-title">
+                <a href="#">
+                    {{translate('Hoạt động du lịch')}}
+                </a>
+            </h4>
+        </div>
+        <div id="collapseTwo" class="panel-collapse collapse">
+            <div class="panel-body" id="div_sorting_hoat_dong_du_lich">
+            {% for key,val in StaticCall('TourActivitiesPeer', 'getAll')%}
+                  {% set keys = key + 1%}
+            <p><input type="checkbox" value="{{val.getId}}" id="select_check_activities" name="select_check_activities[]" /> {{val.getShowName}} <span class="blue_text">({{activities_hotro[keys]|length}})</span></p>
+            {% endfor %}
+            </div>
+        </div>
+      </div>
+  </div>
+</div>

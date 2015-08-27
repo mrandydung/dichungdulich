@@ -1,0 +1,54 @@
+<div class="modal fade bs-example-modal-md" id="newsletter" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-md">
+        <div class="modal-content">
+            <div class="modal-body question_modal">
+			<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <div class="row box_1x">
+                    <div class="col-md-12">					
+                        <img src="#" width="100%"/>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <div class="row">
+                    <div class="col-md-4"><p class="h4">{{translate('Đăng kí nhận tin mới')}}</p></div>
+					<div class="col-md-5"><input class="form-control" placeholder="email"/></div>
+                    <div class="col-md-3"><button type="button" class="btn btn_blue">{{translate('Đăng kí')}}</button></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="gray_bg box_1x foot_">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8">
+                <div class="row">
+                    <div class="col-md-7">
+                        <p class="padding_top"><strong>{{translate('Nhận tin về các chuyến du lịch nổi bật miễn phí')}}</strong></p>
+                    </div>
+                    <div class="col-md-3">
+                        <input class="form-control" placeholder="{{translate('Nhập email')}}" id="email_register_accept_info"/>
+                    </div>
+                    <div class="col-md-2">
+                        <a class="btn btn_blue" id="button_click_email_register_accept_info">{{translate('Đăng kí')}}</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-1">
+                <p class="padding_top"><strong>{{translate('Theo dõi')}}</strong></p>
+            </div>
+            <div class="col-md-3">
+                <ul>
+                    {% set social = StaticCall('ConfigSocialNetworkPeer','get_social_network_by_partner',{partner_id:partner_id})%}
+                    <li><a href="{{social.getLinkFacebook}}" class="fb" target="_blank"></a></li>
+                    <li><a href="{{social.getLinkGoogle}}" class="gg" target="_blank"></a></li>
+                    <li><a href="{{social.getLinkInstagram}}" class="ins" target="_blank"></a></li>
+                    <li><a href="{{social.getLinkPinterest}}" class="pri" target="_blank"></a></li>
+                    <li><a href="{{social.getLinkYoutube}}" class="utb" target="_blank"></a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>

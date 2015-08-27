@@ -1,0 +1,44 @@
+<script src="/js/jquery-ui.js"></script>
+<script src="/js/datepicker-vi.js"></script>
+<script type="text/javascript" src="/assets/js/typeahead.min.js"></script>
+<script type="text/javascript">
+    $(document).ready(function(){
+        $('#keyword').typeahead({
+        name: 'search_keyword',
+        hint: true,
+        highlight: true,
+        remote: {
+          cache: true,
+          url: '/group_question/search_keyword?search_keyword=%QUERY',
+          filter: function (parsedResponse) {
+          return parsedResponse;
+          }
+        }
+    });
+    });
+</script>
+<script type="text/javascript" src="/assets/dichungdulich/js/group_detail_question.js?v={{random()}}"></script>
+<form method="POST" action="{% if not sf_user.isEn %}{{url_for('@find_question')}}{% else %}{{url_for('@find_question_en')}}{% endif%}">
+<div class="white_bg">
+    <img src="/img/phuot_bn.jpg" width="100%" class="group_banner">
+    <div class="intro_group">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-offset-2 col-md-8 text-center box_1x">
+                    <h1>{{translate('Hỏi - Đáp')}}</h1>
+                    <p class="hidden-xs">{{translate('Cổng thông tin hỏi đáp về các chủ đề liên quan đến du lịch.Bạn cần thông tin để chuẩn bị cho chuyến đi hãy tìm kiếm hoặc đặt câu hỏi.Những người có kinh nghiệm hoặc chuyên gia du lịch sẽ giúp bạn')}}.</p>
+                </div>
+				<div class="col-md-offset-1 col-md-6">
+					<input class="form-control" name="keyword" id="keyword" value="{{keyword}}" autocomplete="off"/>
+				</div>
+				<div class="col-md-2">
+					<button class="btn btn_orange" type="submit">{{translate('Tìm kiếm')}}</button>
+				</div>
+				<div class="col-md-2">
+					<a href="{% if not sf_user.isEn %}{{url_for('@create_question')}}{% else %}{{url_for('@create_question_en')}}{% endif%}" class="btn btn_blue" >{{translate('Đặt câu hỏi')}}</a>
+				</div>
+            </div>
+        </div>
+    </div>
+</div>
+</form>

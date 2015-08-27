@@ -1,0 +1,31 @@
+<!--_question_answered.html-->
+{% for val in question_answer %}
+<div class="answered_detail">
+    <div class="ava_user">
+        <a href="{{val.url_user}}">
+            <img src="{{val.avatar}}" class="img-circle" width="100%"/>
+        </a>
+    </div>
+    <div class="user_info">
+        <p class="text-uppercase"><a href="{{val['url_user']}}">{{val.fullname}}</a></p>
+        <p><small>{{val.time}}</small></p>
+    </div>
+    <hr/>
+    <p>{{val.content|raw}}</p>
+    <div class="text-right padding_top">
+        <a class="like_question active" id="like_question_answered" data-id="{{val.id}}"><small id="lable_like_question_answered_{{val['id']}}">{{val.like}} </small> <span> | </span> Thích</a>
+<!-- 		<a class="answer_question answer" id="answer">Trả lời</a> -->
+    </div>
+    <div class="clear"></div>
+	<hr/>
+												
+<!-- 	<div class="row padding_top" id="answer_show">
+		<div class="col-md-offset-1 col-md-11">
+			<textarea class="form-control" rows="3"></textarea>
+		</div>
+		<div class="col-md-offset-9 col-md-3 padding_top">
+			<a class="btn btn_orange">Trả lời</a>
+		</div>
+	</div> -->
+</div>
+{% endfor %}

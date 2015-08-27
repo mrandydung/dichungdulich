@@ -1,0 +1,21 @@
+<div class="filter">
+  <div class="panel-group" id="accordion">
+    <div class="panel panel-default">
+        <div class="panel-heading head_box" data-toggle="collapse" >
+             <h4 class="panel-title">
+                <a href="#">{{translate('Tour nổi bật')}}</a>
+            </h4>
+        </div>
+        <div class="panel-body">
+          <div class="body">
+            <select class="form-control" name="tour_noi_bat_search" id="tour_noi_bat_search">
+              <option value="0">{{translate('Chọn loại tour')}}</option>
+              <option value="1" {% if tour_discount == '1'%}{{'selected'}}{% endif %}>{{translate('Tour giảm giá')}}</option>
+              <option value="2" {% if tour_featured == '1'%}{{'selected'}}{% endif %}>{{translate('Tour độc đáo')}}</option>
+              <option value="3" {% if tour_weekend == '1'%}{{'selected'}}{% endif %}>{{translate('Cuối tuần đi đâu')}}</option>
+            </select>         
+          </div> 
+        </div>
+      </div>
+  </div>
+</div>

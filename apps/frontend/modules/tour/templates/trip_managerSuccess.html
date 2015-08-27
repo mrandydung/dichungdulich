@@ -1,0 +1,42 @@
+{% extends "layout.html"%}
+{% block body %}
+    <link href="css/creat_trip.css" rel="stylesheet">
+	<link href="css/bootstrap.vertical-tabs.css" rel="stylesheet">
+<div class="white_bg box_2x">
+    <div class="container thongtin">
+        <div class="row box_1x">
+            <div class="col-xs-3 tab_menu"> <!-- required for floating -->
+				<!-- Nav tabs -->
+				<ul class="nav nav-tabs tabs-left ">
+				  <li class="active fill"><a href="#time" data-toggle="tab"><span class="time_set"></span>Thời gian</a></li>
+				  <li class="fill"><a href="#costs" data-toggle="tab"><span class="costs_set"></span>Chi phí</a></li>
+				  <li class="fill"><a href="#schedule" data-toggle="tab"><span class="schedule_set"></span>Lịch trình</a></li>
+				  <li><a href="#utilities" data-toggle="tab"><span class="utilities_set"></span>Tiện ích</a></li>
+				  <li><a href="#sorting" data-toggle="tab"><span class="sorting_set"></span>Phân loại</a></li>
+				  <li><a href="#note" data-toggle="tab"><span class="note_set"></span>Ghi chú</a></li>
+				</ul>
+			</div>
+			<div class="col-xs-9 tab_body">
+				<!-- Tab panes -->
+				<div class="tab-content">
+					<div class="tab-pane active" id="time">
+						{% include '_trip_set_time.html' %}
+					</div>
+					<div class="tab-pane" id="costs">
+						{% include '_trip_set_costs.html' %}
+					</div>
+					<div class="tab-pane" id="schedule">
+						{% include '_trip_set_schedule.html' %}
+					</div>
+					  <div class="tab-pane" id="utilities">Tiện ích</div>
+					  <div class="tab-pane" id="sorting">Phân loại</div>
+					<div class="tab-pane" id="note">
+						{% include '_trip_set_note.html' %}
+					</div>
+				</div>
+			</div>  	
+        </div>
+    </div>
+</div>
+{% endblock %} 
+{% block test%}Tạo chuyến đi{% endblock %}

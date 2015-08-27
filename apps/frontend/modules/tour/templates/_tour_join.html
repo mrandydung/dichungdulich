@@ -1,0 +1,29 @@
+<div class="row">
+
+    <div class="col-md-9 col-sm-9 col-xs-8">
+        {% if user_join|length%}
+        <div class="box_1x">
+            <p>{{translate('Tham gia tour')}}</p>
+            {% for val in user_join%}
+            <a href="{{val['url_user']}}" target="_blank">
+                <div class="col-md-2 col-sm-2 col-xs-3">
+                    <img src="{{val['avatar']}}" class="thumbnail_2 img-circle" width="65px" height="65px">
+                </div>
+            </a>
+            {% endfor %}
+        </div>
+        {% endif %}
+    </div>
+    <div class="col-md-3 col-sm-3 col-xs-4">
+        <div class="box_1x">
+            <p class="text-right">{{translate('Số ghế còn trống')}}</p>
+            <p class="text-right">
+                {% if tour_detail.getNumberSeat != '1000'%}
+                {{tour_detail.getNumberSeat - tour_detail.getNumberSeatBooking}}/{{tour_detail.getNumberSeat}}
+                {% else%}
+                    {{translate('Không giới hạn')}}
+                {% endif %}
+            </p>
+        </div>
+    </div>
+</div>

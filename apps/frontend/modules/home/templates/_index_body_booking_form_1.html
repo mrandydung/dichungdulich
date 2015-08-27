@@ -1,0 +1,26 @@
+<link href="/css/jqueryui/css/redmond/jquery-ui-1.8.16.custom.css?v={{random()}}" rel="stylesheet">
+<script src="/js/jquery-ui.js?v={{random()}}"></script>
+<script src="/js/datepicker-vi.js?v={{random()}}"></script>
+<script type="text/javascript" src="/assets/js/typeahead.min.js?v={{random()}}"></script>
+<script type="text/javascript" src="/assets/dichungdulich/js/form_search.js?v={{random()}}"></script>
+<form method="GET" action="{% if sf_user.isEn %}{{url_for('@findTour_en')}}{% else %}{{url_for('@findTour')}}{% endif%}">
+    <div class="row">
+        <div class="col-md-4">
+            <input class="form-control_2 diemdi" placeholder="{{translate('Chọn điểm đi')}}" name="booking_form[pick_address]"  id="booking_form_pick_address" value="{% if pick_address%}{{pick_address}} {% endif %}" />
+        </div>
+        <div class="col-md-4">
+            <input class="form-control_2 diemden" placeholder="{{translate('Chọn điểm đến')}}" name="booking_form[to_address]"  id="booking_form_to_address" value="{% if to_address%}{{to_address}}{% endif %}" />
+        </div>
+        <div class="col-md-2">
+            <input  class="form-control_2 time" placeholder="{{translate('Ngày khởi hành')}}" name="booking_form[start_date]"  id="booking_form_start_date" value="{% if start_date %}{{start_date}}{% endif %}" />
+        </div>
+        <div class="col-md-2">
+            <button type="submit" class="timkiem_btn">{{translate('Tìm kiếm')}}</button>
+        </div>
+        <input type="hidden" id="coo_start" name="coo_start" value="{% if coo_start %}{{coo_start}}{% endif %}" />
+        <input type="hidden" id="coo_end" name="coo_end" value="{% if coo_end %}{{coo_end}}{% endif %}"></input>
+    </div>
+</form>
+<script src="/js/map/jquery.geocomplete.js?v={{random()}}"></script>
+<script src="/js/jsapi.js?v={{random()}}"></script>
+<script src="/js/map/map_funcs.js?v={{random()}}"></script>

@@ -1,0 +1,15 @@
+---
+BlogPost:
+  BlogPost_1:
+    title:  symfony + Doctrine
+    body:   symfony and Doctrine are great!
+    author: Jonathan H. Wage
+    Tags:   [symfony, doctrine, php]
+ 
+Tag:
+  symfony:
+    name: symfony
+  doctrine:
+    name: doctrine
+  php:
+    name: php

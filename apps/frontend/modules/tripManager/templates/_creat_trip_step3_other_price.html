@@ -1,0 +1,40 @@
+<script type="text/javascript">
+$(document).ready(function(){
+	$('input[type="checkbox"]').click(function(){
+        if($(this).attr("value")=="checkbox_kid_price"){
+            $("#div_checkbox_kid_price").slideToggle(400);
+        }
+    });
+	$('input[type="checkbox"]').click(function(){
+        if($(this).attr("value")=="checkbox_discount_tour_day"){
+            $("#div_checkbox_discount_tour_day").slideToggle(400);
+        }
+    });
+	$('input[type="checkbox"]').click(function(){
+        if($(this).attr("value")=="checkbox_discount_tour_number"){
+            $("#div_checkbox_discount_tour_number").slideToggle(400);
+        }
+    });
+	$('input[type="checkbox"]').click(function(){
+        if($(this).attr("value")=="checkbox_price_tour_service"){
+            $("#div_checkbox_price_tour_service").slideToggle(400);
+        }
+    });
+    if({{tour_price_kid_item|length}}){
+    	$('#checkbox_kid_price').click();
+    }
+});
+</script>
+<div class="col-md-10 col-sm-10">
+    <div class="col-md-12 box_2x">
+        <a></a>
+    </div>
+</div>
+<div id="content_change_select_type_pricing_service" {% if tour_detail.getTypePricingServiceId == '2'%}{{'style="display:none"'}}{% endif%}>
+    <div class="col-md-12">
+        {{get_partial('creat_trip_step3_other_price_service_discount',{tour_detail:tour_detail,tour_price_service_item:tour_price_service_item})|raw}}
+        {{get_partial('creat_trip_step3_other_price_child_price',{tour_price_kid_item:tour_price_kid_item})|raw}}
+    	{{get_partial('creat_trip_step3_other_price_number_discount',{tour_discount_number:tour_discount_number})|raw}}
+    	{{get_partial('creat_trip_step3_other_price_day_discount',{tour_discount_day:tour_discount_day})|raw}}
+    </div>
+</div>

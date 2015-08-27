@@ -1,0 +1,33 @@
+<script type="text/javascript">
+	$(document).ready(function(){
+     	tinymce.init({selector:'#tour_note, #policy_price, #policy_ticket',
+         mode : "textareas",
+        plugins : "paste",
+        theme_advanced_buttons3_add : "pastetext,pasteword,selectall",
+        paste_auto_cleanup_on_paste : true,
+        paste_preprocess : function(pl, o) {
+            // Content string containing the HTML from the clipboard
+
+            o.content = o.content;
+        },
+        paste_postprocess : function(pl, o) {
+            // Content DOM node containing the DOM structure of the clipboard
+
+            o.node.innerHTML = o.node.innerHTML ;
+        }});
+	});
+</script>
+<div class="error" id="popup_error_note" style="display:none"></div>
+<div class="success" id="popup_success_note" style="display: none"></div>
+<div class="box_1x">
+    <div class="row">
+        <div class="col-md-12" box_1x>
+            <p class="hightlight">{{translate('Ghi chú ')}}:</p>
+            <textarea class="form-control" rows="5" id="tour_note">{{tour_detail.getNote|raw}}</textarea>
+        </div>
+        
+        <div class="col-md-offset-8 col-md-4 box_2x">
+            <a class="btn btn_orange" id="update_note">{{translate('Cập nhật')}}</a>
+        </div>
+    </div>
+</div>

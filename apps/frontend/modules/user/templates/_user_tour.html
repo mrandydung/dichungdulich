@@ -1,0 +1,40 @@
+<div role="tabpanel">
+    <ul class="nav nav-tabs" role="tablist">
+        <li role="presentation"  class="active"><a href="#chuyendi" aria-controls="profile" role="tab" data-toggle="tab">{{translate('Tour sắp tới')}}</a></li>
+<!--         <li role="presentation"><a href="#danhgia" aria-controls="home" role="tab" data-toggle="tab">Cộng đồng đánh giá</a></li> -->
+    </ul>
+    <div class="tab-content my_tab-content">
+        <div role="tabpanel" class="tab-pane active" id="chuyendi">
+            {% for val in tour_featured%}
+            <div class="col-md-12 box_1x">
+                <div class="row">
+                    <div class="col-md-3">
+                        <a href="{{val['url']}}"><img src="/{{val['img']}}" width="100%"></a>
+                    </div>
+                    <div class=" col-md-9 infor">
+                        <a href="{{val['url']}}"><h4 class="t1">{{val['title']}}</h4></a>
+                        <h6>
+                            {% if val['time_type_id'] == '1'%}
+                            {{val['date_start']}} -  {{val['date_end']}}
+                            {% elseif val['time_type_id'] == '2'%}
+                            {{translate('Tour khởi hành hàng ngày')}}
+                            {% elseif val['time_type_id'] == '3'%}
+                            {{translate('Tour khởi hành hàng tuần')}}
+                            {% endif %}
+                        </h6>
+                        <p>{{val['description']|raw}}</p>
+                    </div>
+                    <div class="clear"></div>
+                </div>
+                <hr/>
+            </div>
+            {% endfor %}
+            <div class="clear"></div>
+        </div>
+        <div role="tabpanel" class="tab-pane " id="danhgia">
+            {% include '_user_tour_cm.html' %}
+            {% include '_user_tour_cm.html' %}
+        </div>
+
+    </div>
+</div>

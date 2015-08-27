@@ -1,0 +1,390 @@
+# default rules
+homepage:
+  url:   /
+  param: { module: home, action: index }
+homepage_en :
+  url:   /en
+  param: { module: home, action: index, lang : en}
+
+get_html_login:
+  url:   /en/home/get_html_login
+  param: { module: home, action: get_html_login, lang : en}
+
+fb:
+  url:   /facebook_connect.html
+  param: { module: home, action: facebook_connect }
+
+find_tour:
+  url:   /find_tour/find_tour
+  param: { module: find_tour, action: find_tour }
+find_tour_en:
+  url:   /find_tour/find_tour_en
+  param: { module: find_tour, action: find_tour,lang: en }
+
+change_tour_trong_nuoc:
+  url:   /find_tour/change_tour_trong_nuoc
+  param: { module: find_tour, action: change_tour_trong_nuoc }
+change_tour_trong_nuoc_en:
+  url:   /find_tour/change_tour_trong_nuoc_en
+  param: { module: find_tour, action: change_tour_trong_nuoc,lang: en }
+
+filter_sorting_tour:
+  url:   /find_tour/filter_sorting_tour
+  param: { module: find_tour, action: filter_sorting_tour }
+filter_sorting_tour_en:
+  url:   /find_tour/filter_sorting_tour_en
+  param: { module: find_tour, action: filter_sorting_tour,lang: en }
+
+
+tour_trong_nuoc:
+  url:   /tour-trong-nuoc.html
+  param: { module: area_tour, action: tour_trong_nuoc }
+tour_trong_nuoc_en:
+  url:   /en/domestic-tour.html
+  param: { module: area_tour, action: tour_trong_nuoc,lang: en }
+
+tour_quoc_te:
+  url:   /tour-quoc-te.html
+  param: { module: area_tour, action: tour_quoc_te }
+tour_quoc_te_en:
+  url:   /en/tour-international.html
+  param: { module: area_tour, action: tour_quoc_te ,lang : en}
+
+tour_moi_noi:
+  url:   /tour-moi-noi.html
+  param: { module: area_tour, action: tour_moi_noi }
+tour_moi_noi_en:
+  url:   /en/tour-everywhere.html
+  param: { module: area_tour, action: tour_moi_noi,lang : en }
+
+
+create_experience:
+  url:   /dang-bai-trai-nghiem-chuyen-di.html
+  param: { module: trip_experience, action: create_experience }
+
+create_accquirements:
+  url:   /dang-bai-chia-se-trai-nghiem-kinh-nghiem-chuyen-di.html
+  param: { module: trip_acquirements, action: create_accquirements }
+create_accquirements_en:
+  url:   /en/create-accquirement.html
+  param: { module: trip_acquirements, action: create_accquirements, lang : en }
+
+
+create_experience:
+  url:   /dang-bai-trai-nghiem-chuyen-di.html
+  param: { module: trip_experience, action: create_experience }
+
+edit_experience:
+  url:   /sua-bai-trai-nghiem-chuyen-di-:name-:id_experience.html
+  param: { module: user_experience, action: edit_experience }
+
+edit_acquirements:
+  url:   /sua-bai-kinh-nghiem-chuyen-di-:name-:id_acquirements.html
+  param: { module: user_acquirements, action: edit_acquirements }
+edit_acquirements_en:
+  url:   /en/edit-acquirements-:name-:id_acquirements.html
+  param: { module: user_acquirements, action: edit_acquirements,lang : en }
+
+
+experience:
+  url:   /trai-nghiem-chuyen-di.html
+  param: { module: trip_experience, action: index }
+
+acquirements:
+  url:   /kinh-nghiem-chuyen-di.html
+  param: { module: trip_acquirements, action: index }
+acquirements_en:
+  url:   /en/experience-trip.html
+  param: { module: trip_acquirements, action: index ,lang:en}
+
+
+experience_detail:
+  url:   /trai-nghiem-chuyen-di/:name-:id.html
+  param: { module: trip_experience, action: experience_detail }
+
+acquirements_detail:
+  url:   /kinh-nghiem-chuyen-di/:name-:id.html
+  param: { module: trip_acquirements, action: acquirements_detail }
+acquirements_detail_en:
+  url:   /en/experience-tour/:name-:id.html
+  param: { module: trip_acquirements, action: acquirements_detail , lang : en }
+
+createTour:
+  url:   /dang-tour-du-lich.html
+  param: { module: tour, action: create_trip }
+createTour_en:
+  url:   /en/create-tour.html
+  param: { module: tour, action: create_trip ,lang : en}
+
+thelecuocthi:
+  url:   /the-le-cuoc-thi.html
+  param: { module: home, action: the_le_cuoc_thi }
+
+findTour:
+  url:   /tim-kiem-tour/trang/1
+  param: { module: tour, action: find }
+findTour_en:
+  url:   /en/find-tour/page/1
+  param: { module: tour, action: find,lang :en }
+
+
+pageFindTour: 
+  url:   /tim-kiem-tour/trang/:page
+  param: { module: tour, action: find }
+pageFindTour_en: 
+  url:   /en/find-tour/page/:page
+  param: { module: tour, action: find ,lang:en}
+
+
+detailTour:
+  url:   /tour/:name-:id.html
+  param: { module: tour, action: detail_tour }
+detailTour_en:
+  url:   /en/tour/:name-:id.html
+  param: { module: tour, action: detail_tour ,lang:en}
+
+detail_tour_preview:
+  url:   /tour-preview-:id.html
+  param: { module: tour, action: detail_tour_preview }
+
+bookingTour:
+  url:   /booking-tour.html
+  param: { module: booking_tour, action: index }
+
+trip_manager:
+  url:   /quan-ly-tour/:tour_id.html
+  param: { module: tripManager, action: index }
+trip_manager_en:
+  url:   /en/trip-manager/:tour_id.html
+  param: { module: tripManager, action: index ,lang : en}
+
+
+trip_manager_personal:
+  url:   /quan-ly-tour-ca-nhan/:tour_id.html
+  param: { module: trip_manager_personal, action: index }
+trip_manager_personal_en:
+  url:   /en/trip-manager-personal/:tour_id.html
+  param: { module: trip_manager_personal, action: index ,lang : en}
+
+
+login:
+  url:   /dang-nhap
+  param: { module: user, action: login }
+
+register:
+  url:   /dang-ky-tai-khoan
+  param: { module: user, action: register }
+
+userAccount:
+  url:   /thong-tin-tai-khoan.html
+  param: { module: user, action: user }
+userAccount_en:
+  url:   /en/my-profile.html
+  param: { module: user, action: user,lang : en }
+
+
+user_profile_default:
+  url:   /thong-tin-tai-khoan/:name-:user_id.html
+  param: { module: user_default, action: index }
+user_profile_default_en:
+  url:   /en/account-information/:name-:user_id.html
+  param: { module: user_default, action: index,lang : en }
+
+
+user_profile:
+  url:   /sua-thong-tin-tai-khoan/:name-:id.html
+  param: { module: user, action: user_profile }
+user_profile_en:
+  url:   /en/edit-account-information/:name-:id.html
+  param: { module: user, action: user_profile ,lang : en}
+
+
+user_notification:
+  url:   /thong-bao.html
+  param: { module: user, action: user_notification }
+user_notification_en:
+  url:   /en/notification.html
+  param: { module: user, action: user_notification ,lang : en}
+
+
+user_message:
+  url:   /tin-nhan.html
+  param: { module: user, action: user_message }
+user_message_en:
+  url:   /en/message.html
+  param: { module: user, action: user_message ,lang: en}
+
+
+user_service:
+  url:   /quan-ly-dich-vu.html
+  param: { module: user_service, action: index }
+user_service_en:
+  url:   /en/management-tour.html
+  param: { module: user_service, action: index ,lang : en}
+
+user_transaction:
+  url:   /quan-ly-giao-dich.html
+  param: { module: user_transaction, action: index }
+user_transaction_en:
+  url:   /en/transaction-management.html
+  param: { module: user_transaction, action: index , lang : en}
+
+
+user_experience:
+  url:   /trai-nghiem-chuyen-di-cua-ban.html
+  param: { module: user_experience, action: index }
+
+user_acquirements:
+  url:   /kinh-nghiem-chuyen-di-cua-ban.html
+  param: { module: user_acquirements, action: index }
+user_acquirements_en:
+  url:   /en/the-experience.html
+  param: { module: user_acquirements, action: index ,lang : en}
+
+user_settings:
+  url:   /cai-dat.html
+  param: { module: user, action: user_settings }
+
+logout:
+  url:   /log-out
+  param: { module: user, action: logout }
+
+
+group_question : 
+  url:   /group-hoi-dap-du-lich.html
+  param: { module: group_question, action: index }
+group_question_en : 
+  url:   /en/travel-FAQ.html
+  param: { module: group_question, action: index, lang : en }
+
+
+create_question : 
+  url:   /dat-cau-hoi-du-lich.html
+  param: { module: group_question, action: create_question }
+create_question_en : 
+  url:   /en/create-question.html
+  param: { module: group_question, action: create_question, lang : en}
+
+
+group_detail : 
+  url:   /chi-tiet-nhom-du-lich-:name-:question_group_category_id.html
+  param: { module: group_question, action: group_detail }
+group_detail_en : 
+  url:   /en/group-detail-question-:name-:question_group_category_id.html
+  param: { module: group_question, action: group_detail,lang:  en }
+
+question_detail : 
+  url:   /chi-tiet-hoi-dap-:name-:question_id.html
+  param: { module: group_question, action: question_detail }
+question_detail_en : 
+  url:   /en/question-detail-:name-:question_id.html
+  param: { module: group_question, action: question_detail ,lang : en}
+
+
+find_question : 
+  url:   /tim-kiem-hoi-dap-du-lich.html
+  param: { module: group_question, action: find_question }
+find_question_en : 
+  url:   /en/find-question.html
+  param: { module: group_question, action: find_question,lang : en }
+
+find_question_group_category : 
+  url:   /tim-kiem-hoi-dap-du-lich-:name-:question_group_category_id.html
+  param: { module: group_question, action: find_question_group_category }
+find_question_group_category_en : 
+  url:   /find-question-group-category-:name-:question_group_category_id.html
+  param: { module: group_question, action: find_question_group_category , lang : en}
+
+blog : 
+  url:   /blog-du-lich.html
+  param: { module: blog, action: index }
+blog_en : 
+  url:   /en/blog-tour.html
+  param: { module: blog, action: index ,lang : en}
+
+blog_page_index : 
+  url:   /blog-du-lich-trang-:page.html
+  param: { module: blog, action: page_index }
+
+blog_post : 
+  url:   /chi-tiet-blog-:name-:blog_id.html
+  param: { module: blog, action: blog_post }
+blog_post_en: 
+  url:   /en/detail-blog-:name-:blog_id.html
+  param: { module: blog, action: blog_post, lang : en }
+
+
+blog_post_category : 
+  url:   /blog-:name-:blog_menu_category_id.html
+  param: { module: blog, action: blog_post_category }
+blog_post_category_en: 
+  url:   /en/blog-:name-:blog_menu_category_id.html
+  param: { module: blog, action: blog_post_category ,lang : en}
+
+
+blog_page_post_category : 
+  url:   /trang-blog-:name-:blog_menu_category_id-trang-:page.html
+  param: { module: blog, action: blog_page_post_category }
+
+search_address_blog:
+  url:   /dia-diem.html
+  param: { module: blog, action: search_address_blog }
+
+search_address_page_blog:
+  url:   /page-dia-diem-:address-:filter_blog-trang-:page.html
+  param: { module: blog, action: search_address_page_blog }
+
+page_footer :
+  url:   /:page_footer_name-:page_footer_id.html
+  param: { module: page_footer, action: index }
+page_footer_en :
+  url:   /en/:page_footer_name-:page_footer_id.html
+  param: { module: page_footer, action: index , lang : en}
+
+get_day_scheduled_day_first :
+  url:   /trip_scheduled_day/get_day_scheduled_day_first
+  param: { module: trip_scheduled_day, action: get_day_scheduled_day_first}
+get_day_scheduled_day_first_en :
+  url:   /trip_scheduled_day/get_day_scheduled_day_first_en
+  param: { module: trip_scheduled_day, action: get_day_scheduled_day_first,lang: en}
+
+select_item_schedule_day_change :
+  url:   /trip_scheduled_day/select_item_schedule_day_change
+  param: { module: trip_scheduled_day, action: select_item_schedule_day_change}
+select_item_schedule_day_change :
+  url:   /trip_scheduled_day/select_item_schedule_day_change_en
+  param: { module: trip_scheduled_day, action: select_item_schedule_day_change,lang: en}
+
+get_day_scheduled_day_prev :
+  url:   /trip_scheduled_day/get_day_scheduled_day_prev
+  param: { module: trip_scheduled_day, action: get_day_scheduled_day_prev}
+get_day_scheduled_day_prev_en:
+  url:   /trip_scheduled_day/get_day_scheduled_day_prev_en
+  param: { module: trip_scheduled_day, action: get_day_scheduled_day_prev,lang: en}
+
+get_day_scheduled_day :
+  url:   /trip_scheduled_day/get_day_scheduled_day
+  param: { module: trip_scheduled_day, action: get_day_scheduled_day}
+get_day_scheduled_day_en:
+  url:   /trip_scheduled_day/get_day_scheduled_day_en
+  param: { module: trip_scheduled_day, action: get_day_scheduled_day,lang: en}
+
+add_schedule_day :
+  url:   /trip_scheduled_day/add_schedule_day
+  param: { module: trip_scheduled_day, action: add_schedule_day}
+add_schedule_day_en:
+  url:   /trip_scheduled_day/add_schedule_day_en
+  param: { module: trip_scheduled_day, action: add_schedule_day,lang: en}
+
+
+
+default_symfony:
+  url:   /symfony/:action/*
+  param: { module: default }
+
+default_index:
+  url:   /:module
+  param: { action: index }
+
+default:
+  url:   /:module/:action/*

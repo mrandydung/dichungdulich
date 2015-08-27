@@ -1,0 +1,69 @@
+<script type="text/javascript">
+    $(document).ready(function(){
+        $("body").on("click",'.click_view_message',function(){
+            $('#content_message_send').val('');
+            var clickedID = this.id.split("-");
+            var message_id = clickedID[1];
+            $('#id_message_hidden').val(message_id);
+            var content_message = $('#click_view_message-'+message_id).html();
+           jQuery.ajax({ type: "POST",url: "/user/get_message",dataType:"json", 
+                data: {"message_id":message_id,"content_message":content_message}, 
+                    success:function(response){
+                        var code = response.code;
+                        var msg = response.msg;
+                        if(code == '1'){
+                            $('#view_content_message_receiver').html(msg);
+                        }
+                },
+            });
+        });
+
+        $("body").on("click",'#submit_send_message',function(){
+            var content_message_send = $('#content_message_send').val();
+            if(content_message_send){
+                var id_message_hidden = $('#id_message_hidden').val();
+                jQuery.ajax({ type: "POST",url: "/user/send_message",dataType:"json", 
+                data: {"content_message_send":content_message_send,"id_message_hidden":id_message_hidden}, 
+                    success:function(response){
+                        var code = response.code;
+                        var msg = response.msg;
+                        if(code == '1'){
+                            alert(msg);
+                            $('#reply').modal('hide');
+                        }
+                    },
+                });
+            }else{
+                $('#popup_error_send_message').html('Bạn chưa nhập tin nhắn');
+                $('#popup_error_send_message').fadeIn();
+            }
+        });
+    });
+</script>
+<div class="modal fade" id="reply" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">Trả lời tin nhắn</h4>
+            </div>
+            <div class="modal-body padding_top">
+                <p id="view_content_message_receiver"></p>
+                <textarea class="form-control" id="content_message_send" name="content_message_send"></textarea>
+            </div>
+              <div class="error" id="popup_error_send_message" style="display:none"></div>
+            <div class="modal-footer">
+              
+                <div class="row">
+                    <div class="col-md-offset-6 col-md-3">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Hủy</button>
+                    </div>
+                    <div class="col-md-3">
+                        <button type="button" class="btn btn_blue" id="submit_send_message">Gửi</button>
+                        <input type="hidden" id="id_message_hidden"/>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

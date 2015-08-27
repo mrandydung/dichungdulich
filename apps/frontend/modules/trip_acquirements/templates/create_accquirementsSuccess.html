@@ -1,0 +1,127 @@
+
+{% extends "layout.html"%}
+{% block body %}
+<script type="text/javascript">
+	$(document).ready(function(){
+	    tinymce.init({selector:'#content', mode : "textareas",
+        plugins : "paste",
+        theme_advanced_buttons3_add : "pastetext,pasteword,selectall",
+        paste_auto_cleanup_on_paste : true,
+        paste_preprocess : function(pl, o) {
+            o.content = o.content;
+        },
+        paste_postprocess : function(pl, o) {
+            o.node.innerHTML = o.node.innerHTML ;
+        }});
+		var type_upload_id = {{type_upload}};
+		if (type_upload_id == '1'){
+			$('#uploadBtn').show();
+			$('#url_video').hide();
+		}
+		if (type_upload_id == '2'){
+			$('#uploadBtn').hide();
+			$('#url_video').show();
+		}
+
+	  	var locat;
+	    var options;
+	    $("#end").geocomplete(options)
+	        .bind("geocode:result", function(event, result){
+	            locat = result.geometry.location;
+	            $('#coo_end').val(locat.lat()+','+locat.lng());
+	            $('#lat_end').val(locat.lat());
+	            $('#lng_end').val(locat.lng());
+	    })
+	});
+</script>
+<link href="/assets/dichungdulich/css/experience.css?v={{random()}}" rel="stylesheet">
+<script src="/assets/dichungdulich/js/trip_accquirements.js?v={{random()}}"></script>
+<script src="/js/tinymce/tinymce.min.js?v={{random()}}"></script>
+<script type="text/javascript" src="/assets/js/typeahead.min.js?v={{random()}}"></script>
+<script type="text/javascript" src="/js/jsapi.js?v={{random()}}"></script>
+<script type="text/javascript" src="/js/map/map_funcs.js?v={{random()}}"></script>
+<script type="text/javascript" src="/js/map/jquery.geocomplete.js?v={{random()}}"></script>
+<div class="white_bg box_3x">
+	<form method="POST" action="{% if not sf_user.isEn%}{{url_for('@create_accquirements')}}{% else %}{{url_for('@create_accquirements_en')}}{% endif %}" enctype="multipart/form-data" >
+	    <div class="container">
+	        <div class="row">
+	            <div class="col-md-offset-2 col-md-8 text-center box_1x">
+                  <h3 class="t1">{{translate('Chia sẻ kinh nghiệm - trải nghiệm chuyến đi')}}</h3>
+	                <h4><small>{{translate('Chia sẻ những trải nghiệm và kinh nghiệm du lịch thú vị tại những địa điểm mà bạn đã từng đặt chân đến cho cộng đồng để cùng khám phá và thưởng thức. Giá trị chuyến đi của bạn sẽ được nhân lên gấp bội')}}.</small></h4>
+	            </div>
+	        </div>
+	        {% for val in errors %}<div class="error" id="popup_error" style="border-radius: 5px">{{val}}</div>{% endfor %}
+	        
+	        <div class="row padding_top">
+				<div class="col-md-12 box_1x">
+					<p><strong>{{translate('Tiêu đề')}}</strong></p>
+					<input type="text" class="form-control" name="title" id="title" value="{{title}}" />
+				</div>
+				<div class="col-md-12 box_1x">
+					<p><strong>{{translate('Địa điểm đến')}}</strong></p>
+					<input type="text" class="form-control b_" name="end" id="end" value="{{end}}" />
+					<input type="hidden" id="coo_end" name="coo_end" value="{{coo_end}}"/>
+					<input type="hidden" id="lat_end" name="lat_end" value="{{lat_end}}"/>
+					<input type="hidden" id="lng_end" name="lng_end" value="{{lng_end}}"/>
+				</div>
+				<div class="col-md-3 box_1x">
+					<p><strong>{{translate('Hình ảnh/Video')}}</strong></p>
+					<select type="text" class="form-control" id="type_upload" name="type_upload">
+						{% for val in StaticCall('TypeUploadPeer','getAll') %}
+						<option value="{{val.getId}}" {% if type_upload == val.getId %}{{'selected'}} {% endif %}>{{translate(val.getName)}}</option>
+						{% endfor  %}
+					</select>
+				</div>
+
+				<div class="col-md-9 box_3x">
+					<p></p>
+					<div id="uploadBtn"><input class="upload_img" name="files[]" type="file" class="upload" multiple/><span>{{translate('Có thể chọn tối đa 10 ảnh dung lượng nhỏ hơn 5MB')}}</span></div>
+					<input type="text" class="form-control" style="display:none" id="url_video" name="url_video" placeholder="{{translate('Nhập link video chia sẻ từ youtube')}}. VD : https://youtu.be/d_8fE-On19I" value="{{url_video}}" />
+				</div>
+				<div class="col-md-12 box_1x">
+					<p><strong>{{translate('Nội dung')}}</strong></p>
+					<textarea class="form-control" rows="5" name="content" id="content" style="border-radius: 5px">{{content}}</textarea>
+				</div>
+				<div class="col-md-12">
+					<label><input type="checkbox" value="acq-detail"/>{{translate(' Chi tiết')}}</label>
+				</div>
+				<div id="acq-detail-show" style="display:none">
+					<div class="col-md-2 box_1x">
+						<p><strong>{{translate('Ăn uống')}}:</strong></p>
+					</div>
+					<div class="col-md-10 box_1x">
+						<textarea class="form-control" rows="2" name="eating" id="eating">{{eating}}</textarea>
+					</div>
+					<div class="col-md-2 box_1x">
+						<p><strong>{{translate('Chỗ ở')}}:</strong></p>
+					</div>
+					<div class="col-md-10 box_1x">
+						<textarea class="form-control" rows="2" name="home" id="home">{{home}}</textarea>
+					</div>
+					<div class="col-md-2 box_1x">
+						<p><strong>{{translate('Địa điểm vui chơi')}}:</strong></p>
+					</div>
+					<div class="col-md-10 box_1x">
+						<textarea class="form-control" rows="2" name="location_play" id="location_play">{{location_play}}</textarea>
+					</div>
+					<div class="col-md-2 box_1x">
+						<p><strong>{{translate('Địa điểm nên đến')}}:</strong></p>
+					</div>
+					<div class="col-md-10 box_1x">
+						<textarea class="form-control" rows="2" name="location_up_to" id="location_up_to">{{location_up_to}}</textarea>
+					</div>
+					<div class="col-md-2 box_1x">
+						<p><strong>{{translate('Mua gì')}}:</strong></p>
+					</div>
+					<div class="col-md-10 box_1x">
+						<textarea class="form-control" rows="2" name="what_to_by" id="what_to_by">{{what_to_by}}</textarea>
+					</div>
+				</div>
+				<div class="col-md-offset-9 col-md-3 box_1x">
+					<button class="btn btn_blue" type="submit">{{translate('Chia sẻ kinh nghiệm chuyến đi')}}</button>
+				</div>
+			</div>
+	    </div>
+    </form>
+</div>
+{% endblock %} 

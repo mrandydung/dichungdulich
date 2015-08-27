@@ -1,0 +1,15 @@
+generator:
+  class:              sfPropelAdminGenerator
+  param:
+    model_class:      MailTemplate
+    theme:            default
+    list:
+      object_actions:
+        _edit:         ~
+        _delete:       ~
+      actions:
+        _create:       ~
+      display : [id,template_name]
+    edit:
+      fields:
+       content: { params: class=ckeditor size=80x60}

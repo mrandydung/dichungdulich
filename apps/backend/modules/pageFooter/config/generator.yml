@@ -1,0 +1,16 @@
+generator:
+  class:              sfPropelAdminGenerator
+  param:
+    model_class:      PageFooter
+    theme:            default
+    list:
+      object_actions:
+        _edit:         ~
+        _delete:       ~
+      actions:
+        _create:       ~
+      display:  [id,RowPageFooter,Partner,name,created_at]
+    edit:
+      fields:
+        content: { params: class=ckeditor size=80x60}
+        content_en: { params: class=ckeditor size=80x60}

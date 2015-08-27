@@ -1,0 +1,33 @@
+<div class="white_bg ">
+    <div class="container box_3x">
+        <div class="row ">
+            <div class="col-md-12" style="padding-bottom: 10px">
+                <a class="h3 t1" id="click_cong_dong_du_lich">{{translate('Cộng đồng du lịch')}}</a>
+            </div>
+            <div class="col-md-4">
+                <div class="experience">
+                    <a href="{% if not sf_user.isEn %}{{url_for('@acquirements')}}{% else %}{{url_for('@acquirements_en')}}{% endif %}" id="click_home_chiase"><img src="/img/trainghiem.png" width="100%"></a>
+                    <div class="content"  style="text-align: center">
+                        <a class="text-uppercase" href="{% if not sf_user.isEn %}{{url_for('@acquirements')}}{% else %}{{url_for('@acquirements_en')}}{% endif %}"  id="click_home_chiase"><strong>{{translate('chia sẻ trải nghiệm/ kinh nghiệm')}}</strong></a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="experience">
+                    <a href="{% if not sf_user.isEn %}{{url_for('@group_question')}}{% else %}{{url_for('@group_question_en')}}{% endif %}" id="click_home_hoi_dap"><img src="/img/kinhnghiem.jpg" width="100%"></a>
+                    <div class="content" style="text-align: center">
+                        <a class="text-uppercase" href="{% if not sf_user.isEn %}{{url_for('@group_question')}}{% else %}{{url_for('@group_question_en')}}{% endif %}" id="click_home_hoi_dap"><strong>{{translate('hỏi - đáp du lịch')}}</strong></a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="experience">
+                    <a href="{% if not sf_user.isEn %}{{url_for('@blog')}}{% else %}{{url_for('@blog_en')}}{% endif %}" id="click_home_blog" ><img src="/img/hoidap.jpg" width="100%"></a>
+                    <div class="content"  style="text-align: center">
+                        <a class="text-uppercase" href="{% if not sf_user.isEn %}{{url_for('@blog')}}{% else %}{{url_for('@blog_en')}}{% endif %}" id="click_home_blog"><strong>{{translate('Blog du lịch')}}</strong></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

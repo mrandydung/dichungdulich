@@ -1,0 +1,31 @@
+{% if sf_user.isEn%}
+<script type="text/javascript">
+var language = '_en'
+</script>
+{% else %}
+<script type="text/javascript">
+var language = '';
+</script>
+{% endif %}
+<script type="text/javascript" src="/js/bootstrap-multiselect/js/bootstrap-multiselect.js?v={{random()}}"></script>
+<script type="text/javascript" src="/assets/dichungdulich/js/add_scheduled_day.js?v={{random()}}"></script>
+<link href="/js/bootstrap-multiselect/css/bootstrap-multiselect.css?v={{random()}}" rel="stylesheet" type="text/css">
+<style type="text/css">
+.fileUpload {
+    position: relative;
+    overflow: hidden;
+    margin: 10px;
+}
+.fileUpload input.upload {
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 0;
+    padding: 0;
+    font-size: 20px;
+    cursor: pointer;
+    opacity: 0;
+    filter: alpha(opacity=0);
+}
+</style>
+<div class="well" id="div_content_schedule_day"></div>

@@ -1,0 +1,21 @@
+<div class="filter">
+  <div class="panel-group" id="accordion">
+    <div class="panel panel-default">
+        <div class="panel-heading head_box" data-toggle="collapse" >
+             <h4 class="panel-title">
+                <a href="#">{{translate('Đối tượng phù hợp')}}</a>
+            </h4>
+        </div>
+        <div class="panel-body">
+          <div class="body">
+            <select class="form-control" name="doi_tuong_phu_hop_search" id="doi_tuong_phu_hop_search">
+              <option value="0">{{translate('Chọn đối tượng phù hợp')}}</option>
+              {% for val in StaticCall('TourObjectFitPeer','getAll')%}
+                <option value="{{val.getId}}">{{val.getShowName}}</option>
+              {% endfor %}
+            </select>         
+          </div> 
+        </div>
+      </div>
+  </div>
+</div>

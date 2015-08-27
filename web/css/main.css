@@ -1,0 +1,56 @@
+li {list-style: none;}
+ul {padding: 5px; margin: 0}
+h1 {
+margin: 8px 0;
+padding: 3px;
+padding-left: 0px;
+color: #555;
+font-size: 25px;
+}
+a {text-decoration: none;}
+
+*{font-family: "lucida grande",tahoma,verdana,arial,sans-serif; font-size: 12px;}
+.td_menu {vertical-align:top; width: 200px; padding-right: 5px; padding-top: 14px;}
+#menu_action{position:absolute; background: #fff; border: solid 1px #ccc; -moz-border-radius: 5px; -webkit-border-radius: 5px; display: none;}
+
+#menu_action li{padding: 5px; border-bottom: solid 1px #ccc; cursor: pointer; -moz-border-radius: 5px; -webkit-border-radius: 5px; border: none;}
+
+#menu_action li:hover{background-color: #ddd}
+
+
+#menu  li{padding: 5px; color: #000; cursor: pointer;}
+#menu  li a{color: #000; display: block; border-bottom: solid 1px #ccc; padding-bottom: 8px;}
+#menu  li a:hover {background-color: #ccc;}
+#menu li.root_menu a{color: #fff; border: none}
+.container{width: 100%;}
+.root_menu{background:#4E7BA3; font-weight: bold; padding-left: 5px; color: #fff !important}
+.menu_div {margin-top: 8px;width:100%; border: solid 1px #ccc; -moz-border-radius: 5px; -webkit-border-radius: 5px;}
+.logo {width: 88px; height: 32px;}
+.hmenu{position: absolute;right: 20px;top: 45px;}
+
+#view_img {    background: none repeat scroll 0 0 #CCCCCC;
+    border: 1px solid #CCCCCC;
+    max-height: 600px;
+    min-height: 100px;
+    position: fixed;
+    right: 0;
+    text-align: center;
+    top: 100px;
+    width: 120px; 
+		overflow: auto;
+		}
+#view_img img {margin-top: 3px;}
+#sf_admin_list_th_invoice{max-width: 186px}
+.list-group-item.disabled {
+background: #4E7BA3;
+font-weight: bold;
+border-color: #4E7BA3;
+color: white;
+}
+.panel-default>.panel-heading {
+  color: white;
+  font-weight: bold;
+  background-color: #4E7BA3;
+  border-color: #ddd;
+  font-size: 20px;
+}

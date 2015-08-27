@@ -1,0 +1,73 @@
+<script type="text/javascript" src="/assets/tipsy/tipsy.js"></script>
+ <link rel="stylesheet" type="text/css" media="screen" href="/assets/tipsy/tipsy.css" />
+<script type="text/javascript">
+	$(document).ready(function(){
+		 $('.helpicon').tipsy({gravity: 'n', opacity: 1,  html: true});
+	});
+</script>
+<div class="row">
+	<div class="col-md-12">
+		<h4>{{translate('Xác thực thông tin')}}</h4>
+	</div>
+		<div class="row padding_top" style="padding-left: 10px">
+		<div class="col-md-3 col-sm-3">
+			<p>{{translate('Tài khoản mạng xã hội')}}: </p>
+		</div>
+		<div class="col-md-3">
+			<div class="contact">
+				<table>
+					<tr>
+						{% if user.getFbUrl %}
+							<td><a class="fb" href="{{user.getFbUrl}}"></a></td>
+							<td><a  href="{{user.getFbUrl}}">( {{user.getFbFriendCount}} )  {{translate('bạn')}} </a></td>
+						{% else %}
+						<td><a class="fb" onclick="window.open('/facebook_connect.html?verify=1', 'vfw', 'width=800;height=600');"></a></td>
+						{% endif %}
+					</tr>
+				</table>
+			</div>
+		</div>
+		<div class="col-md-6"></div>
+	</div>
+	<div class="row padding_top" style="padding-left: 10px">
+		<div class="col-md-3 col-sm-3">
+			<p><span id="span_giayto">
+				{% if user.getUserTypeId == '1'%}{{translate('Xác thực giấy tờ tùy thân')}} 
+				</span><span class="helpicon" original-title="{{translate('Upload bản scan một trong các giấy tờ tùy thân như : CMND, Hộ chiếu, bằng lái xe, thẻ sinh viên')}}. ">?</span> :</p>
+				{% else %}
+				{{translate('Xác thực ĐKKD')}}
+				</span><span class="helpicon" original-title="{{translate('Upload bản scan giấy phép đăng kí kinh doanh hoặc ảnh chụp trụ sở công ty')}} ">?</span> :</p>
+				{% endif %}
+				
+		</div>
+		<div class="col-md-3">
+			<div class="contact">
+				<p>
+					{% if not user.getImageVerify %}
+					<label for="user_image_verify" class="btn btn_blue" title="Ảnh dung lượng lớn nhất 2Mb (jpg, png, gif)" alt="Ảnh dung lượng lớn nhất 2Mb (jpg, png, gif)">{{translate('Xác thực')}}</label>
+         			<input style="display: none;" type="file"  id="user_image_verify" name="user[image_verify]" title="Ảnh dung lượng lớn nhất 2Mb (jpg, png, gif)" alt="Ảnh dung lượng lớn nhất 2Mb (jpg, png, gif)">
+					{% else %}
+						{% if user.getVerifiedImage %}{{translate('Đã xác thực')}}
+						{% else %}{{translate('Đợi xác thực')}}
+						{% endif %}
+					{% endif %}
+				</p>
+
+			</div>
+		</div>
+	</div>
+	<div class="row padding_top" style="padding-left: 10px">
+		<div class="col-md-3 col-sm-3">
+			{{translate('Xác thực quan hệ XH')}} <span class="helpicon" original-title="{{translate('Chúng tôi sử dụng Ứng dụng của bên thứ ba Trustingsocial.com, một ứng dụng rất thông minh để đánh giá tín nhiệm người dùng thông qua tài khoản mạng xã hội. Hãy đăng nhập bằng tài khoản Facebook hoặc Linkedin để kiểm tra mức độ tín nhiệm của mình')}}.">?</span> :
+		</div>
+		<div class="col-md-3">
+			<div class="contact">
+				<table>
+					<tr>
+						<td><a class="btn btn_blue" href="/trusting_social/trusting_social" >{{translate('Xác thực')}}</a></td>
+					</tr>
+				</table>
+			</div>
+		</div>
+	</div>
+</div>

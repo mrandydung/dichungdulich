@@ -1,0 +1,62 @@
+{% extends "layout.html"%}
+{% block body %}
+{% if not user_id %}
+<script type="text/javascript">
+function login(){
+	$('#dangnhap').modal();
+}
+$(document).ready(function(){ 
+var auto= $('#dangnhap'), refreshed_content;	
+	refreshed_content = setInterval(function(){
+	auto.modal()}, 
+	3000); 																		 
+	return false; 
+});
+</script>
+{% endif %}
+<script src="/js/tinymce/tinymce.min.js"></script>
+<link href="/assets/dichungdulich/css/group.css?v={{random()}}" rel="stylesheet">
+<script type="text/javascript" src="/assets/dichungdulich/js/question.js?v={{random()}}"></script>
+<div class="white_bg box_3x">
+    <div class="container">
+        <div class="row">
+        	<div class="error" id="popup_error" style="display:none"></div>
+			<div class="col-md-12">
+				<p class="h4 margin-bt-0">{{translate('Đặt câu hỏi')}}</p>
+			</div>
+			<div class="col-md-12 question_modal">					
+				<p class="margin-bt-0"><strong>{{translate('Câu hỏi')}}</strong></p>
+				<input type="text" class="form-control" id="title" autocomplete="off" value="{{keyword}}">
+			</div>
+			<div class="col-md-12 box_1x" style="display: none" id="div_content_text_search">
+				<div class="alert alert-warning" role="alert" >
+					<p><strong>{{translate('Câu hỏi tương tự')}}</strong></p>
+					<div id="content_text_search"></div>
+				</div>
+			</div>
+			<div class="col-md-12 box_1x">
+				<p class="margin-bt-0"><input type="checkbox" value="chi_tiet_cau_hoi" id="checkboxchi_tiet_cau_hoi"><strong>{{translate('Chi tiết câu hỏi')}}</strong></p>
+				<div id="div_chi_tiet_cau_hoi" style="display:none">
+					<textarea class="form-control" rows="3" id="detail"></textarea>
+				</div>
+			</div>
+			<div class="col-md-12 question_modal">
+				<p><strong>{{translate('Chủ đề')}}</strong></p>
+				<p class="margin-top-0"><small>{{translate('Phân loại câu hỏi theo')}} <strong>{{translate('chủ đề có sẵn')}}</strong> {{translate('giúp nhiều người có thể thấy câu hỏi của bạn')}}</small></p>
+				<div class="padding_top">
+					<div  data-toggle="buttons">
+					{% for val in StaticCall('QuestionGroupCategoryPeer','get_group_category')%}
+					  <label class="btn btn-primary tag_2">
+						<input type="checkbox" autocomplete="off" class="question_group_category" data-id="{{val.getId}}" name="{{val.getName}}"> {{val.getShowName}}
+					  </label>
+					{% endfor %}
+					</div>
+				</div>
+			</div>
+			<div class="col-md-offset-8 col-md-4 box_2x">
+				<a class="btn btn_blue" {% if user_id %} id="create_question" {% endif %}>{{translate('Đăng câu hỏi')}}</a>
+			</div>
+        </div>
+    </div>
+</div>
+{% endblock %}

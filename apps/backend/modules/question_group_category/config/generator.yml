@@ -1,0 +1,18 @@
+generator:
+  class:              sfPropelAdminGenerator
+  param:
+    model_class:      QuestionGroupCategory
+    theme:            default
+    list:
+      object_actions:
+        _edit:         ~
+        _delete:       ~
+      actions:
+        _create:       ~
+      display:  [id,name,ImagesThumbNew,slogen]
+      sort : [id,desc]
+    edit:
+      fields:
+        images: {  type: admin_input_file_tag, upload_dir: home, params: include_link=home include_remove=true}
+        images_thumb: { type: admin_input_file_tag, upload_dir: home, params: include_link=home include_remove=true}
+        img_seo: { type: admin_input_file_tag, upload_dir: home, params: include_link=home include_remove=true}

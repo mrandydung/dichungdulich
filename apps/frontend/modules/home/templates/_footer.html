@@ -1,0 +1,22 @@
+<!-- Footer -->
+<!-- Social, newsletter -->
+{% set partner =  sf_user.getHost.Partner %}
+    {{get_partial('home/modal_newsleter',{partner_id:partner.getId})|raw}} 
+{% if partner.getTypePartner == 'main'%}
+    {{get_partial('home/page_footer',{partner_id:partner.getId})|raw}}
+{% else %}
+     {{get_partial('home/page_footer_partner',{partner_id:partner.getId})|raw}}
+{% endif %}
+
+<!-- End Social, newsletter -->
+
+<div class="white_bg box_1x foot_">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 text-center margin_bottom_0x">
+              {{StaticCall('ContactFooterPeer','get_address_by_partner',{partner_id:partner.getId})|raw}}
+            </div>
+        </div>
+    </div>
+</div>
+

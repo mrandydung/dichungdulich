@@ -1,0 +1,37 @@
+<div class="blue_bg box_3x">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-10">
+                <div class="row">
+                    {% for val in StaticCall('PageFooterPeer','get_page_footer_by_partner',{partner_id:partner_id})%}
+                    <div class="col-md-3 col-sm-3 col-xs-6">
+                        <h4>{{val.RowPageFooter.getShowName}}</h4>
+                        <hr/>
+                        {% for value in StaticCall('PageFooterPeer','get_item_row_page_footer',{page_footer_id:val.getRowPageFooterId,partner_id:val.getPartnerId})%}
+                        <p><a href="{{value.get_url_page_footer}}">{{value.getShowName}}</a> </p>
+                        {% endfor%}
+                    </div>
+                    {% endfor %}
+                </div>
+
+            </div>
+            <div class="col-md-2">
+                    <h4>{{translate('Ngôn ngữ')}}</h4>
+                    <hr>
+                    <div>
+                        <select class="form-control" id="select_language">
+                            <option value="vn">Tiếng Việt</option>
+                            <option value="en" {% if sf_user.isEn %}{{'selected'}}{% endif %}>English</option>
+                        </select>
+                    </div>
+                </div>
+            <!-- <div class="col-md-2">
+                <div class="col-md-12 col-sm-3 col-xs-6">
+                    <div id="fb-root"></div>
+                    <script src="//connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v2.4&appId=894895090553888"  async="true"></script>
+                    <div class="fb-page" data-href="https://www.facebook.com/gheptour.vn" data-height="150" data-small-header="true" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true" data-show-posts="false"><div class="fb-xfbml-parse-ignore"><blockquote cite="https://www.facebook.com/gheptour.vn"><a href="https://www.facebook.com/gheptour.vn">Đi chung du lịch Việt Nam - Gheptour.vn</a></blockquote></div></div>                   
+                </div>
+            </div> -->
+        </div>
+    </div>
+</div>

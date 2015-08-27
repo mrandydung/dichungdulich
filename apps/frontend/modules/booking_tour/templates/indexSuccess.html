@@ -1,0 +1,44 @@
+{% extends "layout.html"%}
+{% block body %}
+<link href="/assets/dichungdulich/css/tour.css" rel="stylesheet">
+<script type="text/javascript">
+    $(document).ready(function(){
+            $('input[type="radio"]').click(function(){
+            if($(this).attr("value")=="2"){
+                $("#div_chuyenkhoantrunggian").toggle(400);
+            }
+            else if($(this).attr("value")=="5"){
+                $("#div_chuyenkhoanchudichvu").toggle(400);
+            }
+            else{
+                 $("#div_chuyenkhoantrunggian").hide();
+                  $("#div_chuyenkhoanchudichvu").hide();
+            }
+        });
+    });
+</script>
+<div class="gray_bg box_2x">
+    <form method="POST" action="{{url_for('@bookingTour')}}">
+    <div class="container">
+        <div class="row">
+            {% for val in errors%}
+                    <div class="error" id="popup_error_price">{{val}}</div>
+            {% endfor %}
+            <div class="col-md-8">
+                {{get_partial('booking_info',{booking_content:booking_content,img_thumb:img_thumb,tour_detail:tour_detail,booking_form_money_security_deposit:booking_form_money_security_deposit})|raw}}
+                {{get_partial('booking_payment',{booking_content:booking_content,tour_detail:tour_detail,paypal:paypal,user_sell_info:user_sell_info})|raw}}
+                {{get_partial('booking_contact',{user:user,phone_number:phone_number,booking_form_contact_name:booking_form_contact_name,booking_form_contact_phone:booking_form_contact_phone,booking_form_contact_note:booking_form_contact_note})|raw}}
+                <div class="box_1x row">
+                    <div class="col-md-offset-8 col-md-4">
+                        <button class="btn btn_blue" type="submit">Đặt</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 box_1x">
+                {{get_partial('booking_term',{booking_content:booking_content})|raw}}
+            </div>
+        </div>
+    </div>
+    </form>
+</div>
+{% endblock %} 

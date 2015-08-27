@@ -1,0 +1,78 @@
+{% extends "layout.html"%}
+{% block body %}
+<link href="/assets/dichungdulich/css/group.css?v={{random()}}" rel="stylesheet">
+<script src="/js/tinymce/tinymce.min.js?v={{random()}}"></script>
+<script type="text/javascript" src="/assets/dichungdulich/js/question_detail.js?v={{random()}}"></script>
+<input type="hidden" value="{{question['question_id']}}" id="question_id">
+<div class="white_bg">
+    <img src="/img/phuot_bn.jpg" width="100%" class="group_banner">
+    <div class="intro_group">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-offset-2 col-md-8 text-center box_1x">
+                    <h1>{{translate('Hỏi - Đáp')}}</h1>
+                    <p class="hidden-xs">{{translate('Cổng thông tin hỏi đáp về các chủ đề liên quan đến du lịch.Bạn cần thông tin để chuẩn bị cho chuyến đi hãy tìm kiếm hoặc đặt câu hỏi.Những người có kinh nghiệm hoặc chuyên gia du lịch sẽ giúp bạn')}}.</p>
+                </div>
+				<div class="col-md-offset-1 col-md-6">
+					<input class="form-control"/>
+				</div>
+				<div class="col-md-2">
+					<a class="btn btn_orange">{{translate('Tìm kiếm')}}</a>
+				</div>
+				<div class="col-md-2">
+					<a class="btn btn_blue"  href="{{url_for('@create_question')}}">{{translate('Đặt câu hỏi')}}</a>
+				</div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="white_bg box_2x" style="text-align: justify">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 question_list">
+                <div class="title">{{question['title']}}</div>
+                <div class="clear"></div>
+                <div class="box_1x">
+                    <div class="question_detail">
+                        <div class="ava_user">
+                            <a href="{{question['url_user']}}">
+                                <img src="{{question['avatar']}}" class="img-circle" width="100%"/>
+                            </a>
+                        </div>
+                        <div class="user_info">
+                            <p class="text-uppercase"><a href="{{question['url_user']}}">{{question['fullname']}}</a></p>
+                            <p><small>{{question['time']}}</small></p>
+                        </div>
+                        <hr/>
+                        <p>{{question['detail']|raw}}</p>
+                        <div class="text-right padding_top">
+                            <a class="like_question" id="like_question_main"><small id="lable_like_question_main">{{question['like']}} </small> <span> | </span> Thích</a>
+                            <a class="share_question"><small>{{question['view']}} </small> <span> | </span> Lượt xem</a>
+                            <a class="answer_question" id="answer_1">{{translate('Trả lời')}}</a>
+                        </div>
+                    </div>
+                    <div class="answer" id="answer_1_show">
+                        <p><strong>{{translate('Trả lời')}}</strong></p>
+                        <textarea class="form-control" rows="4" cols="10" id="content_answer"></textarea>
+                        <div class="row padding_top">
+                            <div class="col-md-offset-8 col-md-4">
+                                <a class="btn btn_blue" id="send_answer_question">{{translate('Gửi trả lời')}}</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="answered padding_top">
+                        <div class="title">{{count_question_answer}} {{translate('câu trả lời')}}</div>						
+						 {{get_partial('question_answered',{question_answer:question_answer})|raw}}
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="top_list">
+                  {{get_component('group_question','group_detail_top')|raw}}        
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+{% block test%}Nhóm{% endblock %}

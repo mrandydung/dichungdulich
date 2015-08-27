@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>{% block test%}Đi chung - Du lịch{% endblock %}</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href='http://fonts.googleapis.com/css?family=Roboto:400,300,500,700' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Roboto+Slab' rel='stylesheet' type='text/css'>
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/main.css" rel="stylesheet">
+    <link href="css/home.css" rel="stylesheet">
+
+
+    <link href="css/full-slider.css" rel="stylesheet">
+
+	<script src="js/jquery-1.11.0.js"></script>
+
+
+    <script src="js/bootstrap.min.js"></script>
+
+    <script>
+    $('.carousel').carousel({
+        interval: 5000 //changes the speed
+    })
+    </script>
+
+</head>
+
+	<body>
+		{% block header %}{% include '_header_menu.html' %}{% endblock%}
+		{% include '_js.html' %}
+		{% block login_remind %}{% endblock%}
+		{% block booking_step %}{% endblock%}
+		{% block body %}{% endblock%}
+		{% block creat_trip %}{% endblock%}
+		{% include '_footer.html' %}
+		{% include '_login_modal.html'%}
+		{% include '_register_modal.html'%}
+    </body>
+</html>

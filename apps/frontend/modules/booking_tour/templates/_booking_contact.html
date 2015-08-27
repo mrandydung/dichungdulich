@@ -1,0 +1,107 @@
+<script type="text/javascript">
+	$(document).ready(function(){
+		$('#click_active_phone').click(function(){
+		var phone_number = $('#booking_form_contact_phone').val();
+		if(phone_number){
+	       jQuery.ajax({ type: "POST",url: "/user/check_verified_phone",dataType:"json", 
+            data:{"phone_number":phone_number},
+            success:function(response){
+                var code = response.code;
+                var msg = response.msg;
+                if(code == '1'){
+            		alert(msg);
+                }if(code == '2'){
+                	var phone_number_active = response.phone_number_active;
+                	$('#phone_number_active').html(phone_number_active);
+                	$('#content_verified_phone').modal();
+                }
+        	},
+   	 		});
+		}else{	 
+			alert('Bạn vui lòng nhập số điện thoại');
+		}
+	});
+
+	$('#submit_verified_phone').click(function(){
+		var ma_xac_thuc = $('#ma_xac_thuc').val();
+		if(ma_xac_thuc){
+	     	jQuery.ajax({ type: "POST",url: "/user/submit_verified_phone",dataType:"json", 
+            data:{"ma_xac_thuc":ma_xac_thuc},
+            success:function(response){
+                var code = response.code;
+                var msg = response.msg;
+                if(code == '2'){
+            		$('#popup_error_ma_xac_thuc').html(msg);
+					$('#popup_error_ma_xac_thuc').fadeIn();
+                }if(code == '1'){
+                	window.location.reload();
+                }
+        	},
+   	 		});
+		}else{
+			$('#popup_error_ma_xac_thuc').html('Bạn chưa nhập mã xác thực');
+			$('#popup_error_ma_xac_thuc').fadeIn();
+		}
+	});
+});
+</script>
+<div class="box_1x">
+	<h4>{{translate('Thông tin liên hệ')}}</h4>
+	<hr/>
+	<div class="row">
+		<div class="col-md-2 col-sm-2 col-xs-4 padding_top">
+			<p>{{translate('Họ tên')}}:</p>
+		</div>
+		<div class="col-md-3 col-sm-4 col-xs-8 padding_top">
+			<input class="form-control" name="booking_form_contact[name]"  id="booking_form_contact_name" value="{{user.getFullname}}"  />
+		</div>
+		<div class="col-md-2 col-sm-2 col-xs-4 padding_top">
+			<p>{{translate('Số điện thoại')}}:</p>
+		</div>
+		{% if not user.getVerifiedPhone %}
+		<div class="col-md-3 col-sm-4 col-xs-8 padding_top">
+			<input class="form-control" name="booking_form_contact[phone]"  id="booking_form_contact_phone" value="{% if booking_form_contact_phone%}{{booking_form_contact_phone}}{% else %}{{phone_number}}{% endif%}" />
+		</div>
+		<div class="col-md-2 col-sm-4 col-xs-8 padding_top">
+			<button type="button" class="btn btn_orange" id="click_active_phone">Xác thực</button>
+		</div>
+		{% else %}
+		<div class="col-md-4 col-sm-4 col-xs-8 padding_top">
+			<input class="form-control" name="booking_form_contact[phone]"  id="booking_form_contact_phone" value="{{phone_number}}" readonly />
+
+		</div>
+		{% endif %}
+		<div class="col-md-12 padding_top">
+			<p>{{translate('Ghi chú')}}</p>
+			<textarea class="form-control" rows="3" name="booking_form_contact[note]"  id="booking_form_contact_note">{% if booking_form_contact_note %}{{booking_form_contact_note}}{% endif %}</textarea>
+		</div>
+	</div>
+</div>
+<div class="modal fade" id="content_verified_phone" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog" >
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Xác thực số điện thoại</h4>
+      </div>
+      <div class="modal-body">
+       <div class="row padding_top" style="text-align:center;padding-bottom:15px">
+       		<div class="cold-md-4">
+       			<p>Chúng tôi đã gửi mã xác thực về số điện thoại <span style="font-weight: bold" id="phone_number_active"></span></p>
+       		</div>
+			<div class="col-md-4 ">
+				<p>Mã xác thực:</p>
+			</div>
+			 <div class="col-md-6">
+				<input class="form-control" value="" placeholder="Nhập mã xác thực " type="text" id="ma_xac_thuc"/>
+			</div>
+		</div>
+      </div>
+	  <div class="error" id="popup_error_ma_xac_thuc" style="display:none"></div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" style="width:auto;">Hủy bỏ</button>
+        <button type="button" class="btn btn-primary" style="width:auto;color:white" id="submit_verified_phone">Xác thực</button>
+      </div>
+    </div>
+  </div>
+</div>

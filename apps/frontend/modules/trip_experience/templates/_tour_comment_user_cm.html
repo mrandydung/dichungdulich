@@ -1,0 +1,29 @@
+{% for val in comment_experience%}
+<div class="row box_1x">
+    <div class="col-md-2 col-sm-2 col-xs-3 cm_ava">
+        <a href="{{val['url_user']}}" target="_blank"><img src="{{val['avatar']}}" width="100%" height="80px"></a>
+        <p class="user_name"><a href="{{val['url_user']}}" target="_blank">{{val['fullname']}}</a></p>
+    </div>
+    <div class="col-md-10 col-sm-10 col-xs-9">
+        <div class="content">
+            <div class="ngay">
+                <p><span class="gio">{{val['created']|date('H:i:s')}}</span> {{val['created']|date('d/m/Y')}}</p>
+            </div>
+            <div class="rate">
+                <div class="starRating" style="float: right;">
+                    <div class="rating mg-b-10 fl-l" data-value="{{val['rating']}}">
+                        <span class="star-img stars-{{val['rating']}}"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="clear"></div>
+            <div>
+                <p>{{val['comment']}}</p>
+            </div>
+            <div class="muiten">
+            </div>
+        </div>
+    </div>
+    <div class="clear"></div>
+</div>
+{% endfor %}

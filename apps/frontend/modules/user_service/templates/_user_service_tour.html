@@ -1,0 +1,69 @@
+<script type="text/javascript" src="/assets/dichungdulich/js/user_service.js?v={{random()}}"></script>
+<script src="/js/jquery-ui.js?v={{random()}}"></script>
+<script src="/js/datepicker-vi.js?v={{random()}}"></script>
+<link href="/css/jqueryui/css/redmond/jquery-ui-1.8.16.custom.css?v={{random()}}" rel="stylesheet">
+{% for val in tour %}
+<div id="content_tour_{{val['tour_id']}}">
+    <div class="col-md-12 padding_top">
+        <div class="tour">
+            <div class="col-md-3">
+
+                <a href="{{val['url']}}"><img src="/{{val['img']}}" width="100%"></a>
+            </div>
+            <div class=" col-md-9 infor">
+                 <a href="{{val['url']}}"><h4 class="t1">{{val['title']}}</h4></a>
+                <h6>{{val['date_start']|date('d/m/Y')}} - {{val['date_end']|date('d/m/Y')}}</h6>
+                <p>{{val['description']|striptags('')|slice(0,200)|raw}} ...</p>
+            </div>
+            <div class="clear"></div>
+            <div class="menu">
+                <div class="col-md-6 contact">
+                    <table>
+                        <tr>
+                            <td><p><a  href="{{val['url_manager']}}" target="_blank"><span class="edit"></span>{{translate('Sửa')}}</a></p></td>
+                            <td>&#9482</td>
+                            <td><p><a id="delete_tour-{{val['tour_id']}}" class="delete_tour"><span class="del"></span>{{translate('Xóa')}}</a></p></td>
+                            <td>&#9482</td>
+                            <td><p><a class="dublicate_tour" id="dublicate_tour-{{val['tour_id']}}"><span class="dup"></span>{{translate('Nhân đôi')}}</a></p></td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="clear"></div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-12 padding_top" id="div_delete_tour_{{val['tour_id']}}" style="display: none">
+        <div class="alert alert-warning del-alert" role="alert">
+            <div class="row">
+                <div class="col-md-8 col-sm-8">
+                    <p><span>{{translate('Bạn muốn xóa chuyến đi')}}</span> <span class="alert-link">{{val['title']}}</span></p>
+                </div>
+                <div class="col-md-2 col-sm-2 col-xs-6">
+                    <p><a class="cancel_delete" id="cancel_delete-{{val['tour_id']}}">{{translate('Hủy xóa')}}</a></p>
+                </div>
+                <div class="col-md-2 col-sm-2 col-xs-6">
+                    <p><a class="submit_delete" id="submit_delete-{{val['tour_id']}}">{{translate('Hoàn tất xóa')}}</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-12 padding_top" id="div_dublicate_tour_{{val['tour_id']}}" style="display:none">
+        <div class="alert alert-info del-alert" role="alert">
+            <div class="row">
+                <div class="col-md-4 col-sm-4">
+                    <input readonly  class="form-control time" id="datepicker_start_dublicate_{{val['tour_id']}}" placeholder="{{translate('Ngày bắt đầu')}}">
+                </div>
+    			<div class="col-md-4 col-sm-4">
+                    <input readonly class="form-control time" id="datepicker_end_dublicate_{{val['tour_id']}}" placeholder="{{translate('Ngày kết thúc')}}">
+                </div>
+                <div class="col-md-2 col-sm-2 col-xs-6">
+                    <p><a class="cancel_dublicate" id="cancel_dublicate-{{val['tour_id']}}">{{translate('Hủy')}}</a></p>
+                </div>
+                <div class="col-md-2 col-sm-2 col-xs-6">
+                    <p><a class="submit_dublicate" id="submit_dublicate-{{val['tour_id']}}">{{translate('Hoàn tất')}}</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endfor %}

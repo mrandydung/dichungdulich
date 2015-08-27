@@ -1,0 +1,59 @@
+{% if setting_site.Partner.getTypePartner == 'main'  %}
+<div class="white_bg">
+    <div class="container box_2x">
+        <div class="col-md-4 col-sm-4 benefit">
+            <div class="row">
+                <div class="col-md-3 col-sm-3 col-xs-3">
+                    <p class="box_2x tietkiem"></p>
+                </div>
+                <div class="col-md-9 col-sm-9 col-xs-9">
+                    <h4>{{translate('Đơn giản')}}</h4>
+                    <p style="text-align:justify">
+                        {{translate('Chỉ với một vài thao tác, bạn có thể dễ dàng tìm kiếm hoặc đăng một chuyến đi du lịch còn chỗ trống')}}</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 col-sm-4 benefit">
+            <div class="row">
+                <div class="col-md-3 col-sm-3 col-xs-3">
+                    <p class="box_2x thanhtoan"></p>
+                </div>
+                <div class="col-md-9 col-sm-9 col-xs-9">
+                    <h4>{{translate('Tiết kiệm')}}</h4>
+                    <p style="text-align:justify">
+                        {{translate('Du lịch chưa bao giờ rẻ đến như vậy. Trải nghiệm du lịch đích thực với mức tiết kiệm không ngờ.')}}</p>
+
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 col-sm-4 benefit">
+            <div class="row">
+                <div class="col-md-3 col-sm-3 col-xs-3">
+                    <p class="box_2x dichvu"></p>
+                </div>
+                <div class="col-md-9 col-sm-9 col-xs-9">
+                    <h4>{{translate('Phong cách')}}</h4>
+                    <p style="text-align:justify">
+                        {{translate('Một cách đi du lịch mới thể hiện cá tính và phong cách sống năng động, thân thiện với môi trường.')}}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="gray_bg box_3x">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 text-center">
+               <h4 class="intro_services"><strong>Gheptour.vn</strong> 
+                {{translate('là một thị trường trực tuyến để mọi người chia sẻ hoặc mua bán những chỗ còn trống khi đi du lịch. Đây là nơi kết nối những người có nhu cầu đi du lịch chung cá nhân đồng thời là một cổng tập hợp các tour du lịch ghép để mọi người lựa chọn một cách dễ dàng và thuận tiện.')}}</h4>
+            </div>
+            <div class="col-md-offset-3 col-md-3 box_1x">
+                <a class="btn btn_orange" href="{% if not sf_user.isEn%}{{'/cach-thuc-hoat-dong-4.html'}}{% else %}{{'/en/how-it-works-4.html'}}{% endif %}" id="click_cach_thuc_hoat_dong">{{translate('Cách thức hoạt động')}}</a>
+            </div>
+            <div class="col-md-3 box_1x">
+                <a class="btn btn_blue" href="{% if not sf_user.isEn%}{{'/loi-ich-tham-gia-13.html'}}{% else %}{{'/en/participating-interests-13.html'}}{% endif %}" id="click_loi_ich_tham_gia">{{translate('Lợi ích tham gia')}}</a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endif %}

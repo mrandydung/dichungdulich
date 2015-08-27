@@ -1,0 +1,102 @@
+{% extends "layout.html"%}
+{% block body %}
+    <link href="/assets/dichungdulich/css/profile.css?v={{random()}}" rel="stylesheet">
+	<div class="gray_bg box_3x">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3 profile">
+			{{get_partial('user_profile',{user:user})|raw}}
+			</div>
+            <div class="col-md-9">
+                {{get_partial('user_trusting_lever',{user:user})|raw}}
+<!--                 {{get_partial('user_static')|raw}} -->
+              <div class="row box_1x">
+                    <div class="col-md-12">
+                        {% if user.userTypeId == '1'%}
+                        <div class="danhgia">
+                            <div class="header">
+                                <p>{{translate('Thông tin cá nhân')}}</p>
+                            </div>
+                            <div class="content row">
+                              {% if user.getGender%}
+                                <div class="col-md-3 col-sm-3 col-xs-4 tieude">
+                                    <p>{{translate('Giới tính')}}:</p>
+                                </div>
+                                <div class="col-md-9 col-sm-9 col-xs-8 thongtin">
+                                    <p>{{user.getNameGender(user.getGender)}}&nbsp;</p>
+                                </div>
+                              {% endif %}
+                                <div class="col-md-3 col-sm-3 col-xs-4 tieude">
+                                    <p>{{translate('Độ tuổi')}}:</p>
+                                </div>
+                                <div class="col-md-9 col-sm-9 col-xs-8 thongtin">
+                                    <p>{{user.OldRange.getName}}&nbsp;</p>
+                                </div>
+                                <div class="col-md-3 col-sm-3 col-xs-4 tieude">
+                                    <p>{{translate('Nghề nghiệp')}}:</p>
+                                </div>
+                                <div class="col-md-9 col-sm-9 col-xs-8 thongtin">
+                                    <p>{{user.Job.getName}}&nbsp;</p>
+                                </div>
+                                <div class="col-md-3 col-sm-3 col-xs-4 tieude">
+                                    <p>{{translate('Địa phương')}}:</p>
+                                </div>
+                                <div class="col-md-9 col-sm-9 col-xs-8 thongtin">
+                                    <p>{{user.getLocation}}&nbsp;</p>
+                                </div>
+                                <div class="col-md-3 col-sm-3 col-xs-4 tieude">
+                                    <p>{{translate('Giới thiệu')}}:</p>
+                                </div>
+                                <div class="col-md-9 col-sm-9 col-xs-8 thongtin">
+                                    <p>{{user.getAbout}}&nbsp;</p>
+                                </div>
+                                <div class="clear"></div>
+                            </div>
+                        </div>
+                        {% endif %}
+                        {% if user.userTypeId == '2'%}
+                        <div class="danhgia">
+                            <div class="header">
+                                <p>{{translate('Thông tin tổ chức')}}</p>
+                            </div>
+                            <div class="content row">
+                                <div class="col-md-3 col-sm-3 col-xs-4 tieude">
+                                    <p>{{translate('Địa chỉ')}}:</p>
+                                </div>
+                                <div class="col-md-9 col-sm-9 col-xs-8 thongtin">
+                                    <p>{{user.getAddress}}&nbsp;</p>
+                                </div>
+                                <div class="col-md-3 col-sm-3 col-xs-4 tieude">
+                                    <p>Hotline:</p>
+                                </div>
+                                <div class="col-md-9 col-sm-9 col-xs-8 thongtin">
+                                    <p>{{user.getHotline}}&nbsp;</p>
+                                </div>
+                                <div class="col-md-3 col-sm-3 col-xs-4 tieude">
+                                    <p>Website:</p>
+                                </div>
+                                <div class="col-md-9 col-sm-9 col-xs-8 thongtin">
+                                    <p>{{user.getWebsite}}&nbsp;</p>
+                                </div>
+                                <div class="col-md-3 col-sm-3 col-xs-4 tieude">
+                                    <p>{{translate('Giới thiệu')}}:</p>
+                                </div>
+                                <div class="col-md-9 col-sm-9 col-xs-8 thongtin">
+                                    <p>{{user.getAbout}}&nbsp;</p>
+                                </div>
+                                <div class="clear"></div>
+                            </div>
+                        </div>
+                        {% endif %}
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        {{get_partial('user_tour',{tour_featured:tour_featured})|raw}}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %} 

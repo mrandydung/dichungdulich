@@ -1,0 +1,55 @@
+ <div class="col-md-4 padding_top">
+    <div class="carousel slide" data-ride="carousel" data-type="multi" data-interval="false" id="{{meta}}">
+      <div class="carousel-inner" role="listbox">
+        {% for key,val in tour%}
+        {% if key == '0'%}
+        <div class="item active">
+        {% else %}
+         <div class="item">
+        {% endif%}
+            <div class="col-md-12" style="padding-left: 0px;padding-right: 0px">
+                 <div class="tour">
+                    <a href="{{val['url']}}">
+                      <div class="tour_ava">
+                          <img src="{{val['img_thumb']}}" width="100%">
+                          <div class="tour_name">
+                              <p class="name" style="font-size: 13px;">{{val['title']|slice(0,38)}}</p>
+                              <p class="time">{{val['time_category_day']}}</p>
+                              {% if val['number_seat'] == '1 s000'%}
+                              <p class="cho">{{translate('Không giới hạn chỗ')}}</p>
+                              {% else %}
+                              <p class="cho">{{translate('Còn')}} {{val['number_seat'] - val['number_seat_booking']}}/{{val['number_seat']}} {{translate('chỗ')}}</p>
+                              {% endif %}
+                          </div>
+                      </div>
+                    </a>
+                    <div class="tour_user">
+                        <div class="user_ava">
+                            <img src="http://gheptour.vn/thumbnail/index.php?src=http://dichung.vn/{{val['avatar']}}&w=58&h=60&q=100"/>
+                        </div>
+                        <div class="user_name">
+                            <a href="{{val['url_user']}}">{{val['fullname']}}</a>
+                            <p><div class="rating mg-b-10 fl-l" data-value="5"><span class="star-img stars-5"></span></div></p>
+                        </div>
+                        <div class="tour_gia text-right">
+                            <a>{{val.price}} </a>
+                        </div>
+                        <div class="clear"></div>
+                    </div>
+                      {% if val.discount %}
+                    <div class="sale">
+                        <p class="giamgia dai">{{translate('Giảm giá')}}</p>
+                        <p class="gia">{{val.discount}}%</p>
+                    </div>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+      </div>
+      <a class="left carousel-control" href="#{{meta}}" data-slide="prev"><i class="glyphicon glyphicon-chevron-left"></i></a>
+      <a class="right carousel-control" href="#{{meta}}" data-slide="next"><i class="glyphicon glyphicon-chevron-right"></i></a>
+    </div>
+    <div class="phanvung" style="margin-top: 10px"><p><a href="{{url_forward}}" class="white" id="{{meta}}">{{tag}}</a></p></div>
+</div>
+

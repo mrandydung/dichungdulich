@@ -1,0 +1,57 @@
+{% extends "layout.html"%}
+{% block body %}
+<link href="/assets/dichungdulich/css/blog.css?v={{random()}}" rel="stylesheet">
+<link href="/assets/dichungdulich/css/find.css?v={{random()}}" rel="stylesheet">
+<script src="http://connect.facebook.net/en_US/all.js#appId=825897607458922&amp;xfbml=1"  async="true"></script>
+<script type="text/javascript"  async="true">
+  (function() {
+    var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+    po.src = 'https://apis.google.com/js/plusone.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+  })();
+</script>
+	<div id="fb-root"></div>
+	{{get_component('blog','blog_menu')|raw}} 
+	<div class="box_2x">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-8">
+					{{get_partial('search_blog',{filter_blog:filter_blog})|raw}}
+					<div class="blog_bg">
+						{% for val in blog %}
+						<div class="col-md-12 box_1x">
+							<div class="row">
+								<div class="col-md-4">
+									<a href="{{val.getDetailUrl}}"><img src="{{host}}/thumbnail/index.php?src={{val.getImagesThumb}}&w=192&h=128&q=100" width="100%"/></a>
+								</div>
+								<div class="col-md-8">
+									<h4 class="text-uppercase"><a href="{{val.getDetailUrl}}">{{val.getTitle}}</a></h4>
+									<p class="text-uppercase"><small>{{val.getCreatedAt|date('d-m-Y H:i:s')}}</small></p>
+									<p>{{val.getDescription}}</p>
+					<!-- 				<p>{{get_partial('blog/js_fb_gg',{url:val.getDetailUrl})|raw}}</p> -->
+								</div>
+							</div>
+						</div>
+						<div class="clear"></div>
+						<hr/>
+						{% endfor %}
+					</div>
+	              	<div class="page_list" style="text-align: center">
+		             	<div id="containPage" class="pagination-wrap">
+		                    <ul class="pagination" id="paging" style="text-align: center;">
+		                         {% for i in 1..pager.getLastPage %}
+		                            {% if param == i %}
+		                             <li><a class="paging_li_a activePaging" href="{{StaticCall('BlogPeer','getPageIndexUrl',{page:i})}}">{{i}}</a></li>
+		                             {% else %}
+		                             <li><a class="paging_li_a" href="{{StaticCall('BlogPeer','getPageIndexUrl',{page:i})}}">{{i}}</a></li>
+		                              {% endif %}
+		                        {% endfor %}
+		                    </ul>
+		                </div> 
+	              	</div>
+				</div>
+				{{get_component('blog','blog_recent')|raw}} 
+			</div>
+		</div>
+	</div>
+{% endblock %} 

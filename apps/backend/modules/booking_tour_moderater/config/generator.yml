@@ -1,0 +1,21 @@
+generator:
+  class:              sfPropelAdminGenerator
+  param:
+    model_class:      BookingTour
+    theme:            default
+    list:
+      object_actions:
+        _edit:         ~
+      actions:
+        _create:       ~
+      display : [id,usersell,userbuy,code_transaction,TourDetail,PaymentBookingType,price,price_security_deposit,name,phone_number,ticket,number_adult,number_kid,TranSactionStatus,created_at]
+      sort: [id, desc]
+      filters: [id,code_transaction,payment_booking_type_id,transaction_status_id,created_at]
+      actions : []
+      fields :
+         usersell: {name: "Chủ dịch vụ"}
+         userbuy: {name: "Khách hàng"}
+    edit:
+      actions : []
+      fields:
+       ticket: { params: class=ckeditor size=80x60}

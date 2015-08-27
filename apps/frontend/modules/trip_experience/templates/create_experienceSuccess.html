@@ -1,0 +1,82 @@
+{% extends "layout.html"%}
+{% block body %}
+<script type="text/javascript">
+	$(document).ready(function(){
+	    tinymce.init({selector:'#content'});
+		var type_upload_id = {{type_upload}};
+		if (type_upload_id == '1'){
+			$('#uploadBtn').show();
+			$('#url_video').hide();
+		}
+		if (type_upload_id == '2'){
+			$('#uploadBtn').hide();
+			$('#url_video').show();
+		}
+
+		  var locat;
+	    var options;
+	    $("#end").geocomplete(options)
+	        .bind("geocode:result", function(event, result){
+	            locat = result.geometry.location;
+	            $('#coo_end').val(locat.lat()+','+locat.lng());
+	            $('#lat_end').val(locat.lat());
+	            $('#lng_end').val(locat.lng());
+	    })
+	});
+</script>
+<link href="/assets/dichungdulich/css/experience.css" rel="stylesheet">
+<script src="/assets/dichungdulich/js/trip_experience.js"></script>
+<script src="//tinymce.cachefly.net/4.1/tinymce.min.js"></script>
+<script type="text/javascript" src="/assets/js/typeahead.min.js"></script>
+<script type="text/javascript" src="https://www.google.com/jsapi"></script>
+<script type="text/javascript" src="/js/map/map_funcs.js"></script>
+<script type="text/javascript" src="/js/map/jquery.geocomplete.js"></script>
+<div class="white_bg box_3x">
+	<form method="POST" action="{{url_for('@create_experience')}}" enctype="multipart/form-data" >
+	    <div class="container">
+	        <div class="row">
+	            <div class="col-md-offset-2 col-md-8 text-center box_1x">
+	                <h3 class="t1">Trải nghiệm chuyến đi</h3>
+	                <h4><small>Chia sẻ những trải nghiệm du lịch thú vị tại những địa điểm mà bạn đã từng đặt chân đến cho cộng đồng để cùng khám phá và thưởng thức. Giá trị chuyến đi của bạn sẽ được nhân lên gấp bội.</small></h4>
+	            </div>
+	        </div>
+	        {% for val in errors %}<div class="error" id="popup_error" style="border-radius: 5px">{{val}}</div>{% endfor %}
+	        
+	        <div class="row padding_top">
+				<div class="col-md-12 box_1x">
+					<p><strong>Tiêu đề</strong></p>
+					<input type="text" class="form-control" name="title" id="title" value="{{title}}" />
+				</div>
+				<div class="col-md-12 box_1x">
+					<p><strong>Địa điểm đến</strong></p>
+					<input type="text" class="form-control b_" name="end" id="end" value="{{end}}" />
+					<input type="hidden" id="coo_end" name="coo_end" value="{{coo_end}}"/>
+					<input type="hidden" id="lat_end" name="lat_end" value="{{lat_end}}"/>
+					<input type="hidden" id="lng_end" name="lng_end" value="{{lng_end}}"/>
+				</div>
+				<div class="col-md-3 box_1x">
+					<p><strong>Hình ảnh/Video</strong></p>
+					<select type="text" class="form-control" id="type_upload" name="type_upload">
+						{% for val in StaticCall('TypeUploadPeer','getAll') %}
+						<option value="{{val.getId}}" {% if type_upload == val.getId %}{{'selected'}} {% endif %}>{{val.getName}}</option>
+						{% endfor  %}
+					</select>
+				</div>
+
+				<div class="col-md-9 box_3x">
+					<p></p>
+					<div id="uploadBtn"><input class="upload_img" name="files[]" type="file" class="upload" multiple/><span>Có thể chọn tối đa 10 ảnh dung lượng nhỏ hơn 5MB</span></div>
+					<input type="text" class="form-control" style="display:none" id="url_video" name="url_video" placeholder="Nhập link video chia sẻ từ youtube. VD : https://youtu.be/d_8fE-On19I" value="{{url_video}}" />
+				</div>
+				<div class="col-md-12 box_1x">
+					<p><strong>Nội dung</strong></p>
+					<textarea class="form-control" rows="5" name="content" id="content" style="border-radius: 5px">{{content}}</textarea>
+				</div>
+				<div class="col-md-offset-9 col-md-3 box_1x">
+					<button class="btn btn_blue" type="submit">Chia sẻ chuyến đi</button>
+				</div>
+			</div>
+	    </div>
+    </form>
+</div>
+{% endblock %} 

@@ -1,0 +1,25 @@
+<div class="alert alert-info" role="alert"><p class="luuy">{{translate('Đối với hình thức thanh toán đảm bảo, chúng tôi sẽ đóng vai trò trung gian thanh toán. Bằng việc giữ tiền thanh toán của người mua và chỉ thanh toán cho người bán khi giao dịch thành công, chúng tôi đảm bảo quyền lợi của các bên tham gia. Dịch vụ thanh toán đảm bảo được cung cấp miễn phí')}}.</p></div>
+{% if tour_detail.getPaymentTypeId == '2'%}
+<p><input type="radio" name="payment" value="1"> {{translate('Thanh toán trực tuyến đảm bảo qua Onepay')}} </p>
+<p><input type="radio" name="payment" value="7"> {{translate('Thanh toán trực tuyến đảm bảo qua Paypal')}} </p>
+{% endif %}
+<p><input type="radio" name="payment" value="2"> {{translate('Thanh toán chuyển khoản qua ngân hàng đảm bảo qua trung gian')}}</p>
+<div class="luuy" id="div_chuyenkhoantrunggian" style="display: none">
+	<h5>{{translate('Bạn có thể chuyển tiền vào tài khoản')}}:</h5>
+	<hr/>
+	<table width="100%" class="text-center">
+		<tr>
+			<td><p>{{translate('Số')}} : 19026855625598</p>
+				<p>{{translate('Ngân Hàng')}}: Techcombank Hai Bà Trưng</p>
+				<p>{{translate('Chủ tài khoản')}}: Công ty Cổ phần Đi chung</p>
+			</td>
+			<td>{{translate('Hoặc')}}</td>
+			<td>
+				<p>{{translate('Số')}} : 0451000250797</p>
+				<p>{{translate('Ngân Hàng')}}: Vietcombank Thành Công</p>
+				<p>{{translate('Chủ tài khoản')}}: Công ty Cổ phần Đi chung</p>
+			</td>
+		</tr>
+	</table>
+	<div class="alert alert-warning" role="alert">{{translate('Trong biên lai chuyển tiền ghi rõ')}} <strong>{{translate('mã giao dịch')}}</strong></div>
+</div>

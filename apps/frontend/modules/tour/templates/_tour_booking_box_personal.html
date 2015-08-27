@@ -1,0 +1,58 @@
+<script src="/assets/dichungdulich/js/function/detail_tour.js?v={{random()}}"></script>
+<form  method="POST" action="{{url_for('@bookingTour')}}" enctype="multipart/form-data">
+<div class="book box_1x">
+    <div class="price">
+        {% set type_pricing = tour_detail.getTypePricingId %}
+        {% if type_pricing == '1'%}
+        <h3>{{tour_detail.getPrice|number_format}} Đ / {{translate('Người')}}</h3>
+        {% elseif type_pricing == '2' %}
+        <h3>{{translate('Miễn phí')}}</h3>
+        {% elseif type_pricing == '3' %}
+        <h3>{{translate('Giá thỏa thuận')}}</h3>
+        {% endif %}
+    </div>
+    <div class="options">
+        <p>{{translate('Ngày khởi hành')}}</p>
+        <input class="time form-control" type="text" id="date_picker" value="{{tour_detail.getDateStart|date('d-m-Y')}}" readonly style="cursor: -webkit-grab;background-color: white">
+        <div class="row padding_top" style="padding-bottom:15px">
+            <div class="col-md-9">
+                <p>{{translate('Số chỗ')}}</p>
+            </div>
+            <div class="col-md-3">
+                <select class="form-control" id="select_adult">
+                    {% for val in 1..tour_detail.getNumberSeat %}
+                        <option value="{{val}}">{{val}}</option>
+                    {% endfor %}
+                </select>
+            </div>
+        </div>
+        <hr/>
+        <div class="total_price">
+            {% if type_pricing == '1'%}
+            <h3 style="float:left">{{translate('Tổng chi phí')}} :</h3>
+            <h3><span id="total_price_tour">{{tour_detail.getPrice|number_format}}  Đ</span></h3>
+            {% elseif type_pricing == '2' %}
+            <h3><span id="total_price_tour">{{translate('Miễn phí')}}</span></h3>
+            {% elseif type_pricing == '3' %}
+            <h3><span id="total_price_tour">{{translate('Thỏa thuận')}}</span></h3>
+            {% endif %}
+        </div>
+        <hr/>
+        <div>
+        {% if user_id %}
+            {% if (user_id != tour_detail.getUserId) and (tour_detail.getNumberSeat > tour_detail.getNumberSeatBooking) %}
+                {% if not booking_end %}
+                <buton class="btn btn_orange" disabled>{{translate('Tour đã khởi hành')}}</button>
+                {% else %}
+                 <buton class="btn btn_orange" id="submit_booking_tour" type="submit">{{translate('Đặt')}}</button>
+                {% endif %}
+            {% endif%}
+        {% else %}
+             <buton class="btn btn_orange" id="login_booking_tour">{% if tour_detail.getTypePricingId == '1'%}Đặt{% else%}{{translate('Đăng kí')}}{%endif%}</button>
+        {% endif %}
+        </div>
+    </div>
+    <div class="error" id="popup_error_detail_tour" style="display:none">{{translate('Bạn chưa chọn ngày khởi hành')}}</div>
+</div>
+</form>
+<input type="hidden" id="tour_detail_id" value="{{tour_detail.getId}}">

@@ -1,0 +1,60 @@
+<script type="text/javascript">
+$(document).ready(function(){
+   $('body').on('change','#type_language_step_1',function(){
+    var type_language_step_1 = $('#type_language_step_1').val();
+    if(type_language_step_1 != 0){
+        $('#button_add_type_language_step_1').fadeIn();
+    }else{
+        $('#button_add_type_language_step_1').fadeOut();
+    }
+});
+
+
+   $('body').on('click','#add_type_language_step_1',function(){
+    var tour_id = $('#tour_id').val();
+    var type_language_step_1 = $('#type_language_step_1').val();
+    jQuery.ajax({ type: "POST",url: "/info_multi_language_add/add_info_language",dataType:"json", 
+        data:{"tour_id":tour_id,"type_language_step_1":type_language_step_1},
+        success:function(response){
+            var code = response.code;
+            var msg = response.msg;
+            if(code == 'success'){
+
+            }
+        },
+    });
+});
+});
+</script>
+<div class="row box_1x">
+    <div class="col-md-12">
+        <p class="hightlight">{{translate('Thêm thông tin cơ bản ngôn ngữ khác')}}</p>
+    </div>
+    <div class="col-md-3">
+        <select class="form-control" name="type_language_step_1" id="type_language_step_1">
+            <option value="0">{{translate('Chọn ngôn ngữ')}}</option>
+            {% for val in StaticCall('TypeLanguagePeer','get_all') %}
+            <option value="{{val.getId}}">{{val.getName}}</option>
+            {% endfor %}
+        </select>
+    </div>
+    <div class="col-md-2 col-sm-3 col-xs-3" style="display:none" id="button_add_type_language_step_1">
+        <a class="btn btn_orange save" id="add_type_language_step_1">{{translate('Thêm')}}</a>
+    </div>
+    <div id="div_content_multi_language">
+        {% for val in StaticCall('InfoTourDetailByLanguagePeer','get_all',{tour_id:tour_id})%}
+        <div class="row box_1x">
+            <div class="col-md-12">
+                <p class="hightlight">Title</p>
+                <input type="text" class="form-control" name="tour_title" id="tour_title" value="Tour Côn Đảo huyền thoại">
+            </div>
+        </div>
+        <div class="row box_1x">
+            <div class="col-md-12">
+                <p class="hightlight">Description</p>
+                <textarea class="form-control" rows="5" id="tour_description" name="tour_description" aria-hidden="true" style=""></textarea>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>

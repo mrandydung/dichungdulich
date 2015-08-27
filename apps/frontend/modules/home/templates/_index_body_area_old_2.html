@@ -1,0 +1,42 @@
+<div class="white_bg">
+    <div class="container box_3x">
+        <div class="row">
+            <div class="col-md-12">
+                <p class="h3 t1">{{translate('Vùng')}}</p>
+            </div>
+            <div class="col-md-4">
+                <a href="{{url_for('@findTour')}}?region_id=1">
+                    <div class="vung">
+                        <h3 class="decripton">{{translate('Miền Bắc')}}</h3>
+                        <div class="vung_1">
+                            <img src="/img/hn.jpg" class="area">
+                            <h3 class="decripton">{{translate('Miền Bắc')}}</h3>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="col-md-4">
+                <a href="{{url_for('@findTour')}}?region_id=2">
+                    <div class="vung">
+                        <h3 class="decripton">{{translate('Miền Trung')}}</h3>
+                        <div class="vung_1">
+                            <img src="/img/dn.jpg" class="area">
+                            <h3 class="decripton">{{translate('Miền Trung')}}</h3>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="col-md-4">
+                <a href="{{url_for('@findTour')}}?region_id=3">
+                    <div class="vung">
+                        <h3 class="decripton">{{translate('Miền Nam')}}</h3>
+                        <div class="vung_1">
+                            <img src="/img/tphcm.jpg" class="area">
+                            <h3 class="decripton">{{translate('Miền Nam')}}</h3>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>

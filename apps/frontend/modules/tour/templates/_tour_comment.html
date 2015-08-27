@@ -1,0 +1,67 @@
+<link href="/assets/js/rating//css/rating.css" rel="stylesheet">
+<script type="text/javascript">
+    $(document).ready(function(){
+        $('#login_account').click(function(){
+            $('#dangnhap').modal();
+        });
+         $("body").on("click", "#unit_ul2 .ratingstar", function(e) {
+              e.preventDefault();
+            var clickedID = this.id.split("_"); 
+            var id_ratingstar = clickedID[1];
+            var px = id_ratingstar * 30; 
+            $('#currentRate').css("width",px+"px");
+            $('#ratingstar_tongthe').val(id_ratingstar);
+        });
+
+         $("body").on("click","#submit_comment",function(){
+            var rating_tongthe = $('#ratingstar_tongthe').val();
+            var tour_id = $('#tour_id').val();
+            var content_comment= $('#content_comment').val();
+                jQuery.ajax({type: "POST", url: "/tour/submit_rating",dataType:"json",
+                data:{"rating_tongthe":rating_tongthe,"tour_id":tour_id,"content_comment":content_comment},   
+                success:function(response){
+                    var code = response.code;
+                    var msg = response.msg;
+                    if(code == '1'){
+                        alert(msg);
+                    }
+                    if(code == '2'){
+                        window.location.reload();
+                    }
+                },
+            });
+         });
+    });
+</script>
+<div class="box_2x nhanxet">
+    <h4>{{translate('Nhận xét')}}</h4>
+    <textarea class="form-control" id="content_comment"></textarea>
+    <div class="row padding_top">
+        <div class="col-md-3 col-md-offset-6">
+            <div id="show_rating" class="col-md-3">
+                <div class="ratingblock">
+                    <div id="unit_long2">
+                      <ul id="unit_ul2" class="unit-rating" style="width:150px;" >
+                          <li class="current-rating" style="width:0px;" id="currentRate">Currently 0.00/5</li>
+                          <div class="ratingstar" id="ratingstar_1"><li><a title="1 out of 5" class="r1-unit rater" rel="nofollow">1</a></li></div>
+                          <div  class="ratingstar" id="ratingstar_2"><li><a title="2 out of 5" class="r2-unit rater" rel="nofollow">2</a></li></div>
+                          <div class="ratingstar" id="ratingstar_3"><li><a title="3 out of 5" class="r3-unit rater" rel="nofollow">3</a></li></div>
+                          <div  class="ratingstar" id="ratingstar_4"><li><a title="4 out of 5" class="r4-unit rater" rel="nofollow">4</a></li></div>
+                          <div class="ratingstar" id="ratingstar_5"><li><a title="5 out of 5" class="r5-unit rater" rel="nofollow">5</a></li></div>
+                      </ul> 
+                    </div>
+                    <input type="hidden" id="ratingstar_tongthe"/>
+                    <input type="hidden" id="tour_id" value="{{tour_id}}" />
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            {% if user_id %}
+                <a class="btn btn_blue" id="submit_comment">{{translate('Đăng')}}</a>
+            {% else %}
+                <a class="btn btn_blue" id="login_account">{{translate('Đăng')}}</a>
+            {% endif %}
+        </div>
+    </div>
+    {{get_partial('tour_comment_user_cm',{comment_tour:comment_tour})|raw}}
+</div>

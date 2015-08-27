@@ -1,0 +1,101 @@
+<div class="white_bg">
+    <div class="container box_3x">
+        <div class="row">
+            <div class="col-md-12" style="padding-bottom:15px">
+                <a class="h3 t1" href="{% if sf_user.isEn %}{{url_for('@findTour_en')}}{% else %}{{url_for('@findTour')}}{% endif%}" id="click_diem_den_pho_bien">{{translate('Điểm đến phổ biến')}} 
+                    <small><span class="glyphicon glyphicon-chevron-right" aria-hidden="true"> </span></small>
+                </a>
+            </div>
+            <div class="col-md-4">
+                <div class="vung">
+                    <div id="mien_bac" class="carousel slide" data-ride="carousel" data-interval="false">
+                        <div class="carousel-inner" role="listbox">
+                            {% for key,val in StaticCall('HomeDiemDenItemPeer', 'get_trong_nuoc') %}
+                            {% if key == '0'%}
+                            <div class="item active">
+                                {% else %}
+                                <div class="item ">
+                                    {% endif %}
+                                    <a href="{{val.get_url_find_tour}}?booking_form%5Bpick_address%5D=&booking_form%5Bto_address%5D={{val.getName}}&booking_form%5Bstart_date%5D=&coo_start=&coo_end={{val.getGooglePosition}}">
+                                        <img src="http://gheptour.vn/thumbnail/index.php?src={{val.getImg}}&w=310&h=220&q=100" alt="{{val.getName}}" width="100%" />
+                                        <h3 class="description_vung_du_lich">{{val.getName}}</h3>
+                                    </a>
+                                </div>
+                                {% endfor %}
+                            </div>
+                            <a class="left carousel-control" href="#mien_bac" role="button" data-slide="prev">
+                                <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                                <span class="sr-only">Previous</span>
+                            </a>
+                            <a class="right carousel-control" href="#mien_bac" role="button" data-slide="next">
+                                <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                                <span class="sr-only">Next</span>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="phanvung"><p><a href="{% if not sf_user.isEn %}{{url_for('@tour_trong_nuoc')}}{% else %}{{url_for('@tour_trong_nuoc_en')}}{% endif%}" class="white" id="click_diem_den_trong_nuoc">{{translate('Trong nước')}}</a></p></div>
+                </div>
+                <div class="col-md-4">
+                    <div class="vung">
+                        <div id="mien_trung" class="carousel slide" data-ride="carousel" data-interval="false">
+                            <div class="carousel-inner" role="listbox">
+                                {% for key,val in StaticCall('HomeDiemDenItemPeer', 'get_quoc_te') %}
+                                {% if key == '0'%}
+                                <div class="item active">
+                                    {% else %}
+                                    <div class="item ">
+                                        {% endif %}
+                                        <a href="{{val.get_url_find_tour}}?booking_form%5Bpick_address%5D=&booking_form%5Bto_address%5D={{val.getName}}&booking_form%5Bstart_date%5D=&coo_start=&coo_end={{val.getGooglePosition}}">
+                                            <img src="http://gheptour.vn/thumbnail/index.php?src={{val.getImg}}&w=310&h=220&q=100" width="100%" alt="{{val.getName}}"/>
+                                            <h3 class="description_vung_du_lich">{{val.getName}}</h3>
+                                        </a>
+                                    </div>
+                                    {% endfor %}
+                                </div>
+                                <a class="left carousel-control" href="#mien_trung" role="button" data-slide="prev">
+                                    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                                    <span class="sr-only">Previous</span>
+                                </a>
+                                <a class="right carousel-control" href="#mien_trung" role="button" data-slide="next">
+                                    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                                    <span class="sr-only">Next</span>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="phanvung"><p><a href="{% if not sf_user.isEn %}{{url_for('@tour_quoc_te')}}{% else %}{{url_for('@tour_quoc_te_en')}}{% endif%}" class="white" id="click_diem_den_quoc_te">{{translate('Quốc tế')}}</a></p></div>
+                    </div> 
+                    <div class="col-md-4">
+                        <div class="vung">
+                            <div id="mien_nam" class="carousel slide" data-ride="carousel" data-interval="false">
+                                <div class="carousel-inner" role="listbox">
+                                    {% for key,val in StaticCall('HomeDiemDenItemPeer', 'get_moi_noi') %}
+                                    {% if key == '0'%}
+                                    <div class="item active">
+                                        {% else %}
+                                        <div class="item ">
+                                            {% endif %}
+                                            <a href="{{val.get_url_find_tour}}?booking_form%5Bpick_address%5D=&booking_form%5Bto_address%5D={{val.getName}}&booking_form%5Bstart_date%5D=&coo_start=&coo_end={{val.getGooglePosition}}">
+                                                <img src="http://gheptour.vn/thumbnail/index.php?src={{val.getImg}}&w=310&h=220&q=100" width="100%" alt="{{val.getName}}"/>
+                                                <h3 class="description_vung_du_lich">{{val.getName}}</h3>
+                                            </a>
+                                        </div>
+                                        {% endfor %}
+                                    </div>
+                                    <a class="left carousel-control" href="#mien_nam" role="button" data-slide="prev">
+                                        <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                                        <span class="sr-only">Previous</span>
+                                    </a>
+                                    <a class="right carousel-control" href="#mien_nam" role="button" data-slide="next">
+                                        <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                                        <span class="sr-only">Next</span>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="phanvung"><p><a href="{% if not sf_user.isEn %}{{url_for('@tour_moi_noi')}}{% else %}{{url_for('@tour_moi_noi_en')}}{% endif%}" class="white" id="click_diem_den_moi_noi">{{translate('Mới nổi')}}</a></p></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

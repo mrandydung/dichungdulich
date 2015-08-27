@@ -1,0 +1,44 @@
+<div id="content_view_1" style="display: none">
+{% for val in find_tour %}
+<div class="col-md-12 box_1x">
+	<div class="tour">
+	    <a href="{{val['url']}}" target="_blank">
+	        <div class="tour_ava_2">
+	            <img src="{{app.request.hostaa}}/{{val['img_thumb']}}" width="100%" height="160px">
+	        </div>
+	        <div class="tour_name_2">
+	            <p class="name">{{val['title']}}</p>
+	            <p class="time">{{val['time_category_day']}}</p>
+	        </div>
+	        <div class="tour_name_2">
+	        	<a href="{{val['url_user']}}" target="_blank">
+		            <div class="user_ava">
+		                <img src="http://dichung.vn{{val['avatar']}}" width="100%" height="40px">
+		            </div>
+	            </a>
+	            <div class="user_name">
+	                <a href="{{val['url_user']}}" target="_blank">{{val['fullname']}}</a>
+	                <p><div class="rating mg-b-10 fl-l" data-value="5"><span class="star-img stars-5"></span></div></p>
+	            </div>
+	            <div class="clear"></div>
+	        </div>
+	        <div class="tour_name_2">
+	            <div class="cm">
+	                <p>{{val['description']|slice(0,250)|raw}}...</p>
+	            </div>
+	            <div class="tour_gia">
+	                <a>{{val['price']}}</a>
+	            </div>
+	        </div>
+	        <div class="clear"></div>
+	    </a>
+		{% if val['discount'] != '0'%}
+	    <div class="sale">
+	        <p class="giamgia dai">{{translate('Giảm giá')}}</p>
+	        <p class="gia">{{val['discount']}}%</p>
+	    </div>
+	    {% endif %}
+	</div>
+</div>
+{% endfor %}
+</div>

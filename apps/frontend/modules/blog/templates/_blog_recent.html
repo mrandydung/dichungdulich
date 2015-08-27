@@ -1,0 +1,29 @@
+<!-- {{get_partial('home/js_fb')|raw}} -->
+<div class="col-md-4">
+	<div class="recent">
+		<h3>{{translate('Bài viết')}}</h3>
+		{% for val in top_blog %}
+		<p><a class="text-uppercase" href="{{val.getDetailUrl}}">{{val.getTitle}}</a></p>
+		{% endfor  %}
+	</div>
+	<hr>
+<!-- 	<div>
+		<h3>Facebook</h3>
+		<div class="fb-page" data-href="https://www.facebook.com/gheptour.vn" data-width="100%" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true" data-show-posts="false"><div class="fb-xfbml-parse-ignore"><blockquote cite="https://www.facebook.com/gheptour.vn"><a href="https://www.facebook.com/gheptour.vn"></a></blockquote></div></div>
+	</div> 
+	<hr>-->
+	<div>
+		<h3>Pinterest</h3>
+			<a data-pin-do="embedUser" href="http://fr.pinterest.com/gheptourvn/" data-pin-scale-width="100" data-pin-scale-height="320" data-pin-board-width="400"></a>
+		<script type="text/javascript" async defer src="//assets.pinterest.com/js/pinit.js"></script>
+	</div>
+	<hr>
+<!-- 	<div>
+		<h3>Instagram</h3>
+		<iframe src="http://widget.stagram.com/in/gheptour.vn//?s=100&w=3&h=3&b=1&bg=FFFFFF&p=5" allowtransparency="true" frameborder="0" scrolling="no" style="border:none;overflow:hidden;width:100%; height: 345px" ></iframe> 
+	</div> -->
+	<div>
+		<h3>Youtube</h3>
+		<iframe width="100%" height="315" src="https://www.youtube.com/embed/QZbjJCWJGPs" frameborder="0" allowfullscreen></iframe>	
+	</div>
+</div>

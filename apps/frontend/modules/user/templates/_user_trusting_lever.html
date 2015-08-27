@@ -1,0 +1,15 @@
+<script type="text/javascript" src="/assets/tipsy/tipsy.js"></script>
+ <link rel="stylesheet" type="text/css" media="screen" href="/assets/tipsy/tipsy.css" />
+<script type="text/javascript">
+	$(document).ready(function(){
+			 $('.helpicon').tipsy({gravity: 'n', opacity: 1,  html: true});
+	});
+</script>
+<h4>{{translate('Mức độ tin tưởng')}} 
+<span style="margin-top:-2px" class="helpicon" original-title="{{translate('Bạn càng cung cấp nhiều thông tin thì mức độ đáng tin cậy của bạn càng cao và từ đó bạn càng có khả năng được thực hiện được những giao dịch thành công. Hãy tham khảo Thang đánh giá của chúng tôi để biết mức độ đáng tin cậy hiện tại của bạn')}}.">?</span>
+</h4>
+<div class="progress tintuong">
+    <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="color:white;width:{{user.getPointLevelId * 20}}%;">
+        {{user.getPointLevelId * 20}} %
+    </div>
+</div>
